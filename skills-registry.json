@@ -1,0 +1,256 @@
+﻿{
+    "$schema":  "https://json-schema.org/draft/2020-12/schema",
+    "description":  "Machine-readable skill registry for SithasoDaisy5-Skills. Authority scale mirrors ENGINEERING-CONSTITUTION.md Art I (0 framework source highest, 6 AI reasoning lowest).",
+    "skills":  [
+                   {
+                       "authority":  4,
+                       "category":  "planning",
+                       "depends":  [
+
+                                   ],
+                       "description":  "Turn a plain-language SithasoDaisy5 app or feature request into a source-grounded plan, page contracts, navigation map, and acceptance checks before implementation. Use for greenfield apps and substantial feature work; it does not invent SDUI5 APIs or backend behavior.",
+                       "entry":  "skills/sd5-application-planner/SKILL.md",
+                       "id":  "sd5-application-planner",
+                       "keywords":  [
+                                        "build app",
+                                        "create web app",
+                                        "plan app",
+                                        "dashboard prompt",
+                                        "app requirements",
+                                        "screen contracts",
+                                        "plan sithasodaisy5"
+                                    ],
+                       "name":  "sd5-application-planner",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+
+                                      ],
+                       "risk":  "safe",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  4,
+                       "category":  "implementation",
+                       "depends":  [
+                                       "sd5-application-planner",
+                                       "sithasodaisy5"
+                                   ],
+                       "description":  "Implement a planned SithasoDaisy5 app feature as a traceable B4J/BANano vertical slice. Use after contracts exist; verify every component API and lifecycle call against source-backed references and demos.",
+                       "entry":  "skills/sd5-feature-engineer/SKILL.md",
+                       "id":  "sd5-feature-engineer",
+                       "keywords":  [
+                                        "implement feature",
+                                        "build dashboard",
+                                        "add page",
+                                        "compose screen",
+                                        "vertical slice",
+                                        "sithasodaisy5 feature"
+                                    ],
+                       "name":  "sd5-feature-engineer",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+                                          "sd5-web-verify"
+                                      ],
+                       "risk":  "code-generation",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  4,
+                       "category":  "scaffolding",
+                       "depends":  [
+
+                                   ],
+                       "description":  "Create or extend a code-first B4J/BANano web app that uses SithasoDaisy5. Use for project setup, embedded app entry, page module wiring, app shell startup, asset loading, and first-page composition; consult sithasodaisy5 for component APIs and screen design.",
+                       "entry":  "skills/sd5-project-bootstrap/SKILL.md",
+                       "id":  "sd5-project-bootstrap",
+                       "keywords":  [
+                                        "new app",
+                                        "new project",
+                                        "scaffold app",
+                                        "bootstrap b4j",
+                                        "banano scaffold",
+                                        "pgindex",
+                                        "page module",
+                                        "greenfield app"
+                                    ],
+                       "name":  "sd5-project-bootstrap",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+                                          "sithasodaisy5",
+                                          "sd5-web-verify"
+                                      ],
+                       "risk":  "file-mutation",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  3,
+                       "category":  "visual-analysis",
+                       "depends":  [
+
+                                   ],
+                       "description":  "Design-to-code forensics for SithasoDaisy5. Turns a screenshot, mockup, wireframe, or reference URL into verified B4J/SDUI5 code via the 10-stage visual pipeline — function-first extraction (NEVER literal pixel mapping), screen contract, implementation through the orchestrator gates, then capture-and-compare fidelity review. Use when the user provides a design reference to replicate.",
+                       "entry":  "skills/sd5-visual-analysis/SKILL.md",
+                       "id":  "sd5-visual-analysis",
+                       "keywords":  [
+                                        "screenshot to code",
+                                        "replicate design",
+                                        "mockup to app",
+                                        "wireframe to code",
+                                        "visual forensics",
+                                        "design reference",
+                                        "rebuild UI"
+                                    ],
+                       "name":  "sd5-visual-analysis",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+                                          "sd5-application-planner",
+                                          "sithasodaisy5",
+                                          "sd5-web-verify"
+                                      ],
+                       "risk":  "safe",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  4,
+                       "category":  "orchestration",
+                       "depends":  [
+                                       "sd5-application-planner",
+                                       "sd5-feature-engineer",
+                                       "sd5-project-bootstrap",
+                                       "sithasodaisy5",
+                                       "sd5-web-verify",
+                                       "sd5-web-regression"
+                                   ],
+                       "description":  "Turn a plain-language request into a complete source-grounded SithasoDaisy5 B4J/BANano app and carry it through planning, implementation, static/build/runtime/visual/regression gates, and an evidence-based delivery decision. Use for greenfield apps, complete features, or release work.",
+                       "entry":  "skills/sd5-web-orchestrator/SKILL.md",
+                       "id":  "sd5-web-orchestrator",
+                       "keywords":  [
+                                        "orchestrate",
+                                        "release gate",
+                                        "first-time-right",
+                                        "ship app",
+                                        "build full app",
+                                        "end-to-end",
+                                        "screen contract",
+                                        "prompt to app"
+                                    ],
+                       "name":  "sd5-web-orchestrator",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+
+                                      ],
+                       "risk":  "file-mutation",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  4,
+                       "category":  "quality",
+                       "depends":  [
+                                       "sd5-web-verify"
+                                   ],
+                       "description":  "Assess and verify change impact in an existing SithasoDaisy5 B4J/BANano app. Use for bug fixes, refactors, shared component or route changes, and release readiness; report pre-existing failures separately.",
+                       "entry":  "skills/sd5-web-regression/SKILL.md",
+                       "id":  "sd5-web-regression",
+                       "keywords":  [
+                                        "regression",
+                                        "modify existing app",
+                                        "refactor",
+                                        "bug fix",
+                                        "impact analysis",
+                                        "release regression",
+                                        "change feature"
+                                    ],
+                       "name":  "sd5-web-regression",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+
+                                      ],
+                       "risk":  "safe",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  4,
+                       "category":  "verification",
+                       "depends":  [
+                                       "sithasodaisy5"
+                                   ],
+                       "description":  "Quality inspection and conformance gate for SithasoDaisy5 web apps. Pre-scan (L4) catches banned patterns; verify-conformance (L5) enforces the Skill Coverage Contract + lifecycle + wiring. Used by sd5-web-orchestrator Stages 5/6/8.",
+                       "entry":  "skills/sd5-web-verify/SKILL.md",
+                       "id":  "sd5-web-verify",
+                       "keywords":  [
+                                        "verify app",
+                                        "conformance check",
+                                        "pre-scan",
+                                        "gate",
+                                        "coverage contract",
+                                        "lifecycle",
+                                        "build watch",
+                                        "capture screens",
+                                        "laragon",
+                                        "localhost"
+                                    ],
+                       "name":  "sd5-web-verify",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+
+                                      ],
+                       "risk":  "file-mutation",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   },
+                   {
+                       "authority":  2,
+                       "category":  "domain",
+                       "depends":  [
+
+                                   ],
+                       "description":  "SithasoDaisy5 — B4J/BANano component library (daisyUI + Tailwind) transpiled to JS. Use when building web apps/UIs with SithasoDaisy5 components in B4J/BANano, when you need a component\u0027s designer properties, events, setters, emitted daisyUI classes, or the app scaffold (SDUI5App), theme system, UsesX lazy-loaders, or the SDUI5Component skeleton contract. Produces B4J `.bas` code that calls the framework; never raw HTML.",
+                       "entry":  "skills/sithasodaisy5/SKILL.md",
+                       "id":  "sithasodaisy5",
+                       "keywords":  [
+                                        "sithasodaisy5",
+                                        "sdui5",
+                                        "b4j component",
+                                        "banano",
+                                        "daisyui native",
+                                        "form",
+                                        "dashboard",
+                                        "navbar",
+                                        "modal",
+                                        "component recipe",
+                                        "theme",
+                                        "uses loader"
+                                    ],
+                       "name":  "sithasodaisy5",
+                       "platforms":  [
+                                         "web"
+                                     ],
+                       "recommends":  [
+                                          "sd5-web-verify"
+                                      ],
+                       "risk":  "code-generation",
+                       "status":  "stable",
+                       "version":  "0.7.0"
+                   }
+               ]
+}

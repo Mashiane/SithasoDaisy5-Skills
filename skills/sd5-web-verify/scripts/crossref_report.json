@@ -1,0 +1,417 @@
+{
+  "daisyui_count": 68,
+  "sd5_count": 139,
+  "unregistered_notes": [
+    "SDUI5Calendar"
+  ],
+  "matches": [
+    {
+      "daisyui": "accordion",
+      "sd5": "SDUI5Accordion",
+      "status": "OK"
+    },
+    {
+      "daisyui": "alert",
+      "sd5": "SDUI5Alert",
+      "status": "OK"
+    },
+    {
+      "daisyui": "aura",
+      "sd5": "SDUI5Aura",
+      "status": "OK"
+    },
+    {
+      "daisyui": "avatar",
+      "sd5": "SDUI5Avatar",
+      "status": "OK"
+    },
+    {
+      "daisyui": "badge",
+      "sd5": "SDUI5Badge",
+      "status": "OK"
+    },
+    {
+      "daisyui": "breadcrumbs",
+      "sd5": "SDUI5BreadCrumbs",
+      "status": "OK"
+    },
+    {
+      "daisyui": "button",
+      "sd5": "SDUI5Button",
+      "status": "OK"
+    },
+    {
+      "daisyui": "card",
+      "sd5": "SDUI5Card",
+      "status": "OK"
+    },
+    {
+      "daisyui": "carousel",
+      "sd5": "SDUI5Carousel",
+      "status": "OK"
+    },
+    {
+      "daisyui": "chat",
+      "sd5": "SDUI5ChatBubble",
+      "status": "OK"
+    },
+    {
+      "daisyui": "checkbox",
+      "sd5": "SDUI5CheckBox",
+      "status": "OK"
+    },
+    {
+      "daisyui": "collapse",
+      "sd5": "SDUI5Collapse",
+      "status": "OK"
+    },
+    {
+      "daisyui": "countdown",
+      "sd5": "SDUI5CountDown",
+      "status": "OK"
+    },
+    {
+      "daisyui": "diff",
+      "sd5": "SDUI5Diff",
+      "status": "OK"
+    },
+    {
+      "daisyui": "divider",
+      "sd5": "SDUI5Divider",
+      "status": "OK"
+    },
+    {
+      "daisyui": "dock",
+      "sd5": "SDUI5Dock",
+      "status": "OK"
+    },
+    {
+      "daisyui": "drawer",
+      "sd5": "SDUI5Drawer",
+      "status": "OK"
+    },
+    {
+      "daisyui": "dropdown",
+      "sd5": "SDUI5DropDown",
+      "status": "OK"
+    },
+    {
+      "daisyui": "fab",
+      "sd5": "SDUI5Fab",
+      "status": "OK"
+    },
+    {
+      "daisyui": "fieldset",
+      "sd5": "SDUI5FieldSet",
+      "status": "OK"
+    },
+    {
+      "daisyui": "file-input",
+      "sd5": "SDUI5FileInput",
+      "status": "OK"
+    },
+    {
+      "daisyui": "filter",
+      "sd5": "SDUI5Filter",
+      "status": "OK"
+    },
+    {
+      "daisyui": "footer",
+      "sd5": "SDUI5Footer",
+      "status": "OK"
+    },
+    {
+      "daisyui": "hero",
+      "sd5": "SDUI5Hero",
+      "status": "OK"
+    },
+    {
+      "daisyui": "hover-3d",
+      "sd5": "SDUI5Hover3D",
+      "status": "OK"
+    },
+    {
+      "daisyui": "hover-gallery",
+      "sd5": "SDUI5HoverGallery",
+      "status": "OK"
+    },
+    {
+      "daisyui": "indicator",
+      "sd5": "SDUI5Indicator",
+      "status": "OK"
+    },
+    {
+      "daisyui": "input",
+      "sd5": "SDUI5TextBox",
+      "status": "OK"
+    },
+    {
+      "daisyui": "join",
+      "sd5": "SDUI5Join",
+      "status": "OK"
+    },
+    {
+      "daisyui": "kbd",
+      "sd5": "SDUI5Kbd",
+      "status": "OK"
+    },
+    {
+      "daisyui": "label",
+      "sd5": "SDUI5Label",
+      "status": "OK"
+    },
+    {
+      "daisyui": "link",
+      "sd5": "SDUI5Link",
+      "status": "OK"
+    },
+    {
+      "daisyui": "list",
+      "sd5": "SDUI5List",
+      "status": "OK"
+    },
+    {
+      "daisyui": "loading",
+      "sd5": "SDUI5Loading",
+      "status": "OK"
+    },
+    {
+      "daisyui": "mask",
+      "sd5": "SDUI5Avatar",
+      "status": "OK"
+    },
+    {
+      "daisyui": "megamenu",
+      "sd5": "SDUI5MegaMenu",
+      "status": "OK"
+    },
+    {
+      "daisyui": "menu",
+      "sd5": "SDUI5Menu",
+      "status": "OK"
+    },
+    {
+      "daisyui": "mockup-browser",
+      "sd5": "SDUI5Browser",
+      "status": "OK"
+    },
+    {
+      "daisyui": "mockup-phone",
+      "sd5": "SDUI5Phone",
+      "status": "OK"
+    },
+    {
+      "daisyui": "mockup-window",
+      "sd5": "SDUI5Window",
+      "status": "OK"
+    },
+    {
+      "daisyui": "modal",
+      "sd5": "SDUI5Modal",
+      "status": "OK"
+    },
+    {
+      "daisyui": "navbar",
+      "sd5": "SDUI5NavBar",
+      "status": "OK"
+    },
+    {
+      "daisyui": "otp",
+      "sd5": "SDUI5OTP",
+      "status": "OK"
+    },
+    {
+      "daisyui": "progress",
+      "sd5": "SDUI5Progress",
+      "status": "OK"
+    },
+    {
+      "daisyui": "radial-progress",
+      "sd5": "SDUI5RadialProgress",
+      "status": "OK"
+    },
+    {
+      "daisyui": "radio",
+      "sd5": "SDUI5Radio",
+      "status": "OK"
+    },
+    {
+      "daisyui": "range",
+      "sd5": "SDUI5Range",
+      "status": "OK"
+    },
+    {
+      "daisyui": "rating",
+      "sd5": "SDUI5Rating",
+      "status": "OK"
+    },
+    {
+      "daisyui": "select",
+      "sd5": "SDUI5Select",
+      "status": "OK"
+    },
+    {
+      "daisyui": "skeleton",
+      "sd5": "SDUI5Skeleton",
+      "status": "OK"
+    },
+    {
+      "daisyui": "stack",
+      "sd5": "SDUI5Stack",
+      "status": "OK"
+    },
+    {
+      "daisyui": "stat",
+      "sd5": "SDUI5Stat",
+      "status": "OK"
+    },
+    {
+      "daisyui": "status",
+      "sd5": "SDUI5Status",
+      "status": "OK"
+    },
+    {
+      "daisyui": "steps",
+      "sd5": "SDUI5Steps",
+      "status": "OK"
+    },
+    {
+      "daisyui": "swap",
+      "sd5": "SDUI5Swap",
+      "status": "OK"
+    },
+    {
+      "daisyui": "tab",
+      "sd5": "SDUI5Tabs",
+      "status": "OK"
+    },
+    {
+      "daisyui": "table",
+      "sd5": "SDUI5Table",
+      "status": "OK"
+    },
+    {
+      "daisyui": "text-rotate",
+      "sd5": "SDUI5TextRotate",
+      "status": "OK"
+    },
+    {
+      "daisyui": "textarea",
+      "sd5": "SDUI5TextArea",
+      "status": "OK"
+    },
+    {
+      "daisyui": "timeline",
+      "sd5": "SDUI5Timeline",
+      "status": "OK"
+    },
+    {
+      "daisyui": "toast",
+      "sd5": "SDUI5Toast",
+      "status": "OK"
+    },
+    {
+      "daisyui": "toggle",
+      "sd5": "SDUI5Toggle",
+      "status": "OK"
+    },
+    {
+      "daisyui": "tooltip",
+      "sd5": "SDUI5ToolTip",
+      "status": "OK"
+    }
+  ],
+  "needs_action": [],
+  "no_sd5_equivalent": [
+    "calendar",
+    "mockup-code",
+    "pagination",
+    "theme-controller",
+    "validator"
+  ],
+  "sd5_extensions": [
+    "SDUI5AdvancedCheckGroup",
+    "SDUI5App",
+    "SDUI5AvatarGroup",
+    "SDUI5BankCard",
+    "SDUI5BarCode",
+    "SDUI5BarcodeReader",
+    "SDUI5BasicLabel",
+    "SDUI5BottomDrawer",
+    "SDUI5BottomNavigation",
+    "SDUI5Browser",
+    "SDUI5CarouselItem",
+    "SDUI5ChatBubble",
+    "SDUI5ChatItem",
+    "SDUI5CheckBoxGroup",
+    "SDUI5Client",
+    "SDUI5Code",
+    "SDUI5Column",
+    "SDUI5Component",
+    "SDUI5Container",
+    "SDUI5ContextMenu",
+    "SDUI5Conversation",
+    "SDUI5DatePickerTimeLine",
+    "SDUI5Device",
+    "SDUI5DrawerUser",
+    "SDUI5DropZone",
+    "SDUI5EasyMDE",
+    "SDUI5EmojiMart",
+    "SDUI5EnjoyHint",
+    "SDUI5ExcelReport",
+    "SDUI5FAIconPicker",
+    "SDUI5FooterTitle",
+    "SDUI5Form",
+    "SDUI5FullCalendar",
+    "SDUI5GenderChart",
+    "SDUI5GoogleAdSense",
+    "SDUI5GroupSelect",
+    "SDUI5Image",
+    "SDUI5InfoCard",
+    "SDUI5JsonEditor",
+    "SDUI5JsonTree",
+    "SDUI5KanBan",
+    "SDUI5Leaflet",
+    "SDUI5ListItem",
+    "SDUI5LottiePlayer",
+    "SDUI5MDToast",
+    "SDUI5MenuItem",
+    "SDUI5MultiSelect",
+    "SDUI5NoUISlider",
+    "SDUI5OfficeRibbon",
+    "SDUI5PDFViewer",
+    "SDUI5Page",
+    "SDUI5Panel",
+    "SDUI5Phone",
+    "SDUI5Pivot",
+    "SDUI5Preferences",
+    "SDUI5QRCode",
+    "SDUI5QuillEditor",
+    "SDUI5RadioGroup",
+    "SDUI5Row",
+    "SDUI5Segment",
+    "SDUI5SignaturePad",
+    "SDUI5Slider",
+    "SDUI5SliderItem",
+    "SDUI5SpeedDial",
+    "SDUI5StatItem",
+    "SDUI5StepsItem",
+    "SDUI5Svg",
+    "SDUI5Swal",
+    "SDUI5Swiper",
+    "SDUI5SwiperSlide",
+    "SDUI5Tabs",
+    "SDUI5TabsItem",
+    "SDUI5Text",
+    "SDUI5TextBox",
+    "SDUI5TimelineItem",
+    "SDUI5ToastChart",
+    "SDUI5TreeSpider",
+    "SDUI5TreeView",
+    "SDUI5TrendChart",
+    "SDUI5VideoPlayer",
+    "SDUI5WhatsApp",
+    "SDUI5Window",
+    "SDUI5Wizard"
+  ]
+}

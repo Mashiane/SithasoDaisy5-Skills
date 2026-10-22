@@ -1,0 +1,24 @@
+{
+  "name": "sithasodaisy5-skills",
+  "version": "0.7.0",
+  "description": "SithasoDaisy5 skills - turn plain-language prompts into source-grounded B4J/BANano apps using verified components, project bootstrapping, contracts, build/runtime checks, and visual review.",
+  "author": {
+    "name": "SithasoDaisy5 Team",
+    "url": "https://github.com/Mashiane/SithasoDaisy5-Skills"
+  },
+  "homepage": "https://github.com/Mashiane/SithasoDaisy5-Skills",
+  "repository": "https://github.com/Mashiane/SithasoDaisy5-Skills",
+  "license": "MIT",
+  "keywords": [
+    "b4j",
+    "banano",
+    "sithasodaisy5",
+    "daisyui",
+    "tailwindcss",
+    "web",
+    "skills",
+    "user interface",
+    "development",
+    "user experience"
+  ]
+}

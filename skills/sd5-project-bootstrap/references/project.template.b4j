@@ -1,0 +1,119 @@
+AppType=JavaFX
+Build1=Default,b4j.example
+Group=Default Group
+Library1=banano
+Library2=jcore
+Library3=jfx
+Library4=json
+Library5=sithasodaisy5
+Module1=pgIndex
+Module2=pgHome
+NumberOfFiles=0
+NumberOfLibraries=5
+NumberOfModules=2
+Version=10.2
+@EndOfDesignText@
+'=== Embedded entry module (the "Main"). No separate Main.bas. ===
+'Studied from: 0SithasoDaisy5DemoCode\B4J\SithasoDaisy5DemoCode.b4j
+'(AppName="sd5codedemo", Publish="C:\laragon\www", ServerIP="http://127.0.0.1",
+'BANano.Initialize 4-arg, BANano.Build(Publish), ShowExternalDocument).
+'Placeholders: <AppName>, <AppTitle>. Every added .bas needs ModuleN= + NumberOfModules bump.
+#Region Project Attributes
+	#MergeLibraries: True
+	#LibraryAuthor: Anele Mbanga (Mashy)
+	#IgnoreWarnings:32, 16
+#End Region
+
+#Macro: After Save, Sync Layouts, ide://run?File=%ADDITIONAL%\JsonLayouts.jar&Args=%PROJECT%&Args=%PROJECT_NAME%
+#Macro: Title, JsonLayouts folder, ide://run?File=%WINDIR%\explorer.exe&Args=%PROJECT%\JsonLayouts
+#Macro: Title, Code bundle, ide://run?File=%ADDITIONAL%\CodeBundle.jar&Args=%PROJECT_NAME%
+
+#IgnoreWarnings:12, 15
+Sub Process_Globals
+	Public BANano As BANano 'ignore
+	Public AppName As String = "<AppName>"
+	Public AppTitle As String = "<AppTitle>"
+	Public AppVersion As String = "1.00"
+	Public Publish As String = "C:\laragon\www"
+	Public Version As String = "1.00"
+	Public ServerIP As String = "http://127.0.0.1"
+	Public APIKey As String = ""
+	Public ServerURL As String = ""
+	Public DBHost As String = ""
+	Public DBDriver As String = ""
+	Public DBUser As String = ""
+	Public DBPassword As String = ""
+	Public DBPort As String = ""
+	Public DBName As String = ""
+End Sub
+
+Sub AppStart (Form1 As Form, Args() As String)
+	#if Debug
+	'	MUST be literally this line if you want to use the B4J Logs jump to code feature!
+		Log("BANanoLOGS")
+	#End if
+	'initialize banano for first use - this is the web-app builder
+	BANano.Initialize("BANano", AppName, DateTime.now, AppName)
+	BANano.Header.Title = AppTitle
+	BANano.Header.AddFavicon("./assets/600by600.jpg", "16x16")
+	BANano.Header.AddAppleTouchIcon("./assets/600by600.jpg", "180x180")
+	BANano.Header.Author = "SithasoDaisy5"
+	BANano.Header.Description = "SithasoDaisy5 web app"
+	BANano.Header.Keywords = "banano,tailwindcss,app,sithasodaisy"
+	BANano.Header.Language = "en"
+	BANano.TranspilerOptions.MinifyOnline = False
+	BANano.TranspilerOptions.RemoveDeadCode = False
+	BANano.TranspilerOptions.IgnoreWarningsOldBrowsers = True
+	BANano.TranspilerOptions.ShowWarningDeadCode = False
+	BANano.TranspilerOptions.MergeAllCSSFiles = False
+	BANano.TranspilerOptions.MergeAllJavascriptFiles = False
+	BANano.TranspilerOptions.EnableLiveCodeSwapping = True
+	BANano.TranspilerOptions.DisableShortenVariableNames = True
+	BANano.Header.OnDOMContentLoaded = modSD5.DOMContentLoaded
+	BANano.TranspilerOptions.DoNotDeleteFolderOnCompilation($"${Publish}\${AppName}\assets"$)
+	BANano.TranspilerOptions.DoNotDeleteFolderOnCompilation($"${Publish}\${AppName}\files"$)
+	BANano.TranspilerOptions.DoNotDeleteFolderOnCompilation($"${Publish}\${AppName}\pdfjs"$)
+	BANano.TranspilerOptions.ShowLogPosition = True
+
+	'transpile the app to javascript (lands in ${Publish}\${AppName}\)
+	BANano.Build(Publish)
+
+	'open the default browser and show the generated index.html file
+	Dim fx As JFX
+	Dim appPath As String = $"${ServerIP}/${AppName}/index.html"$
+	fx.ShowExternalDocument(appPath)
+	#if release
+	ExitApplication
+	#end if
+End Sub
+
+'Return true to allow the default exceptions handler to handle the uncaught exception.
+Sub Application_Error (Error As Exception, StackTrace As String) As Boolean
+	Return True
+End Sub
+
+Sub BANano_Ready
+	'Required env.json block. Every app ships assets/env.json (see verify-conformance gate).
+	Dim bfo As BANanoFetchOptions
+	bfo.Initialize
+	bfo.Cache = "no-store"
+	bfo.Method = "GET"
+	Dim env As Map = BANano.Await(BANano.GetFileAsJSON("./assets/env.json?" & DateTime.Now, bfo))
+	If env <> Null Then
+		APIKey = env.GetDefault("api-key", "")
+		ServerURL = env.GetDefault("api-url", "")
+		DBHost = env.GetDefault("host", "")
+		DBDriver = env.GetDefault("driver", "")
+		DBUser = env.GetDefault("user", "")
+		DBPassword = env.GetDefault("password", "")
+		DBPort = env.GetDefault("port", "")
+		DBName = env.GetDefault("dbname", "")
+		AppVersion = env.GetDefault("version", "")
+		If AppVersion <> "" And Version <> AppVersion Then
+			BANano.Location.Reload(True)
+			Return
+		End If
+	End If
+
+	BANano.Await(pgIndex.Initialize)
+End Sub
