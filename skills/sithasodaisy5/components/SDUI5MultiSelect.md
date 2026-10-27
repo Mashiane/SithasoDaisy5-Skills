@@ -89,157 +89,162 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`, `Prepend`, `Append`, `Renderer`
 
 Wire in parent: `Sub multiselect_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (32)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (21)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `RefreshConfiguration()` _(public)_
-- `SelectAll()` _(public)_
-- `GetSelectedValues()` As List _(public)_
-- `GetSelectedTexts()` As List _(public)_
-- `Focus()` _(public)_
-- `SetOptionsFromMap(m As Map)` As 'ignoredeadcode _(public)_
-- `SetOptionsFromList(m As List)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
 - `AddOption(iKey As String, iValue As String)` _(public)_
 - `AddOptions(lst As List)` _(public)_
-- `HasOption(iKey As String)` As Boolean _(public)_
-- `SelectByIndex(idx As Int)` _(public)_
-- `DeselectByIndex(idx As Int)` _(public)_
-- `SelectByValue(iKey As String)` _(public)_
-- `EnableItem(iKey As Boolean, bValue As Boolean)` _(public)_
-- `DeselectByValue(iKey As String)` _(public)_
-- `RemoveOption(iKey As String)` _(public)_
+- `Clear()` _(public)_
 - `ClearSelected()` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `IsBlank()` As Boolean _(public)_
+- `DeselectByIndex(idx As Int)` _(public)_
+- `DeselectByValue(iKey As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `EnableItem(iKey As Boolean, bValue As Boolean)` _(public)_
+- `Focus()` _(public)_
+- `HasOption(iKey As String)` As Boolean _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsBlank()` _(public)_
+- `RefreshConfiguration()` _(public)_
+- `Remove()` _(public)_
+- `RemoveOption(iKey As String)` _(public)_
 - `ResetValidation()` _(public)_
-- `SetLanguages()` _(public)_
-- `SetCountries()` _(public)_
-- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
-- `SetMonths()` _(public)_
-- `SetDays()` _(public)_
-## Key Setters (56)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `SelectAll()` _(public)_
+- `SelectByIndex(idx As Int)` _(public)_
+- `SelectByValue(iKey As String)` _(public)_
+
+## Key Setters (64)
+- `setAppendColor(s As String)` _(public)_
+- `setAppendIcon(s As String)` _(public)_
+- `setAppendIconColor(s As String)` _(public)_
+- `setAppendImage(s As String)` _(public)_
+- `setAppendVisible(b As Boolean)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setDisabledField(s As String)` _(public)_
-- `setSelectedField(s As String)` _(public)_
-- `setTextField(s As String)` _(public)_
-- `setValueField(s As String)` _(public)_
-- `setAppendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setAppendIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setInputType(s As String)` _(public)_
-- `setPrependVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAppendVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
-- `setValuesAsIs(b As Boolean)` _(public)_
-- `setInputColor(s As String)` As 'ignoredeadcode _(public)_
-- `setGhost(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setGrow(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHint(s As String)` _(public)_
-- `setLabel(s As String)` _(public)_
-- `setPlaceholder(s As String)` As 'ignoredeadcode _(public)_
-- `setRequired(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAppendImage(s As String)` As 'ignoredeadcode _(public)_
-- `setAppendIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependImage(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setValidator(b As Boolean)` _(public)_
-- `setValidatorHint(s As String)` _(public)_
-- `setValue(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBorderColor(s As String)` _(public)_
 - `setCheckedColor(s As String)` _(public)_
 - `setChipTextColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `SetCountries()` _(public)_
+- `SetDays()` _(public)_
 - `setDelimiter(s As String)` _(public)_
-- `setExtraDataFields(s As String)` As 'ignoredeadcode _(public)_
+- `setDisabledField(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setExtraDataFields(s As String)` _(public)_
+- `setGhost(b As Boolean)` _(public)_
+- `setGrow(b As Boolean)` _(public)_
 - `setHighlight(b As Boolean)` _(public)_
+- `setHint(s As String)` _(public)_
+- `setInputColor(s As String)` _(public)_
+- `setInputType(s As String)` _(public)_
+- `setLabel(s As String)` _(public)_
+- `SetLanguages()` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxSelections(i As Int)` _(public)_
+- `SetMonths()` _(public)_
+- `setOptions(s As String)` _(public)_
+- `SetOptionsFromList(m As List)` _(public)_
+- `SetOptionsFromMap(m As Map)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPlaceholder(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPrependColor(s As String)` _(public)_
+- `setPrependIcon(s As String)` _(public)_
+- `setPrependIconColor(s As String)` _(public)_
+- `setPrependImage(s As String)` _(public)_
+- `setPrependVisible(b As Boolean)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRequired(b As Boolean)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
 - `setSearchable(b As Boolean)` _(public)_
+- `setSelectedField(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
 - `setShowSelectAll(b As Boolean)` _(public)_
 - `setSingleSelect(b As Boolean)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextField(s As String)` _(public)_
+- `setValidator(b As Boolean)` _(public)_
+- `setValidatorHint(s As String)` _(public)_
+- `setValue(s As String)` _(public)_
+- `setValueField(s As String)` _(public)_
+- `setValuesAsIs(b As Boolean)` _(public)_
 - `setVirtualScroll(b As Boolean)` _(public)_
 - `setVirtualScrollThreshold(s As String)` _(public)_
-## Getters (58)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
+
+## Getters (61)
+- `getAppendColor()` _(public)_
+- `getAppendIcon()` _(public)_
+- `getAppendIconColor()` _(public)_
+- `getAppendImage()` _(public)_
+- `getAppendVisible()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getCheckedColor()` _(public)_
+- `getChipTextColor()` _(public)_
+- `getClasses()` _(public)_
+- `getDelimiter()` _(public)_
+- `getDisabledField()` _(public)_
+- `getEnabled()` _(public)_
+- `getExtraDataFields()` _(public)_
+- `getGhost()` _(public)_
+- `getGrow()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getLegendColor()` As String _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getDisabledField()` As String _(public)_
-- `getSelectedField()` As String _(public)_
-- `getTextField()` As String _(public)_
-- `getValueField()` As String _(public)_
-- `getAppendColor()` As String _(public)_
-- `getAppendIconColor()` As String _(public)_
-- `getPrependColor()` As String _(public)_
-- `getPrependIconColor()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getInputType()` As String _(public)_
-- `getAppendIcon()` As String _(public)_
-- `getAppendVisible()` As Boolean _(public)_
-- `getPrependIcon()` As String _(public)_
-- `getPrependVisible()` As Boolean _(public)_
-- `getOptions()` As String _(public)_
-- `getValuesAsIs()` As Boolean _(public)_
-- `getAppendImage()` As String _(public)_
-- `getPrependImage()` As String _(public)_
-- `getInputColor()` As String _(public)_
-- `getGhost()` As Boolean _(public)_
-- `getGrow()` As Boolean _(public)_
-- `getHint()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getPlaceholder()` As String _(public)_
-- `getRequired()` As Boolean _(public)_
-- `getSize()` As String _(public)_
-- `getValidator()` As Boolean _(public)_
-- `getValidatorHint()` As String _(public)_
-- `getValue()` As String _(public)_
-- `getCheckedColor()` As String _(public)_
-- `getChipTextColor()` As String _(public)_
-- `getDelimiter()` As String _(public)_
-- `getExtraDataFields()` As String _(public)_
-- `getHighlight()` As Boolean _(public)_
-- `getMaxSelections()` As Int _(public)_
-- `getSearchable()` As Boolean _(public)_
-- `getShowSelectAll()` As Boolean _(public)_
-- `getSingleSelect()` As Boolean _(public)_
-- `getVirtualScroll()` As Boolean _(public)_
-- `getVirtualScrollThreshold()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHighlight()` _(public)_
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getInputColor()` _(public)_
+- `getInputType()` _(public)_
+- `getLabel()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxSelections()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPlaceholder()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `getPrependColor()` _(public)_
+- `getPrependIcon()` _(public)_
+- `getPrependIconColor()` _(public)_
+- `getPrependImage()` _(public)_
+- `getPrependVisible()` _(public)_
+- `GetProperties()` _(public)_
+- `getRequired()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getSearchable()` _(public)_
+- `getSelectedField()` _(public)_
+- `GetSelectedTexts()` _(public)_
+- `GetSelectedValues()` _(public)_
+- `getShadow()` _(public)_
+- `getShowSelectAll()` _(public)_
+- `getSingleSelect()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTextField()` _(public)_
+- `getValidator()` _(public)_
+- `getValidatorHint()` _(public)_
+- `getValue()` _(public)_
+- `getValueField()` _(public)_
+- `getValuesAsIs()` _(public)_
+- `getVirtualScroll()` _(public)_
+- `getVirtualScrollThreshold()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `changed(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -254,5 +259,3 @@ BANano.Await(multiselect.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Shared helpers: Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/TextSize/BackgroundImage. Dimensions are component-specific: this component exposes Width, but not Height; use only dimensions listed in this component's properties and methods above.
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

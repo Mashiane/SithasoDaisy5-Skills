@@ -292,6 +292,31 @@ End Try
 **Reality**: Visual patterns in prompts/mockups are hypotheses, not specs. 1:1 pixel-to-component mapping produces semantically wrong markup (cards used as incidental groupers, divs-as-buttons, icons-as-buttons) and fights theme/accessibility.  
 **Correct**: Extract function first, structure second, style last (design-intelligence.md DI-12). "There is a card" → "there is a grouped visual region representing related information" → then decide whether `SDUI5Card`, `SDUI5FieldSet`, `SDUI5ListItem`, `SDUI5Panel`, or plain layout is semantically right. Cite DI-12 in the trace when deviating from the literal mockup.
 
+### NEG-037 — Orphan Companion Child Components Without Container Parent
+
+**Wrong**: Mounting `SDUI5StatItem`, `SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5AccordionItem`, `SDUI5BreadcrumbItem`, or `SDUI5CarouselItem` directly to an `SDUI5Column`, `SDUI5Row`, `SDUI5Container`, or `app.PageView`.
+```b4j
+Private SDUI5Stat1 As SDUI5StatItem	'ignore
+SDUI5Stat1.Initialize(Me, "SDUI5Stat1", "SDUI5Stat1")
+SDUI5Stat1.ParentID = "SDUI5Column1"	' BROKEN! Missing SDUI5Stat container
+```
+**Reality**: daisyUI child items (`.stat`, `.step`, `.timeline-item`, `.tab`) rely on parent container CSS rules (`.stats`, `.steps`, `.timeline`, `.tabs`) for divider lines, flex/grid directions, rounded boxes, and elevation. Without the container, styling and layout collapse.
+**Correct**: Always mount the child item into its designated parent container (RULE-LAYOUT-005):
+```b4j
+Private SDUI5Stat1 As SDUI5Stat	'ignore
+Private SDUI5StatItem1 As SDUI5StatItem	'ignore
+
+SDUI5Stat1.Initialize(Me, "SDUI5Stat1", "SDUI5Stat1")
+SDUI5Stat1.ParentID = "SDUI5Column1"
+SDUI5Stat1.Border = True
+SDUI5Stat1.RoundedBox = True
+BANano.Await(SDUI5Stat1.AddComponent)
+
+SDUI5StatItem1.Initialize(Me, "SDUI5StatItem1", "SDUI5StatItem1")
+SDUI5StatItem1.ParentID = "SDUI5Stat1"	' Correct parent container!
+BANano.Await(SDUI5StatItem1.AddComponent)
+```
+
 ---
 
 ## 10. Quick Red Reference Table

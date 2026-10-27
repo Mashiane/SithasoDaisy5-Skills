@@ -181,7 +181,7 @@ For async confirm use `app.ShowSwalConfirmWait(title, msg, okText, cancelText)` 
 ## P9 — Data display
 
 - **Table** (`SDUI5Table`, 95 props, `card card-border`) — fires `AlphaClick, RowClick, HeaderClick`.
-- **Stats** — `SDUI5Stat` (`stats`) + `SDUI5StatItem` (`stat`).
+- **Stats** — `SDUI5Stat` (`stats` container) + `SDUI5StatItem` (`stat` child item). **RULE-LAYOUT-005**: `SDUI5StatItem` MUST mount inside an `SDUI5Stat` parent (`ParentID = "statContainer"`), never directly to a Row, Column, Container, or PageView. Similarly, companion child items (`SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5AccordionItem`, `SDUI5BreadcrumbItem`, `SDUI5CarouselItem`) MUST mount into their designated parent containers.
 - **Charts** — `SDUI5ToastChart` (`toastui-chart`), `SDUI5TrendChart`, `SDUI5GenderChart`.
 - **Pivot** — `SDUI5Pivot` (`webdatarocks`).
 - **JSON** — `SDUI5JsonEditor`, `SDUI5JsonTree`.
@@ -213,3 +213,12 @@ Most components expose `Size` plus breakpoint-specific `SizeLarge/SizeMedium/Siz
 - Toast: `app.ShowToast*` (uses `SDUI5MDToast`).
 - SweetAlert: `app.ShowSwal*` / `ShowSwal*Wait` (async) — positions `SWAL_TOP_END` etc., timer `SwalTimer`.
 - Inline: `SDUI5Alert`, `SDUI5Toast` (`toast`), `SDUI5Loading` (`loading`), `SDUI5Skeleton` (`skeleton`), `SDUI5Status` (`status`).
+
+## P13 — Context-Aware Default Value Overrides
+
+Components have default property values intended for standalone canvas drops. When mounted inside container contexts, these defaults must be explicitly overridden to prevent layout conflicts:
+- **`SDUI5Card` inside `SDUI5Column`**: Defaults to `Width = "96"` ($384\text{px}$ fixed). Always set `Card.Width = "full"` so it fluidly fills the responsive column cell.
+- **`SDUI5Wizard` inside containers**: Defaults to `Width = "96"`. Always set `Wizard.Width = "full"`.
+- **`SDUI5Menu` inside columns/drawers**: Defaults to `Width = "56"` ($224\text{px}$). Set `Menu.Width = "full"` when expanding across the sidebar container.
+- **`SDUI5Hero` with overlay and rounded corners**: Set `Hero.Classes = "overflow-hidden"` to clip the sharp overlay corners to the rounded border curve.
+- See full matrix in `references/context-aware-defaults.md`.

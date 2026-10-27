@@ -144,227 +144,212 @@ SignInButton.IconSize = "24px"
 `Click`
 
 Wire in parent: `Sub button_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (17)
+## Public Methods (15)
+- `AddAttr(k As String, v As String)` _(public)_
+- `AddClass(className As String)` _(public)_
+- `AddComponent()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Focus()` _(public)_
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `OnEvent(event As String, MethodName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-- `AddClass(className As String)` _(public)_
-- `AddAttr(k As String, v As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `RemoveIndicator()` As 'ignoredeadcode _(public)_
-- `RemoveBadge()` As 'ignoredeadcode _(public)_
-- `RemoveRightImage()` As 'ignoredeadcode _(public)_
-- `RemoveLeftIcon()` As 'ignoredeadcode _(public)_
-- `RemoveRightIcon()` As 'ignoredeadcode _(public)_
-- `RemoveText()` As 'ignoredeadcode _(public)_
-- `RemoveLeftImage()` As 'ignoredeadcode _(public)_
-- `Focus()` _(public)_
-## Key Setters (82)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setTextVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setTextSize(s As String)` _(public)_
-- `setText(text As String)` As 'ignoredeadcode _(public)_
-- `setNoBadge(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoIndicator(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoLeftIcon(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoLeftImage(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoLoading(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoRightIcon(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoRightImage(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoText(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setButtonIcon(b As Boolean)` As 'ignore _(public)_
-- `setIndicatorVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setIndicatorColor(s As String)` As 'ignoredeadcode _(public)_
-- `setIndicatorPosition(s As String)` As 'ignoredeadcode _(public)_
-- `setIndicatorSize(s As String)` As 'ignoredeadcode _(public)_
-- `setIndicatorTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setIndicatorValue(s As String)` As 'ignoredeadcode _(public)_
-- `setPopOverTarget(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` _(public)_
-- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setResizeIconSize(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setLeftIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRightIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setRightIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltip(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltipColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltipOpen(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setTooltipPosition(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltipAlignment(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeSize(s As String)` As 'ignoredeadcode _(public)_
+- `RemoveBadge()` _(public)_
+- `RemoveIndicator()` _(public)_
+- `RemoveLeftIcon()` _(public)_
+- `RemoveLeftImage()` _(public)_
+- `RemoveRightIcon()` _(public)_
+- `RemoveRightImage()` _(public)_
+- `RemoveText()` _(public)_
+
+## Key Setters (83)
+- `setActivator(b As Boolean)` _(public)_
 - `setActive(b As Boolean)` _(public)_
+- `setAttributes(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setBadge(s As String)` _(public)_
+- `setBadgeColor(s As String)` _(public)_
+- `setBadgeSize(s As String)` _(public)_
+- `setBadgeVisible(b As Boolean)` _(public)_
 - `setBlock(b As Boolean)` _(public)_
-- `setShape(s As String)` As 'ignoredeadcode _(public)_
+- `setButtonIcon(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setDash(b As Boolean)` _(public)_
+- `setDockItem(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setGhost(b As Boolean)` _(public)_
-- `setLeftImage(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftImageHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftImageWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setImage(s As String)` As 'ignoredeadcode _(public)_
-- `setImageHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setImageWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setHeight(s As String)` _(public)_
+- `setIconSize(s As String)` _(public)_
+- `setImage(s As String)` _(public)_
+- `setImageHeight(s As String)` _(public)_
+- `setImageWidth(s As String)` _(public)_
+- `setIndicatorColor(s As String)` _(public)_
+- `setIndicatorPosition(s As String)` _(public)_
+- `setIndicatorSize(s As String)` _(public)_
+- `setIndicatorTextColor(s As String)` _(public)_
+- `setIndicatorValue(s As String)` _(public)_
+- `setIndicatorVisible(b As Boolean)` _(public)_
+- `setJoinItem(b As Boolean)` _(public)_
+- `setLeftIcon(s As String)` _(public)_
+- `setLeftIconColor(s As String)` _(public)_
+- `setLeftIconVisible(b As Boolean)` _(public)_
+- `setLeftImage(s As String)` _(public)_
+- `setLeftImageHeight(s As String)` _(public)_
+- `setLeftImageVisible(b As Boolean)` _(public)_
+- `setLeftImageWidth(s As String)` _(public)_
 - `setLink(b As Boolean)` _(public)_
-- `setLoading(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setLoading(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setNoBadge(b As Boolean)` _(public)_
+- `setNoIndicator(b As Boolean)` _(public)_
+- `setNoLeftIcon(b As Boolean)` _(public)_
+- `setNoLeftImage(b As Boolean)` _(public)_
+- `setNoLoading(b As Boolean)` _(public)_
+- `setNoRightIcon(b As Boolean)` _(public)_
+- `setNoRightImage(b As Boolean)` _(public)_
+- `setNoText(b As Boolean)` _(public)_
 - `setOutline(b As Boolean)` _(public)_
-- `setRightImage(s As String)` As 'ignoredeadcode _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPopOverTarget(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setResizeIconSize(b As Boolean)` _(public)_
+- `setRightIcon(s As String)` _(public)_
+- `setRightIconColor(s As String)` _(public)_
+- `setRightIconVisible(b As Boolean)` _(public)_
+- `setRightImage(s As String)` _(public)_
+- `setRightImageHeight(s As String)` _(public)_
+- `setRightImageVisible(b As Boolean)` _(public)_
+- `setRightImageWidth(s As String)` _(public)_
+- `setRoundedField(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setShape(s As String)` _(public)_
 - `setSize(s As String)` _(public)_
 - `setSizeLarge(s As String)` _(public)_
 - `setSizeMedium(s As String)` _(public)_
 - `setSizeSmall(s As String)` _(public)_
 - `setSizeXLarge(s As String)` _(public)_
 - `setSoft(b As Boolean)` _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setTextSize(s As String)` _(public)_
+- `setTextVisible(b As Boolean)` _(public)_
+- `setTooltip(s As String)` _(public)_
+- `setTooltipAlignment(s As String)` _(public)_
+- `setTooltipColor(s As String)` _(public)_
+- `setTooltipOpen(b As Boolean)` _(public)_
+- `setTooltipPosition(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWide(b As Boolean)` _(public)_
-- `setLeftImageVisible(b As Boolean)` _(public)_
-- `setRightImageVisible(b As Boolean)` _(public)_
-- `setRightImageHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setRightImageWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setBadge(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeVisible(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
 - `setWidth(s As String)` _(public)_
-- `setJoinItem(b As Boolean)` _(public)_
-- `setDockItem(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setActivator(b As Boolean)` _(public)_
-- `setRoundedField(b As Boolean)` _(public)_
-- `setLeftIconVisible(b As Boolean)` _(public)_
-- `setRightIconVisible(b As Boolean)` _(public)_
-## Getters (78)
-- `getID()` As String _(public)_
+
+## Getters (80)
+- `getActivator()` _(public)_
+- `getActive()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBadge()` _(public)_
+- `getBadgeColor()` _(public)_
+- `getBadgeSize()` _(public)_
+- `getBadgeVisible()` _(public)_
+- `getBlock()` _(public)_
+- `getButtonIcon()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getDash()` _(public)_
+- `getDockItem()` _(public)_
+- `getEnabled()` _(public)_
+- `getGhost()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getTextSize()` As String _(public)_
-- `getTextVisible()` As Boolean _(public)_
-- `getText()` As String _(public)_
-- `getNoBadge()` As Boolean _(public)_
-- `getNoIndicator()` As Boolean _(public)_
-- `getNoLeftIcon()` As Boolean _(public)_
-- `getNoLeftImage()` As Boolean _(public)_
-- `getNoLoading()` As Boolean _(public)_
-- `getNoRightIcon()` As Boolean _(public)_
-- `getNoRightImage()` As Boolean _(public)_
-- `getNoText()` As Boolean _(public)_
-- `getButtonIcon()` As Boolean _(public)_
-- `getIndicatorVisible()` As Boolean _(public)_
-- `getIndicatorColor()` As String _(public)_
-- `getIndicatorPosition()` As String _(public)_
-- `getIndicatorSize()` As String _(public)_
-- `getIndicatorTextColor()` As String _(public)_
-- `getIndicatorValue()` As String _(public)_
-- `getPopOverTarget()` As String					'ignoredeadcode _(public)_
-- `getShadow()` As String _(public)_
-- `getIconSize()` As String _(public)_
-- `getResizeIconSize()` As Boolean _(public)_
-- `getLeftIcon()` As String _(public)_
-- `getLeftIconColor()` As String _(public)_
-- `getRightIcon()` As String _(public)_
-- `getRightIconColor()` As String _(public)_
-- `getTooltip()` As String _(public)_
-- `getTooltipColor()` As String _(public)_
-- `getTooltipOpen()` As Boolean _(public)_
-- `getTooltipPosition()` As String _(public)_
-- `getTooltipAlignment()` As String _(public)_
-- `getBadgeSize()` As String _(public)_
-- `getShape()` As String _(public)_
-- `getActive()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBlock()` As Boolean _(public)_
-- `getColor()` As String _(public)_
-- `getDash()` As Boolean _(public)_
-- `getGhost()` As Boolean _(public)_
-- `getImage()` As String _(public)_
-- `getImageHeight()` As String _(public)_
-- `getImageWidth()` As String _(public)_
-- `getLink()` As Boolean _(public)_
-- `getLoading()` As Boolean _(public)_
-- `getOutline()` As Boolean _(public)_
-- `getRightImage()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getSizeLarge()` As String _(public)_
-- `getSizeMedium()` As String _(public)_
-- `getSizeSmall()` As String _(public)_
-- `getSizeXLarge()` As String _(public)_
-- `getSoft()` As Boolean _(public)_
-- `getTextColor()` As String _(public)_
-- `getWide()` As Boolean _(public)_
-- `getRightImageHeight()` As String _(public)_
-- `getRightImageWidth()` As String _(public)_
-- `getBadge()` As String _(public)_
-- `getBadgeColor()` As String _(public)_
-- `getBadgeVisible()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getJoinItem()` As Boolean _(public)_
-- `getDockItem()` As Boolean _(public)_
-- `getActivator()` As Boolean _(public)_
-- `getRoundedField()` As Boolean _(public)_
-- `getLeftIconVisible()` As Boolean _(public)_
-- `getRightIconVisible()` As Boolean _(public)_
+- `getIconSize()` _(public)_
+- `getID()` As String _(public)_
+- `getImage()` _(public)_
+- `getImageHeight()` _(public)_
+- `getImageWidth()` _(public)_
+- `getIndicatorColor()` _(public)_
+- `getIndicatorPosition()` _(public)_
+- `getIndicatorSize()` _(public)_
+- `getIndicatorTextColor()` _(public)_
+- `getIndicatorValue()` _(public)_
+- `getIndicatorVisible()` _(public)_
+- `getJoinItem()` _(public)_
+- `getLeftIcon()` _(public)_
+- `getLeftIconColor()` _(public)_
+- `getLeftIconVisible()` _(public)_
+- `getLink()` _(public)_
+- `getLoading()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getNoBadge()` _(public)_
+- `getNoIndicator()` _(public)_
+- `getNoLeftIcon()` _(public)_
+- `getNoLeftImage()` _(public)_
+- `getNoLoading()` _(public)_
+- `getNoRightIcon()` _(public)_
+- `getNoRightImage()` _(public)_
+- `getNoText()` _(public)_
+- `getOutline()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` As String _(public)_
+- `getPopOverTarget()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getResizeIconSize()` _(public)_
+- `getRightIcon()` _(public)_
+- `getRightIconColor()` _(public)_
+- `getRightIconVisible()` _(public)_
+- `getRightImage()` _(public)_
+- `getRightImageHeight()` _(public)_
+- `getRightImageWidth()` _(public)_
+- `getRoundedField()` _(public)_
+- `getShadow()` _(public)_
+- `getShape()` _(public)_
+- `getSize()` _(public)_
+- `getSizeLarge()` _(public)_
+- `getSizeMedium()` _(public)_
+- `getSizeSmall()` _(public)_
+- `getSizeXLarge()` _(public)_
+- `getSoft()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextColor()` _(public)_
+- `getTextSize()` _(public)_
+- `getTextVisible()` _(public)_
+- `getTooltip()` _(public)_
+- `getTooltipAlignment()` _(public)_
+- `getTooltipColor()` _(public)_
+- `getTooltipOpen()` _(public)_
+- `getTooltipPosition()` _(public)_
+- `getVisible()` _(public)_
+- `getWide()` _(public)_
+- `getWidth()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgToast.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToast.bas) (verified demo). `toast2` = a SDUI5Button.
+Real syntax from [`pgButtons.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgButtons.bas) (verified demo):
 
 ```b4j
-	toast2.Initialize(Me, "toast2", "toast2")
-	toast2.ParentID = "SDUI5Toast3"
-	toast2.Activator = False
-	toast2.Active = False
-	toast2.BackgroundColor = ""
-	toast2.Badge = ""
-	toast2.BadgeColor = ""
-	toast2.BadgeSize = "sm"
-	toast2.Block = False
-	toast2.Color = "none"
-	toast2.Dash = False
-	toast2.DockItem = False
-	toast2.Enabled = True
-	toast2.Ghost = False
-	toast2.Height = ""
-	toast2.IconSize = "none"
-    toast2.Image = "./assets/addfolder.svg"
-	toast2.IndicatorColor = "error"
-	toast2.IndicatorPosition = "top-end"
-	toast2.IndicatorSize = "xs"
-	toast2.IndicatorTextColor = "none"
-	toast2.IndicatorValue = ""
-	toast2.IndicatorVisible = False
-	toast2.JoinItem = False
-	toast2.LeftIcon = ""
-	toast2.LeftIconColor = ""
-	toast2.Link = False
-	toast2.Loading = False
-	'   ... (see demo source for the rest)
+Private SDUI5Button1 As SDUI5Button		'ignore
+Private SDUI5Button10 As SDUI5Button		'ignore
+Private SDUI5Button11 As SDUI5Button		'ignore
+Private SDUI5Button12 As SDUI5Button		'ignore
+Private SDUI5Button13 As SDUI5Button		'ignore
+Private SDUI5Button14 As SDUI5Button		'ignore
+Private SDUI5Button15 As SDUI5Button		'ignore
+Private SDUI5Button16 As SDUI5Button		'ignore
+Private SDUI5Button17 As SDUI5Button		'ignore
+Private SDUI5Button18 As SDUI5Button		'ignore
+Private SDUI5Button19 As SDUI5Button		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Click` — handlers named `toast2_<Event>`.
-
-Also used in: `pgAlert`, `pgBarcodeReader`, `pgButtons`, `pgCard`, `pgDock`, `pgDockColor`, `pgDockXS`, `pgDropDown`…
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `join-item`, `dock-active`, `btn-active`, `rounded-field`, `btn-block`, `btn-square`, `btn-circle`, `btn-dash`, `btn-ghost`, `btn-link`, `btn-outline`, `btn-soft`, `btn-wide`, `inline-flex !items-center !justify-center text-center`
 **Colors**: `btn:sColor`
@@ -380,5 +365,3 @@ BANano.Await(button.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

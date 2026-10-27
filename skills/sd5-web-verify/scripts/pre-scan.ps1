@@ -62,34 +62,63 @@ $hexTwRe       = '(bg|text|border|fill|stroke)-\[#[0-9A-Fa-f]{3,8}\]'
 $rawHtmlRe     = '<\s*(html|head|body|div|span|button|input|select|textarea|form|p|a|img|table|tr|td|th|ul|ol|li|h[1-6]|section|article|main|header|footer|nav|aside|style)\b'
 $inlineStyleRe = '<\s*style\b'
 $numericWidthRe = '\.(Width|Height)\s*=\s*\d+(\.\d+)?\s*$'
+$rawPropertyRe = '\.(RawContent|RawSteps|RawOptions|RawChildKeys|RawChildIcons|RawImages|RawClasses|RawStyles|RawAttributes)\s*='
+$readmePropertyRe = '\.ReadMe\s*='
 $setterRe      = '\.set([A-Z][A-Za-z0-9_]*)\s*\('
-# --- Documented setters allowlist (source of truth: components.json props + setter lines) ---
-$docSetters = @(
-    'AddComponent','AddItem','AddToParent','AddHomeTab','AddSearchTab','AddProfileTab','AddTab',
-    'AddAsForm','AddButton','AddJavaScriptModuleURL','AddAsPage','AddCard',
-    'setRequired','setValidator','setLabel','setTitle','setText','setColor',
-    'setSize','setVisible','setEnabled','setWidth','setHeight','setParentID',
-    'setMargin','setPadding','setClasses','setStyles','setAttributes',
-    'setBackgroundColor','setTextColor','setBorderColor','setRounded','setShadow',
-    'setActive','setDisabled','setLoading','setTag','setPlaceholder','setHint',
-    'setIcon','setImage','setVariant','setStyle','setDirection','setSoft',
-    'setOutline','setDash','setGhost','setLink','setType','setMin','setMax',
-    'setStep','setValue','setChecked','setSelected','setOn','setOff','setTextOn',
-    'setTextOff','setLanguage','setURL','setFormat','setMode','setAccept',
-    'setItems','setPageSize','setItemsPerPage','setPage',
-    'setGridCols','setGridColsMd','setGridColsSm','setSizeMd','setSizeSm',
-    'setChooseText','setUploadText','setMultiple','setSearchEnabled',
-    'setLegend','setItemsSpec','setBorder'
-)
+# --- Documented setters allowlist (source of truth: framework_setters.json or fallback) ---
+$settersJsonPath = Join-Path $PSScriptRoot "framework_setters.json"
+$docSettersLookup = @{}
+if (Test-Path $settersJsonPath) {
+    $rawList = Get-Content $settersJsonPath -Raw | ConvertFrom-Json
+    foreach ($s in $rawList) { $docSettersLookup[$s.ToLower()] = $true }
+} else {
+    $fallbackSetters = @(
+        'AddComponent','AddItem','AddToParent','AddHomeTab','AddSearchTab','AddProfileTab','AddTab',
+        'AddAsForm','AddButton','AddJavaScriptModuleURL','AddAsPage','AddCard',
+        'setRequired','setValidator','setLabel','setTitle','setText','setColor',
+        'setSize','setVisible','setEnabled','setWidth','setHeight','setParentID',
+        'setMargin','setPadding','setClasses','setStyles','setAttributes',
+        'setBackgroundColor','setTextColor','setBorderColor','setRounded','setShadow',
+        'setActive','setDisabled','setLoading','setTag','setPlaceholder','setHint',
+        'setIcon','setImage','setVariant','setStyle','setDirection','setSoft',
+        'setOutline','setDash','setGhost','setLink','setType','setMin','setMax',
+        'setStep','setValue','setChecked','setSelected','setOn','setOff','setTextOn',
+        'setTextOff','setLanguage','setURL','setFormat','setMode','setAccept',
+        'setItems','setPageSize','setItemsPerPage','setPage',
+        'setGridCols','setGridColsMd','setGridColsSm','setSizeMd','setSizeSm',
+        'setChooseText','setUploadText','setMultiple','setSearchEnabled',
+        'setLegend','setItemsSpec','setBorder','setStepsColor','setOverflowXAuto'
+    )
+    foreach ($s in $fallbackSetters) { $docSettersLookup[$s.ToLower()] = $true }
+}
 
 function Scan-File([System.IO.FileInfo]$File) {
     $findings = @()
     $src = Get-Content $File.FullName -Raw -ErrorAction Stop
     $lines = $src -split "`r?`n"
+    $inGlobals = $false
 
     for ($i = 0; $i -lt $lines.Count; $i++) {
         $line = $lines[$i]
         $no = $i + 1
+        $trimmed = $line.Trim()
+
+        if ($trimmed -match '^(?i)Sub\s+(Process|Class)_Globals\b') {
+            $inGlobals = $true
+            continue
+        }
+        if ($inGlobals -and $trimmed -match '^(?i)End\s+Sub\b') {
+            $inGlobals = $false
+            continue
+        }
+
+        if ($inGlobals) {
+            if ($trimmed -match '^(?i)(Private|Public)\s+([A-Za-z0-9_]+)\s+As\s+(SDUI5[A-Za-z0-9_]+|BANano\b|BANanoElement\b|SDUI[A-Za-z0-9_]+)\b') {
+                if ($trimmed -notmatch "(?i)['']ignore\b") {
+                    $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Component variable '$($matches[2])' in $($File.Name) declared in globals must be suffixed with ''ignore' to prevent B4J compiler warnings: '$trimmed'" }
+                }
+            }
+        }
 
         if ($line -match $hexColorRe) {
             $findings += [PSCustomObject]@{ Sev='WARN'; Line=$no; Msg="hex color in .Color (allowed; prefer semantic tokens for theme switching): $($line.Trim().Substring(0, [Math]::Min(100, $line.Trim().Length)))" }
@@ -107,14 +136,89 @@ function Scan-File([System.IO.FileInfo]$File) {
         if ($line -match $numericWidthRe) {
             $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="numeric pixel dimension in .bas: $($line.Trim().Substring(0, [Math]::Min(100, $line.Trim().Length)))" }
         }
+        if ($line -match $rawPropertyRe) {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="B4X property assignment must not include 'Raw': $($line.Trim()). Use .Content, .Steps, .Options, .ChildKeys, etc." }
+        }
+        if ($line -match $readmePropertyRe) {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="ReadMe is purely designer-only layout metadata: $($line.Trim()). It has no setter or getter and must never be referenced in code." }
+        }
+        $selfCallRe = "\bBANano\.Await\(\s*$([regex]::Escape($File.BaseName))\.Show\s*\)"
+        if ($line -match $selfCallRe) {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Self-calling module via BANano.Await($($File.BaseName).Show) in $($File.Name) fails compilation. Use BANano.Await(Show)." }
+        }
 
         # Invented setters - skip lines that are comments or Sub declarations
         foreach ($m in [regex]::Matches($line, $setterRe)) {
             $setterName = 'set' + $m.Groups[1].Value
-            if ($docSetters -notcontains $setterName) {
+            if (-not $docSettersLookup.ContainsKey($setterName.ToLower())) {
                 $before = $line.Substring(0, $m.Index)
                 if ($before.Contains("'") -or $before -match '\bSub\b') { continue }
                 $findings += [PSCustomObject]@{ Sev='WARN'; Line=$no; Msg="possibly invented setter .$setterName - verify in components/<Name>.md" }
+            }
+        }
+    }
+
+    # Companion Parent-Child Component Hierarchy Check (RULE-LAYOUT-005)
+    $companionMap = @{
+        'sdui5statitem'       = 'sdui5stat'
+        'sdui5stepsitem'      = 'sdui5steps'
+        'sdui5timelineitem'   = 'sdui5timeline'
+        'sdui5tabsitem'       = 'sdui5tabs'
+        'sdui5menuitem'       = 'sdui5menu'
+        'sdui5listitem'       = 'sdui5list'
+        'sdui5carouselitem'   = 'sdui5carousel'
+        'sdui5slideritem'     = 'sdui5slider'
+        'sdui5swiperslide'    = 'sdui5swiper'
+        'sdui5footertitle'    = 'sdui5footer'
+    }
+
+    $varToType = @{}
+    $declMatches = [regex]::Matches($src, '(?m)^\s*(?:Private|Public|Dim)\s+([A-Za-z0-9_]+)\s+As\s+(SDUI5[A-Za-z0-9_]+)')
+    foreach ($dm in $declMatches) {
+        $varToType[$dm.Groups[1].Value.ToLower()] = $dm.Groups[2].Value.ToLower()
+    }
+    $initMatches = [regex]::Matches($src, '([A-Za-z0-9_]+)\.Initialize\s*\(\s*Me\s*,\s*"([^"]+)"')
+    foreach ($im in $initMatches) {
+        $vName = $im.Groups[1].Value.ToLower()
+        $cId = $im.Groups[2].Value.ToLower()
+        if ($varToType.ContainsKey($vName)) {
+            $varToType[$cId] = $varToType[$vName]
+        }
+    }
+
+    $parentMatches = [regex]::Matches($src, '(?m)^\s*([A-Za-z0-9_]+)\.ParentID\s*=\s*(?:"([^"]+)"|([A-Za-z0-9_.]+))')
+    foreach ($pm in $parentMatches) {
+        $vName = $pm.Groups[1].Value.ToLower()
+        if ($varToType.ContainsKey($vName) -and $companionMap.ContainsKey($varToType[$vName])) {
+            $childType = $varToType[$vName]
+            $expectedParent = $companionMap[$childType]
+            $target = if ($pm.Groups[2].Success -and $pm.Groups[2].Value) { $pm.Groups[2].Value.ToLower() } else { $pm.Groups[3].Value.ToLower() }
+            
+            if ($varToType.ContainsKey($target)) {
+                $actualTargetType = $varToType[$target]
+                if ($actualTargetType -ne $expectedParent) {
+                    $findings += [PSCustomObject]@{ Sev='FAIL'; Line=0; Msg="Component '$($pm.Groups[1].Value)' in $($File.Name) ($childType) is mounted to '$target' ($actualTargetType). $childType MUST mount into an instance of $expectedParent (RULE-LAYOUT-005)." }
+                }
+            } else {
+                if ($src -notmatch "(?i)\bAs\s+$expectedParent\b") {
+                    $findings += [PSCustomObject]@{ Sev='FAIL'; Line=0; Msg="Component '$($pm.Groups[1].Value)' in $($File.Name) ($childType) has ParentID '$target', but no $expectedParent container exists in this module (RULE-LAYOUT-005)." }
+                } elseif ($target -match '(?i)column|row|container|pageview|drawer') {
+                    $findings += [PSCustomObject]@{ Sev='FAIL'; Line=0; Msg="Component '$($pm.Groups[1].Value)' in $($File.Name) ($childType) is mounted directly into layout container '$target'. It MUST mount into an instance of $expectedParent (RULE-LAYOUT-005)." }
+                }
+            }
+        }
+    }
+
+    # Context-Aware Default Warning: SDUI5Card mounted to SDUI5Column should set Width = "full"
+    foreach ($pm in $parentMatches) {
+        $vName = $pm.Groups[1].Value.ToLower()
+        if ($varToType.ContainsKey($vName) -and $varToType[$vName] -eq 'sdui5card') {
+            $target = if ($pm.Groups[2].Success -and $pm.Groups[2].Value) { $pm.Groups[2].Value.ToLower() } else { $pm.Groups[3].Value.ToLower() }
+            if ($varToType.ContainsKey($target) -and $varToType[$target] -eq 'sdui5column') {
+                $widthAssigned = $src -match "(?i)\b$vName\.Width\s*=\s*`"full`""
+                if (-not $widthAssigned) {
+                    $findings += [PSCustomObject]@{ Sev='WARN'; Line=0; Msg="Card '$($pm.Groups[1].Value)' in $($File.Name) is mounted to column '$target' without explicit .Width = `"full`". SDUI5Card defaults to Width = '96' (384px fixed), which can overflow or misalign responsive grid cells." }
+                }
             }
         }
     }
@@ -139,6 +243,13 @@ function Scan-File([System.IO.FileInfo]$File) {
 }
 
 $allFindings = @()
+
+# Environment check: env.json required
+$hasEnvJson = (Test-Path (Join-Path $AppFolder "Files\env.json")) -or (Test-Path (Join-Path $AppFolder "assets\env.json"))
+if (-not $hasEnvJson) {
+    $allFindings += [PSCustomObject]@{ Sev='FAIL'; Line=0; Msg="env.json missing from Files/ and assets/. SithasoDaisy5 runtime requires env.json." }
+}
+
 foreach ($f in $pgFiles) {
     try {
         $allFindings += Scan-File $f

@@ -30,18 +30,21 @@ _(inherits from SDUI5Component base — see base contract)_
 `Finished`
 
 Wire in parent: `Sub docxtemplator_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (5)
-- `Initialize(mcb As Object, event As String, tmpFile As String, fileName As String)` _(public)_
-- `DocumentComponent(m As Map, compType As String, compName As String)` _(public)_
-- `Clear()` _(public)_
-- `SetField(key As String, value As Object)` _(public)_
+## Public Methods (4)
 - `BuildWait()` _(public)_
-## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+- `Clear()` _(public)_
+- `DocumentComponent(m As Map, compType As String, compName As String)` _(public)_
+- `Initialize(mcb As Object, event As String, tmpFile As String, fileName As String)` _(public)_
+
+## Key Setters (1)
+- `SetField(key As String, value As Object)` _(public)_
+
 ## Getters (0)
-_(none)_
-## Private Methods (1)
-- `generate(error As Object, content As Object)` As 'ignore _(private)_
+
+## Private Methods (2)
+- `CStr(o As Object)` As String _(private)_
+- `generate(error As Object, content As Object)` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -51,5 +54,3 @@ svc.Initialize(mcb As Object, event As String, tmpFile As String, fileName As St
 ```
 ## Composes With
 - Pairs with the SDUI5 page components: call service methods from page/component event handlers.
-
-

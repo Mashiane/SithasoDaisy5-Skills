@@ -30,7 +30,7 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `DataUrl` | String | ./assets/icons.min.json | — | `setDataUrl` | `getDataUrl` |
 | `Height` | String | full | — | `setHeight` | `getHeight` |
 | `Width` | String | full | — | `setWidth` | `getWidth` |
-| `BackgroundColor` | String | base-200 | — | — | — |
+| `BackgroundColor` | String | base-200 | — | `setBackgroundColor` | `getBackgroundColor` |
 | `IconsPerPage` | String | 20 | — | `setIconsPerPage` | `getIconsPerPage` |
 | `Multiple` | Boolean | False | — | `setMultiple` | `getMultiple` |
 | `Rounded` | String | none | none, rounded, 2xl, 3xl, full, lg, md, sm, xl, 0 | `setRounded` | `getRounded` |
@@ -51,58 +51,66 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`, `SelectionChange`
 
 Wire in parent: `Sub faiconpicker_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (8)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (6)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `clearInput()` _(public)_
-## Key Setters (17)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (19)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMultiple(b As Boolean)` _(public)_
 - `setDataUrl(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setIconsPerPage(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMultiple(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (22)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (24)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getClasses()` _(public)_
+- `getDataUrl()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getIconClassName()` As String _(public)_
-- `getIconSVG()` As String _(public)_
-- `getSelectedIcons()` As List _(public)_
-- `getMultiple()` As Boolean _(public)_
-- `getDataUrl()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getIconsPerPage()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (1)
+- `getIconClassName()` _(public)_
+- `getIconsPerPage()` _(public)_
+- `getIconSVG()` _(public)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMultiple()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getSelectedIcons()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (3)
+- `Changed(e As BANanoEvent)` _(private)_
+- `SelectionChanged(e As BANanoEvent)` _(private)_
 - `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -117,5 +125,3 @@ BANano.Await(faiconpicker.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

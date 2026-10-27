@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Build a B4J app, run its BANano AppStart build, and record build evidence.
 .DESCRIPTION
@@ -69,7 +69,8 @@ if ($buildExit -ne 0 -or -not (Test-Path -LiteralPath $jar)) {
 }
 
 $started = Get-Date
-$proc = Start-Process -FilePath $Java -ArgumentList @("--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $ProjectRoot -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
+$objectsDir = Join-Path $ProjectRoot "Objects"
+$proc = Start-Process -FilePath $Java -ArgumentList @("--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $objectsDir -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
 $deadline = $started.AddSeconds($TimeoutSec)
 $success = $false
 $failure = ""
@@ -83,7 +84,19 @@ while ((Get-Date) -lt $deadline) {
     $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath).LastWriteTime -ge $started)
     if ($logText -match '(?i)something went wrong|could not set the b4jname') { $failure = "BANano reported a build error."; break }
     if ($logText -match 'BANano v[0-9.]+: conversion finished!' -and $freshIndex -and $freshJs) { $success = $true; break }
-    if ($proc.HasExited -and -not $success) { $failure = "Java exited before fresh BANano output and success marker were detected (exit $($proc.ExitCode))."; break }
+    if ($proc.HasExited) {
+        Start-Sleep -Milliseconds 500
+        $logText = ""
+        foreach ($path in @($stdout, $stderr) + $transpileLogs) { if (Test-Path -LiteralPath $path) { $logText += (Get-Content -LiteralPath $path -Raw) } }
+        $freshIndex = (Test-Path -LiteralPath $indexPath) -and ((Get-Item -LiteralPath $indexPath).LastWriteTime -ge $started)
+        $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath).LastWriteTime -ge $started)
+        if ($logText -match 'BANano v[0-9.]+: conversion finished!' -and $freshIndex -and $freshJs) {
+            $success = $true
+            break
+        }
+        $failure = "Java exited before fresh BANano output and success marker were detected (exit $($proc.ExitCode))."
+        break
+    }
 }
 if (-not $success -and -not $failure) { $failure = "Timed out after $TimeoutSec seconds waiting for BANano output." }
 if (-not $proc.HasExited) {

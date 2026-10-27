@@ -64,98 +64,97 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub wizard_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `ContentHere()` As String _(public)_
-- `ContentAt(stepNumber As String)` As String _(public)_
-- `Clear()` _(public)_
 - `AddStep(stepName As String)` _(public)_
-## Key Setters (29)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Clear()` _(public)_
+- `ContentAt(stepNumber As String)` As String _(public)_
+- `ContentHere()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (30)
+- `setActiveStep(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setActiveStep(s As String)` As 'ignoredeadcode _(public)_
 - `setBackgroundColor(s As String)` _(public)_
-- `setButtonsRounded(s As String)` As 'ignoredeadcode _(public)_
-- `setButtonsShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setButtonsWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setNextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setButtonsRounded(s As String)` _(public)_
+- `setButtonsShadow(s As String)` _(public)_
+- `setButtonsWidth(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setNextColor(s As String)` _(public)_
 - `setNextText(s As String)` _(public)_
-- `setNextTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPreviousColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPreviousText(s As String)` As 'ignoredeadcode _(public)_
-- `setPreviousTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setSteps(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
+- `setNextTextColor(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPreviousColor(s As String)` _(public)_
+- `setPreviousText(s As String)` _(public)_
+- `setPreviousTextColor(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSteps(s As String)` _(public)_
 - `setStepsColor(s As String)` _(public)_
-- `setStepsTextSize(s As String)` As 'ignoredeadcode _(public)_
+- `setStepsTextSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTitle(s As String)` _(public)_
-- `setTitleVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-## Getters (31)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setTitleVisible(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (32)
+- `getActiveStep()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getButtonsRounded()` _(public)_
+- `getButtonsShadow()` _(public)_
+- `getButtonsWidth()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getActiveStep()` As String _(public)_
-- `getButtonsRounded()` As String _(public)_
-- `getSteps()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getButtonsShadow()` As String _(public)_
-- `getButtonsWidth()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getNextColor()` As String _(public)_
-- `getNextText()` As String _(public)_
-- `getNextTextColor()` As String _(public)_
-- `getPreviousColor()` As String _(public)_
-- `getPreviousText()` As String _(public)_
-- `getPreviousTextColor()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getStepsColor()` As String _(public)_
-- `getStepsTextSize()` As String _(public)_
-- `getTitle()` As String _(public)_
-- `getTitleVisible()` As Boolean _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (1)
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getNextColor()` _(public)_
+- `getNextText()` _(public)_
+- `getNextTextColor()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `getPreviousColor()` _(public)_
+- `getPreviousText()` _(public)_
+- `getPreviousTextColor()` _(public)_
+- `GetProperties()` _(public)_
+- `getShadow()` _(public)_
+- `getSteps()` _(public)_
+- `getStepsColor()` _(public)_
+- `getStepsTextSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTitle()` _(public)_
+- `getTitleVisible()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (4)
+- `ChangeStep(e As BANanoEvent)` _(private)_
+- `MoveNext(e As BANanoEvent)` _(private)_
+- `MovePrevious(e As BANanoEvent)` _(private)_
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgWizard.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgWizard.bas) (verified demo). `SDUI5Wizard1` = a SDUI5Wizard.
+Real syntax from [`pgWizard.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgWizard.bas) (verified demo):
 
 ```b4j
-	SDUI5Wizard1.Initialize(Me, "SDUI5Wizard1", "SDUI5Wizard1")
-	SDUI5Wizard1.ParentID = "SDUI5Column1"
-	SDUI5Wizard1.ButtonsRounded = "lg"
-	SDUI5Wizard1.ButtonsShadow = "none"
-	SDUI5Wizard1.NextColor = "success"
-	SDUI5Wizard1.PreviousColor = "error"
-	SDUI5Wizard1.Steps = "Register;Choose Plan;Purchase;Receive Product"
-	SDUI5Wizard1.Width = "full"
-	BANano.Await(SDUI5Wizard1.AddComponent)
+Private SDUI5Wizard1 As SDUI5Wizard		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Change` — handlers named `SDUI5Wizard1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `card`
 ## Code Example
@@ -170,5 +169,3 @@ BANano.Await(wizard.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

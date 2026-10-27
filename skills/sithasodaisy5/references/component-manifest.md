@@ -8,11 +8,7 @@ description: Live registry inventory of SithasoDaisy5 UI components and support 
 Generated from the framework project's `ModuleN=` registry and the demo app's `pg*.bas` type usage.
 A path-qualified module entry is normalized to its final module name. Only registered modules are active.
 
-Component skills link to the tracked framework `.bas` implementation and link to demo page modules with a detected type reference. They also contain reusable, verified B4J usage excerpts. Full demo pages remain in the demo repository; the component manifest below records detected UI usage coverage.
-
-**Known source dependency gaps:** The demo project references external helper modules whose source is absent from the audited checkouts: `SDUIWebSQL` is used by `pgCategories.bas`, `pgContacts.bas`, `pgIndex.bas`, and `pgProvinces.bas`; `SDUI5FakeIT` is used by `pgContacts.bas` and `pgSelect.bas`. Those pages require the external helpers to build; verify the demo repository supplies them before copying those page flows.
-
-**Registered modules**: 159 | **UI components**: 139 | **Support modules**: 20 | **UI demo-backed**: 121 | **UI without a detected demo type declaration**: 18 | **Unregistered reference docs**: 1
+**Registered modules**: 160 | **UI components**: 140 | **Support modules**: 20 | **UI demo-backed**: 121 | **UI without a detected demo type declaration**: 19 | **Unregistered reference docs**: 1
 
 ## UI Components with Demo Type Usage (121)
 
@@ -142,13 +138,14 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5Window | 13 | 0 | mockup-window border-base-300 border |
 | SDUI5Wizard | 30 | 1 | card |
 
-## UI Components without Detected Demo Type Usage (18)
+## UI Components without Detected Demo Type Usage (19)
 
 The API reference exists, but no matching type declaration was detected in a `pg*.bas` demo file. Verify the source reference before relying on it.
 
 | Component | Props | Events | Key daisyUI classes emitted |
 |---|---:|---:|---|
 | SDUI5BasicLabel | 46 | 0 | — |
+| SDUI5Calendar | 15 | 1 | calendar |
 | SDUI5ChatItem | 26 | 1 | list-row flex items-center gap-3 p-2 hover:bg-base-200 cursor-pointer wa-sidebar-chat, rounded-box |
 | SDUI5Client | 0 | 0 | — |
 | SDUI5Conversation | 23 | 1 | — |
@@ -208,7 +205,8 @@ From the skills repository root, run:
 
 ```powershell
 py -3 skills/sd5-web-verify/scripts/generate_manifest.py
+py -3 tools/generate_component_source_refs.py
 pwsh -File skills/sd5-web-verify/scripts/check-contract.ps1
 ```
 
-`check-contract.ps1` enforces exact one-to-one coverage between normalized registered module names and top-level `components/*.md` files. `_unused/` is excluded by design. `generate_component_source_refs.py` checks every active skill against the local framework source tree and refreshes upstream framework/demo links from the audited checkouts.
+`check-contract.ps1` enforces exact one-to-one coverage between normalized registered module names and top-level `components/*.md` files. `_unused/` is excluded by design.

@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Capture web page screenshots for the post-build UX review (L3 evidence).
 
@@ -76,6 +76,7 @@ $ErrorActionPreference = "Stop"
 
 if (-not $Out) { $Out = Join-Path $AppFolder "ux-review\screens" }
 if (-not (Test-Path $Out)) { New-Item -ItemType Directory -Path $Out -Force | Out-Null }
+$Out = (Resolve-Path -LiteralPath $Out).Path
 
 # --- resolve a headless-capable browser ---
 function Resolve-HeadlessBrowser {

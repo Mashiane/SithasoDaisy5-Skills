@@ -46,58 +46,61 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub countdown_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (8)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (6)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `StartCountDown()` _(public)_
 - `EndCountDown()` _(public)_
-## Key Setters (13)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+- `StartCountDown()` _(public)_
+
+## Key Setters (14)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setValue(text As String)` As 'ignoredeadcode _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFont(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTextSize(s As String)` _(public)_
-## Getters (15)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setValue(text As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (16)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getFont()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getValue()` As String _(public)_
-- `getFont()` As String _(public)_
-- `getTextSize()` As String _(public)_
-## Private Methods (1)
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getStyles()` _(public)_
+- `getTextSize()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (2)
 - `ctimer_Tick()` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgCountdown.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCountdown.bas) (verified demo). `SDUI5CountDown2` = a SDUI5CountDown.
+Real syntax from [`pgCountdown.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCountdown.bas) (verified demo):
 
 ```b4j
-	SDUI5CountDown2.Initialize(Me, "SDUI5CountDown2", "SDUI5CountDown2")
-	SDUI5CountDown2.ParentID = "SDUI5Column2"
-	SDUI5CountDown2.TextSize = "6xl"
-	SDUI5CountDown2.Value = "50"
-	BANano.Await(SDUI5CountDown2.AddComponent)
+Private SDUI5CountDown1 As SDUI5CountDown		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `countdown`
 ## Code Example
@@ -112,5 +115,3 @@ BANano.Await(countdown.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -55,78 +55,75 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub lottieplayer_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (21)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (22)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setAutoPlay(b As Boolean)` _(public)_
 - `setBackground(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setControls(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setHover(b As Boolean)` _(public)_
 - `setIntermission(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMode(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setShouldLoop(b As Boolean)` _(public)_
 - `setSpeed(s As String)` _(public)_
 - `setSrc(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (23)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (24)
+- `getAttributes()` _(public)_
+- `getAutoPlay()` _(public)_
+- `getBackground()` _(public)_
+- `getClasses()` _(public)_
+- `getControls()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getAutoPlay()` As Boolean _(public)_
-- `getBackground()` As String _(public)_
-- `getControls()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getHover()` As Boolean _(public)_
-- `getIntermission()` As String _(public)_
-- `getMode()` As String _(public)_
-- `getShouldLoop()` As Boolean _(public)_
-- `getSpeed()` As String _(public)_
-- `getSrc()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHover()` _(public)_
+- `getID()` As String _(public)_
+- `getIntermission()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMode()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getShouldLoop()` _(public)_
+- `getSpeed()` _(public)_
+- `getSrc()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgLottiePlayer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgLottiePlayer.bas) (verified demo). `SDUI5LottiePlayer4` = a SDUI5LottiePlayer.
+Real syntax from [`pgLottiePlayer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgLottiePlayer.bas) (verified demo):
 
 ```b4j
-	SDUI5LottiePlayer4.Initialize(Me, "SDUI5LottiePlayer4", "SDUI5LottiePlayer4")
-	SDUI5LottiePlayer4.ParentID = "SDUI5Column4"
-	SDUI5LottiePlayer4.AutoPlay = False
-	SDUI5LottiePlayer4.Height = "400px"
-	SDUI5LottiePlayer4.Hover = True
-	SDUI5LottiePlayer4.Intermission = "1000"
-	SDUI5LottiePlayer4.ShouldLoop = True
-	SDUI5LottiePlayer4.Src = "https://assets4.lottiefiles.com/datafiles/zc3XRzudyWE36ZBJr7PIkkqq0PFIrIBgp4ojqShI/newAnimation.json"
-	SDUI5LottiePlayer4.Width = "400px"
-	BANano.Await(SDUI5LottiePlayer4.AddComponent)
+Private SDUI5LottiePlayer1 As SDUI5LottiePlayer		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -141,5 +138,3 @@ BANano.Await(lottieplayer.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

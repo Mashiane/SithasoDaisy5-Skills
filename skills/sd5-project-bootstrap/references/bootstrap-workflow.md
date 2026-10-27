@@ -26,7 +26,26 @@ The skills repo's scaffold provides a minimal greenfield metadata block and entr
 - Keep the entry point embedded in the `.b4j` project when following this demonstrated structure. Do not generate `Main.bas` by habit.
 - BANano initializer arguments differ across the checked examples (three in the skill examples and four in the full demo). Preserve the signature in the chosen current scaffold/project or verify the installed BANano API; do not normalize it based on one example.
 
-The full demo's `BANano_Ready` reads `assets/env.json` and fills backend/version globals before calling `pgIndex.Initialize`. Those environment fields and reload behavior are optional app-specific setup, not required for a blank UI app.
+Standard SithasoDaisy5 apps read `assets/env.json` in `BANano_Ready` to initialize environment parameters. Every app created by the skills must include `env.json` in `Files/env.json` and have `FileN=env.json` + `FileGroupN=Default Group` registered in the `.b4j` `[FilesGroup]` (bumping `NumberOfFiles`) so BANano publishes it to `assets/env.json` on build.
+
+When creating an app, configure `env.json` with:
+- `"api-key"`: A newly generated random API key (128-character alphanumeric string).
+- `"api-url"`: `"http://127.0.0.1/<appname>"` containing the lowercase name of the app being created.
+- `"version"`: The new version of the app we are starting on, usually `"1.00"`. **CRITICAL**: This must equal `Public Version As String` and `Public AppVersion As String` in the `.b4j` file (any mismatch triggers an infinite reload loop in `BANano_Ready`).
+- Database defaults: `"host": "../assets/northwind.sqlite"`, `"driver": "sqlite"`, `"user": ""`, `"password": ""`, `"port": "3306"`, `"dbname": "addressbook"`.
+
+Standard entry modules also declare:
+```b4x
+Sub Process_Globals
+	Private BANano As BANano 'ignore
+	Public AppName As String = "<appname>"
+	Public AppTitle As String = "<apptitle>"
+	Public Version As String = "1.00"
+	Public Publish As String = "C:\laragon\www"
+	Public ServerIP As String = "http://127.0.0.1"
+End Sub
+```
+and configure `BANano.Header.AddCSS("animate.min.css")` during header initialization.
 
 ## App shell and page registry
 
@@ -48,7 +67,7 @@ The common page convention in the skill scaffold is a static `pg*.bas` module wi
 
 For a new page, the standard example is:
 
-1. Declare the BANano handle, app reference, and component instances in `Process_Globals` as shown in the scaffold.
+1. Declare the BANano handle, app reference, and component instances in `Process_Globals` (or `Class_Globals`), ALWAYS suffixed with `'ignore` (e.g. `Private SDUI5Button1 As SDUI5Button 'ignore`) so B4J does not emit compiler warnings.
 2. Use the project's `Show` lifecycle and page title convention.
 3. Mount the root into the app page view.
 4. For each component, follow its source-backed initialization and parent assignment. Set properties before `AddComponent` when configuration is part of the initial render.

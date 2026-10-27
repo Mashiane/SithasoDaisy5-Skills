@@ -53,80 +53,78 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`, `ImageClick`
 
 Wire in parent: `Sub swiperslide_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (11)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `LoadComponentJson(designName As String)` _(public)_
+## Public Methods (9)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `Clear()` _(public)_
-- `LinkExisting()` _(public)_
-- `TriggerEvent(event As String, params() As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LinkExisting()` _(public)_
+- `LoadComponentJson(designName As String)` _(public)_
+- `Remove()` _(public)_
 - `RemoveImageClasses(s As String)` _(public)_
-## Key Setters (20)
+- `TriggerEvent(event As String, params()` As String _(public)_
+
+## Key Setters (21)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setElement(e As BANanoElement)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setImageClasses(s As String)` As 'ignoredeadcode _(public)_
-- `setImageStyles(s As String)` As 'ignoredeadcode _(public)_
-- `setImageAttributes(s As String)` As 'ignoredeadcode _(public)_
-- `setImageNoRepeat(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setImageLazyLoad(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setImageAlt(s As String)` As 'ignoredeadcode _(public)_
-- `setImageCenter(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setImageCover(b As Boolean)` As 'ignoredeadcode _(public)_
 - `setImage(s As String)` _(public)_
-- `setTextAlign(s As String)` As 'ignoredeadcode _(public)_
-- `setRefreshSwiper(b As Boolean)` _(public)_
-- `setSwiperId(s As String)` _(public)_
+- `setImageAlt(s As String)` _(public)_
+- `setImageAttributes(s As String)` _(public)_
+- `setImageCenter(b As Boolean)` _(public)_
+- `setImageClasses(s As String)` _(public)_
+- `setImageCover(b As Boolean)` _(public)_
+- `setImageLazyLoad(b As Boolean)` _(public)_
+- `setImageNoRepeat(b As Boolean)` _(public)_
+- `setImageStyles(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
 - `setParentID(xParentID As String)` _(public)_
-## Getters (23)
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRefreshSwiper(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setSwiperId(s As String)` _(public)_
+- `setTextAlign(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (24)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
 - `getElement()` As BANanoElement _(public)_
-- `getID()` As String _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getImageID()` As String _(public)_
-- `getImageAlt()` As String _(public)_
-- `getImageCenter()` As Boolean _(public)_
-- `getImageCover()` As Boolean _(public)_
-- `getImageLazyLoad()` As Boolean _(public)_
-- `getImageNoRepeat()` As Boolean _(public)_
-- `getImageAttributes()` As String _(public)_
-- `getImageClasses()` As String _(public)_
-- `getImageStyles()` As String _(public)_
-- `getImage()` As String _(public)_
-- `getTextAlign()` As String _(public)_
-- `getRefreshSwiper()` As Boolean _(public)_
-- `getSwiperId()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `getID()` As String _(public)_
+- `getImage()` _(public)_
+- `getImageAlt()` _(public)_
+- `getImageAttributes()` _(public)_
+- `getImageCenter()` _(public)_
+- `getImageClasses()` _(public)_
+- `getImageCover()` _(public)_
+- `getImageID()` _(public)_
+- `getImageLazyLoad()` _(public)_
+- `getImageNoRepeat()` _(public)_
+- `getImageStyles()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `GetProperties()` _(public)_
+- `getRefreshSwiper()` _(public)_
+- `getStyles()` _(public)_
+- `getSwiperId()` _(public)_
+- `getTextAlign()` _(public)_
+- `getVisible()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgSwiper.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSwiper.bas) (verified demo). `slide11` = a SDUI5SwiperSlide.
+Real syntax from [`pgSwiper.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSwiper.bas) (verified demo):
 
 ```b4j
-	slide11.Initialize(Me, "slide11", "slide11")
-	slide11.ParentID = "swiper1_slides"
-	slide11.SwiperId = "swiper1"
-	slide11.Image = "./assets/swiper_01.jpg"
-	slide11.ImageCover = True
-	slide11.ImageClasses = "w-full h-full object-cover"
-	slide11.RefreshSwiper = False
-	slide11.Classes = "w-full h-full"
-	BANano.Await(slide11.AddComponent)
+Private slide11 As SDUI5SwiperSlide		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `swiper-slide`
 ## Code Example
@@ -141,5 +139,3 @@ BANano.Await(swiperslide.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

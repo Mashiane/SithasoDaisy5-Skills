@@ -65,100 +65,96 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub videoplayer_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (8)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (6)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
 - `Refresh()` _(public)_
-## Key Setters (31)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (32)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMp3Url(s As String)` As 'ignoredeadcode _(public)_
-- `setTypeOf(s As String)` As 'ignoredeadcode _(public)_
-- `setCaptions(b As Boolean)` _(public)_
-- `setKeyboard(b As Boolean)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setTooltips(b As Boolean)` _(public)_
-- `setEmbed(b As Boolean)` _(public)_
-- `setMp4Url(s As String)` As 'ignoredeadcode _(public)_
 - `setAutoplay(b As Boolean)` _(public)_
-- `setControls(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setCrossOrigin(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setCaptions(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setControls(b As Boolean)` _(public)_
+- `setCrossOrigin(b As Boolean)` _(public)_
+- `setEmbed(b As Boolean)` _(public)_
 - `setEmbedId(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setIconUrl(s As String)` _(public)_
-- `setPlaysInline(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPoster(s As String)` As 'ignoredeadcode _(public)_
+- `setKeyboard(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMp3Url(s As String)` _(public)_
+- `setMp4Url(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPlaysInline(b As Boolean)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPoster(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setProvider(s As String)` _(public)_
+- `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTitle(s As String)` _(public)_
+- `setTooltips(b As Boolean)` _(public)_
+- `setTypeOf(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (33)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (34)
+- `getAttributes()` _(public)_
+- `getAutoplay()` _(public)_
+- `getCaptions()` _(public)_
+- `getClasses()` _(public)_
+- `getControls()` _(public)_
+- `getCrossorigin()` _(public)_
+- `getEmbed()` _(public)_
+- `getEmbedId()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getMp3Url()` As String _(public)_
-- `getTypeOf()` As String _(public)_
-- `getCaptions()` As Boolean _(public)_
-- `getKeyboard()` As Boolean _(public)_
-- `getRounded()` As String _(public)_
-- `getTooltips()` As Boolean _(public)_
-- `getEmbed()` As Boolean _(public)_
-- `getMp4Url()` As String _(public)_
-- `getAutoplay()` As Boolean _(public)_
-- `getControls()` As Boolean _(public)_
-- `getCrossorigin()` As Boolean _(public)_
-- `getEmbedId()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getIconUrl()` As String _(public)_
-- `getPlaysinline()` As Boolean _(public)_
-- `getPoster()` As String _(public)_
-- `getProvider()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getTitle()` As String _(public)_
-- `getWidth()` As String _(public)_
+- `getIconUrl()` _(public)_
+- `getID()` As String _(public)_
+- `getKeyboard()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMp3Url()` _(public)_
+- `getMp4Url()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPlaysinline()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `getPoster()` _(public)_
+- `GetProperties()` _(public)_
+- `getProvider()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getTitle()` _(public)_
+- `getTooltips()` _(public)_
+- `getTypeOf()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgVideoPlayer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgVideoPlayer.bas) (verified demo). `SDUI5VideoPlayer2` = a SDUI5VideoPlayer.
+Real syntax from [`pgVideoPlayer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgVideoPlayer.bas) (verified demo):
 
 ```b4j
-	SDUI5VideoPlayer2.Initialize(Me, "SDUI5VideoPlayer2", "SDUI5VideoPlayer2")
-	SDUI5VideoPlayer2.ParentID = "SDUI5Column2"
-	SDUI5VideoPlayer2.Embed = True
-	SDUI5VideoPlayer2.EmbedId = "76979871"
-	SDUI5VideoPlayer2.Height = ""
-	SDUI5VideoPlayer2.Poster = "https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-	SDUI5VideoPlayer2.Provider = "vimeo"
-	SDUI5VideoPlayer2.Rounded = "lg"
-	SDUI5VideoPlayer2.Shadow = "lg"
-	SDUI5VideoPlayer2.Title = "View From A Blue Moon"
-	BANano.Await(SDUI5VideoPlayer2.AddComponent)
+Private SDUI5VideoPlayer1 As SDUI5VideoPlayer		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `rounded-box`
 ## Code Example
@@ -173,5 +169,3 @@ BANano.Await(videoplayer.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

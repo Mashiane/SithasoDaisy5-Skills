@@ -73,106 +73,103 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub image_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (9)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `AddClass(className As String)` _(public)_
-- `RemoveClass(className As String)` _(public)_
+## Public Methods (7)
 - `AddAttr(k As String, v As String)` _(public)_
-## Key Setters (31)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `AddClass(className As String)` _(public)_
+- `AddComponent()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+- `RemoveClass(className As String)` _(public)_
+
+## Key Setters (32)
+- `setAlt(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setCenter(b As Boolean)` _(public)_
+- `setCenterFieldSet(b As Boolean)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setCenterFieldSet(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setCover(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setGif(b As Boolean)` _(public)_
+- `setGifPoster(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
 - `setLabel(s As String)` _(public)_
+- `setLazy(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMask(s As String)` _(public)_
+- `setMaxHeight(s As String)` _(public)_
+- `setMaxWidth(s As String)` _(public)_
+- `setMinHeight(s As String)` _(public)_
+- `setMinWidth(s As String)` _(public)_
+- `setNoRepeat(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPopOverTarget(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSrc(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTypeOf(s As String)` _(public)_
-- `setGifPoster(s As String)` As 'ignoredeadcode _(public)_
-- `setGif(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setLazy(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setCover(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setCenter(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setNoRepeat(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPopOverTarget(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAlt(s As String)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setMask(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setSrc(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setMaxHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setMaxWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setMinHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setMinWidth(s As String)` As 'ignoredeadcode _(public)_
-## Getters (33)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (34)
+- `getAlt()` _(public)_
+- `getAttributes()` _(public)_
+- `getCenter()` _(public)_
+- `getCenterFieldSet()` _(public)_
+- `getClasses()` _(public)_
+- `getCover()` _(public)_
+- `getEnabled()` _(public)_
+- `getGif()` _(public)_
+- `getGifPoster()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getCenterFieldSet()` As Boolean _(public)_
-- `getLabel()` As String _(public)_
-- `getTypeOf()` As String _(public)_
-- `getGifPoster()` As String _(public)_
-- `getGif()` As Boolean _(public)_
-- `getLazy()` As Boolean _(public)_
-- `getCover()` As Boolean _(public)_
-- `getCenter()` As Boolean _(public)_
-- `getNoRepeat()` As Boolean _(public)_
-- `getPopOverTarget()` As String					'ignoredeadcode _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getAlt()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getMask()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getSrc()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getMaxHeight()` As String _(public)_
-- `getMaxWidth()` As String _(public)_
-- `getMinHeight()` As String _(public)_
-- `getMinWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getLabel()` _(public)_
+- `getLazy()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMask()` _(public)_
+- `getMaxHeight()` _(public)_
+- `getMaxWidth()` _(public)_
+- `getMinHeight()` _(public)_
+- `getMinWidth()` _(public)_
+- `getNoRepeat()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPopOverTarget()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSrc()` _(public)_
+- `getStyles()` _(public)_
+- `getTypeOf()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgGifPlayer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGifPlayer.bas) (verified demo). `SDUI5Image1` = a SDUI5Image.
+Real syntax from [`pgImage.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgImage.bas) (verified demo):
 
 ```b4j
-	SDUI5Image1.Initialize(Me, "SDUI5Image1", "SDUI5Image1")
-	SDUI5Image1.ParentID = "SDUI5Column1"
-	SDUI5Image1.Center = False
-	SDUI5Image1.Cover = False
-	SDUI5Image1.Height = "400px"
-	SDUI5Image1.Mask = "none"
-	SDUI5Image1.NoRepeat = False
-	SDUI5Image1.Src = "./assets/sample.webp"
-	SDUI5Image1.Width = "400px"
-	SDUI5Image1.Gif = True
-	SDUI5Image1.GifPoster = "./assets/cat.png"
-	BANano.Await(SDUI5Image1.AddComponent)
+Private SDUI5Image1 As SDUI5Image		'ignore
+Private SDUI5Image10 As SDUI5Image		'ignore
+Private SDUI5Image11 As SDUI5Image		'ignore
+Private SDUI5Image12 As SDUI5Image		'ignore
+Private SDUI5Image13 As SDUI5Image		'ignore
+Private SDUI5Image14 As SDUI5Image		'ignore
+Private SDUI5Image15 As SDUI5Image		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Click` — handlers named `SDUI5Image1_<Event>`.
-
-Also used in: `pgDropDown`, `pgHero`, `pgHoverGallery`, `pgImage`, `pgIndicator`, `pgLIst`, `pgSignaturePad`, `pgStack`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `bg-cover`, `bg-center`, `bg-no-repeat`, `rounded-box`
 ## Code Example
@@ -187,5 +184,3 @@ BANano.Await(image.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

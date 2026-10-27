@@ -64,104 +64,93 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub speeddial_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (30)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (31)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setCenterChildren(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setMainButtonType(s As String)` As 'ignoredeadcode _(public)_
-- `setText(s As String)` As 'ignoredeadcode _(public)_
-- `setColor(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setCenterChildren(b As Boolean)` _(public)_
+- `setChildColors(s As String)` _(public)_
+- `setChildIcons(s As String)` _(public)_
+- `setChildKeys(s As String)` _(public)_
 - `setChildSize(s As String)` _(public)_
+- `setChildText(s As String)` _(public)_
+- `setChildTextColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setColor(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFlower(b As Boolean)` _(public)_
-- `setIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setMainButtonColor(s As String)` As 'ignoredeadcode _(public)_
-- `setMainButtonIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setMainButtonText(s As String)` As 'ignoredeadcode _(public)_
-- `setMainButtonTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setChildColors(s As String)` As 'ignoredeadcode _(public)_
-- `setChildIcons(s As String)` As 'ignoredeadcode _(public)_
-- `setChildKeys(s As String)` As 'ignoredeadcode _(public)_
-- `setChildText(s As String)` As 'ignoredeadcode _(public)_
-- `setChildTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setIcon(s As String)` _(public)_
+- `setIconSize(s As String)` _(public)_
+- `setMainButtonColor(s As String)` _(public)_
+- `setMainButtonIcon(s As String)` _(public)_
+- `setMainButtonText(s As String)` _(public)_
+- `setMainButtonTextColor(s As String)` _(public)_
+- `setMainButtonType(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
 - `setTypeOf(s As String)` _(public)_
-## Getters (32)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (33)
+- `getAttributes()` _(public)_
+- `getCenterChildren()` _(public)_
+- `getChildColors()` _(public)_
+- `getChildIcons()` _(public)_
+- `getChildKeys()` _(public)_
+- `getChildSize()` _(public)_
+- `getChildText()` _(public)_
+- `getChildTextColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getEnabled()` _(public)_
+- `getFlower()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getCenterChildren()` As Boolean _(public)_
-- `getMainButtonType()` As String _(public)_
-- `getText()` As String _(public)_
-- `getChildSize()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getFlower()` As Boolean _(public)_
-- `getIcon()` As String _(public)_
-- `getIconSize()` As String _(public)_
-- `getMainButtonColor()` As String _(public)_
-- `getMainButtonIcon()` As String _(public)_
-- `getMainButtonText()` As String _(public)_
-- `getMainButtonTextColor()` As String _(public)_
-- `getChildColors()` As String _(public)_
-- `getChildIcons()` As String _(public)_
-- `getChildKeys()` As String _(public)_
-- `getChildText()` As String _(public)_
-- `getChildTextColor()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getTypeOf()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getIcon()` _(public)_
+- `getIconSize()` _(public)_
+- `getID()` As String _(public)_
+- `getMainButtonColor()` _(public)_
+- `getMainButtonIcon()` _(public)_
+- `getMainButtonText()` _(public)_
+- `getMainButtonTextColor()` _(public)_
+- `getMainButtonType()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextColor()` _(public)_
+- `getTypeOf()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgFAB.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFAB.bas) (verified demo). `SDUI5SpeedDial1` = a SDUI5SpeedDial.
+Real syntax from [`pgFAB.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFAB.bas) (verified demo):
 
 ```b4j
-	SDUI5SpeedDial1.Initialize(Me, "SDUI5SpeedDial1", "SDUI5SpeedDial1")
-	SDUI5SpeedDial1.ParentID = "fabpage"
-	SDUI5SpeedDial1.ChildSize = "lg"
-	SDUI5SpeedDial1.Color = "#6c3a7d"
-	SDUI5SpeedDial1.MainButtonColor = "#afc8a4"
-	SDUI5SpeedDial1.MainButtonIcon = "./assets/xmark-solid.svg"
-	SDUI5SpeedDial1.MainButtonText = "F"
-	SDUI5SpeedDial1.MainButtonType = "main"
-	SDUI5SpeedDial1.ChildColors = "a=#3c79f4; b=#941c38; c=#de5be1; d: #d2fd1c"
-	SDUI5SpeedDial1.ChildIcons = $"a=./assets/camera-solid.svg;
-b=./assets/list-solid.svg;
-c=./assets/image-solid.svg;
-d=./assets/microphone-solid.svg"$
-	SDUI5SpeedDial1.ChildKeys = "a; b; c; d"
-	SDUI5SpeedDial1.ChildText = "a=A; b=B; c=C; d=D"
-	SDUI5SpeedDial1.ChildTextColor = "a=#ffffff; b=#ffffff; c=#ffffff;  d=#ffffff"
-	SDUI5SpeedDial1.Text = "A"
-	BANano.Await(SDUI5SpeedDial1.AddComponent)
+Private SDUI5SpeedDial1 As SDUI5SpeedDial		'ignore
+BANano.Await(fabpage.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `fab flex!`, `fab-flower`
 ## Code Example
@@ -176,5 +165,3 @@ BANano.Await(speeddial.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

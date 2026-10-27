@@ -48,59 +48,70 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub stepsitem_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (14)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (15)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setText(text As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setDataContent(s As String)` _(public)_
-- `setIcon(s As String)` As 'ignoredeadcode _(public)_
-## Getters (16)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setIcon(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (17)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getDataContent()` _(public)_
+- `getEnabled()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getDataContent()` As String _(public)_
-- `getIcon()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getIcon()` _(public)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgSteps.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSteps.bas) (verified demo). `SDUI5StepsItem9` = a SDUI5StepsItem.
+Real syntax from [`pgSteps.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSteps.bas) (verified demo):
 
 ```b4j
-	SDUI5StepsItem9.Initialize(Me, "SDUI5StepsItem9", "SDUI5StepsItem9")
-	SDUI5StepsItem9.ParentID = "SDUI5Steps3"
-	SDUI5StepsItem9.Color = "neutral"
-	SDUI5StepsItem9.Icon = "😕"
-	SDUI5StepsItem9.Text = "Step 1"
-	BANano.Await(SDUI5StepsItem9.AddComponent)
+Private SDUI5StepsItem1 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem10 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem11 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem12 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem13 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem14 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem15 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem16 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem17 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem18 As SDUI5StepsItem		'ignore
+Private SDUI5StepsItem19 As SDUI5StepsItem		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `step`
 **Colors**: `step:sColor`
@@ -116,5 +127,3 @@ BANano.Await(stepsitem.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

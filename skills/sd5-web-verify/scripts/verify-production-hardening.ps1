@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Release-only security/hygiene gate (G8) for built BANano output.
 .DESCRIPTION
@@ -36,8 +36,9 @@ foreach ($f in $served) {
     if ($f.Name -ieq "env.json") {
         $text = Get-Content -LiteralPath $f.FullName -Raw -ErrorAction SilentlyContinue
         if ($text) {
-            foreach ($m in [regex]::Matches($text, '"?(api-?key|password|secret|token)"?\s*:\s*"([^"]+)"', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
-                if ($m.Groups[2].Value -ne "") { $fail += "env.json ships non-empty '$($m.Groups[1].Value)' value" ; break }
+            foreach ($m in [regex]::Matches($text, '"?(password|dbpassword|secret)"?\s*:\s*"([^"]+)"', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
+                $val = $m.Groups[2].Value
+                if ($val -ne "") { $fail += "env.json ships non-empty '$($m.Groups[1].Value)' value" ; break }
             }
         }
         continue

@@ -51,14 +51,14 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `TextColor` | Color | #000000 | — | `setTextColor` | `getTextColor` |
 | `Alignment` | String | center | bottom, center, left, right, top, none | `setAlignment` | `getAlignment` |
 | `BackgroundColor` | String | transparent | — | `setBackgroundColor` | `getBackgroundColor` |
-| `FontAwesomeIcon` | String | — | — | — | — |
-| `MaterialIcon` | String | — | — | — | — |
+| `FontAwesomeIcon` | String | — | — | `setFontAwesomeIcon` | `getFontAwesomeIcon` |
+| `MaterialIcon` | String | — | — | `setMaterialIcon` | `getMaterialIcon` |
 | `FontName` | String | — | — | `setFontName` | `getFontName` |
 | `FontBold` | Boolean | False | — | `setFontBold` | `getFontBold` |
 | `FontSize` | String | 15 | — | `setFontSize` | `getFontSize` |
 | `FontItalic` | Boolean | False | — | `setFontItalic` | `getFontItalic` |
-| `GradientActive` | Boolean | false | — | — | — |
-| `Gradient` | String | — | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | — | — |
+| `GradientActive` | Boolean | false | — | `setGradientActive` | `getGradientActive` |
+| `Gradient` | String | — | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | `setGradient` | `getGradient` |
 | `GradientColor1` | Color | #f86194, Gradient Color 1. | — | — | — |
 | `GradientColor2` | Color | #968918, Gradient Color 2. | — | — | — |
 | `MarginLeft` | String | — | — | `setMarginLeft` | `getMarginLeft` |
@@ -79,24 +79,16 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub basiclabel_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (40)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (45)
+- `setAlignment(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setText(s As String)` _(public)_
-- `setAlignment(s As String)` As 'ignoredeadcode _(public)_
 - `setBackgroundColor(s As String)` _(public)_
 - `setBorderColor(c As String)` _(public)_
 - `setBorderRadius(s As String)` _(public)_
@@ -105,10 +97,15 @@ Wire in parent: `Sub basiclabel_<eventname>(e As BANanoEvent)` — the handler n
 - `setBorderWidth(s As String)` _(public)_
 - `setBottom(s As String)` _(public)_
 - `setBoxSizing(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setFontAwesomeIcon(s As String)` _(public)_
 - `setFontBold(b As Boolean)` _(public)_
 - `setFontItalic(b As Boolean)` _(public)_
 - `setFontName(s As String)` _(public)_
 - `setFontSize(s As String)` _(public)_
+- `setGradient(s As String)` _(public)_
+- `setGradientActive(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setHorizontalAnchor(s As String)` _(public)_
 - `setLeft(s As String)` _(public)_
@@ -117,62 +114,77 @@ Wire in parent: `Sub basiclabel_<eventname>(e As BANanoEvent)` — the handler n
 - `setMarginLeft(s As String)` _(public)_
 - `setMarginRight(s As String)` _(public)_
 - `setMarginTop(s As String)` _(public)_
+- `setMaterialIcon(s As String)` _(public)_
 - `setPaddingBottom(s As String)` _(public)_
 - `setPaddingLeft(s As String)` _(public)_
 - `setPaddingRight(s As String)` _(public)_
 - `setPaddingTop(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRight(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTagType(s As String)` _(public)_
+- `setText(s As String)` _(public)_
 - `setTextColor(c As String)` _(public)_
 - `setTop(s As String)` _(public)_
 - `setVerticalAnchor(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
 - `setWrapText(b As Boolean)` _(public)_
-## Getters (42)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (47)
+- `getAlignment()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorderColor()` _(public)_
+- `getBorderRadius()` _(public)_
+- `getBorderSet()` _(public)_
+- `getBorderStyle()` _(public)_
+- `getBorderWidth()` _(public)_
+- `getBottom()` _(public)_
+- `getBoxSizing()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getFontAwesomeIcon()` _(public)_
+- `getFontBold()` _(public)_
+- `getFontItalic()` _(public)_
+- `getFontName()` _(public)_
+- `getFontSize()` _(public)_
+- `getGradient()` _(public)_
+- `getGradientActive()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getText()` As String _(public)_
-- `getAlignment()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorderColor()` As Object _(public)_
-- `getBorderRadius()` As String _(public)_
-- `getBorderSet()` As Boolean _(public)_
-- `getBorderStyle()` As String _(public)_
-- `getBorderWidth()` As String _(public)_
-- `getBottom()` As String _(public)_
-- `getBoxSizing()` As String _(public)_
-- `getFontBold()` As Boolean _(public)_
-- `getFontItalic()` As Boolean _(public)_
-- `getFontName()` As String _(public)_
-- `getFontSize()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getHorizontalAnchor()` As String _(public)_
-- `getLeft()` As String _(public)_
-- `getLineHeight()` As String _(public)_
-- `getMarginBottom()` As String _(public)_
-- `getMarginLeft()` As String _(public)_
-- `getMarginRight()` As String _(public)_
-- `getMarginTop()` As String _(public)_
-- `getPaddingBottom()` As String _(public)_
-- `getPaddingLeft()` As String _(public)_
-- `getPaddingRight()` As String _(public)_
-- `getPaddingTop()` As String _(public)_
-- `getRight()` As String _(public)_
-- `getTagType()` As String _(public)_
-- `getTextColor()` As Object _(public)_
-- `getTop()` As String _(public)_
-- `getVerticalAnchor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getWrapText()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getHorizontalAnchor()` _(public)_
+- `getID()` As String _(public)_
+- `getLeft()` _(public)_
+- `getLineHeight()` _(public)_
+- `getMarginBottom()` _(public)_
+- `getMarginLeft()` _(public)_
+- `getMarginRight()` _(public)_
+- `getMarginTop()` _(public)_
+- `getMaterialIcon()` _(public)_
+- `getPaddingBottom()` _(public)_
+- `getPaddingLeft()` _(public)_
+- `getPaddingRight()` _(public)_
+- `getPaddingTop()` _(public)_
+- `getParentID()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRight()` _(public)_
+- `getStyles()` _(public)_
+- `getTagType()` _(public)_
+- `getText()` _(public)_
+- `getTextColor()` _(public)_
+- `getTop()` _(public)_
+- `getVerticalAnchor()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getWrapText()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -187,5 +199,3 @@ BANano.Await(basiclabel.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

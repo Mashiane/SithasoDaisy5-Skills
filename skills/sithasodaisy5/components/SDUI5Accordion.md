@@ -53,91 +53,72 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub accordion_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (12)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `ContentAt(key As String)` As String _(public)_
 - `AddOption(sKey As String, sText As String)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
+- `Clear()` _(public)_
 - `CollapseItem(skey As String)` As SDUI5Collapse _(public)_
-- `SetCollapseItemText(btnID As String, text As String)` _(public)_
-- `SetCollapseItemIcon(btnID As String, text As String)` _(public)_
-## Key Setters (17)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `ContentAt(key As String)` As String _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (20)
+- `setActive(item As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setClearContents(b As Boolean)` _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
-- `setActive(item As String)` As 'ignoredeadcode _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setClearContents(b As Boolean)` _(public)_
+- `SetCollapseItemIcon(btnID As String, text As String)` _(public)_
+- `SetCollapseItemText(btnID As String, text As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setOptions(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (19)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (20)
+- `getActive()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getClasses()` _(public)_
+- `getClearContents()` _(public)_
+- `getEnabled()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getClearContents()` As Boolean _(public)_
-- `getOptions()` As String _(public)_
-- `getActive()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgAccordion.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAccordion.bas) (verified demo). `acc1` = a SDUI5Accordion.
+Real syntax from [`pgAccordion.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAccordion.bas) (verified demo):
 
 ```b4j
-	acc1.Initialize(Me, "acc1", "acc1")
-	acc1.ParentID = "SDUI5Row1"
-	BANano.Await(acc1.AddComponent)
+Private acc1 As SDUI5Accordion		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Composite structure (verified in `pgAccordion.bas`): an accordion is a group of
-`SDUI5Collapse` items sharing the same `GroupName` — build them as siblings in the
-same row:
-
-```b4j
-	SDUI5Collapse1.Initialize(Me, "SDUI5Collapse1", "SDUI5Collapse1")
-	SDUI5Collapse1.ParentID = "SDUI5Row1"
-	SDUI5Collapse1.Active = True
-	SDUI5Collapse1.GroupName = "grp1"
-	SDUI5Collapse1.Title = "How do I create an account?"
-	SDUI5Collapse1.Content = "..."
-	BANano.Await(SDUI5Collapse1.AddComponent)
-
-	SDUI5Collapse2.Initialize(Me, "SDUI5Collapse2", "SDUI5Collapse2")
-	SDUI5Collapse2.ParentID = "SDUI5Row1"
-	SDUI5Collapse2.GroupName = "grp1"          'same group = accordion behavior
-	SDUI5Collapse2.Title = "I forgot my password. What should I do?"
-	SDUI5Collapse2.Content = "..."
-	BANano.Await(SDUI5Collapse2.AddComponent)
-```
-
-Demo-wired events: `Change` — handlers named `acc1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `join join-vertical`
 ## Code Example
@@ -152,5 +133,3 @@ BANano.Await(accordion.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

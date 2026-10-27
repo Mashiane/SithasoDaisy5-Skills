@@ -59,92 +59,90 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub genderchart_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
+## Public Methods (8)
+- `AddClass(className As String)` _(public)_
+- `AddComponent()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `OnEvent(event As String, MethodName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `AddClass(className As String)` _(public)_
 - `Start()` _(public)_
 - `Stop()` _(public)_
-## Key Setters (27)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+
+## Key Setters (28)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setAutoplay(b As Boolean)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setDataType(s As String)` _(public)_
-- `setFemaleLabel(s As String)` _(public)_
-- `setMaleLabel(s As String)` _(public)_
-- `setFemaleValue(s As String)` _(public)_
-- `setMaleValue(s As String)` _(public)_
-- `setFemaleTarget(s As String)` _(public)_
-- `setMaleTarget(s As String)` _(public)_
-- `setFemaleColor(s As String)` _(public)_
-- `setMaleColor(s As String)` _(public)_
-- `setFemaleSvg(s As String)` _(public)_
-- `setMaleSvg(s As String)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
 - `setDuration(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setFemaleColor(s As String)` _(public)_
+- `setFemaleLabel(s As String)` _(public)_
+- `setFemaleSvg(s As String)` _(public)_
+- `setFemaleTarget(s As String)` _(public)_
+- `setFemaleValue(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setMaleColor(s As String)` _(public)_
+- `setMaleLabel(s As String)` _(public)_
+- `setMaleSvg(s As String)` _(public)_
+- `setMaleTarget(s As String)` _(public)_
+- `setMaleValue(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWaves(b As Boolean)` _(public)_
 - `setWaveSpeed(s As String)` _(public)_
-- `setAutoplay(b As Boolean)` _(public)_
-## Getters (29)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (30)
+- `getAttributes()` _(public)_
+- `getAutoplay()` _(public)_
+- `getClasses()` _(public)_
+- `getDataType()` _(public)_
+- `getDuration()` _(public)_
+- `getEnabled()` _(public)_
+- `getFemaleColor()` _(public)_
+- `getFemaleLabel()` _(public)_
+- `getFemaleSvg()` _(public)_
+- `getFemaleTarget()` _(public)_
+- `getFemaleValue()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getDataType()` As String _(public)_
-- `getFemaleLabel()` As String _(public)_
-- `getMaleLabel()` As String _(public)_
-- `getFemaleValue()` As String _(public)_
-- `getMaleValue()` As String _(public)_
-- `getFemaleTarget()` As String _(public)_
-- `getMaleTarget()` As String _(public)_
-- `getFemaleColor()` As String _(public)_
-- `getMaleColor()` As String _(public)_
-- `getFemaleSvg()` As String _(public)_
-- `getMaleSvg()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getDuration()` As String _(public)_
-- `getWaves()` As Boolean _(public)_
-- `getWaveSpeed()` As String _(public)_
-- `getAutoplay()` As Boolean _(public)_
+- `getID()` As String _(public)_
+- `getMaleColor()` _(public)_
+- `getMaleLabel()` _(public)_
+- `getMaleSvg()` _(public)_
+- `getMaleTarget()` _(public)_
+- `getMaleValue()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getWaves()` _(public)_
+- `getWaveSpeed()` _(public)_
+- `getWidth()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgGenderChart.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGenderChart.bas) (verified demo). `SDUI5GenderChart1` = a SDUI5GenderChart.
+Real syntax from [`pgGenderChart.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGenderChart.bas) (verified demo):
 
 ```b4j
-	SDUI5GenderChart1.Initialize(Me, "SDUI5GenderChart1", "SDUI5GenderChart1")
-	SDUI5GenderChart1.ParentID = "SDUI5Column1"
-	SDUI5GenderChart1.FemaleColor = "#DA70D6"
-	SDUI5GenderChart1.FemaleTarget = "5000"
-	SDUI5GenderChart1.FemaleValue = "3200"
-	SDUI5GenderChart1.MaleColor = "#DEB887"
-	SDUI5GenderChart1.MaleTarget = "1500"
-	SDUI5GenderChart1.MaleValue = "1200"
-	BANano.Await(SDUI5GenderChart1.AddComponent)
+Private SDUI5GenderChart1 As SDUI5GenderChart		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -159,5 +157,3 @@ BANano.Await(genderchart.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

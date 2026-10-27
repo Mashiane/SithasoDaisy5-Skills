@@ -20,16 +20,21 @@ The indented trees below describe layout intent; they are not copy-ready B4J cod
 ```
 SDUI5Container1
   ├── SDUI5Hero (full-width, md:grid-start)
-  ├── SDUI5Row1 (sm:grid-cols-2 lg:grid-cols-3) — features grid
-  │     ├── SDUI5Card (feature 1)
-  │     ├── SDUI5Card (feature 2)
-  │     └── SDUI5Card (feature 3)
-  ├── SDUI5Row2 — CTA section
+  ├── SDUI5Row1 — features grid (3 columns: Size="12", SizeMd="4")
+  │     ├── SDUI5Column1 -> SDUI5Card (feature 1)
+  │     ├── SDUI5Column2 -> SDUI5Card (feature 2)
+  │     └── SDUI5Column3 -> SDUI5Card (feature 3)
+  ├── SDUI5Stat1 — social proof strip (Direction="vertical", LGDirection="horizontal", Border=True, RoundedBox=True, Shadow="md")
+  │     ├── SDUI5StatItem1
+  │     ├── SDUI5StatItem2
+  │     ├── SDUI5StatItem3
+  │     └── SDUI5StatItem4
+  ├── SDUI5Container (flex justify-center mt-6) — CTA section
   │     └── SDUI5Button1 (.Color="primary", .Size="xl")
   └── SDUI5Footer
 ```
 
-**Components used**: `SDUI5Hero`, `SDUI5Card`, `SDUI5Button`, `SDUI5Footer`, `SDUI5Stat` (optional, for social proof)  
+**Components used**: `SDUI5Hero`, `SDUI5Card`, `SDUI5Stat` + `SDUI5StatItem` (RULE-LAYOUT-005 companion hierarchy), `SDUI5Button`, `SDUI5Footer`  
 **Density**: Hero  
 **Source guidance**: Use the relevant component skill’s verified usage excerpt; the architecture here is conceptual.
 
@@ -67,17 +72,17 @@ SDUI5Container1 (min-h-screen, flex items-center justify-center)
 ```
 SDUI5NavBar (sticky top)
 SDUI5Container1
-  ├── SDUI5Row1 (sm:grid-cols-2 lg:grid-cols-4) — KPI stats
-  │     ├── SDUI5Stat (.Color="primary")
-  │     ├── SDUI5Stat (.Color="secondary")
-  │     ├── SDUI5Stat (.Color="accent")
-  │     └── SDUI5Stat (.Color="info")
-  └── SDUI5Row2 (lg:grid-cols-2) — content
-        ├── SDUI5Card — chart
-        └── SDUI5Card — list / activity feed
+  ├── SDUI5Row1 (gap-4) — KPI stats (4 columns: Size="12", SizeSm="6", SizeMd="3")
+  │     ├── SDUI5Column1 -> SDUI5Stat1 (Border=True, RoundedBox=True, Shadow="sm") -> SDUI5StatItem1 (.ValueTextColor="primary")
+  │     ├── SDUI5Column2 -> SDUI5Stat2 (Border=True, RoundedBox=True, Shadow="sm") -> SDUI5StatItem2 (.ValueTextColor="secondary")
+  │     ├── SDUI5Column3 -> SDUI5Stat3 (Border=True, RoundedBox=True, Shadow="sm") -> SDUI5StatItem3 (.ValueTextColor="accent")
+  │     └── SDUI5Column4 -> SDUI5Stat4 (Border=True, RoundedBox=True, Shadow="sm") -> SDUI5StatItem4 (.ValueTextColor="error")
+  └── SDUI5Row2 (gap-4) — content (2 columns: Size="12", SizeMd="6")
+        ├── SDUI5Column5 -> SDUI5Card — progress / targets
+        └── SDUI5Column6 -> SDUI5Card — traffic / activity feed
 ```
 
-**Components used**: `SDUI5NavBar`, `SDUI5Stat`, `SDUI5Card`, `SDUI5Progress`, `SDUI5ToastChart` (optional)  
+**Components used**: `SDUI5NavBar`, `SDUI5Stat` + `SDUI5StatItem` (RULE-LAYOUT-005 companion hierarchy), `SDUI5Card`, `SDUI5Progress`, `SDUI5ToastChart` (optional)  
 **Density**: High  
 **4-state**: Loading=skeleton, Populated=stats, Empty=SDUI5Text message with optional SDUI5Button action, Error=SDUI5Alert  
 **Source guidance**: Use the relevant component skill’s verified usage excerpt; the architecture here is conceptual.

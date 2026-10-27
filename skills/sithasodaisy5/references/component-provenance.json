@@ -1,11 +1,12 @@
 {
-  "generated": "2026-10-11 15:28 UTC",
+  "generated": "2026-10-23 13:51 UTC",
   "method": "extraction (sd5-book-to-skill components.json) + sha256 of framework .bas + ModuleN registry + case-sensitive As|New type-reference grep over demo pg*.bas. B4J is case-insensitive: entries flagged name-case-differs are the same component as registry-name; their demo-pages may undercount when demos use registry casing. component-manifest.md remains the authority for demo-backed status; this file is the authority for source checksums and member lists.",
   "framework-project": "C:\\b4j\\workspace\\0SithasoDaisy5\\SithasoDaisy5.b4j",
-  "registered-modules": 159,
-  "ui-registered": 139,
+  "registered-modules": 160,
+  "ui-registered": 140,
   "documented-only-ui": [
     "SDUI5BasicLabel",
+    "SDUI5Calendar",
     "SDUI5ChatItem",
     "SDUI5Client",
     "SDUI5Conversation",
@@ -22,8 +23,7 @@
     "SDUI5MultiSelect",
     "SDUI5Slider",
     "SDUI5SliderItem",
-    "SDUI5Swal",
-    "SDUI5Textrotate"
+    "SDUI5Swal"
   ],
   "components": {
     "BANanoAnimeJS": {
@@ -317,7 +317,7 @@
     },
     "SDUI5AdvancedCheckGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5AdvancedCheckGroup.bas",
-      "sha256": "882ff7326141043e36641deb4871d0e970e941525a6bc852676716dfd3420512",
+      "sha256": "a5eb8721acfeaf3198cc95dd6df6bfed13a01d25ac0ec6f141d807aa6f823a36",
       "source-lines": 580,
       "registered": true,
       "registry-name": "SDUI5AdvancedCheckGroup",
@@ -1208,7 +1208,7 @@
     },
     "SDUI5BankCard": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5BankCard.bas",
-      "sha256": "d72e193c8b68216ee039a2e32eedbaa2803d40b747d3b8956ac372279d8bad09",
+      "sha256": "3c17df9d9c757c3d6e8c56c4120577c1ec102d67e7b91b47fea532212c6452a6",
       "source-lines": 499,
       "registered": true,
       "registry-name": "SDUI5BankCard",
@@ -1544,7 +1544,7 @@
     },
     "SDUI5BasicLabel": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5BasicLabel.bas",
-      "sha256": "6f9c1f427d10d96e1925757c77be5b4d6f664e5bc4fd4fb13d9b3d38edda6f7d",
+      "sha256": "882ccae9d4b1087683658be80c25d2d1553570b5709a9baf35464d0f4cfd2a94",
       "source-lines": 843,
       "registered": true,
       "registry-name": "SDUI5BasicLabel",
@@ -2331,10 +2331,10 @@
     },
     "SDUI5Calendar": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Calendar.bas",
-      "sha256": "ad7eadf06ce9492b970d7f31e748fa8d82dd4d6659a192bb23c9a4285e5ba09d",
+      "sha256": "e646dce4f0cd795cad2bce58a97e96c010f41870f4ab9f949744423dc3833526",
       "source-lines": 228,
-      "registered": false,
-      "registry-name": null,
+      "registered": true,
+      "registry-name": "SDUI5Calendar",
       "kind": "ui",
       "name-case-differs": false,
       "has-designer-create-view": true,
@@ -2399,7 +2399,7 @@
     },
     "SDUI5Card": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Card.bas",
-      "sha256": "56d2c9b698fcd2d84dfe36ae389abcab9215da3554ba1df0027defa4a9b1ea4a",
+      "sha256": "a986e6c5b8a026f7fb07fd6395a88ce1635b981d52367c5a274ec6e6e876c32e",
       "source-lines": 1013,
       "registered": true,
       "registry-name": "SDUI5Card",
@@ -3174,7 +3174,7 @@
     },
     "SDUI5CheckBoxGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5CheckBoxGroup.bas",
-      "sha256": "7a5f9cc23093899bb0dd6991fac88f30c14ba90ec720a285c444893df8d04ccc",
+      "sha256": "67741c3debd7a11396c4d5587d24358b938966dc940608cb1004ce70c1c4cb88",
       "source-lines": 808,
       "registered": true,
       "registry-name": "SDUI5CheckBoxGroup",
@@ -3481,7 +3481,7 @@
     },
     "SDUI5Collapse": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Collapse.bas",
-      "sha256": "a8a4dfcdd165ccc1639abc9109a8a2fa5341494a8065bdbdf50e96588d9b1270",
+      "sha256": "ef14405fbbb75af9da34ff3cef00ae86fdc81b02b836c158a393f53ba082a9be",
       "source-lines": 678,
       "registered": true,
       "registry-name": "SDUI5Collapse",
@@ -3872,7 +3872,7 @@
     },
     "SDUI5Component": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Component.bas",
-      "sha256": "6b42df6cb5dde7d3f6e29685909610b03deaaed4db228e4b8a0c8ee0e115f0d0",
+      "sha256": "8bdf0d909a5cb303e0b75f7c87e9c88f3d24bd81e8d743ba3bb0ac2d28a6169c",
       "source-lines": 412,
       "registered": true,
       "registry-name": "SDUI5Component",
@@ -3958,7 +3958,7 @@
     },
     "SDUI5Container": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Container.bas",
-      "sha256": "ae6d9c7059aea10111956c462038948d9e7f282c9020294711185f0161f4599d",
+      "sha256": "14b905fea52cfa18d0b240a9d53469941c4512aa492962295986aac071bfc2f0",
       "source-lines": 1498,
       "registered": true,
       "registry-name": "SDUI5Container",
@@ -4726,7 +4726,7 @@
     },
     "SDUI5Diff": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Diff.bas",
-      "sha256": "a2aca5b1b91c16d7677953554d206aa8658aa50b0a9ba822669c28e1a69ef44d",
+      "sha256": "bb78e30a2bf3fc3d66c41074b403521368f08d5ce7340fba728428c7f67a24c3",
       "source-lines": 501,
       "registered": true,
       "registry-name": "SDUI5Diff",
@@ -5733,7 +5733,7 @@
     },
     "SDUI5FAIconPicker": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5FAIconPicker.bas",
-      "sha256": "1807b22e88911ca10f8b0647317c078f8da22708b610097f50abdb7cdca1f4b6",
+      "sha256": "1acca565fbf1109ce2f4d5fbb5f698faca272329d11dcf78d7d955cdc73d2a72",
       "source-lines": 411,
       "registered": true,
       "registry-name": "SDUI5FAIconPicker",
@@ -5933,7 +5933,7 @@
     },
     "SDUI5FileInput": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5FileInput.bas",
-      "sha256": "9322e4d562ac57b575a003770fa65ff247ea9dfd681ae390c64fb54904e4857d",
+      "sha256": "2b49e42ed07f740781139c3361a85759ee1edb84ea80cb8c673740b84d1fc7e5",
       "source-lines": 1095,
       "registered": true,
       "registry-name": "SDUI5FileInput",
@@ -6079,7 +6079,7 @@
     },
     "SDUI5Filter": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Filter.bas",
-      "sha256": "cf023fb9d45635719fd6f48223fac25119731f920bc4c2c72edd90b84ab55b81",
+      "sha256": "1292d3b8df35de72767ea045b5f34d76db48c9329609f0cf41c73618c9101265",
       "source-lines": 622,
       "registered": true,
       "registry-name": "SDUI5Filter",
@@ -7393,7 +7393,7 @@
     },
     "SDUI5Indicator": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Indicator.bas",
-      "sha256": "ebeea4f070b9b29022ecdf7f6cf622643518db09affe86e8a6b3406698f8d587",
+      "sha256": "98c2d541461e21f7000d713ead1adc2e1ce531a26b7b7b5584c046755586527e",
       "source-lines": 281,
       "registered": true,
       "registry-name": "SDUI5Indicator",
@@ -7657,7 +7657,7 @@
     },
     "SDUI5JsonEditor": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5JsonEditor.bas",
-      "sha256": "1c2043c2e0f941e58329be2263f20e82ae010099e5b04247065006f807b2f60e",
+      "sha256": "d5ccf3a82602eb9b5ed3d9ec229428c6f4a5db74625ed3718f93c255789a54dd",
       "source-lines": 835,
       "registered": true,
       "registry-name": "SDUI5JsonEditor",
@@ -8057,7 +8057,7 @@
     },
     "SDUI5Label": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Label.bas",
-      "sha256": "5ebfa32c2d137952b18ca808195160433a63e662684ee873a3429ca7a95a6794",
+      "sha256": "f528b0a2aaa1b2610c37f8072f88336fe8f5c5cc85716e658c8ca2e81e1107f8",
       "source-lines": 700,
       "registered": true,
       "registry-name": "SDUI5Label",
@@ -8179,7 +8179,7 @@
     },
     "SDUI5Leaflet": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Leaflet.bas",
-      "sha256": "37420d6bfece3274c9881ead57bf8c3e23fb75006026d6c55f84806fdb8d8a43",
+      "sha256": "dfe842656d0b34fe17e095e60c2742086c1c4809c09acc943c5e02c88d33f56d",
       "source-lines": 1491,
       "registered": true,
       "registry-name": "SDUI5Leaflet",
@@ -8352,7 +8352,7 @@
     },
     "SDUI5Link": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Link.bas",
-      "sha256": "147ab94dcf8ef80908525dcd42cf3c51e10cc375514d7c1ae497679abf1dce79",
+      "sha256": "7ece820830b523f48805959c3d1b8ae309ee164f334886ee2e61eed755868226",
       "source-lines": 533,
       "registered": true,
       "registry-name": "SDUI5Link",
@@ -8937,7 +8937,7 @@
     },
     "SDUI5Menu": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Menu.bas",
-      "sha256": "b4895e12c296f8c1dc4423b50ae4dcb6f360210a56f298ceba094e48c3d6787f",
+      "sha256": "7e8191f925abbcf7b03239885b6a044d176322615be74610c2338261080c2e33",
       "source-lines": 1558,
       "registered": true,
       "registry-name": "SDUI5Menu",
@@ -9148,7 +9148,7 @@
     },
     "SDUI5MenuItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5MenuItem.bas",
-      "sha256": "e855ad74fffaec18abf3cf42d7c8ebf2ae844bb096a6d2a288ed2180da709447",
+      "sha256": "cfb92dabb378519a8c095270fbf97d31e1b42028d88890819f11fd0d425f42f9",
       "source-lines": 1244,
       "registered": true,
       "registry-name": "SDUI5MenuItem",
@@ -9556,7 +9556,7 @@
     },
     "SDUI5MultiSelect": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5MultiSelect.bas",
-      "sha256": "d98f5c7fdcdbf9233ad9770205ffb35e4fd91b9e1b68d13db35f929053b05872",
+      "sha256": "c0653bdc01e49c3041ba5f0e5320b90e96028b2cc994273adf19a590fd66ca18",
       "source-lines": 1499,
       "registered": true,
       "registry-name": "SDUI5MultiSelect",
@@ -9761,7 +9761,7 @@
     },
     "SDUI5NavBar": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5NavBar.bas",
-      "sha256": "6e8ab40dbcb9e7bc699aa7b99834af03f7bddd6060d6cb4ae46c2862ed568fc6",
+      "sha256": "a90763b80171a42a3c8b2f48fb0394082cf41052f2e0f1a4b892bfa3c0a5f8d8",
       "source-lines": 1445,
       "registered": true,
       "registry-name": "SDUI5NavBar",
@@ -10140,7 +10140,7 @@
     },
     "SDUI5OfficeRibbon": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5OfficeRibbon.bas",
-      "sha256": "eb75ef558bda166421fbbde7e7ed4e0e059598e0a4b19840cdd948967cf7a80e",
+      "sha256": "49fa584b43706df0a095458d2ec92eaa68eb7595bc7d559d6f8ad05156c04cb3",
       "source-lines": 1196,
       "registered": true,
       "registry-name": "SDUI5OfficeRibbon",
@@ -10324,7 +10324,7 @@
     },
     "SDUI5Page": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Page.bas",
-      "sha256": "a57761862393848d66216758a21b3f46b4307ef99d63c8fb92c9832911eec720",
+      "sha256": "838e7a1d25fce1cb0d347c92146fe41963851f766ac10f600d10a84f9dad8a97",
       "source-lines": 1147,
       "registered": true,
       "registry-name": "SDUI5Page",
@@ -10978,7 +10978,7 @@
     },
     "SDUI5Preferences": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Preferences.bas",
-      "sha256": "ad915bf8a25d42f213f4ff4f584bc0cafbc6d0447f1da8ab9a994dc1e865050e",
+      "sha256": "0ba4e516cf6dc8370d6baa39403c2077e39c8ab5f5a1767cfe34aee14156cc66",
       "source-lines": 6886,
       "registered": true,
       "registry-name": "SDUI5Preferences",
@@ -11643,7 +11643,7 @@
     },
     "SDUI5Radio": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Radio.bas",
-      "sha256": "652f8710df330dae72554b4cf14e1d934bf7d34ff7cecc6f1eb536b444f0a0ec",
+      "sha256": "a651b3193fb9ec65fa77254eb6cc2bb12ee0334c2a5123db26624a571d4d9eeb",
       "source-lines": 566,
       "registered": true,
       "registry-name": "SDUI5Radio",
@@ -11754,7 +11754,7 @@
     },
     "SDUI5RadioGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5RadioGroup.bas",
-      "sha256": "a08f34a6b5abac10cde11d321e8ad7c580cf578801e51cd574348d2e4adc86d1",
+      "sha256": "fcce5fe023e71692e11dc4c87d09504a1767faf238a7496a9f6229cc47f462cf",
       "source-lines": 766,
       "registered": true,
       "registry-name": "SDUI5RadioGroup",
@@ -12012,7 +12012,7 @@
     },
     "SDUI5Rating": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Rating.bas",
-      "sha256": "85e3dd4ec587b5e6d9351a355583102f4ee7f9510c743acf770deeff76dfb217",
+      "sha256": "79e549d6fd6bb12588015a361d1d4750214607799e3adab0dcf0db9c6c6249ad",
       "source-lines": 748,
       "registered": true,
       "registry-name": "SDUI5Rating",
@@ -12391,7 +12391,7 @@
     },
     "SDUI5Segment": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Segment.bas",
-      "sha256": "009799f783be20489785055087aadc2654f2b0973a9bf647fcb94902ef5bb206",
+      "sha256": "69d574dbbcfc0b96d6a1f0888790a7c3c069f50ef39e7e96bcbfe58bfee71e2c",
       "source-lines": 528,
       "registered": true,
       "registry-name": "SDUI5Segment",
@@ -12493,7 +12493,7 @@
     },
     "SDUI5Select": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Select.bas",
-      "sha256": "f6bdfb6c4368c30c74a7ef8b9f3548052b8d0dd1797d4bbecc54e69f99432a63",
+      "sha256": "f9f1cc2fa715b915ba176098434bd3681409fa96860083d1f4e5c65ee819568e",
       "source-lines": 1373,
       "registered": true,
       "registry-name": "SDUI5Select",
@@ -12665,7 +12665,7 @@
     },
     "SDUI5SignaturePad": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5SignaturePad.bas",
-      "sha256": "27bddf9fd920dc1b19f3c77df42844036368b1aa279a7dda4001d0093f05ba9f",
+      "sha256": "64413b5f610c5b220fd5fccd3cfc5d881f148ec75133f8c1b64e0402c2d4883d",
       "source-lines": 882,
       "registered": true,
       "registry-name": "SDUI5SignaturePad",
@@ -13374,7 +13374,7 @@
     },
     "SDUI5StatItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5StatItem.bas",
-      "sha256": "784a6aea03ca63dc503bc56b64d6f605bb48a8763c0fae95dc9c1ca162dd9131",
+      "sha256": "2890bc4d808c62f1e70982ed4c5153b2be1e1713afec334f61a33e66d8221d18",
       "source-lines": 716,
       "registered": true,
       "registry-name": "SDUI5StatItem",
@@ -13594,7 +13594,7 @@
     },
     "SDUI5Steps": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Steps.bas",
-      "sha256": "414970791248a92104fa550babdd46322168eb3c3a0e12e91bbfb655a288911b",
+      "sha256": "08ed0b87895bf2354f4b0053ce1aae114e5027f4ae41ead091b93bbe1dfac0d7",
       "source-lines": 562,
       "registered": true,
       "registry-name": "SDUI5Steps",
@@ -14368,7 +14368,7 @@
     },
     "SDUI5Table": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Table.bas",
-      "sha256": "5d87d37e8a7937c2d9085b765048203e169fd002f9f5b48f063c110b8c03f295",
+      "sha256": "12fd01b43d90d4590f543dcc734bdae9d17bbb88dd217d7d8a91bde063fe6ca5",
       "source-lines": 11750,
       "registered": true,
       "registry-name": "SDUI5Table",
@@ -14913,7 +14913,7 @@
     },
     "SDUI5TabsItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TabsItem.bas",
-      "sha256": "03f63d6618a38092bbf53900d3c4d7d9d3e6b7f1823eb5fefaa2f0f048ade9bf",
+      "sha256": "6346ea45f7eb1fef45082b84b086ce0bb247999f3220db1b0a865e8b642c6edf",
       "source-lines": 505,
       "registered": true,
       "registry-name": "SDUI5TabsItem",
@@ -15016,7 +15016,7 @@
     },
     "SDUI5Text": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Text.bas",
-      "sha256": "1ac3f5c4da265f5ce02d6c37fa0f19b3f4d9f22ab264fd895d3b6c916c1efc27",
+      "sha256": "f70e3593203b7500d3529c986bca646bb7b7a916558d241f98ce45cfb74ca421",
       "source-lines": 1072,
       "registered": true,
       "registry-name": "SDUI5Text",
@@ -15201,7 +15201,7 @@
     },
     "SDUI5TextArea": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TextArea.bas",
-      "sha256": "51d65e0447682844bc888ba12829e1655cebc3e0ffdff1836102ddee591769a4",
+      "sha256": "f147ebf2495cd5689dedb990c3be9db60f6fe2050c348dd7e26798b6993474cd",
       "source-lines": 1142,
       "registered": true,
       "registry-name": "SDUI5TextArea",
@@ -15378,7 +15378,7 @@
     },
     "SDUI5TextBox": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TextBox.bas",
-      "sha256": "d36c9191fe6b4a18fc8b42dfc82981102fe06a715a1a86c1d49ed107117ec428",
+      "sha256": "822026adce6ac2694c30f7df290e68b0c6a5eca42eb5d4c5049cbe1f63a40670",
       "source-lines": 2100,
       "registered": true,
       "registry-name": "SDUI5TextBox",
@@ -15707,7 +15707,9 @@
       "designer-rounded": [],
       "designer-shadows": [],
       "doc": "components/SDUI5Textrotate.md",
-      "demo-pages": []
+      "demo-pages": [
+        "pgTextrotate.bas"
+      ]
     },
     "SDUI5Timeline": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Timeline.bas",
@@ -16266,7 +16268,7 @@
     },
     "SDUI5ToolTip": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5ToolTip.bas",
-      "sha256": "05f31a794fb74a49668bc295578bcccf73717ef9989c0c4a8963587a49dbb61c",
+      "sha256": "7f838a7c8f6b81c45e10c8f867036ba5584293899700c1c5bb743bc04427d27b",
       "source-lines": 233,
       "registered": true,
       "registry-name": "SDUI5ToolTip",
@@ -16449,7 +16451,7 @@
     },
     "SDUI5TreeView": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TreeView.bas",
-      "sha256": "d0773943791d0e0afffec34d40edf9117b4ce3b1bc69c805813b9a306a003b36",
+      "sha256": "7fa08705eb5dfec8708ec3a1f74f8b7b6aa2b34b1faeaf729715051e2e60d3f4",
       "source-lines": 927,
       "registered": true,
       "registry-name": "SDUI5TreeView",
@@ -16602,7 +16604,7 @@
     },
     "SDUI5TrendChart": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TrendChart.bas",
-      "sha256": "d7d07331764e567693cde308ebfc2694cac84dd7d7d6e1637a47725048cdbfbd",
+      "sha256": "83df204b911e03669ceb47e3f4f9b70997d5dae3b7ff5efd9c32389cd7643773",
       "source-lines": 936,
       "registered": true,
       "registry-name": "SDUI5TrendChart",

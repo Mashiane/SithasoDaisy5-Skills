@@ -157,8 +157,8 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `MinWidth` | String | — | — | `setMinWidth` | `getMinWidth` |
 | `TextAlign` | String | none | center, end, justify, left, none, right, start | `setTextAlign` | `getTextAlign` |
 | `Visible` | Boolean | True | — | `setVisible` | `getVisible` |
-| `GradientActive` | Boolean | false | — | — | — |
-| `Gradient` | String | — | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | — | — |
+| `GradientActive` | Boolean | false | — | `setGradientActive` | `getGradientActive` |
+| `Gradient` | String | — | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | `setGradient` | `getGradient` |
 | `GradientColor1` | Color | #f86194, Gradient Color 1. | — | — | — |
 | `GradientColor2` | Color | #968918, Gradient Color 2. | — | — | — |
 | `Enabled` | Boolean | True | — | `setEnabled` | `getEnabled` |
@@ -180,203 +180,195 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub container_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (80)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `SetRowStyles(r As Int, styleNames As Map)` _(public)_
-- `SetRowClasses(r As Int, classNames As List)` _(public)_
-- `SetRCClasses(r As Int, c As Int, classNames As List)` _(public)_
-- `SetRCStyles(r As Int, c As Int, styleNames As Map)` _(public)_
-- `SetRCSizes(r As Int, c As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` _(public)_
-- `SetRCMargin(r As Int, c As Int, gma As String, gmt As String, gmb As String, gml As String, gmr As String, gmx As String, gmy As String)` _(public)_
-- `SetRCPadding(r As Int, c As Int, gpa As String, gpt As String, gpb As String, gpl As String, gpr As String, gpx As String, gpy As String)` _(public)_
-- `BuildGrid()` _(public)_
-- `NextRow()` As Int _(public)_
-- `ThisRow()` As Int _(public)_
-- `Row(r As Int)` As SDUI5Container _(public)_
-- `LinkExisting()` _(public)_
-- `RowID(r As Int)` As String _(public)_
-- `CellID(r As Int, c As Int)` As String _(public)_
-- `Cell(r As Int, c As Int)` As SDUI5Container _(public)_
-- `AddRows1()` As SDUI5Container _(public)_
-- `AddRows2()` As SDUI5Container _(public)_
-- `AddRows3()` As SDUI5Container _(public)_
-- `AddRows4()` As SDUI5Container _(public)_
-- `AddRows5()` As SDUI5Container _(public)_
-- `AddRows6()` As SDUI5Container _(public)_
-- `AddRows7()` As SDUI5Container _(public)_
-- `AddRows8()` As SDUI5Container _(public)_
-- `AddRows9()` As SDUI5Container _(public)_
-- `AddRows10()` As SDUI5Container _(public)_
-- `AddRows11()` As SDUI5Container _(public)_
-- `AddRows12()` As SDUI5Container _(public)_
-- `AddRows(iRows As Int)` As SDUI5Container _(public)_
-- `AddColumns(iColumns As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` As SDUI5Container _(public)_
-- `AddColumnsOS(iColumns As Int, osxs As Int, osm As Int, omd As Int, olg As Int, oxl As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` As SDUI5Container _(public)_
-- `AddColumnsOSMP(iColumns As Int, osm As Int, omd As Int, olg As Int, oxl As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int, gpa As Int, gpx As Int, gpy As Int, gpt As Int, gpb As Int, gpl As Int, gpr As Int, _ gma As Int, gmx As Int, gmy As Int, gmt As Int, gmb As Int, gml As Int, gmr As Int)` As SDUI5Container _(public)_
-- `AddColumns3x4()` As SDUI5Container _(public)_
-- `AddColumns4x3()` As SDUI5Container _(public)_
-- `AddColumns2x6()` As SDUI5Container _(public)_
-- `AddColumns6x2()` As SDUI5Container _(public)_
-- `AddColumns5x2()` As SDUI5Container _(public)_
-- `AddColumns3x2()` As SDUI5Container _(public)_
-- `AddColumns11x1()` As SDUI5Container _(public)_
-- `AddColumns10x1()` As SDUI5Container _(public)_
-- `AddColumns9x1()` As SDUI5Container _(public)_
-- `AddColumns8x1()` As SDUI5Container _(public)_
-- `AddColumns7x1()` As SDUI5Container _(public)_
-- `AddColumns12x1()` As SDUI5Container _(public)_
-- `AddColumns8p4()` As SDUI5Container _(public)_
-- `AddColumns4p8()` As SDUI5Container _(public)_
-- `AddColumns1p11()` As SDUI5Container _(public)_
-- `AddColumns11p1()` As SDUI5Container _(public)_
-- `AddColumns2p10()` As SDUI5Container _(public)_
-- `AddColumns10p2()` As SDUI5Container _(public)_
-- `AddColumns3p9()` As SDUI5Container _(public)_
-- `AddColumns9p3()` As SDUI5Container _(public)_
-- `AddColumns3p6p3()` As SDUI5Container _(public)_
-- `AddColumns6p3p3()` As SDUI5Container _(public)_
-- `AddColumns7p5()` As SDUI5Container _(public)_
-- `AddColumns5p7()` As SDUI5Container _(public)_
-- `AddColumns12()` As SDUI5Container _(public)_
-- `AddColumns6()` As SDUI5Container _(public)_
-- `AddColumns2()` As SDUI5Container _(public)_
-- `AddColumns1()` As SDUI5Container _(public)_
-- `AddColumns3()` As SDUI5Container _(public)_
-- `AddColumns4()` As SDUI5Container _(public)_
-- `AddColumns5()` As SDUI5Container _(public)_
-- `AddColumns7()` As SDUI5Container _(public)_
-- `AddColumns8()` As SDUI5Container _(public)_
-- `AddColumns9()` As SDUI5Container _(public)_
-- `AddColumns10()` As SDUI5Container _(public)_
-- `AddColumns11()` As SDUI5Container _(public)_
-- `CellHere(r As Int, c As Int)` As String _(public)_
-- `Clear()` _(public)_
-- `Append(s As String)` _(public)_
-- `RemoveClass(s As String)` _(public)_
-- `AddClass(s As String)` _(public)_
-- `AddStyle(k As String, v As String)` _(public)_
+## Public Methods (71)
 - `AddAttribute(k As String, v As String)` _(public)_
-## Key Setters (36)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `AddClass(s As String)` _(public)_
+- `AddColumns(iColumns As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` As SDUI5Container _(public)_
+- `AddColumns1()` _(public)_
+- `AddColumns10()` _(public)_
+- `AddColumns10p2()` _(public)_
+- `AddColumns10x1()` _(public)_
+- `AddColumns11()` _(public)_
+- `AddColumns11p1()` _(public)_
+- `AddColumns11x1()` _(public)_
+- `AddColumns12()` _(public)_
+- `AddColumns12x1()` _(public)_
+- `AddColumns1p11()` _(public)_
+- `AddColumns2()` _(public)_
+- `AddColumns2p10()` _(public)_
+- `AddColumns2x6()` _(public)_
+- `AddColumns3()` _(public)_
+- `AddColumns3p6p3()` _(public)_
+- `AddColumns3p9()` _(public)_
+- `AddColumns3x2()` _(public)_
+- `AddColumns3x4()` _(public)_
+- `AddColumns4()` _(public)_
+- `AddColumns4p8()` _(public)_
+- `AddColumns4x3()` _(public)_
+- `AddColumns5()` _(public)_
+- `AddColumns5p7()` _(public)_
+- `AddColumns5x2()` _(public)_
+- `AddColumns6()` _(public)_
+- `AddColumns6p3p3()` _(public)_
+- `AddColumns6x2()` _(public)_
+- `AddColumns7()` _(public)_
+- `AddColumns7p5()` _(public)_
+- `AddColumns7x1()` _(public)_
+- `AddColumns8()` _(public)_
+- `AddColumns8p4()` _(public)_
+- `AddColumns8x1()` _(public)_
+- `AddColumns9()` _(public)_
+- `AddColumns9p3()` _(public)_
+- `AddColumns9x1()` _(public)_
+- `AddColumnsOS(iColumns As Int, osxs As Int, osm As Int, omd As Int, olg As Int, oxl As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` As SDUI5Container _(public)_
+- `AddColumnsOSMP()` _(public)_
+- `AddComponent()` _(public)_
+- `AddRows(iRows As Int)` As SDUI5Container _(public)_
+- `AddRows1()` _(public)_
+- `AddRows10()` _(public)_
+- `AddRows11()` _(public)_
+- `AddRows12()` _(public)_
+- `AddRows2()` _(public)_
+- `AddRows3()` _(public)_
+- `AddRows4()` _(public)_
+- `AddRows5()` _(public)_
+- `AddRows6()` _(public)_
+- `AddRows7()` _(public)_
+- `AddRows8()` _(public)_
+- `AddRows9()` _(public)_
+- `AddStyle(k As String, v As String)` _(public)_
+- `Append(s As String)` _(public)_
+- `BuildGrid()` _(public)_
+- `Cell(r As Int, c As Int)` As SDUI5Container _(public)_
+- `CellHere(r As Int, c As Int)` As String _(public)_
+- `CellID(r As Int, c As Int)` As String _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LinkExisting()` _(public)_
+- `NextRow()` _(public)_
+- `Remove()` _(public)_
+- `RemoveClass(s As String)` _(public)_
+- `Row(r As Int)` As SDUI5Container _(public)_
+- `RowID(r As Int)` As String _(public)_
+- `ThisRow()` _(public)_
+
+## Key Setters (46)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setPageView(b As Boolean)` _(public)_
-- `setBackgroundImage(s As String)` _(public)_
-- `setCenterChildren(b As Boolean)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setBackgroundImage(s As String)` _(public)_
+- `setBorderColor(s As String)` _(public)_
+- `setBorderRadius(s As String)` _(public)_
+- `setBorderStyle(s As String)` _(public)_
+- `setBorderWidth(s As String)` _(public)_
+- `setCenterChildren(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setContainer(b As Boolean)` _(public)_
 - `setContainerFluid(b As Boolean)` _(public)_
 - `setContainerLg(b As Boolean)` _(public)_
 - `setContainerMd(b As Boolean)` _(public)_
 - `setContainerSm(b As Boolean)` _(public)_
 - `setContainerXl(b As Boolean)` _(public)_
 - `setContainerXxl(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setGradient(s As String)` _(public)_
+- `setGradientActive(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setBorderColor(s As String)` _(public)_
-- `setBorderStyle(s As String)` _(public)_
-- `setBorderWidth(s As String)` _(public)_
-- `setBorderRadius(s As String)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setTextAlign(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxHeight(s As String)` _(public)_
 - `setMaxWidth(s As String)` _(public)_
 - `setMinHeight(s As String)` _(public)_
 - `setMinWidth(s As String)` _(public)_
-- `setContainer(b As Boolean)` _(public)_
-## Getters (38)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setPageView(b As Boolean)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `SetRCClasses(r As Int, c As Int, classNames As List)` _(public)_
+- `SetRCMargin(r As Int, c As Int, gma As String, gmt As String, gmb As String, gml As String, gmr As String, gmx As String, gmy As String)` _(public)_
+- `SetRCPadding(r As Int, c As Int, gpa As String, gpt As String, gpb As String, gpl As String, gpr As String, gpx As String, gpy As String)` _(public)_
+- `SetRCSizes(r As Int, c As Int, gxs As Int, gsm As Int, gmd As Int, glg As Int, gxl As Int)` _(public)_
+- `SetRCStyles(r As Int, c As Int, styleNames As Map)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `SetRowClasses(r As Int, classNames As List)` _(public)_
+- `SetRowStyles(r As Int, styleNames As Map)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
+- `setTextAlign(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (41)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBackgroundImage()` _(public)_
+- `getBorderColor()` _(public)_
+- `getBorderRadius()` _(public)_
+- `getBorderStyle()` _(public)_
+- `getBorderWidth()` _(public)_
+- `getCenterChildren()` _(public)_
+- `getClasses()` _(public)_
+- `getContainer()` _(public)_
+- `getContainerFluid()` _(public)_
+- `getContainerLg()` _(public)_
+- `getContainerMd()` _(public)_
+- `getContainerSm()` _(public)_
+- `getContainerXl()` _(public)_
+- `getContainerXxl()` _(public)_
+- `getEnabled()` _(public)_
+- `getGradient()` _(public)_
+- `getGradientActive()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getPageView()` As Boolean _(public)_
-- `getBackgroundImage()` As String _(public)_
-- `getCenterChildren()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getContainerFluid()` As Boolean _(public)_
-- `getContainerLg()` As Boolean _(public)_
-- `getContainerMd()` As Boolean _(public)_
-- `getContainerSm()` As Boolean _(public)_
-- `getContainerXl()` As Boolean _(public)_
-- `getContainerXxl()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getBorderColor()` As String _(public)_
-- `getBorderStyle()` As String _(public)_
-- `getBorderWidth()` As String _(public)_
-- `getBorderRadius()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getTextAlign()` As String _(public)_
-- `getMaxHeight()` As String _(public)_
-- `getMaxWidth()` As String _(public)_
-- `getMinHeight()` As String _(public)_
-- `getMinWidth()` As String _(public)_
-- `getContainer()` As Boolean _(public)_
-## Private Methods (2)
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxHeight()` _(public)_
+- `getMaxWidth()` _(public)_
+- `getMinHeight()` _(public)_
+- `getMinWidth()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getPageView()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextAlign()` _(public)_
+- `getTextColor()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (9)
+- `BuildColumnClass(col As GridColumn)` As String _(private)_
+- `BuildColumnStyle(col As GridColumn)` As String _(private)_
+- `BuildMarginPadding(sprefix As String, gma As String, gmx As String, gmy As String, gmt As String, gmb As String, gml As String, gmr As String)` As String _(private)_
+- `BuildOffsets(col As GridColumn)` As String _(private)_
 - `BuildRow(xRow As GridRow)` As String _(private)_
 - `BuildRowClass(xrow As GridRow)` As String _(private)_
+- `BuildRowStyle(col As GridRow)` As String _(private)_
+- `BuildSpans(col As GridColumn)` As String _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgTextArea.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTextArea.bas) (verified demo). `SDUI5Container1` = a SDUI5Container.
+Real syntax from [`pgAccordion.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAccordion.bas) (verified demo):
 
 ```b4j
-	SDUI5Container1.Initialize(Me, "SDUI5Container1", "SDUI5Container1")
-	SDUI5Container1.ParentID = app.PageView
-	SDUI5Container1.BackgroundColor = ""
-	SDUI5Container1.BackgroundImage = ""
-	SDUI5Container1.CenterChildren = False
-	SDUI5Container1.Container = True
-	SDUI5Container1.ContainerFluid = False
-	SDUI5Container1.ContainerLg = False
-	SDUI5Container1.ContainerMd = False
-	SDUI5Container1.ContainerSm = False
-	SDUI5Container1.ContainerXl = False
-	SDUI5Container1.ContainerXxl = False
-	SDUI5Container1.Enabled = True
-	SDUI5Container1.Height = ""
-	SDUI5Container1.MarginAXYTBLR = "a=?; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5Container1.MaxHeight = ""
-	SDUI5Container1.MaxWidth = ""
-	SDUI5Container1.MinHeight = ""
-	SDUI5Container1.MinWidth = ""
-	SDUI5Container1.PaddingAXYTBLR = "a=?; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5Container1.PageView = False
-	SDUI5Container1.Position = "t=?; b=?; r=?; l=?"
-	SDUI5Container1.PositionStyle = "none"
-	SDUI5Container1.Attributes = ""
-	SDUI5Container1.BorderColor = "a=?; t=?; r=?; b=?; l=?; tl=?; tr=?; bl=?; br=?; x=?; y=?"
-	SDUI5Container1.BorderRadius = "a=?; t=?; r=?; b=?; l=?; tl=?; tr=?; bl=?; br=?; x=?; y=?"
-	SDUI5Container1.BorderStyle = "a=?; t=?; r=?; b=?; l=?; tl=?; tr=?; bl=?; br=?; x=?; y=?"
-	SDUI5Container1.BorderWidth = "a=?; t=?; r=?; b=?; l=?; tl=?; tr=?; bl=?; br=?; x=?; y=?"
-	'   ... (see demo source for the rest)
+Private SDUI5Container1 As SDUI5Container		'ignore
+SDUI5Container1.Initialize(Me, "SDUI5Container1", "SDUI5Container1")
+SDUI5Container1.ParentID = app.PageView
+'SDUI5Container1.Gradient = ""
+'SDUI5Container1.GradientActive = False
+SDUI5Container1.Classes = "mx-auto"
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Also used in: `pgAccordion`, `pgAdvancedCheckGroup`, `pgAlert`, `pgAvatar`, `pgBadge`, `pgBankCard`, `pgBarCode`, `pgBarcodeReader`…
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `max-w-[100vw] px-6 pb-16 xl:pe-2 relative`, `container`, `container-fluid`, `container-lg`, `container-md`, `container-sm`, `container-xl`, `container-xxl`
 ## Code Example
@@ -394,5 +386,3 @@ BANano.Await(container.AddComponent)   ' DesignerCreateView runs internally
 ## Public Fields (1)
 Settable directly (no setter method — assign like a property):
 - `ShowGridDesign` As Boolean = False — outlines the container's grid cells in the designer preview.
-
-

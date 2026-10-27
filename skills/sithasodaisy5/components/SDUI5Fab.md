@@ -52,58 +52,62 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub fab_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
+- `Clear()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
-## Key Setters (19)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (20)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setColor(s As String)` _(public)_
+- `setDropdownPlacement(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setIconSize(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
-- `setColor(s As String)` As 'ignoredeadcode _(public)_
-- `setDropdownPlacement(s As String)` As 'ignoredeadcode _(public)_
-- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setOffIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setOffTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setOnIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setOnTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setToastPlacement(s As String)` As 'ignoredeadcode _(public)_
-## Getters (21)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setOffIcon(s As String)` _(public)_
+- `setOffTextColor(s As String)` _(public)_
+- `setOnIcon(s As String)` _(public)_
+- `setOnTextColor(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setToastPlacement(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (22)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getDropdownPlacement()` _(public)_
+- `getEnabled()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getDropdownPlacement()` As String _(public)_
-- `getIconSize()` As String _(public)_
-- `getOffIcon()` As String _(public)_
-- `getOffTextColor()` As String _(public)_
-- `getOnIcon()` As String _(public)_
-- `getOnTextColor()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getToastPlacement()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getIconSize()` _(public)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOffIcon()` _(public)_
+- `getOffTextColor()` _(public)_
+- `getOnIcon()` _(public)_
+- `getOnTextColor()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getToastPlacement()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -118,5 +122,3 @@ BANano.Await(fab.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

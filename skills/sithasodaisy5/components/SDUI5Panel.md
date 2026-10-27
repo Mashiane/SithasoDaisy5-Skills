@@ -101,154 +101,154 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub panel_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (6)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `GetAttr(attr As String)` As String _(public)_
-- `SetAttr(k As String, v As String)` _(public)_
-- `Clear()` _(public)_
 - `Append(s As String)` _(public)_
-## Key Setters (59)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setBorderColor(s As String)` _(public)_
-- `setBorderStyle(s As String)` _(public)_
-- `setBorderWidth(s As String)` _(public)_
-- `setBorderRadius(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setBackgroundImage(s As String)` _(public)_
-- `setLGGap(s As String)` _(public)_
-- `setMDGap(s As String)` _(public)_
-- `setSMGap(s As String)` _(public)_
-- `setXLGap(s As String)` _(public)_
-- `setGapX(s As String)` _(public)_
-- `setGapY(s As String)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (61)
 - `setAlignContent(s As String)` _(public)_
 - `setAlignItems(s As String)` _(public)_
 - `setAlignSelf(s As String)` _(public)_
-- `setJustifyContent(s As String)` _(public)_
-- `setJustifyItems(s As String)` _(public)_
-- `setJustifySelf(s As String)` _(public)_
-- `setPlaceContent(s As String)` _(public)_
-- `setPlaceItems(s As String)` _(public)_
-- `setPlaceSelf(s As String)` _(public)_
-- `setCenterChildren(b As Boolean)` _(public)_
+- `SetAttr(k As String, v As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setBackgroundImage(s As String)` _(public)_
+- `setBorderColor(s As String)` _(public)_
+- `setBorderRadius(s As String)` _(public)_
+- `setBorderStyle(s As String)` _(public)_
+- `setBorderWidth(s As String)` _(public)_
+- `setCenterChildren(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setColSpan(s As String)` _(public)_
 - `setColSpanLg(s As String)` _(public)_
 - `setColSpanMd(s As String)` _(public)_
 - `setColSpanSm(s As String)` _(public)_
 - `setColSpanXl(s As String)` _(public)_
 - `setColSpanXs(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFlex(s As String)` _(public)_
 - `setFlexBasis(s As String)` _(public)_
+- `setFlexbox(b As Boolean)` _(public)_
 - `setFlexDirection(s As String)` _(public)_
 - `setFlexGrow(s As String)` _(public)_
 - `setFlexShrink(s As String)` _(public)_
 - `setFlexWrap(s As String)` _(public)_
-- `setFlexbox(b As Boolean)` _(public)_
 - `setGap(s As String)` _(public)_
+- `setGapX(s As String)` _(public)_
+- `setGapY(s As String)` _(public)_
 - `setGrid(b As Boolean)` _(public)_
 - `setGridCols(s As String)` _(public)_
 - `setGridFlow(s As String)` _(public)_
 - `setGridRows(s As String)` _(public)_
 - `setHeight(s As String)` _(public)_
+- `setJustifyContent(s As String)` _(public)_
+- `setJustifyItems(s As String)` _(public)_
+- `setJustifySelf(s As String)` _(public)_
+- `setLGGap(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMDGap(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPlaceContent(s As String)` _(public)_
+- `setPlaceItems(s As String)` _(public)_
+- `setPlaceSelf(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setRowSpan(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
+- `setSMGap(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
 - `setTextAlign(s As String)` _(public)_
-## Getters (61)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setXLGap(s As String)` _(public)_
+
+## Getters (63)
+- `getAlignContent()` _(public)_
+- `getAlignItems()` _(public)_
+- `getAlignSelf()` _(public)_
+- `GetAttr(attr As String)` As String _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBackgroundImage()` _(public)_
+- `getBorderColor()` _(public)_
+- `getBorderRadius()` _(public)_
+- `getBorderStyle()` _(public)_
+- `getBorderWidth()` _(public)_
+- `getCenterChildren()` _(public)_
+- `getClasses()` _(public)_
+- `getColSpan()` _(public)_
+- `getColSpanLg()` _(public)_
+- `getColSpanMd()` _(public)_
+- `getColSpanSm()` _(public)_
+- `getColSpanXl()` _(public)_
+- `getColSpanXs()` _(public)_
+- `getEnabled()` _(public)_
+- `getFlex()` _(public)_
+- `getFlexBasis()` _(public)_
+- `getFlexbox()` _(public)_
+- `getFlexDirection()` _(public)_
+- `getFlexGrow()` _(public)_
+- `getFlexShrink()` _(public)_
+- `getFlexWrap()` _(public)_
+- `getGap()` _(public)_
+- `getGapX()` _(public)_
+- `getGapY()` _(public)_
+- `getGrid()` _(public)_
+- `getGridCols()` _(public)_
+- `getGridFlow()` _(public)_
+- `getGridRows()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getBorderColor()` As String _(public)_
-- `getBorderStyle()` As String _(public)_
-- `getBorderWidth()` As String _(public)_
-- `getBorderRadius()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getBackgroundImage()` As String _(public)_
-- `getLGGap()` As String _(public)_
-- `getMDGap()` As String _(public)_
-- `getSMGap()` As String _(public)_
-- `getXLGap()` As String _(public)_
-- `getGapX()` As String _(public)_
-- `getGapY()` As String _(public)_
-- `getAlignContent()` As String _(public)_
-- `getAlignItems()` As String _(public)_
-- `getAlignSelf()` As String _(public)_
-- `getJustifyContent()` As String _(public)_
-- `getJustifyItems()` As String _(public)_
-- `getJustifySelf()` As String _(public)_
-- `getPlaceContent()` As String _(public)_
-- `getPlaceItems()` As String _(public)_
-- `getPlaceSelf()` As String _(public)_
-- `getCenterChildren()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getColSpan()` As String _(public)_
-- `getColSpanLg()` As String _(public)_
-- `getColSpanMd()` As String _(public)_
-- `getColSpanSm()` As String _(public)_
-- `getColSpanXl()` As String _(public)_
-- `getColSpanXs()` As String _(public)_
-- `getFlex()` As String _(public)_
-- `getFlexBasis()` As String _(public)_
-- `getFlexDirection()` As String _(public)_
-- `getFlexGrow()` As String _(public)_
-- `getFlexShrink()` As String _(public)_
-- `getFlexWrap()` As String _(public)_
-- `getFlexbox()` As Boolean _(public)_
-- `getGap()` As String _(public)_
-- `getGrid()` As Boolean _(public)_
-- `getGridCols()` As String _(public)_
-- `getGridFlow()` As String _(public)_
-- `getGridRows()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getRowSpan()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getTextAlign()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getJustifyContent()` _(public)_
+- `getJustifyItems()` _(public)_
+- `getJustifySelf()` _(public)_
+- `getLGGap()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMDGap()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPlaceContent()` _(public)_
+- `getPlaceItems()` _(public)_
+- `getPlaceSelf()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getRowSpan()` _(public)_
+- `getShadow()` _(public)_
+- `getSMGap()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextAlign()` _(public)_
+- `getTextColor()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getXLGap()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pggridbuilder.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pggridbuilder.bas) (verified demo). `gridPreview` = a SDUI5Panel.
+Real syntax from [`pgBrowser.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBrowser.bas) (verified demo):
 
 ```b4j
-	gridPreview.Initialize(Me, "gridPreview", "gridPreview")
-	gridPreview.ParentID = "SDUI5Panel1"
-	gridPreview.Grid = True
-	gridPreview.Classes = "relative text-center font-mono text-white leading-6"
-	BANano.Await(gridPreview.AddComponent)
+Private SDUI5Panel1 As SDUI5Panel		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Also used in: `pgBrowser`, `pgDivider`, `pgIndex`, `pgIndicator`, `pgPhone`, `pgSkeleton`, `pgStack`, `pgWindow`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `grow`, `shrink`, `flex`, `grid`, `rounded-box`
 ## Code Example
@@ -263,5 +263,3 @@ BANano.Await(panel.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

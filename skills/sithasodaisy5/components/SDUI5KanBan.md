@@ -55,62 +55,66 @@ Where a designer key and method name differ, the method names shown are the sour
 
 Wire in parent: `Sub kanban_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (8)
-- `Initialize(CallBack As Object, cName As String, EventName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` _(public)_
 - `AddBoard(id As String, title As String, className As String, props As Map)` _(public)_
 - `AddBoardItem(boardid As String, id As String, title As String, className As String, props As Map)` _(public)_
-- `Refresh()` _(public)_
-- `LoadComponentJson(designName As String)` _(public)_
 - `AddComponent()` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(CallBack As Object, cName As String, EventName As String)` _(public)_
+- `LoadComponentJson(designName As String)` _(public)_
+- `Refresh()` _(public)_
+
 ## Key Setters (21)
-- `setVisible(b As Boolean)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setDragBoards(b As Boolean)` _(public)_
+- `setDragItems(b As Boolean)` _(public)_
+- `setGutter(s As String)` _(public)_
+- `setItemAddOptionsClass(s As String)` _(public)_
+- `setItemAddOptionsContent(s As String)` _(public)_
+- `setItemAddOptionsEnabled(b As Boolean)` _(public)_
+- `setItemAddOptionsFooter(b As Boolean)` _(public)_
+- `setItemHandleOptionsCustomCssHandler(s As String)` _(public)_
+- `setItemHandleOptionsCustomCssIconHandler(s As String)` _(public)_
+- `setItemHandleOptionsCustomHandler(s As String)` _(public)_
+- `setItemHandleOptionsEnabled(b As Boolean)` _(public)_
+- `setItemHandleOptionsHandleClass(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
-- `setItemAddOptionsClass(s As String)` As 'ignoredeadcode _(public)_
-- `setItemAddOptionsContent(s As String)` As 'ignoredeadcode _(public)_
-- `setItemAddOptionsFooter(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setItemHandleOptionsCustomCssIconHandler(s As String)` As 'ignoredeadcode _(public)_
-- `setItemHandleOptionsCustomHandler(s As String)` As 'ignoredeadcode _(public)_
-- `setItemHandleOptionsCustomCssHandler(s As String)` As 'ignoredeadcode _(public)_
-- `setItemHandleOptionsHandleClass(s As String)` As 'ignoredeadcode _(public)_
-- `setResponsivePercentage(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setDragBoards(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setDragItems(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setGutter(s As String)` As 'ignoredeadcode _(public)_
-- `setItemAddOptionsEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setItemHandleOptionsEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setWidthBoard(s As String)` As 'ignoredeadcode _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
 - `setParentID(s As String)` _(public)_
+- `setResponsivePercentage(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidthBoard(s As String)` _(public)_
+
 ## Getters (23)
-- `getVisible()` As Boolean _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getID()` As String _(public)_
-- `getHere()` As String _(public)_
-- `getParentID()` As String _(public)_
-- `getDragBoards()` As Boolean _(public)_
-- `getDragItems()` As Boolean _(public)_
-- `getGutter()` As String _(public)_
-- `getWidthBoard()` As String _(public)_
-- `getResponsivePercentage()` As Boolean _(public)_
-- `getItemAddOptionsEnabled()` As Boolean _(public)_
-- `getItemAddOptionsClass()` As String _(public)_
-- `getItemAddOptionsContent()` As String _(public)_
-- `getItemAddOptionsFooter()` As Boolean _(public)_
-- `getItemHandleOptionsEnabled()` As Boolean _(public)_
-- `getItemHandleOptionsCustomCssIconHandler()` As String _(public)_
-- `getItemHandleOptionsCustomHandler()` As String _(public)_
-- `getItemHandleOptionsCustomCssHandler()` As String _(public)_
-- `getItemHandleOptionsHandleClass()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getDragBoards()` _(public)_
+- `getDragItems()` _(public)_
+- `getGutter()` _(public)_
+- `getHere()` _(public)_
+- `getID()` _(public)_
+- `getItemAddOptionsClass()` _(public)_
+- `getItemAddOptionsContent()` _(public)_
+- `getItemAddOptionsEnabled()` _(public)_
+- `getItemAddOptionsFooter()` _(public)_
+- `getItemHandleOptionsCustomCssHandler()` _(public)_
+- `getItemHandleOptionsCustomCssIconHandler()` _(public)_
+- `getItemHandleOptionsCustomHandler()` _(public)_
+- `getItemHandleOptionsEnabled()` _(public)_
+- `getItemHandleOptionsHandleClass()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getResponsivePercentage()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getWidthBoard()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -125,5 +129,3 @@ BANano.Await(kanban.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -65,32 +65,22 @@ Where a designer key and method name differ, the method names shown are the sour
 `Valid`
 
 Wire in parent: `Sub barcode_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Refresh()` As 'ignoredeadcode _(public)_
-- `toBlob()` As Object _(public)_
-- `ToDataURL()` As String _(public)_
-## Key Setters (31)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Refresh()` _(public)_
+- `Remove()` _(public)_
+- `toBlob()` _(public)_
+- `ToDataURL()` _(public)_
+
+## Key Setters (32)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setText(s As String)` _(public)_
-- `setValue(text As String)` _(public)_
 - `setBackground(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setDisplayValue(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFlat(b As Boolean)` _(public)_
 - `setFont(s As String)` _(public)_
 - `setFontBold(b As Boolean)` _(public)_
@@ -100,62 +90,73 @@ Wire in parent: `Sub barcode_<eventname>(e As BANanoEvent)` — the handler name
 - `setHeight(i As Int)` _(public)_
 - `setLineColor(s As String)` _(public)_
 - `setMargin(i As Int)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMarginBottom(i As Int)` _(public)_
 - `setMarginLeft(i As Int)` _(public)_
 - `setMarginRight(i As Int)` _(public)_
 - `setMarginTop(i As Int)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(s As String)` _(public)_
 - `setTextAlign(s As String)` _(public)_
 - `setTextMargin(i As Int)` _(public)_
 - `setTextPosition(s As String)` _(public)_
+- `setValue(text As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(i As Int)` _(public)_
-## Getters (33)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (34)
+- `getAttributes()` _(public)_
+- `getBackground()` _(public)_
+- `getClasses()` _(public)_
+- `getDisplayValue()` _(public)_
+- `getEnabled()` _(public)_
+- `getFlat()` _(public)_
+- `getFont()` _(public)_
+- `getFontBold()` _(public)_
+- `getFontItalic()` _(public)_
+- `getFontSize()` _(public)_
+- `getFormat()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getValue()` As String _(public)_
-- `getBackground()` As String _(public)_
-- `getDisplayValue()` As Boolean _(public)_
-- `getFlat()` As Boolean _(public)_
-- `getFont()` As String _(public)_
-- `getFontBold()` As Boolean _(public)_
-- `getFontItalic()` As Boolean _(public)_
-- `getFontSize()` As Int _(public)_
-- `getFormat()` As String _(public)_
-- `getHeight()` As Int _(public)_
-- `getLineColor()` As String _(public)_
-- `getMargin()` As Int _(public)_
-- `getMarginBottom()` As Int _(public)_
-- `getMarginLeft()` As Int _(public)_
-- `getMarginRight()` As Int _(public)_
-- `getMarginTop()` As Int _(public)_
-- `getTextAlign()` As String _(public)_
-- `getTextMargin()` As Int _(public)_
-- `getTextPosition()` As String _(public)_
-- `getWidth()` As Int _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getLineColor()` _(public)_
+- `getMargin()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMarginBottom()` _(public)_
+- `getMarginLeft()` _(public)_
+- `getMarginRight()` _(public)_
+- `getMarginTop()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextAlign()` _(public)_
+- `getTextMargin()` _(public)_
+- `getTextPosition()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgBarCode.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBarCode.bas) (verified demo). `SDUI5BarCode2` = a SDUI5BarCode.
+Real syntax from [`pgBarCode.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBarCode.bas) (verified demo):
 
 ```b4j
-	SDUI5BarCode2.Initialize(Me, "SDUI5BarCode2", "SDUI5BarCode2")
-	SDUI5BarCode2.ParentID = "SDUI5Column2"
-	SDUI5BarCode2.Format = "CODE128A"
-	SDUI5BarCode2.Text = "Code 128A"
-	SDUI5BarCode2.Width = 3
-	BANano.Await(SDUI5BarCode2.AddComponent)
+Private SDUI5BarCode1 As SDUI5BarCode		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -170,5 +171,3 @@ BANano.Await(barcode.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -42,7 +42,7 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `Text` | String | Text | — | `setText` | `getText` |
 | `RawHTML` | String | — | — | `setHTML` | `getHTML` |
 | `NoText` | Boolean | False | — | `setNoText` | `getNoText` |
-| `LoremIpsum` | Boolean | False | — | — | — |
+| `LoremIpsum` | Boolean | False | — | `setLoremIpsum` | `getLoremIpsum` |
 | `Opacity` | Int | 100, MinRange: 0, MaxRange: 100 | — | `setOpacity` | `getOpacity` |
 | `ListCol` | String | none | grow, none, wrap | `setListCol` | `getListCol` |
 | `FontVariant` | String | none | diagonal-fractions, lining-nums, none, normal-nums, oldstyle-nums, ordinal, proportional-nums, slashed-zero, stacked-fractions, tabular-nums | `setFontVariant` | `getFontVariant` |
@@ -57,8 +57,8 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `TextColor` | String | — | — | `setTextColor` | `getTextColor` |
 | `TextSize` | String | none | 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl, base, lg, md, none, sm, xl, xs | `setTextSize` | `getTextSize` |
 | `Transform` | String | none | capitalize, lowercase, none, normal-case, uppercase | `setTransform` | `getTransform` |
-| `Rounded` | String | none | none, rounded, 2xl, 3xl, full, lg, md, sm, xl, 0 | — | — |
-| `Shadow` | String | none | 2xl, inner, lg, md, none, shadow, sm, xl | — | — |
+| `Rounded` | String | none | none, rounded, 2xl, 3xl, full, lg, md, sm, xl, 0 | `setRounded` | `getRounded` |
+| `Shadow` | String | none | 2xl, inner, lg, md, none, shadow, sm, xl | `setShadow` | `getShadow` |
 | `BackgroundColor` | String | — | — | `setBackgroundColor` | `getBackgroundColor` |
 | `BackgroundImage` | String | — | — | `setBackgroundImage` | `getBackgroundImage` |
 | `CenterChildren` | Boolean | False | — | `setCenterChildren` | `getCenterChildren` |
@@ -88,134 +88,137 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`, `MouseMove`, `MouseOver`, `MouseOut`, `MouseUp`, `MouseDown`
 
 Wire in parent: `Sub text_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (15)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, MethodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` _(public)_
-- `Append(s As String)` _(public)_
-- `AddClass(className As String)` _(public)_
-- `RemoveClass(className As String)` _(public)_
+## Public Methods (12)
 - `AddAttr(k As String, v As String)` _(public)_
-- `SetStyle(k As String, v As String)` _(public)_
-- `Empty()` _(public)_
+- `AddClass(className As String)` _(public)_
+- `AddComponent()` _(public)_
 - `AddStyle(k As String, v As String)` _(public)_
-## Key Setters (45)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setNoText(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setText(text As String)` As 'ignoredeadcode _(public)_
-- `setHTML(s As String)` As 'ignoredeadcode _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setBackgroundImage(s As String)` _(public)_
+- `Append(s As String)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Empty()` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, MethodName As String)` _(public)_
+- `Remove()` _(public)_
+- `RemoveClass(className As String)` _(public)_
+
+## Key Setters (50)
 - `setAlignContent(s As String)` _(public)_
 - `setAlignItems(s As String)` _(public)_
 - `setAlignSelf(s As String)` _(public)_
+- `setApplyDefaults(b As Boolean)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBackgroundImage(s As String)` _(public)_
+- `setCenterChildren(b As Boolean)` _(public)_
+- `setChecked(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setDecoration(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setFontVariant(s As String)` _(public)_
+- `setFontWeight(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setHTML(s As String)` _(public)_
+- `setIcon(s As String)` _(public)_
+- `setIconSize(s As String)` _(public)_
+- `setItalic(b As Boolean)` _(public)_
 - `setJustifyContent(s As String)` _(public)_
 - `setJustifyItems(s As String)` _(public)_
 - `setJustifySelf(s As String)` _(public)_
+- `setListCol(s As String)` _(public)_
+- `setLoremIpsum(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setNoText(b As Boolean)` _(public)_
+- `setOpacity(i As Int)` _(public)_
+- `setOverflow(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
 - `setPlaceContent(s As String)` _(public)_
 - `setPlaceItems(s As String)` _(public)_
 - `setPlaceSelf(s As String)` _(public)_
-- `setCenterChildren(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setFontVariant(s As String)` As 'ignoredeadcode _(public)_
-- `setListCol(s As String)` _(public)_
-- `setOpacity(i As Int)` As 'ignoredeadcode _(public)_
-- `setApplyDefaults(b As Boolean)` _(public)_
-- `setDecoration(s As String)` As 'ignoredeadcode _(public)_
-- `setFontWeight(s As String)` As 'ignoredeadcode _(public)_
-- `setItalic(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setOverflow(s As String)` As 'ignoredeadcode _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `SetStyle(k As String, v As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
 - `setTextAlign(s As String)` _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTextSize(s As String)` As 'ignoredeadcode _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setTextSize(s As String)` _(public)_
 - `setTextTag(s As String)` _(public)_
-- `setTransform(s As String)` As 'ignoredeadcode _(public)_
-- `setWordBreak(s As String)` As 'ignoredeadcode _(public)_
-- `setIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
+- `setTransform(s As String)` _(public)_
 - `setValue(v As Object)` _(public)_
-- `setChecked(b As Boolean)` _(public)_
-## Getters (47)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setWordBreak(s As String)` _(public)_
+
+## Getters (51)
+- `getAlignContent()` _(public)_
+- `getAlignItems()` _(public)_
+- `getAlignSelf()` _(public)_
+- `getApplyDefaults()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBackgroundImage()` _(public)_
+- `getCenterChildren()` _(public)_
+- `getChecked()` _(public)_
+- `getClasses()` _(public)_
+- `getDecoration()` _(public)_
+- `getEnabled()` _(public)_
+- `getFontVariant()` _(public)_
+- `getFontWeight()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getNoText()` As Boolean _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getHTML()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBackgroundImage()` As String _(public)_
-- `getAlignContent()` As String _(public)_
-- `getAlignItems()` As String _(public)_
-- `getAlignSelf()` As String _(public)_
-- `getJustifyContent()` As String _(public)_
-- `getJustifyItems()` As String _(public)_
-- `getJustifySelf()` As String _(public)_
-- `getPlaceContent()` As String _(public)_
-- `getPlaceItems()` As String _(public)_
-- `getPlaceSelf()` As String _(public)_
-- `getCenterChildren()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getFontVariant()` As String _(public)_
-- `getListCol()` As String _(public)_
-- `getOpacity()` As Int _(public)_
-- `getApplyDefaults()` As Boolean _(public)_
-- `getDecoration()` As String _(public)_
-- `getFontWeight()` As String _(public)_
-- `getItalic()` As Boolean _(public)_
-- `getOverflow()` As String _(public)_
-- `getTextAlign()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getTextSize()` As String _(public)_
-- `getTextTag()` As String _(public)_
-- `getTransform()` As String _(public)_
-- `getWordBreak()` As String _(public)_
-- `getIcon()` As String _(public)_
-- `getIconSize()` As String _(public)_
-- `getValue()` As Object _(public)_
-- `getChecked()` As Boolean _(public)_
+- `getHTML()` _(public)_
+- `getIcon()` _(public)_
+- `getIconSize()` _(public)_
+- `getID()` As String _(public)_
+- `getItalic()` _(public)_
+- `getJustifyContent()` _(public)_
+- `getJustifyItems()` _(public)_
+- `getJustifySelf()` _(public)_
+- `getListCol()` _(public)_
+- `getLoremIpsum()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getNoText()` _(public)_
+- `getOpacity()` _(public)_
+- `getOverflow()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPlaceContent()` _(public)_
+- `getPlaceItems()` _(public)_
+- `getPlaceSelf()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextAlign()` _(public)_
+- `getTextColor()` _(public)_
+- `getTextSize()` _(public)_
+- `getTextTag()` _(public)_
+- `getTransform()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getWordBreak()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgBreadCrumbs.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBreadCrumbs.bas) (verified demo). `SDUI5Text2` = a SDUI5Text.
+Real syntax from [`pgTextrotate.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTextrotate.bas) (verified demo):
 
 ```b4j
-	SDUI5Text2.Initialize(Me, "SDUI5Text2", "SDUI5Text2")
-	SDUI5Text2.ParentID = "bc2_content"
-	SDUI5Text2.ApplyDefaults = False
-	SDUI5Text2.Icon = "./assets/folderblue.svg"
-	SDUI5Text2.IconSize = "24px"
-	SDUI5Text2.Text = "Add Document"
-	SDUI5Text2.TextTag = "li"
-	BANano.Await(SDUI5Text2.AddComponent)
+Private SDUI5Label1 As SDUI5Text		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Also used in: `pgHero`, `pgIndex`, `pgLIst`, `pgSwiper`, `pgTypography`, `pgWizard`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -230,5 +233,3 @@ BANano.Await(text.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -68,192 +68,196 @@ Where a designer key and method name differ, the method names shown are the sour
 `Back`, `ChatClick`, `Attachments_ItemClick`, `EmojiSelect`, `EmojiClickOutside`, `CancelReply`, `Reply`, `Search`, `ClearSearch`, `Send`, `FileChange`, `RefreshChats`
 
 Wire in parent: `Sub whatsapp_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (59)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `TriggerAttach()` _(public)_
-- `SetOnline()` As 'ignoredeadcode _(public)_
-- `SetOffline()` As 'ignoredeadcode _(public)_
-- `SetTextPlaceholder(s As String)` _(public)_
-- `EnableEmoji(b As Boolean)` As 'ignoredeadcode _(public)_
-- `EnableAttach(b As Boolean)` As 'ignoredeadcode _(public)_
-- `EnableSend(b As Boolean)` As 'ignoredeadcode _(public)_
-- `EnableVoice(b As Boolean)` As 'ignoredeadcode _(public)_
-- `GetFile()` As Map _(public)_
-- `GetFileDataURL()` As String _(public)_
-- `GetSearchValue()` As String _(public)_
-- `SetSearchPlaceholder(s As String)` _(public)_
-- `SetSearchValue(s As String)` _(public)_
-- `MessageFocus()` _(public)_
-- `PrepareEmojis()` As 'ignoredeadcode _(public)_
-- `ShowSend()` _(public)_
-- `HideSend()` As 'ignoredeadcode _(public)_
-- `ShowCancelReply()` _(public)_
-- `HideCancelReply()` As 'ignoredeadcode _(public)_
-- `AppendEmoji(emoji As Map)` As 'ignoredeadcode _(public)_
-- `ClearChats()` _(public)_
-- `ClearConversations()` _(public)_
-- `IsMessageBlank()` As Boolean _(public)_
-- `AddChatList(lst As List)` _(public)_
+## Public Methods (45)
 - `AddChat(chatID As String, chatAvatar As String, chatName As String, chatDelivery As String, cMessage As String, chatUnread As String, chatUser As String)` _(public)_
+- `AddChatList(lst As List)` _(public)_
+- `AddComponent()` _(public)_
 - `AddEditChat(chatID As String, chatAvatar As String, chatName As String, chatDelivery As String, cMessage As String, chatUnread As String, chatUser As String, bMoveUp As Boolean)` _(public)_
-- `SetUnread(chatID As String, chatUnread As String)` _(public)_
-- `SetLastMessage(chatID As String, chatMessage As String, chatDelivery As String)` _(public)_
-- `RemoveChat(chatID As String)` _(public)_
-- `MoveDown(chatID As String)` _(public)_
-- `MoveUp(chatID As String)` _(public)_
+- `AddEditConversation(cID As String, cIncoming As Boolean, cType As String, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cReplyMessage As String, cReplyID As String, cFooter As String, cReAction As String)` _(public)_
+- `AddEditTextMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cReplyMessage As String, cReplyID As String, cReAction As String)` _(public)_
+- `AddImageMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
 - `AddMessage(cID As String, cIncoming As Boolean, cType As String, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReAction As String)` _(public)_
+- `AddPDFMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
 - `AddTextMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
 - `AddVideoMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
-- `AddPDFMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
-- `AddImageMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileSize As String, cQuotedMessage As String, cQuotedID As String, cFooter As String, cReaction As String)` _(public)_
-- `RefreshConversations()` _(public)_
-- `AddEditTextMessage(cID As String, cIncoming As Boolean, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cReplyMessage As String, cReplyID As String, cReAction As String)` _(public)_
-- `AddEditConversation(cID As String, cIncoming As Boolean, cType As String, cSenderImage As String, cSenderName As String, cSenderTime As String, cMessage As String, cFileName As String, cFileURL As String, cFileMimeType As String, cFilePreview As String, cFileSize As String, cReplyMessage As String, cReplyID As String, cFooter As String, cReAction As String)` _(public)_
-- `RefreshChats()` _(public)_
+- `AppendEmoji(emoji As Map)` _(public)_
+- `ClearChats()` _(public)_
+- `ClearConversations()` _(public)_
 - `ClearRightHeader()` _(public)_
-- `SetRightHelpAvatar(s As String)` _(public)_
-- `SetRightHelpAvatarVisible(b As Boolean)` _(public)_
-- `ScrollToLastMessage()` _(public)_
-- `ScrollMessageIntoView(cID As String)` _(public)_
-- `MessageSent()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `EnableAttach(b As Boolean)` _(public)_
+- `EnableEmoji(b As Boolean)` _(public)_
+- `EnableSend(b As Boolean)` _(public)_
+- `EnableVoice(b As Boolean)` _(public)_
 - `FileChooserAudio()` _(public)_
+- `FileChooserImage()` _(public)_
+- `FileChooserPDF()` _(public)_
+- `FileChooserVideo()` _(public)_
+- `HideCancelReply()` _(public)_
+- `HideSend()` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsMessageBlank()` _(public)_
+- `MessageFocus()` _(public)_
+- `MessageSent()` _(public)_
+- `MoveDown(chatID As String)` _(public)_
+- `MoveUp(chatID As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `PrepareEmojis()` _(public)_
 - `PrepareForEmoji()` _(public)_
 - `PrepareForURL()` _(public)_
-- `FileChooserPDF()` _(public)_
-- `FileChooserImage()` _(public)_
-- `FileChooserVideo()` _(public)_
-## Key Setters (41)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setOnlineVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setOnlineColor(sColor As String)` As 'ignoredeadcode _(public)_
-- `setSideBackVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAllowAttachments(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setCamera(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setEmojis(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setVoice(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setButtonSize(s As String)` As 'ignoredeadcode _(public)_
-- `setMessage(s As String)` As 'ignoredeadcode _(public)_
-- `setRightAvatar(s As String)` As 'ignoredeadcode _(public)_
-- `setRightAvatarVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setRightHeaderVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setRightName(s As String)` As 'ignoredeadcode _(public)_
-- `setRightStatus(s As String)` As 'ignoredeadcode _(public)_
-- `setSideAvatar(s As String)` As 'ignoredeadcode _(public)_
-- `setSideAvatarVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setSideHeaderVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setSideSearchVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setSideVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setLastMsgID(s As String)` _(public)_
-- `setLastUser(s As String)` _(public)_
-- `setActiveImage(s As String)` _(public)_
+- `RefreshChats()` _(public)_
+- `RefreshConversations()` _(public)_
+- `Remove()` _(public)_
+- `RemoveChat(chatID As String)` _(public)_
+- `ScrollMessageIntoView(cID As String)` _(public)_
+- `ScrollToLastMessage()` _(public)_
+- `ShowCancelReply()` _(public)_
+- `ShowSend()` _(public)_
+- `TriggerAttach()` _(public)_
+
+## Key Setters (51)
 - `setActiveChatID(s As String)` _(public)_
 - `setActiveChatName(s As String)` _(public)_
+- `setActiveImage(s As String)` _(public)_
+- `setAllowAttachments(b As Boolean)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setButtonSize(s As String)` _(public)_
+- `setCamera(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEmojis(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFontSize(s As String)` _(public)_
 - `setImageShape(s As String)` _(public)_
 - `setImageSize(s As String)` _(public)_
 - `setIncomingBackgroundColor(s As String)` _(public)_
 - `setIncomingTextColor(s As String)` _(public)_
+- `SetLastMessage(chatID As String, chatMessage As String, chatDelivery As String)` _(public)_
+- `setLastMsgID(s As String)` _(public)_
+- `setLastUser(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMessage(s As String)` _(public)_
+- `SetOffline()` _(public)_
+- `SetOnline()` _(public)_
+- `setOnlineColor(sColor As String)` _(public)_
+- `setOnlineVisible(b As Boolean)` _(public)_
 - `setOutgoingBackgroundColor(s As String)` _(public)_
 - `setOutgoingTextColor(s As String)` _(public)_
-## Getters (43)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRightAvatar(s As String)` _(public)_
+- `setRightAvatarVisible(b As Boolean)` _(public)_
+- `setRightHeaderVisible(b As Boolean)` _(public)_
+- `SetRightHelpAvatar(s As String)` _(public)_
+- `SetRightHelpAvatarVisible(b As Boolean)` _(public)_
+- `setRightName(s As String)` _(public)_
+- `setRightStatus(s As String)` _(public)_
+- `SetSearchPlaceholder(s As String)` _(public)_
+- `SetSearchValue(s As String)` _(public)_
+- `setSideAvatar(s As String)` _(public)_
+- `setSideAvatarVisible(b As Boolean)` _(public)_
+- `setSideBackVisible(b As Boolean)` _(public)_
+- `setSideHeaderVisible(b As Boolean)` _(public)_
+- `setSideSearchVisible(b As Boolean)` _(public)_
+- `setSideVisible(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `SetTextPlaceholder(s As String)` _(public)_
+- `SetUnread(chatID As String, chatUnread As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setVoice(b As Boolean)` _(public)_
+
+## Getters (47)
+- `getActiveChatID()` _(public)_
+- `getActiveChatName()` _(public)_
+- `getActiveImage()` _(public)_
+- `getAllowAttachments()` _(public)_
+- `getAttributes()` _(public)_
+- `getButtonSize()` _(public)_
+- `getCamera()` _(public)_
+- `getClasses()` _(public)_
+- `getEmojis()` _(public)_
+- `getEnabled()` _(public)_
+- `GetFile()` _(public)_
+- `GetFileDataURL()` _(public)_
+- `getFontSize()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getOnlineVisible()` As Boolean			'ignoredeadcode _(public)_
-- `getOnlineColor()` As String				'ignoredeadcode _(public)_
-- `getSideBackVisible()` As Boolean _(public)_
-- `getAllowAttachments()` As Boolean _(public)_
-- `getCamera()` As Boolean _(public)_
-- `getEmojis()` As Boolean _(public)_
-- `getVoice()` As Boolean _(public)_
-- `getButtonSize()` As String _(public)_
-- `getMessage()` As String _(public)_
-- `getRightAvatar()` As String _(public)_
-- `getRightAvatarVisible()` As Boolean _(public)_
-- `getRightHeaderVisible()` As Boolean _(public)_
-- `getRightName()` As String _(public)_
-- `getRightStatus()` As String _(public)_
-- `getSideAvatar()` As String _(public)_
-- `getSideAvatarVisible()` As Boolean _(public)_
-- `getSideHeaderVisible()` As Boolean _(public)_
-- `getSideSearchVisible()` As Boolean _(public)_
-- `getSideVisible()` As Boolean _(public)_
-- `getLastMsgID()` As String _(public)_
-- `getLastUser()` As String _(public)_
-- `getActiveImage()` As String _(public)_
-- `getActiveChatID()` As String _(public)_
-- `getActiveChatName()` As String _(public)_
-- `getFontSize()` As String _(public)_
-- `getImageShape()` As String _(public)_
-- `getImageSize()` As String _(public)_
-- `getIncomingBackgroundColor()` As String _(public)_
-- `getIncomingTextColor()` As String _(public)_
-- `getOutgoingBackgroundColor()` As String _(public)_
-- `getOutgoingTextColor()` As String _(public)_
-## Private Methods (1)
+- `getID()` As String _(public)_
+- `getImageShape()` _(public)_
+- `getImageSize()` _(public)_
+- `getIncomingBackgroundColor()` _(public)_
+- `getIncomingTextColor()` _(public)_
+- `getLastMsgID()` _(public)_
+- `getLastUser()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMessage()` _(public)_
+- `getOnlineColor()` _(public)_
+- `getOnlineVisible()` _(public)_
+- `getOutgoingBackgroundColor()` _(public)_
+- `getOutgoingTextColor()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRightAvatar()` _(public)_
+- `getRightAvatarVisible()` _(public)_
+- `getRightHeaderVisible()` _(public)_
+- `getRightName()` _(public)_
+- `getRightStatus()` _(public)_
+- `GetSearchValue()` _(public)_
+- `getSideAvatar()` _(public)_
+- `getSideAvatarVisible()` _(public)_
+- `getSideBackVisible()` _(public)_
+- `getSideHeaderVisible()` _(public)_
+- `getSideSearchVisible()` _(public)_
+- `getSideVisible()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+- `getVoice()` _(public)_
+
+## Private Methods (20)
+- `CancelTheReply(e As BANanoEvent)` _(private)_
+- `ChatClick(e As BANanoEvent)` _(private)_
+- `CopyToClipboard(e As BANanoEvent)` _(private)_
+- `GetChatIDByPos(pos As String)` As String _(private)_
+- `GetChatPos(chatID As String)` As Long _(private)_
+- `GetConversationIDByPos(pos As String)` As String _(private)_
+- `GetConversationPos(msgid As String)` As Long _(private)_
+- `MessageChange(e As BANanoEvent)` _(private)_
+- `MessageClick(e As BANanoEvent)` _(private)_
+- `MessageKeyUp(e As BANanoEvent)` _(private)_
+- `MessageTypeAudio()` _(private)_
+- `MessageTypeEmoji()` _(private)_
+- `MessageTypeImage()` _(private)_
+- `MessageTypePDF()` _(private)_
+- `MessageTypeText()` _(private)_
+- `MessageTypeURL()` _(private)_
+- `MessageTypeVideo()` _(private)_
+- `OpenFileOnTab(e As BANanoEvent)` _(private)_
+- `ReplyClick(e As BANanoEvent)` _(private)_
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgWhatsApp.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgWhatsApp.bas) (verified demo). `SDUI5WhatsApp1` = a SDUI5WhatsApp.
+Real syntax from [`pgWhatsApp.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgWhatsApp.bas) (verified demo):
 
 ```b4j
-	SDUI5WhatsApp1.Initialize(Me, "SDUI5WhatsApp1", "SDUI5WhatsApp1")
-	SDUI5WhatsApp1.ParentID = app.PageView
-	SDUI5WhatsApp1.Camera = False
-	SDUI5WhatsApp1.IncomingBackgroundColor = "#ff00ff"
-	SDUI5WhatsApp1.IncomingTextColor = "#000000"
-	SDUI5WhatsApp1.OutgoingBackgroundColor = "#0000ff"
-	SDUI5WhatsApp1.OutgoingTextColor = "#ffffff"
-	SDUI5WhatsApp1.SideBackVisible = True
-	SDUI5WhatsApp1.SideSearchVisible = True
-	SDUI5WhatsApp1.Voice = False
-	BANano.Await(SDUI5WhatsApp1.AddComponent)
+Private SDUI5WhatsApp1 As SDUI5WhatsApp		'ignore
+SDUI5WhatsApp1.Initialize(Me, "SDUI5WhatsApp1", "SDUI5WhatsApp1")
+SDUI5WhatsApp1.ParentID = app.PageView
+SDUI5WhatsApp1.Camera = False
+SDUI5WhatsApp1.IncomingBackgroundColor = "#ff00ff"
+SDUI5WhatsApp1.IncomingTextColor = "#000000"
+SDUI5WhatsApp1.OutgoingBackgroundColor = "#0000ff"
+SDUI5WhatsApp1.OutgoingTextColor = "#ffffff"
+SDUI5WhatsApp1.SideBackVisible = True
+SDUI5WhatsApp1.SideSearchVisible = True
+SDUI5WhatsApp1.Voice = False
+BANano.Await(SDUI5WhatsApp1.AddComponent)
 ```
 
-Builder methods, real call order (from `pgWhatsApp.bas`):
-
-```b4j
-	SDUI5WhatsApp1.AddChat("chat-123456789", "./assets/1.jpg", "Chat 1", "10:00", "The last message said.", "1", "./assets/mashy.jpg")
-	SDUI5WhatsApp1.AddChat("chat-123456788", "./assets/2.jpg", "Chat 2", "11:00", "The last message said.", "2", "./assets/mashy.jpg")
-	SDUI5WhatsApp1.AddChat("chat-123456787", "./assets/3.jpg", "Chat 3", "12:00", "The last message said.", "3", "")
-	SDUI5WhatsApp1.AddChat("chat-123456786", "./assets/4.jpg", "Chat 4", "13:00", "The last message said.", "4", "")
-	SDUI5WhatsApp1.AddChat("chat-123456785", "./assets/5.jpg", "Chat 5", "14:00", "The last message said.", "5", "./assets/mashy.jpg")
-	SDUI5WhatsApp1.AddChat("chat-123456784", "./assets/6.jpg", "Chat 6", "15:00", "The last message said.", "6", "")
-	SDUI5WhatsApp1.SetUnread("chat-123456787", "6")
-	SDUI5WhatsApp1.SetUnread("chat-123456786", "10")
-	SDUI5WhatsApp1.SetUnread("chat-123456784", "0")
-	SDUI5WhatsApp1.SetUnread("chat-123456786", "0")
-	SDUI5WhatsApp1.SetUnread("chat-123456788", "0")
-	SDUI5WhatsApp1.MoveUp("chat-123456789")
-	SDUI5WhatsApp1.MoveUp("chat-123456786")
-	SDUI5WhatsApp1.MoveDown("chat-123456786")
-```
-
-Demo-wired events: `Back`, `ChatClick`, `Copy`, `EmojiClickOutside`, `EmojiSelect`, `Reply`, `Send` — handlers named `SDUI5WhatsApp1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `flex overflow-hidden shadow-sm rounded-box w-full h-full`
 ## Code Example
@@ -268,5 +272,3 @@ BANano.Await(whatsapp.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

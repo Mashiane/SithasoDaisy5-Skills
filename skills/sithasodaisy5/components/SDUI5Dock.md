@@ -49,59 +49,61 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub dock_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `Clear()` _(public)_
-## Key Setters (13)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (14)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
-## Getters (15)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (16)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getTextColor()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgDockColor.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDockColor.bas) (verified demo). `SDUI5Dock1` = a SDUI5Dock.
+Real syntax from [`pgDock.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDock.bas) (verified demo):
 
 ```b4j
-	SDUI5Dock1.Initialize(Me, "SDUI5Dock1", "SDUI5Dock1")
-	SDUI5Dock1.ParentID = app.PageView
-	SDUI5Dock1.BackgroundColor = "neutral"
-	SDUI5Dock1.TextColor = "neutral-content"
-	BANano.Await(SDUI5Dock1.AddComponent)
+Private SDUI5Dock1 As SDUI5Dock		'ignore
+SDUI5Dock1.Initialize(Me, "SDUI5Dock1", "SDUI5Dock1")
+SDUI5Dock1.ParentID = app.PageView
+BANano.Await(SDUI5Dock1.AddComponent)
 ```
 
-Also used in: `pgDock`, `pgDockXS`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `dock`
 ## Code Example
@@ -116,5 +118,3 @@ BANano.Await(dock.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

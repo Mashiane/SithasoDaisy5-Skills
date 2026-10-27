@@ -58,87 +58,87 @@ Where a designer key and method name differ, the method names shown are the sour
 `Complete`
 
 Wire in parent: `Sub dropzone_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (13)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (10)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `ProcessQueue()` _(public)_
-- `RemoveFile(fileObj As Object)` _(public)_
-- `RemoveAllFiles()` _(public)_
 - `CancelUploads()` _(public)_
-- `GetFiles()` As List _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `ProcessQueue()` _(public)_
 - `Refresh()` _(public)_
-## Key Setters (24)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setAutoProcessQueue(b As Boolean)` _(public)_
+- `Remove()` _(public)_
+- `RemoveAllFiles()` _(public)_
+- `RemoveFile(fileObj As Object)` _(public)_
+
+## Key Setters (25)
 - `setAcceptedFiles(s As String)` _(public)_
 - `setAddRemoveLinks(b As Boolean)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setAutoProcessQueue(b As Boolean)` _(public)_
 - `setCapture(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setDisablePreviews(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxFilesize(i As Int)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
 - `setParallelUploads(i As Int)` _(public)_
 - `setParamName(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setUploadMultiple(b As Boolean)` _(public)_
 - `setUrl(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (26)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (28)
+- `getAcceptedFiles()` _(public)_
+- `getAddRemoveLinks()` _(public)_
+- `getAttributes()` _(public)_
+- `getAutoProcessQueue()` _(public)_
+- `getCapture()` _(public)_
+- `getClasses()` _(public)_
+- `getDisablePreviews()` _(public)_
+- `getEnabled()` _(public)_
+- `GetFiles()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getAutoProcessQueue()` As Boolean _(public)_
-- `getAcceptedFiles()` As String _(public)_
-- `getAddRemoveLinks()` As Boolean _(public)_
-- `getCapture()` As String _(public)_
-- `getDisablePreviews()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getMaxFilesize()` As Int _(public)_
-- `getParallelUploads()` As Int _(public)_
-- `getParamName()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getUploadMultiple()` As Boolean _(public)_
-- `getUrl()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxFilesize()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParallelUploads()` _(public)_
+- `getParamName()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getUploadMultiple()` _(public)_
+- `getUrl()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgDropZone.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDropZone.bas) (verified demo). `SDUI5DropZone1` = a SDUI5DropZone.
+Real syntax from [`pgDropZone.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDropZone.bas) (verified demo):
 
 ```b4j
-	SDUI5DropZone1.Initialize(Me, "SDUI5DropZone1", "SDUI5DropZone1")
-	SDUI5DropZone1.ParentID = "SDUI5Column1"
-	SDUI5DropZone1.RoundedBox = True
-	SDUI5DropZone1.Shadow = "lg"
-	BANano.Await(SDUI5DropZone1.AddComponent)
+Private SDUI5DropZone1 As SDUI5DropZone		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Complete` — handlers named `SDUI5DropZone1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `rounded-box`, `dropzone flex flex-wrap justify-center items-center`
 ## Code Example
@@ -153,5 +153,3 @@ BANano.Await(dropzone.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

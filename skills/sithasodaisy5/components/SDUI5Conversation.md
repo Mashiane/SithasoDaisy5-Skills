@@ -55,82 +55,88 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 `Reply`
 
 Wire in parent: `Sub conversation_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (31)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (32)
 - `setAvatarVisible(b As Boolean)` _(public)_
-- `setHeaderVisible(b As Boolean)` _(public)_
-- `setImageVisible(b As Boolean)` _(public)_
-- `setMessageVisible(b As Boolean)` _(public)_
-- `setPdfVisible(b As Boolean)` _(public)_
-- `setReactionVisible(b As Boolean)` _(public)_
-- `setVideoVisible(b As Boolean)` _(public)_
-- `setImageSize(s As String)` As 'ignoredeadcode _(public)_
-- `setImageShape(s As String)` As 'ignoredeadcode _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setConversationType(s As String)` As 'ignoredeadcode _(public)_
-- `setFileMimeType(s As String)` As 'ignoredeadcode _(public)_
-- `setFileName(s As String)` As 'ignoredeadcode _(public)_
-- `setFilePreview(s As String)` As 'ignoredeadcode _(public)_
-- `setFileSize(s As String)` As 'ignoredeadcode _(public)_
-- `setFileUrl(s As String)` As 'ignoredeadcode _(public)_
-- `setFontSize(s As String)` As 'ignoredeadcode _(public)_
-- `setFooter(s As String)` As 'ignoredeadcode _(public)_
-- `setIncoming(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setMessage(s As String)` As 'ignoredeadcode _(public)_
-- `setReplyId(s As String)` As 'ignoredeadcode _(public)_
-- `setReplyMessage(s As String)` As 'ignoredeadcode _(public)_
-- `setSenderImage(s As String)` As 'ignoredeadcode _(public)_
-- `setSenderName(s As String)` As 'ignoredeadcode _(public)_
-- `setSenderTime(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setReAction(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` _(public)_
 - `setChatId(s As String)` _(public)_
+- `setConversationType(s As String)` _(public)_
+- `setFileMimeType(s As String)` _(public)_
+- `setFileName(s As String)` _(public)_
+- `setFilePreview(s As String)` _(public)_
+- `setFileSize(s As String)` _(public)_
+- `setFileUrl(s As String)` _(public)_
+- `setFontSize(s As String)` _(public)_
+- `setFooter(s As String)` _(public)_
 - `setFooterVisible(b As Boolean)` _(public)_
-## Getters (33)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setHeaderVisible(b As Boolean)` _(public)_
+- `setImageShape(s As String)` _(public)_
+- `setImageSize(s As String)` _(public)_
+- `setImageVisible(b As Boolean)` _(public)_
+- `setIncoming(b As Boolean)` _(public)_
+- `setMessage(s As String)` _(public)_
+- `setMessageVisible(b As Boolean)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPdfVisible(b As Boolean)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setReAction(s As String)` _(public)_
+- `setReactionVisible(b As Boolean)` _(public)_
+- `setReplyId(s As String)` _(public)_
+- `setReplyMessage(s As String)` _(public)_
+- `setSenderImage(s As String)` _(public)_
+- `setSenderName(s As String)` _(public)_
+- `setSenderTime(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setVideoVisible(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (34)
+- `getAvatarVisible()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getChatId()` _(public)_
+- `getConversationType()` _(public)_
+- `getFileMimeType()` _(public)_
+- `getFileName()` _(public)_
+- `getFilePreview()` _(public)_
+- `getFileSize()` _(public)_
+- `getFileUrl()` _(public)_
+- `getFontSize()` _(public)_
+- `getFooter()` _(public)_
+- `getFooterVisible()` _(public)_
+- `getHeaderVisible()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getAvatarVisible()` As Boolean _(public)_
-- `getHeaderVisible()` As Boolean _(public)_
-- `getImageVisible()` As Boolean _(public)_
-- `getMessageVisible()` As Boolean _(public)_
-- `getPdfVisible()` As Boolean _(public)_
-- `getReactionVisible()` As Boolean _(public)_
-- `getVideoVisible()` As Boolean _(public)_
-- `getImageSize()` As String _(public)_
-- `getImageShape()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getConversationType()` As String _(public)_
-- `getFileMimeType()` As String _(public)_
-- `getFileName()` As String _(public)_
-- `getFilePreview()` As String _(public)_
-- `getFileSize()` As String _(public)_
-- `getFileUrl()` As String _(public)_
-- `getFontSize()` As String _(public)_
-- `getFooter()` As String _(public)_
-- `getIncoming()` As Boolean _(public)_
-- `getMessage()` As String _(public)_
-- `getReplyId()` As String _(public)_
-- `getReplyMessage()` As String _(public)_
-- `getSenderImage()` As String _(public)_
-- `getSenderName()` As String _(public)_
-- `getSenderTime()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getReAction()` As String _(public)_
-- `getChatId()` As String _(public)_
-- `getFooterVisible()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getImageShape()` _(public)_
+- `getImageSize()` _(public)_
+- `getImageVisible()` _(public)_
+- `getIncoming()` _(public)_
+- `getMessage()` _(public)_
+- `getMessageVisible()` _(public)_
+- `getParentID()` _(public)_
+- `getPdfVisible()` _(public)_
+- `GetProperties()` _(public)_
+- `getReAction()` _(public)_
+- `getReactionVisible()` _(public)_
+- `getReplyId()` _(public)_
+- `getReplyMessage()` _(public)_
+- `getSenderImage()` _(public)_
+- `getSenderName()` _(public)_
+- `getSenderTime()` _(public)_
+- `getTextColor()` _(public)_
+- `getVideoVisible()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (3)
+- `ClickReply(e As BANanoEvent)` _(private)_
+- `OpenFileOnTab(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -145,5 +151,3 @@ BANano.Await(conversation.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -28,10 +28,10 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | Key | Type | Default | List | Setter | Getter |
 |---|---|---|---|---|---|
 | `ParentID` | String | — | — | `setParentID` | `getParentID` |
-| `ItemColor` | String | primary | — | — | — |
-| `ItemActiveColor` | String | — | — | — | — |
-| `ItemFocusColor` | String | — | — | — | — |
-| `ItemHoverColor` | String | — | — | — | — |
+| `ItemColor` | String | primary | — | `setItemColor` | `getItemColor` |
+| `ItemActiveColor` | String | — | — | `setItemActiveColor` | `getItemActiveColor` |
+| `ItemFocusColor` | String | — | — | `setItemFocusColor` | `getItemFocusColor` |
+| `ItemHoverColor` | String | — | — | `setItemHoverColor` | `getItemHoverColor` |
 | `Height` | String | full | — | `setHeight` | `getHeight` |
 | `Width` | String | 200px | — | `setWidth` | `getWidth` |
 | `CollapseIconUrl` | String | ./assets/chevron-right-solid.svg | — | `setCollapseIconUrl` | `getCollapseIconUrl` |
@@ -70,135 +70,142 @@ Where a designer key and method name differ, the method names shown are the sour
 `nodeDrop`, `nodeDragStart`, `nodeExpanded`, `nodeCollapsed`, `nodeEdited`, `nodeSelected`, `nodesSelected`, `nodesChecked`, `nodeClick`, `nodeEditCancelled`
 
 Wire in parent: `Sub treeview_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (37)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (32)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `GetTreeMap()` As Map _(public)_
-- `GetTreeList()` As List _(public)_
-- `Refresh()` _(public)_
-- `collapseAll()` _(public)_
-- `expandAll()` _(public)_
-- `nodeMoveRight(nodeId As String)` _(public)_
-- `nodeMoveLeft(nodeId As String)` _(public)_
-- `nodeMoveUp(nodeId As String)` _(public)_
-- `nodeMoveDown(nodeId As String)` _(public)_
-- `enableInlineEditing(nodeId As String)` _(public)_
-- `nodeExists(nodeID As String)` As Boolean _(public)_
-- `findNode(nodeID As String)` As Map _(public)_
 - `addNode(parentId As String, nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
-- `addNodeBefore(targetId As String, nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
 - `addNodeAfter(targetId As String, nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
+- `addNodeBefore(targetId As String, nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
 - `checkNode(nodeId As String, b As Boolean)` _(public)_
-- `removeNode(nodeId As String)` _(public)_
-- `expandNode(nodeId As String, state As Boolean)` _(public)_
-- `enableNode(nodeId As String, state As Boolean)` _(public)_
+- `checkNodes(nodes As List)` _(public)_
 - `Clear()` _(public)_
-- `clearSelected()` _(public)_
 - `clearChecked()` _(public)_
-- `removeChildren(nodeId As String)` _(public)_
-- `showNode(nodeId As String)` _(public)_
+- `clearSelected()` _(public)_
+- `collapseAll()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `enableInlineEditing(nodeId As String)` _(public)_
+- `enableNode(nodeId As String, state As Boolean)` _(public)_
+- `expandAll()` _(public)_
+- `expandNode(nodeId As String, state As Boolean)` _(public)_
+- `findNode(nodeID As String)` As Map _(public)_
 - `hideNode(nodeId As String)` _(public)_
-- `updateNode(nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `nodeExists(nodeID As String)` As Boolean _(public)_
+- `nodeMoveDown(nodeId As String)` _(public)_
+- `nodeMoveLeft(nodeId As String)` _(public)_
+- `nodeMoveRight(nodeId As String)` _(public)_
+- `nodeMoveUp(nodeId As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Refresh()` _(public)_
+- `Remove()` _(public)_
+- `removeChildren(nodeId As String)` _(public)_
+- `removeNode(nodeId As String)` _(public)_
 - `selectNode(nodeId As String, state As Boolean)` _(public)_
 - `selectNodes(nodes As List)` _(public)_
-- `checkNodes(nodes As List)` _(public)_
-- `GetNodeFromEvent(e As BANanoEvent)` As TreeNode _(public)_
-## Key Setters (32)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `showNode(nodeId As String)` _(public)_
+- `updateNode(nodeId As String, iconUrl As String, text As String, href As String)` _(public)_
+
+## Key Setters (37)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
 - `setCheckBoxActiveBorderColor(s As String)` _(public)_
 - `setCheckBoxActiveColor(s As String)` _(public)_
 - `setCheckBoxSize(s As String)` _(public)_
-- `setReplace(b As Boolean)` _(public)_
-- `setTextBoxSize(s As String)` _(public)_
-- `setUseLocalstorage(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setCollapseIconUrl(s As String)` _(public)_
 - `setDragNDrop(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setExpandIconUrl(s As String)` _(public)_
 - `setHasCheckbox(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
 - `setIconHeight(s As String)` _(public)_
 - `setIconWidth(s As String)` _(public)_
 - `setInlineEdit(b As Boolean)` _(public)_
+- `setItemActiveColor(s As String)` _(public)_
+- `setItemColor(s As String)` _(public)_
+- `setItemFocusColor(s As String)` _(public)_
+- `setItemHoverColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMultipleCheck(b As Boolean)` _(public)_
 - `setMultipleSelect(b As Boolean)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setHeight(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setReplace(b As Boolean)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setShadow(s As String)` _(public)_
 - `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextBoxSize(s As String)` _(public)_
+- `setUseLocalstorage(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (38)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
-- `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
+
+## Getters (46)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getCheckBoxActiveBorderColor()` _(public)_
+- `getCheckBoxActiveColor()` _(public)_
+- `getCheckBoxSize()` _(public)_
+- `getCheckedNodes()` _(public)_
 - `getChildren(nodeId As String)` As List _(public)_
+- `getClasses()` _(public)_
+- `getCollapseIconUrl()` _(public)_
+- `getDragNDrop()` _(public)_
+- `getEnabled()` _(public)_
+- `getExpandIconUrl()` _(public)_
+- `getHasCheckbox()` _(public)_
+- `getHeight()` _(public)_
+- `getHere()` As String _(public)_
+- `getIconHeight()` _(public)_
+- `getIconWidth()` _(public)_
+- `getID()` As String _(public)_
+- `getInlineEdit()` _(public)_
+- `getItemActiveColor()` _(public)_
+- `getItemColor()` _(public)_
+- `getItemFocusColor()` _(public)_
+- `getItemHoverColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMultipleCheck()` _(public)_
+- `getMultipleSelect()` _(public)_
+- `GetNodeFromEvent(e As BANanoEvent)` As TreeNode _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getReplace()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
 - `getSelectedNode(includeChildren As Boolean)` As Object _(public)_
-- `getSelectedNodes()` As Object _(public)_
-- `getCheckedNodes()` As Object _(public)_
-- `getCheckBoxActiveBorderColor()` As String _(public)_
-- `getCheckBoxActiveColor()` As String _(public)_
-- `getCheckBoxSize()` As String _(public)_
-- `getReplace()` As Boolean _(public)_
-- `getTextBoxSize()` As String _(public)_
-- `getUseLocalstorage()` As Boolean _(public)_
-- `getCollapseIconUrl()` As String _(public)_
-- `getDragNDrop()` As Boolean _(public)_
-- `getExpandIconUrl()` As String _(public)_
-- `getHasCheckbox()` As Boolean _(public)_
-- `getIconHeight()` As String _(public)_
-- `getIconWidth()` As String _(public)_
-- `getInlineEdit()` As Boolean _(public)_
-- `getMultipleCheck()` As Boolean _(public)_
-- `getMultipleSelect()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (1)
+- `getSelectedNodes()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTextBoxSize()` _(public)_
+- `GetTreeList()` _(public)_
+- `GetTreeMap()` _(public)_
+- `getUseLocalstorage()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `BuildTree()` _(private)_
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgTreeView.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeView.bas) (verified demo). `treeView` = a SDUI5TreeView.
+Real syntax from [`pgTreeView.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeView.bas) (verified demo):
 
 ```b4j
-	treeView.Initialize(Me, "treeView", "treeView")
-	treeView.ParentID = "SDUI5Column1"
-	treeView.BackgroundColor = "base-100"
-	treeView.CheckBoxActiveBorderColor = "#00ff00"
-	treeView.CheckBoxActiveColor = "#00ff00"
-	treeView.Rounded = "none"
-	treeView.Shadow = "md"
-	treeView.Width = "full"
-	BANano.Await(treeView.AddComponent)
+Private treeView As SDUI5TreeView		'ignore
+Private tv2 As SDUI5TreeView		'ignore
+BANano.Await(app.UsesTreeView)
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `nodeChecked`, `nodeClick`, `nodeCollapsed`, `nodeDrop`, `nodeEdited`, `nodeExpanded`, `nodesSelected` — handlers named `treeView_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `menu`, `overflow-y-auto`
 ## Code Example
@@ -213,5 +220,3 @@ BANano.Await(treeview.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

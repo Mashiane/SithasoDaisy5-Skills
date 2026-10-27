@@ -35,7 +35,7 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `RawOptions` | String | b4a=b4a; b4j=b4j; b4i=b4i; b4r=b4r | — | `setOptions` | `getOptions` |
 | `Value` | String | — | — | `setValue` | `getValue` |
 | `Color` | String | none | accent, error, info, neutral, none, primary, secondary, success, warning | `setColor` | `getColor` |
-| `Size` | String | none | lg, md, none, sm, xl, xs | `setSize` | — |
+| `Size` | String | none | lg, md, none, sm, xl, xs | `setSize` | `getSize` |
 | `GroupName` | String | — | — | `setGroupName` | `getGroupName` |
 | `ColumnView` | Boolean | False | — | `setColumnView` | `getColumnView` |
 | `LabelPosition` | String | right | left, right | `setLabelPosition` | `getLabelPosition` |
@@ -64,102 +64,96 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub radiogroup_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (13)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (9)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
 - `AddOption(k As String, v As String)` _(public)_
-- `SetOptionsFromMap(m As Map)` As 'ignoredeadcode _(public)_
-- `SetOptionsFromList(m As List)` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `IsBlank()` As Boolean _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsBlank()` _(public)_
+- `Remove()` _(public)_
 - `ResetValidation()` _(public)_
-## Key Setters (28)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+
+## Key Setters (31)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` _(public)_
-- `setColumnView(b As Boolean)` _(public)_
-- `setLabelPosition(s As String)` _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setRoundedBox(b As Boolean)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
 - `setBorder(b As Boolean)` _(public)_
 - `setBorderColor(s As String)` _(public)_
 - `setCheckedColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
+- `setColumnView(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setGroupName(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
 - `setHint(s As String)` _(public)_
 - `setLabel(s As String)` _(public)_
+- `setLabelPosition(s As String)` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setOptions(s As String)` _(public)_
+- `SetOptionsFromList(m As List)` _(public)_
+- `SetOptionsFromMap(m As Map)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
 - `setSize(s As String)` _(public)_
-- `setValue(s As String)` As 'ignoredeadcode _(public)_
-## Getters (29)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setStyles(s As String)` _(public)_
+- `setValue(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (31)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getCheckedColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getColumnView()` _(public)_
+- `getEnabled()` _(public)_
+- `getGroupName()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getLegendColor()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getColumnView()` As Boolean _(public)_
-- `getLabelPosition()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getOptions()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getCheckedColor()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getGroupName()` As String _(public)_
-- `getHint()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getValue()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getLabel()` _(public)_
+- `getLabelPosition()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `changed(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgModal.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgModal.bas) (verified demo). `rdGender` = a SDUI5RadioGroup.
+Real syntax from [`pgModal.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgModal.bas) (verified demo):
 
 ```b4j
-	rdGender.Initialize(Me, "rdGender", "rdGender")
-	rdGender.ParentID = "SDUI5Column11"
-	rdGender.CheckedColor = "#22c55e"
-	rdGender.Color = "neutral"
-	rdGender.GroupName = "gender"
-	rdGender.Label = "Gender"
-	rdGender.Options = "male:Male; female:Female"
-	rdGender.Shadow = "lg"
-	rdGender.Size = "md"
-	rdGender.Value = "male"
-	BANano.Await(rdGender.AddComponent)
+Private rdGender As SDUI5RadioGroup		'ignore
+BANano.Await(modal1.AddComponent)
 ```
 
-Demo-wired events: `Change` — handlers named `rdGender_<Event>`.
-
-Also used in: `pgRadio`, `pgValidation`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `fieldset`, `border`, `rounded-box`
 ## Code Example
@@ -174,5 +168,3 @@ BANano.Await(radiogroup.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

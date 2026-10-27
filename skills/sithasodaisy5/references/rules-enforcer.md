@@ -87,6 +87,12 @@ Version=10
 **What**: Pages that do I/O (fetch, save) SHOULD implement a `Sub <Page>_Error(message As String)` for centralized error handling.  
 **Why**: Consistent error UX across pages.
 
+### RULE-LIFECYCLE-005 — L4 — Component Declarations Must Have 'ignore Suffix
+
+**What**: Every component variable declared in `Process_Globals` or `Class_Globals` (e.g. `Private SDUI5Button1 As SDUI5Button 'ignore`, `Private app As SDUI5App 'ignore`, `Private BANano As BANano 'ignore`) MUST be suffixed with `'ignore`.  
+**Why**: In B4J/B4X, component variables created, initialized, or manipulated through BANano method calls trigger compiler warnings 16 / 12 (unused or assigned variable). Appending `'ignore` silences these warnings and ensures a warning-free compile.  
+**Source**: `verify-conformance.ps1` and `pre-scan.ps1`.
+
 ---
 
 ## 3. Hierarchy & Layout Rules
@@ -112,6 +118,29 @@ Version=10
 
 **What**: Unlike native B4XPages, SithasoDaisy5's web `Sub Show` doesn't need manual pageScroll setup — `app.ClearPageView` handles it. Don't add your own scroll containers.  
 **Why**: Double-scroll causes double-rendering bugs.
+
+### RULE-LAYOUT-005 — L4 — Companion Parent-Child Component Hierarchy
+
+**What**: Specific leaf items are companion child components of dedicated parent containers and MUST mount into an instance of their designated parent container (via `ParentID`), NEVER directly into a PageView, Container, or unrelated column:
+- `SDUI5Column` MUST have an `SDUI5Row` parent container (`.grid` layout).
+- `SDUI5StatItem` (`stat`) MUST have an `SDUI5Stat` (`stats`) parent container.
+- `SDUI5StepsItem` (`step`) MUST have an `SDUI5Steps` (`steps`) parent container.
+- `SDUI5TimelineItem` (`timeline-item`) MUST have an `SDUI5Timeline` (`timeline`) parent container.
+- `SDUI5TabsItem` (`tab`) MUST have an `SDUI5Tabs` (`tabs`) parent container.
+- `SDUI5MenuItem` MUST have an `SDUI5Menu` parent container.
+- `SDUI5ListItem` MUST have an `SDUI5List` parent container.
+- `SDUI5CarouselItem` MUST have an `SDUI5Carousel` parent container.
+- `SDUI5SwiperSlide` MUST have an `SDUI5Swiper` parent container.
+- `SDUI5SliderItem` MUST have an `SDUI5Slider` parent container.
+- `SDUI5FooterTitle` MUST have an `SDUI5Footer` parent container.
+
+**The 3 Golden Lifecycle Rules for Companion Architecture**:
+1. **Parent First**: Always `Initialize`, configure, and `BANano.Await(Parent.AddComponent)` BEFORE mounting any child items.
+2. **Mount via ParentID**: Set `child.ParentID = Parent.ID`, never mount to generic containers.
+3. **Universal 3-Step Mounting**: Mount child items via `BANano.Await(child.AddComponent)`. Never call nonexistent methods like `.AddItem()` or `.Refresh()` on the parent container.
+
+**Why**: daisyUI child components rely on CSS selectors (e.g. `.stats > .stat`, `.steps > .step`, `.timeline > li`, `.grid > col`) established by their container. Without the parent container, styling, dividers, rounded corners, responsive direction (`Direction`, `MDDirection`), and elevation are broken.  
+**Source**: `verify-conformance.ps1` and `pre-scan.ps1`.
 
 ---
 

@@ -41,7 +41,7 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `HasIcon` | Boolean | True | — | `setHasIcon` | `getHasIcon` |
 | `HasAvatar` | Boolean | True | — | `setHasAvatar` | `getHasAvatar` |
 | `HasBadge` | Boolean | True | — | `setHasBadge` | `getHasBadge` |
-| `NoWrap` | Boolean | True | — | `setNoWrap` | — |
+| `NoWrap` | Boolean | True | — | `setNoWrap` | `getNoWrap` |
 | `OverflowYAuto` | Boolean | True | — | `setOverflowYAuto` | `getOverflowYAuto` |
 | `CheckedColor` | String | success | — | `setCheckedColor` | `getCheckedColor` |
 | `ItemColor` | String | — | — | `setItemColor` | `getItemColor` |
@@ -91,192 +91,170 @@ Where a designer key and method name differ, the method names shown are the sour
 `ItemClick`, `Change`
 
 Wire in parent: `Sub menu_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (33)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `LinkExisting()` As 'ignoredeadcode _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (21)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `AddMenuItemTitle(itemKey As String, itemText As String)` As SDUI5MenuItem _(public)_
+- `AddItemChild(parentID As String, itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
+- `AddItemParent(parentID As String, itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItem(itemKey As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
+- `AddMenuItemAvatarText(parentID As String, itemKey As String, itemAvatar As String, itemAvatarShape As String, itemAvatarSize As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
+- `AddMenuItemChild(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIcon(itemKey As String, itemIcon As String, iconSize As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIconColor(itemKey As String, itemIcon As String, iconSize As String, iconColor As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIconText(itemKey As String, itemIcon As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
-- `AddMenuItemAvatarText(parentID As String, itemKey As String, itemAvatar As String, itemAvatarShape As String, itemAvatarSize As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
-- `AddMenuItemChild(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
-- `AddItemParent(parentID As String, itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
-- `AddItemChild(parentID As String, itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemParent(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
+- `AddMenuItemTitle(itemKey As String, itemText As String)` As SDUI5MenuItem _(public)_
+- `Clear()` _(public)_
 - `CloseParents()` _(public)_
-- `SetItemOpen(item As String, b As Boolean)` _(public)_
-- `SetItemBadge(item As String, sText As String, sColor As String)` _(public)_
-- `SetItemChecked(item As String, b As Boolean)` _(public)_
-- `SetItemBadgeVisible(item As String, b As Boolean)` _(public)_
-- `SetItemVisible(item As String, b As Boolean)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
-- `SetItemActive(itemKey As String)` _(public)_
-- `SetItemHref(itemKey As String, shref As String, starget As String)` _(public)_
-- `SetIconFillByID(item As String, s As String)` _(public)_
-- `ShowPopOver()` _(public)_
 - `ClosePopover()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `HidePopover()` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LinkExisting()` _(public)_
+- `Remove()` _(public)_
+- `ShowPopOver()` _(public)_
 - `TogglePopover()` _(public)_
-- `SetSelected(s As String)` As 'ignoredeadcode _(public)_
-- `GetSelected()` As String _(public)_
-## Key Setters (53)
-- `setNoWrap(b As Boolean)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+
+## Key Setters (63)
+- `setAnchorName(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setCard(b As Boolean)` _(public)_
+- `setCheckedColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setHasIcon(b As Boolean)` _(public)_
+- `setCloseDropdownOnClick(b As Boolean)` _(public)_
+- `setClosePopupOnClick(b As Boolean)` _(public)_
+- `setDirection(s As String)` _(public)_
+- `setDropdown(b As Boolean)` _(public)_
+- `setDropdownContent(b As Boolean)` _(public)_
+- `setDropDownHover(b As Boolean)` _(public)_
+- `setDropDownId(s As String)` _(public)_
+- `setDropdownOpen(b As Boolean)` _(public)_
+- `setDropdownPlacement(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHasAvatar(b As Boolean)` _(public)_
 - `setHasBadge(b As Boolean)` _(public)_
-- `setCloseDropdownOnClick(b As Boolean)` _(public)_
-- `setDropDownId(s As String)` _(public)_
-- `setOverflowYAuto(b As Boolean)` _(public)_
-- `setItemActiveTextColor(s As String)` _(public)_
+- `setHasCheckBox(b As Boolean)` _(public)_
+- `setHasIcon(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `SetIconFillByID(item As String, s As String)` _(public)_
+- `SetItemActive(itemKey As String)` _(public)_
 - `setItemActiveColor(s As String)` _(public)_
+- `setItemActiveTextColor(s As String)` _(public)_
+- `SetItemBadge(item As String, sText As String, sColor As String)` _(public)_
+- `SetItemBadgeVisible(item As String, b As Boolean)` _(public)_
+- `SetItemChecked(item As String, b As Boolean)` _(public)_
+- `setItemClasses(s As String)` _(public)_
 - `setItemColor(s As String)` _(public)_
 - `setItemFocusColor(s As String)` _(public)_
 - `setItemHoverColor(s As String)` _(public)_
-- `setItemClasses(s As String)` _(public)_
+- `SetItemHref(itemKey As String, shref As String, starget As String)` _(public)_
+- `SetItemOpen(item As String, b As Boolean)` _(public)_
 - `setItemStyles(s As String)` _(public)_
-- `setClosePopupOnClick(b As Boolean)` _(public)_
-- `setCheckedColor(s As String)` _(public)_
-- `setHasCheckBox(b As Boolean)` _(public)_
-- `setCard(b As Boolean)` _(public)_
-- `setDropdownOpen(b As Boolean)` _(public)_
-- `setDropdownPlacement(s As String)` _(public)_
-- `setPopOver(b As Boolean)` _(public)_
-- `setDropDownHover(b As Boolean)` _(public)_
-- `setAnchorName(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setDirection(s As String)` _(public)_
-- `setHeight(s As String)` _(public)_
+- `SetItemVisible(item As String, b As Boolean)` _(public)_
 - `setLgDirection(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxHeight(s As String)` _(public)_
 - `setMaxWidth(s As String)` _(public)_
 - `setMdDirection(s As String)` _(public)_
 - `setMinHeight(s As String)` _(public)_
 - `setMinWidth(s As String)` _(public)_
+- `setNoWrap(b As Boolean)` _(public)_
+- `setOverflowYAuto(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPopOver(b As Boolean)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
+- `setRoundedItems(b As Boolean)` _(public)_
+- `SetSelected(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
 - `setSize(s As String)` _(public)_
 - `setSmDirection(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
 - `setXlDirection(s As String)` _(public)_
-- `setRoundedItems(b As Boolean)` _(public)_
-- `setDropdown(b As Boolean)` _(public)_
-- `setDropdownContent(b As Boolean)` _(public)_
-## Getters (54)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (57)
+- `getAnchorName()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getCard()` _(public)_
+- `getCheckedColor()` _(public)_
+- `getClasses()` _(public)_
+- `getCloseDropdownOnClick()` _(public)_
+- `getClosePopupOnClick()` _(public)_
+- `getDirection()` _(public)_
+- `getDropdown()` _(public)_
+- `getDropdownContent()` _(public)_
+- `getDropDownHover()` _(public)_
+- `getDropDownId()` _(public)_
+- `getDropdownOpen()` _(public)_
+- `getDropdownPlacement()` _(public)_
+- `getEnabled()` _(public)_
+- `getHasAvatar()` _(public)_
+- `getHasBadge()` _(public)_
+- `getHasCheckBox()` _(public)_
+- `getHasIcon()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getHasIcon()` As Boolean _(public)_
-- `getHasAvatar()` As Boolean _(public)_
-- `getHasBadge()` As Boolean _(public)_
-- `getCloseDropdownOnClick()` As Boolean _(public)_
-- `getDropDownId()` As String _(public)_
-- `getOverflowYAuto()` As Boolean _(public)_
-- `getItemActiveTextColor()` As String _(public)_
-- `getItemActiveColor()` As String _(public)_
-- `getItemColor()` As String _(public)_
-- `getItemFocusColor()` As String _(public)_
-- `getItemHoverColor()` As String _(public)_
-- `getItemClasses()` As String _(public)_
-- `getItemStyles()` As String _(public)_
-- `getClosePopupOnClick()` As Boolean _(public)_
-- `getCheckedColor()` As String _(public)_
-- `getHasCheckBox()` As Boolean _(public)_
-- `getDropDownHover()` As Boolean _(public)_
-- `getCard()` As Boolean _(public)_
-- `getDropdownOpen()` As Boolean _(public)_
-- `getDropdownPlacement()` As String _(public)_
-- `getPopOver()` As Boolean _(public)_
-- `getAnchorName()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getDirection()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getLgDirection()` As String _(public)_
-- `getMaxHeight()` As String _(public)_
-- `getMaxWidth()` As String _(public)_
-- `getMdDirection()` As String _(public)_
-- `getMinHeight()` As String _(public)_
-- `getMinWidth()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getSmDirection()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getXlDirection()` As String _(public)_
-- `getRoundedItems()` As Boolean _(public)_
-- `getDropdown()` As Boolean _(public)_
-- `getDropdownContent()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getItemActiveColor()` _(public)_
+- `getItemActiveTextColor()` _(public)_
+- `getItemClasses()` _(public)_
+- `getItemColor()` _(public)_
+- `getItemFocusColor()` _(public)_
+- `getItemHoverColor()` _(public)_
+- `getItemStyles()` _(public)_
+- `getLgDirection()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxHeight()` _(public)_
+- `getMaxWidth()` _(public)_
+- `getMdDirection()` _(public)_
+- `getMinHeight()` _(public)_
+- `getMinWidth()` _(public)_
+- `getNoWrap()` _(public)_
+- `getOverflowYAuto()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPopOver()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getRoundedItems()` _(public)_
+- `GetSelected()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getSmDirection()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getXlDirection()` _(public)_
+
+## Private Methods (2)
+- `changed(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgIndex.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgIndex.bas) (verified demo). `drawermenu` = a SDUI5Menu.
+Real syntax from [`pgMenu.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgMenu.bas) (verified demo):
 
 ```b4j
-	drawermenu.Initialize(Me, "drawermenu", "drawermenu")
-	drawermenu.ParentID = "drawerbody"
-	drawermenu.BackgroundColor = "base-100"
-	drawermenu.MinHeight = ""
-	drawermenu.Classes = "px-4 py-0"
-	drawermenu.ItemClasses = ""
-	drawermenu.ItemStyles = ""
-	drawermenu.RoundedBox = False
-	drawermenu.RoundedItems = False
-	drawermenu.TextColor = "base-content"
-	drawermenu.Width = "full"
-	BANano.Await(drawermenu.AddComponent)
+Private menu1 As SDUI5Menu		'ignore
+Private menu13 As SDUI5Menu		'ignore
+Private menu10 As SDUI5Menu		'ignore
+Private menu11 As SDUI5Menu		'ignore
+Private menu12 As SDUI5Menu		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Builder methods, real call order (from `pgIndex.bas`):
-
-```b4j
-	drawermenu.AddItemParent("", "wnew", "", "What's New")
-	drawermenu.AddItemChild("wnew", "pg-swiper", "", "Swiper")
-	drawermenu.AddItemChild("wnew", "pg-nouislider", "", "NoUI Slider")
-	drawermenu.AddItemChild("wnew", "pg-bottomnav", "", "Bottom Navigation")
-	drawermenu.AddItemChild("wnew", "pg-bankcard", "", "Hover 3D Card")
-	drawermenu.AddItemChild("wnew", "pg-themeselect", "", "Theme Controller")
-	drawermenu.AddItemChild("wnew", "pg-genderchart", "", "Gender Chart")
-	drawermenu.AddItemChild("wnew", "pg-devices", "", "Devices")
-	drawermenu.AddItemChild("wnew", "pg-quill", "", "Quill Editor")
-	drawermenu.AddItemChild("wnew", "pg-gifplayer", "", "GIF Player")
-	drawermenu.AddItemParent("", "pages", "", "Pages")
-	drawermenu.AddItemChild("pages", "pg-login", "", "Ghost Login")
-	drawermenu.AddItemParent("", "sd5lowcode", "./assets/aperture.svg", "SD5 LowCode Generator")
-	drawermenu.AddItemChild("sd5lowcode", "sd5lowcodeopen", "./assets/link-solid.svg", "Open Web App")
-```
-
-Demo-wired events: `Change`, `ItemClick` — handlers named `drawermenu_<Event>`.
-
-Also used in: `pgDropDown`, `pgMenu`, `pgMenu1`, `pgMenuTree`, `pgSpeedDial`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `menu`, `flex-nowrap`, `overflow-y-auto`, `dropdown`, `dropdown-open`, `dropdown-hover`, `dropdown-content`, `z-1`, `[&_li>*]:rounded-none`, `rounded-box`
 ## Code Example
@@ -291,5 +269,3 @@ BANano.Await(menu.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

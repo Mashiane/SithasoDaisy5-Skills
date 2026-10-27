@@ -73,117 +73,118 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub avatar_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (38)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (39)
+- `setActivator(b As Boolean)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setHasBadge(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAvatarColor(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPopOverTarget(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeSize(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBadge(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgeColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBadgePosition(s As String)` As 'ignoredeadcode _(public)_
-- `setTextSize(s As String)` As 'ignoredeadcode _(public)_
+- `setAvatarColor(b As Boolean)` _(public)_
 - `setAvatarType(s As String)` _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBadge(s As String)` _(public)_
+- `setBadgeColor(s As String)` _(public)_
+- `setBadgePosition(s As String)` _(public)_
+- `setBadgeSize(s As String)` _(public)_
+- `setBadgeVisible(b As Boolean)` _(public)_
+- `setChatImage(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setHasBadge(b As Boolean)` _(public)_
 - `setImage(s As String)` _(public)_
-- `setSrc(s As String)` _(public)_
-- `setMask(s As String)` As 'ignoredeadcode _(public)_
-- `setOnline(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMask(s As String)` _(public)_
+- `setOnline(b As Boolean)` _(public)_
 - `setOnlineColor(s As String)` _(public)_
 - `setOnlineStatus(b As Boolean)` _(public)_
-- `setPlaceholder(s As String)` As 'ignoredeadcode _(public)_
-- `setRing(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setRingColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRingOffset(s As String)` As 'ignoredeadcode _(public)_
-- `setRingOffsetColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setActivator(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPlaceholder(s As String)` _(public)_
+- `setPopOverTarget(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRing(b As Boolean)` _(public)_
+- `setRingColor(s As String)` _(public)_
+- `setRingOffset(s As String)` _(public)_
+- `setRingOffsetColor(s As String)` _(public)_
 - `setRoundedField(b As Boolean)` _(public)_
-- `setChatImage(b As Boolean)` _(public)_
-## Getters (39)
-- `getID()` As String _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setSrc(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setTextSize(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (41)
+- `getActivator()` _(public)_
+- `getAttributes()` _(public)_
+- `getAvatarColor()` _(public)_
+- `getAvatarType()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBadge()` _(public)_
+- `getBadgeColor()` _(public)_
+- `getBadgePosition()` _(public)_
+- `getBadgeSize()` _(public)_
+- `getBadgeVisible()` _(public)_
+- `getChatImage()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getHasBadge()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getHasBadge()` As Boolean _(public)_
-- `getAvatarColor()` As Boolean _(public)_
-- `getPopOverTarget()` As String					'ignoredeadcode _(public)_
-- `getShadow()` As String _(public)_
-- `getBadgeSize()` As String _(public)_
-- `getBadgeVisible()` As Boolean _(public)_
-- `getBadge()` As String _(public)_
-- `getBadgeColor()` As String _(public)_
-- `getBadgePosition()` As String _(public)_
-- `getTextSize()` As String _(public)_
-- `getAvatarType()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getImage()` As String _(public)_
-- `getSrc()` As String _(public)_
-- `getMask()` As String _(public)_
-- `getOnline()` As Boolean _(public)_
-- `getOnlineColor()` As String _(public)_
-- `getOnlineStatus()` As Boolean _(public)_
-- `getPlaceholder()` As String _(public)_
-- `getRing()` As Boolean _(public)_
-- `getRingColor()` As String _(public)_
-- `getRingOffset()` As String _(public)_
-- `getRingOffsetColor()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getActivator()` As Boolean _(public)_
-- `getRoundedField()` As Boolean _(public)_
-- `getChatImage()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getImage()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMask()` _(public)_
+- `getOnline()` _(public)_
+- `getOnlineColor()` _(public)_
+- `getOnlineStatus()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` As String _(public)_
+- `getPlaceholder()` _(public)_
+- `getPopOverTarget()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRing()` _(public)_
+- `getRingColor()` _(public)_
+- `getRingOffset()` _(public)_
+- `getRingOffsetColor()` _(public)_
+- `getRoundedField()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getSrc()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getTextSize()` _(public)_
+- `getVisible()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgAvatar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAvatar.bas) (verified demo). `SDUI5Avatar16` = a SDUI5Avatar.
+Real syntax from [`pgAvatar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAvatar.bas) (verified demo):
 
 ```b4j
-	SDUI5Avatar16.Initialize(Me, "SDUI5Avatar16", "SDUI5Avatar16")
-	SDUI5Avatar16.ParentID = "SDUI5Column16"
-	SDUI5Avatar16.AvatarType = "placeholder"
-	SDUI5Avatar16.BackgroundColor = "neutral"
-	SDUI5Avatar16.Image = ""
-	SDUI5Avatar16.Online = True
-	SDUI5Avatar16.OnlineStatus = True
-	SDUI5Avatar16.Placeholder = "AM"
-	SDUI5Avatar16.RingColor = ""
-	SDUI5Avatar16.Size = "20"
-	SDUI5Avatar16.TextColor = "neutral-content"
-	SDUI5Avatar16.TextSize = "3xl"
-	BANano.Await(SDUI5Avatar16.AddComponent)
+Private SDUI5Avatar1 As SDUI5Avatar		'ignore
+Private SDUI5Avatar10 As SDUI5Avatar		'ignore
+Private SDUI5Avatar11 As SDUI5Avatar		'ignore
+Private SDUI5Avatar12 As SDUI5Avatar		'ignore
+Private SDUI5Avatar13 As SDUI5Avatar		'ignore
+Private SDUI5Avatar14 As SDUI5Avatar		'ignore
+Private SDUI5Avatar15 As SDUI5Avatar		'ignore
+Private SDUI5Avatar16 As SDUI5Avatar		'ignore
+Private SDUI5Avatar17 As SDUI5Avatar		'ignore
+Private SDUI5Avatar18 As SDUI5Avatar		'ignore
+Private SDUI5Avatar19 As SDUI5Avatar		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Click` — handlers named `SDUI5Avatar16_<Event>`.
-
-Also used in: `pgDropDown`, `pgIndicator`, `pgNavBar`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `avatar`, `chat-image`, `rounded-field`, `avatar-placeholder`
 ## Code Example
@@ -198,5 +199,3 @@ BANano.Await(avatar.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

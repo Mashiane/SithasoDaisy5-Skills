@@ -30,451 +30,546 @@ _(inherits from SDUI5Component base — see base contract)_
 _(none declared)_
 
 Wire in parent: `Sub uishared_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (437)
-- `CreateList()` As List _(public)_
-- `RandomTimeBetween(StartTime As String, EndTime As String)` As String _(public)_
-- `DateIconv(InputDate As String)` As Long _(public)_
-- `DateOconv(PickDays As Long, OutputFormat As String)` As String _(public)_
-- `GetDeviceSizes(varOffsets As String)` As Map _(public)_
-- `ExcelColumnName(n As Int)` As String _(public)_
-- `ExcelColumnIndex(ColumnName As String)` As Int _(public)_
-- `ExtractDateOfBirthFromRSAID(IDNumber As String)` As String _(public)_
-- `ListAddUnique(lst As List, item As String)` _(public)_
-- `PlayAudio(af As String)` _(public)_
-- `AddCode(cd As StringBuilder, cl As String)` _(public)_
-- `SearchList(lst As List, key As String, value As String)` As Int _(public)_
-- `JoinQuote(delimiter As String, lst As List)` As String _(public)_
-- `CopyMapByKeys(source As Map, keys As List)` As Map _(public)_
-- `ExtractFirstWords(input As String, numwords As Int)` As String			'ignoredeadcode _(public)_
-- `CDbl(o As String)` As Double _(public)_
-- `Len(Text As String)` As Int _(public)_
-- `PadRight(Value As String, MaxLen As Int, PadChar As String)` As String _(public)_
-- `Initialize(self As Object)` _(public)_
-- `Focus(mElement As BANanoElement)` _(public)_
-- `FocusByID(sID As String)` _(public)_
-- `SetReadOnly(mElement As BANanoElement, b As Boolean)` _(public)_
-- `SetNoArrows(mElement As BANanoElement)` _(public)_
-- `GetElementByID(sID As String)` As BANanoElement _(public)_
-- `GetElementObjectByID(sID As String)` As BANanoObject _(public)_
-- `EnsureVisibleByID(sID As String)` _(public)_
-- `RemoveElementByID(sID As String)` _(public)_
-- `GetMonthName3(sMonth As String)` As String _(public)_
-- `GetHexColor(Color As String, Intensity As String)` As String _(public)_
-- `FixColor(prefix As String, v As String)` As String _(public)_
-- `BuildStyles(o As Map)` As String _(public)_
-- `RemoveBackgroundColorByID(sID As String)` _(public)_
-- `SetButtonImageSize(mElement As BANanoElement, s As String)` _(public)_
-- `SetButtonImageSizeByID(sID As String, s As String)` _(public)_
-- `SetShadowByID(sID As String, s As String)` _(public)_
-- `SetRoundedTLByID(sID As String, s As String)` _(public)_
-- `SetRoundedTRByID(sID As String, s As String)` _(public)_
-- `SetRoundedBLByID(sID As String, s As String)` _(public)_
-- `SetRoundedBRByID(sID As String, s As String)` _(public)_
-- `AddVisibleDT(b As Boolean)` _(public)_
-- `AddClassDT(sclsName As String)` _(public)_
-- `UpdateClassDT(className As String, sclsName As String)` _(public)_
-- `AddClass(mElement As BANanoElement, s As String)` _(public)_
-- `AddClassList(mElement As BANanoElement, lst As List)` _(public)_
-- `AddStyleMap(mElement As BANanoElement, ms As Map)` _(public)_
-- `ClearByID(sID As String)` _(public)_
-- `Clear(mElement As BANanoElement)` _(public)_
-- `Append(mElement As BANanoElement, sContent As String)` _(public)_
-- `AppendByID(sID As String, sContent As String)` _(public)_
-- `SetHTML(mElement As BANanoElement, sContent As String)` _(public)_
-- `SetHTMLByID(sID As String, sContent As String)` _(public)_
-- `SetPositionByID(sID As String, s As String)` _(public)_
-- `SetPaddingAXYTBLRByID(sID As String, s As String)` _(public)_
-- `SetMarginAXYTBLRByID(sID As String, s As String)` _(public)_
-- `SetClassesByID(sID As String, s As String)` _(public)_
-- `SetStylesByID(sID As String, s As String)` _(public)_
-- `SetCursorPointer(mElement As BANanoElement)` _(public)_
-- `SetCursorPointerByID(sID As String)` _(public)_
-- `Show(sID As String)` _(public)_
-- `Hide(sID As String)` _(public)_
-- `SetVisibleByID(sID As String, b As Boolean)` _(public)_
-- `OnEventMethod(mElement As BANanoElement, event As String, Module As Object, MethodName As String)` As 'ignore _(public)_
-- `OnEventMethodByID(sID As String, event As String, CallBack As Object, MethodName As String)` _(public)_
-- `OnEventByID(sID As String, event As String, CallBack As Object, MethodName As String)` _(public)_
-- `OnEvent(mElement As BANanoElement, event As String, CallBack As Object, MethodName As String)` _(public)_
-- `SetEnabledByID(sID As String, bEnabled As Boolean)` _(public)_
-- `SetButtonEnabledByID(sID As String, bEnabled As Boolean)` _(public)_
-- `SetData(mElement As BANanoElement, k As String, v As String)` _(public)_
-- `GetData(mElement As BANanoElement, k As String)` As String _(public)_
-- `RemoveAttr(mElement As BANanoElement, attr As String)` _(public)_
-- `SetStyle(mElement As BANanoElement, k As String, v As String)` _(public)_
-- `SetStyleByID(sID As String, k As String, v As String)` _(public)_
-- `RemoveStyle(mElement As BANanoElement, k As String)` _(public)_
-- `RemoveStyleByID(sID As String, k As String)` _(public)_
-- `GetStyleByID(sID As String, k As String)` As String _(public)_
-- `GetComputedStyleByID(sID As String, k As String)` As String _(public)_
-- `GetComputedStyle(mElement As BANanoElement, k As String)` As String _(public)_
-- `AddStyle(mElement As BANanoElement, k As String, v As String)` As 'ignoredeadcode _(public)_
-- `AddClassByID(sID As String, k As String)` _(public)_
-- `AddStyleByID(sID As String, k As String, v As String)` As 'ignoredeadcode _(public)_
-- `AddStyleDT(k As String, v As String)` _(public)_
+## Public Methods (265)
 - `AddAttr(mElement As BANanoElement, attr As String, text As String)` _(public)_
-- `AddAttrByID(sID As String, k As String, v As String)` As 'ignoredeadcode _(public)_
-- `SetAttr(mElement As BANanoElement, Attr As String, text As String)` _(public)_
-- `SetAttrByID(sID As String, k As String, v As String)` _(public)_
-- `RemoveAttrByID(sID As String, k As String)` _(public)_
+- `AddAttrByID(sID As String, k As String, v As String)` _(public)_
 - `AddAttrDT(attr As String, text As Object)` _(public)_
-- `AddDataAttrDT(attr As String, text As String)` _(public)_
-- `AddDataAttr(mElement As BANanoElement, attr As String, text As String)` _(public)_
-- `SetDataAttrByID(sID As String, k As String, v As String)` _(public)_
-- `GetDataAttr(mElement As BANanoElement, k As String)` As String _(public)_
-- `GetAttr(mElement As BANanoElement, attr As String)` As String _(public)_
-- `GetDataAttrByID(sID As String, attr As String)` As String _(public)_
-- `GetAttrByID(sID As String, attr As String)` As String _(public)_
 - `AddAttrMap(mElement As BANanoElement, ms As Map)` _(public)_
-- `SetIconNameByID(elName As String, scontent As String)` _(public)_
-- `RemoveLastClassByID(sID As String, xClass As String)` _(public)_
-- `RemoveLastClass(mElement As BANanoElement, xattr As String)` _(public)_
-- `UpdateClass(mElement As BANanoElement, rpClass As String, nv As String)` _(public)_
-- `UpdateClassOnly(mElement As BANanoElement, rpClass As String, nv As String)` _(public)_
-- `RemoveClass(mElement As BANanoElement, xtext As String)` _(public)_
-- `RemoveClassList(mElement As BANanoElement, lst As List)` _(public)_
-- `GetOptions(varStyles As String)` As List _(public)_
-- `GetKeyValues(varStyles As String, deCamel As Boolean)` As Map _(public)_
-- `MvField(sValue As String, iPosition As Int, Delimiter As String)` As String _(public)_
-- `StrMid(Text As String, Start As Int)` As String _(public)_
-- `OnChildEvent(child As String, event As String, Module As Object, methodName As String)` As 'ignore _(public)_
-- `SetChecked(mElement As BANanoElement, v As Boolean)` _(public)_
-- `GetChecked(mElement As BANanoElement)` As Boolean _(public)_
-- `SetImage(mElement As BANanoElement, s As String)` _(public)_
-- `SetHeight(mElement As BANanoElement, s As String)` _(public)_
-- `SetHeightResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
-- `SetHeightByID(sID As String, s As String)` _(public)_
-- `SetHeightResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
-- `SetWidth(mElement As BANanoElement, s As String)` _(public)_
-- `FixIconSize(s As String)` As String _(public)_
-- `SetIconSize(mElement As BANanoElement, s As String)` _(public)_
-- `SetIconColor(mElement As BANanoElement, s As String)` _(public)_
-- `SetIconColorByID(sID As String, s As String)` _(public)_
-- `SetSVGFill(mElement As BANanoElement, s As String)` _(public)_
-- `SetSVGFillByID(sID As String, s As String)` _(public)_
-- `FixIconSizeByButtonSize(s As String)` As String _(public)_
-- `ResizeIconByIDFromButtonSize(sID As String, btnSize As String)` _(public)_
-- `ResizeIconByID(sID As String, sPercentage As String)` _(public)_
-- `SizeIconByID(sID As String, sPercentage As String)` _(public)_
-- `Increment(ival As Int)` As Int _(public)_
-- `Decrement(ival As Int)` As Int _(public)_
-- `PercentOf(cvalue As Int, tvalue As Int)` As Double _(public)_
-- `SetIconSizeByID(sID As String, s As String)` _(public)_
-- `SetIconWidth(mElement As BANanoElement, s As String)` _(public)_
-- `SetIconHeight(mElement As BANanoElement, s As String)` _(public)_
-- `SetIconWidthByID(sID As String, s As String)` _(public)_
-- `SetIconHeightByID(sID As String, s As String)` _(public)_
-- `SetAttrWidthByID(sID As String, s As String)` _(public)_
-- `SetAttrHeightByID(sID As String, s As String)` _(public)_
-- `SetAttrWidth(mElement As BANanoElement, s As String)` _(public)_
-- `SetAttrHeight(mElement As BANanoElement, s As String)` _(public)_
-- `SetWidthResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
-- `SetMaxWidthResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
-- `SetMaxWidthResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
-- `SetMaxHeightResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
-- `SetMaxHeightResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
-- `SetWidthResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
-- `SetMaxHeight(mElement As BANanoElement, s As String)` _(public)_
-- `SetMinHeight(mElement As BANanoElement, s As String)` _(public)_
-- `SetMaxWidth(mElement As BANanoElement, s As String)` _(public)_
-- `SetMinWidth(mElement As BANanoElement, s As String)` _(public)_
-- `SetMaxWidthByID(sID As String, s As String)` _(public)_
-- `SetMaxHeightByID(sID As String, s As String)` _(public)_
-- `SetMinHeightByID(sID As String, s As String)` _(public)_
-- `SetMinWidthByID(sID As String, s As String)` _(public)_
-- `SetWidthByID(sID As String, s As String)` _(public)_
-- `SetImageByID(sID As String, s As String)` _(public)_
-- `GetCheckedByID(sID As String)` As Boolean _(public)_
-- `SetCheckedByID(sID As String, b As Boolean)` _(public)_
-- `ToggleDropDownByID(sID As String)` _(public)_
-- `CloseDropDownByID(sID As String)` _(public)_
-- `OpenDropDownByID(sID As String)` _(public)_
-- `ToggleClassByID(sID As String, sClass As String)` _(public)_
-- `ToggleClass(mElement As BANanoElement, sClass As String)` _(public)_
-- `ToggleByID(sID As String)` _(public)_
-- `Toggle(mElement As BANanoElement)` _(public)_
-- `SetText(mElement As BANanoElement, hx As String)` _(public)_
-- `GetText(mElement As BANanoElement)` As String _(public)_
-- `GetTextByID(sID As String)` As String _(public)_
-- `GetValue(mElement As BANanoElement)` As Object _(public)_
-- `GetValueByID(sID As String)` As String _(public)_
-- `SetValue(mElement As BANanoElement, v As Object)` _(public)_
-- `SetValueByID(sID As String, v As Object)` _(public)_
-- `ResponsiveClass(mElement As BANanoElement, className As String, xs As Boolean, sm As Boolean, md As Boolean, lg As Boolean)` _(public)_
-- `AddTextColorDT(tc As String)` As 'ignoredeadcode _(public)_
-- `AddBackgroundColorDT(tc As String)` As 'ignoredeadcode _(public)_
-- `AddSizeDT(prefix As String, tc As String)` _(public)_
-- `AddCenterChildrenDT()` As 'ignoredeadcode _(public)_
-- `AddWidthDT(s As String)` _(public)_
-- `AddMinWidthDT(s As String)` _(public)_
-- `AddMaxWidthDT(s As String)` _(public)_
-- `AddHeightDT(s As String)` _(public)_
-- `AddMaxHeightDT(s As String)` _(public)_
-- `AddMinHeightDT(s As String)` _(public)_
+- `AddBackgroundColorDT(tc As String)` _(public)_
+- `AddBackgroundImageDT(s As String)` _(public)_
+- `AddBorderColorDT(tc As String)` _(public)_
+- `AddCenterChildrenDT()` _(public)_
+- `AddClass(mElement As BANanoElement, s As String)` _(public)_
+- `AddClassByID(sID As String, k As String)` _(public)_
+- `AddClassDT(sclsName As String)` _(public)_
+- `AddClassList(mElement As BANanoElement, lst As List)` _(public)_
+- `AddCode(cd As StringBuilder, cl As String)` _(public)_
+- `AddCodeLine(lst As List, cl As String)` _(public)_
 - `AddColorDT(prefix As String, tc As String)` _(public)_
-- `AddBorderColorDT(tc As String)` As 'ignoredeadcode _(public)_
+- `AddComment(sb1 As StringBuilder, cl As String)` _(public)_
+- `AddCSSRule(key As String, value As String)` _(public)_
+- `AddCSSRuleMap(m As Map)` _(public)_
+- `AddDataAttr(mElement As BANanoElement, attr As String, text As String)` _(public)_
+- `AddDataAttrDT(attr As String, text As String)` _(public)_
+- `AddHeightDT(s As String)` _(public)_
 - `AddMaskDT(tc As String)` _(public)_
+- `AddMaxHeightDT(s As String)` _(public)_
+- `AddMaxWidthDT(s As String)` _(public)_
+- `AddMinHeightDT(s As String)` _(public)_
+- `AddMinWidthDT(s As String)` _(public)_
+- `AddPlacementDT(sprefix As String, sPlacement As String)` _(public)_
+- `AddRoundedBLDT(tc As String)` _(public)_
+- `AddRoundedBoxDT()` _(public)_
+- `AddRoundedBRDT(tc As String)` _(public)_
 - `AddRoundedDT(tc As String)` _(public)_
 - `AddRoundedTLDT(tc As String)` _(public)_
 - `AddRoundedTRDT(tc As String)` _(public)_
-- `AddRoundedBRDT(tc As String)` _(public)_
-- `AddRoundedBLDT(tc As String)` _(public)_
-- `AddRoundedBoxDT()` _(public)_
 - `AddShadowDT(s As String)` _(public)_
-- `AddTextSizeDT(tc As String)` As 'ignoredeadcode _(public)_
-- `AddBackgroundImageDT(s As String)` As 'ignoredeadcode _(public)_
-- `SetBackgroundImage(mElement As BANanoElement, s As String)` As 'ignoredeadcode _(public)_
-- `SetBackgroundImageByID(sID As String, s As String)` As 'ignoredeadcode _(public)_
-- `AddPlacementDT(sprefix As String, sPlacement As String)` As 'ignoredeadcode _(public)_
-- `SetPlacement(mElement As BANanoElement, sprefix As String, sPlacement As String)` _(public)_
-- `SetIconFillByID(sID As String, s As String)` _(public)_
-- `SetIconFill(mElement As BANanoElement, s As String)` _(public)_
-- `SetPlacementByID(sID As String, sprefix As String, splacement As String)` _(public)_
-- `SetCenterChildren(mElement As BANanoElement, b As Boolean)` _(public)_
-- `SetCenterChildrenByID(sID As String, b As Boolean)` _(public)_
-- `SetField(mElement As BANanoElement, k As String, v As String)` _(public)_
-- `GetField(mElement As BANanoElement, k As String)` As String _(public)_
-- `SetFieldByID(sID As String, k As String, v As String)` _(public)_
-- `GetFieldByID(sID As String, k As String)` As String _(public)_
-- `ProperSubName(vx As String, removePref As Boolean)` As String _(public)_
-- `GetAvatarColor(color As String)` As String _(public)_
-- `GetAvatarTextColor(color As String)` As String _(public)_
-- `GetAvatarColorMap()` As Map _(public)_
-- `GetAvatarTextColorMap()` As Map _(public)_
-- `ProperCase(myStr As String)` As String _(public)_
-- `MvCount(strMV As String, Delimiter As String)` As Int _(public)_
-- `MvLast(delim As String, value As String)` As String _(public)_
-- `GetRecursive(data As Map, path As String)` As Object _(public)_
-- `DateAdd(mDate As String, HowManyDays As Int)` As String _(public)_
-- `GetDatesBetween(startDate As String, endDate As String)` As List _(public)_
-- `FixColorIntensity(prefix As String, v As String, i As String)` As String _(public)_
-- `LoremIpsum(count As Int)` As String _(public)_
-- `CleanID(s As String)` As String _(public)_
-- `CBool(v As Object)` As Boolean _(public)_
-- `CStr(o As Object)` As String _(public)_
-- `Join(delimiter As String, lst As List)` As String _(public)_
-- `FormatDisplayDate(item As String, sFormat As String)` As String _(public)_
-- `Val(value As String)` As String _(public)_
-- `InStr(sText As String, sFind As String)` As Int _(public)_
-- `FormatDisplayNumber(item As String, sFormat As String)` As String _(public)_
-- `FormatFileSize(Bytes As Float)` As String _(public)_
-- `NiceDate(sdate As String)` As String _(public)_
-- `NiceMonth(sdate As String)` As String _(public)_
-- `NiceYear(sdate As String)` As String _(public)_
-- `NiceTime(stime As String)` As String _(public)_
-- `NiceDateTime(stime As String)` As String _(public)_
-- `NiceMoney(smoney As String)` As String _(public)_
-- `Thousands(smoney As String)` As String _(public)_
-- `NiceFileSize(fsx As String)` As String _(public)_
-- `FixSize(prefix As String, v As String)` As String _(public)_
-- `FixMask(mask As String)` As String _(public)_
-- `FixRounded(s As String)` As String _(public)_
-- `ListToSelectOptionsSort(lst As List)` As Map _(public)_
-- `MapToOptionsString(m As Map)` As String _(public)_
-- `PutRecursive(data As Map, path As String, value As Object)` _(public)_
-- `MvRemoveItems(delim As String, value As String, sitems As String)` As String _(public)_
-- `MapMakeLowerCaseKeys(m As Map)` As Map _(public)_
-- `ListOfMapsKeysToLowerCase(lst As List)` _(public)_
-- `ListToSelectOptions(lst As List)` As Map _(public)_
-- `FixShadow(s As String)` As String _(public)_
-- `CInt(o As Object)` As Int _(public)_
-- `FixOffset(s As String)` As String _(public)_
-- `ListTrimItems(cols As List)` As List _(public)_
-- `StrParseTrim(delim As String, inputString As String)` As List _(public)_
-- `DeCamelCase(st As String)` As String			'ignoredeadcode _(public)_
-- `StrParse(delim As String, inputString As String)` As List _(public)_
-- `ListRemoveDuplicates(lst As List, bSort As Boolean)` As List _(public)_
-- `RightSize(v As String)` As String _(public)_
-- `Left(Text As String, xLength As Long)` As String _(public)_
-- `GetAlphaColor(a As String)` As String _(public)_
-- `Initials(FullName As String)` As String _(public)_
-- `InsertCSSRule(selector As String, ostyles As Object)` As 'ignoredeadcode _(public)_
-- `RemoveCSSRule(selector As String)` As 'ignoredeadcode _(public)_
-- `ListPaginate(lst As List, pageSize As Int, pageNumber As Int)` As Paginate _(public)_
+- `AddSizeDT(prefix As String, tc As String)` _(public)_
+- `AddStyle(mElement As BANanoElement, k As String, v As String)` _(public)_
+- `AddStyleByID(sID As String, k As String, v As String)` _(public)_
+- `AddStyleDT(k As String, v As String)` _(public)_
+- `AddStyleMap(mElement As BANanoElement, ms As Map)` _(public)_
+- `AddTextColorDT(tc As String)` _(public)_
+- `AddTextSizeDT(tc As String)` _(public)_
+- `AddVisibleDT(b As Boolean)` _(public)_
+- `AddWidthDT(s As String)` _(public)_
+- `AESDecrypt(v As String, s As String)` As String _(public)_
+- `AESEncrypt(v As String, s As String)` As String _(public)_
 - `Alpha(value As String)` As String _(public)_
-- `RemDelim(sValue As String, Delim As String)` As String _(public)_
-- `ListOfMapsToCSV(content As List, quotes As Boolean, delimiter As String, hasHeader As Boolean)` As String _(public)_
-- `InStr1(Text As String, sFind As String)` As Int _(public)_
-- `ShowLoader()` _(public)_
-- `HideLoader()` _(public)_
-- `ListIndexOf(lst As List, prop As String, value As String)` As Int _(public)_
-- `ShuffleList(pl As List)` As List _(public)_
-- `CamelCase(idName As String)` As String						'ignoredeadcode _(public)_
-- `CamelCaseOthers(vx As String)` As String _(public)_
-- `DeCamelCaseSpace(st As String)` As String _(public)_
+- `Append(mElement As BANanoElement, sContent As String)` _(public)_
+- `AppendByID(sID As String, sContent As String)` _(public)_
+- `ApplyCSSRule()` _(public)_
 - `BeautifyB4X(sc As String)` As Boolean _(public)_
-- `DownloadTextFile(content As String, fileName As String)` _(public)_
-- `PrettierCode(code As String)` As String _(public)_
-- `Space(HM As Int)` As String _(public)_
-- `IsBlockStart(strLine As String)` As Boolean _(public)_
-- `IsBlockEnd(strLine As String)` As Boolean _(public)_
-- `TimeAgo(dt As String)` As String _(public)_
-- `MakeMoney(sValue As String)` As String _(public)_
-- `YYYYMMDD(sdate As String)` As String _(public)_
-- `YYYYMM(sdate As String)` As String _(public)_
-- `TimeNow()` As String _(public)_
+- `BuildCode(sb1 As StringBuilder)` As String _(public)_
+- `BuildCodeLine(lst As List)` As String _(public)_
+- `BuildExAttributes()` As String _(public)_
+- `BuildExClass()` As String _(public)_
+- `BuildExStyle()` As String _(public)_
+- `BuildStyles(o As Map)` As String _(public)_
+- `CalculateAge(birthDateString As String)` As Int _(public)_
+- `CamelCase(idName As String)` As String _(public)_
+- `CamelCaseOthers(vx As String)` As String _(public)_
+- `CBool(v As Object)` As Boolean _(public)_
+- `CDbl(o As String)` As Double _(public)_
+- `CenterHorizontally(mElement As BANanoElement)` _(public)_
+- `CenterVertically(mElement As BANanoElement)` _(public)_
+- `CInt(o As Object)` As Int _(public)_
+- `CleanID(s As String)` As String _(public)_
+- `Clear(mElement As BANanoElement)` _(public)_
+- `ClearByID(sID As String)` _(public)_
+- `ClearCSSRule()` _(public)_
+- `CloseDropDownByID(sID As String)` _(public)_
+- `ColorToHex(n As String)` As String _(public)_
+- `ColorToHSL(n As String)` As String _(public)_
+- `CompressBase64(dataURL As String)` As String _(public)_
+- `ConvertHoursToMinutes(hours As String)` As Int _(public)_
+- `ConvertMinutesToHours(totalMinutes As Int)` As String _(public)_
+- `CopyMapByKeys(source As Map, keys As List)` As Map _(public)_
+- `CreateCSSRule(className As String, important As Boolean)` _(public)_
+- `CreateList()` _(public)_
+- `CStr(o As Object)` As String _(public)_
+- `dataURLToBlob(dataURL As String)` As Object _(public)_
+- `dataURLtoFile(dataURL As String, fileName As String)` As Object _(public)_
+- `DateAdd(mDate As String, HowManyDays As Int)` As String _(public)_
+- `DateDiff(dateStr1 As String, dateStr2 As String)` As Int _(public)_
+- `DateIconv(InputDate As String)` As Long _(public)_
 - `DateNow()` As String _(public)_
+- `DateOconv(PickDays As Long, OutputFormat As String)` As String _(public)_
 - `DateOnDaysFromToday(days2Add As Int)` As String _(public)_
 - `DateTimeNow()` As String _(public)_
 - `DateTimeNowBackUp()` As String _(public)_
-- `Now()` As String _(public)_
+- `DeCamelCase(st As String)` As String _(public)_
+- `DeCamelCaseSpace(st As String)` As String _(public)_
+- `DeCompressBase64(dataURL As String)` As String _(public)_
+- `Decrement(ival As Int)` As Int _(public)_
+- `DownloadTextFile(content As String, fileName As String)` _(public)_
+- `EndOfMonth(mDate As String)` As String _(public)_
+- `EndOfThisMonth()` _(public)_
+- `EnsureVisibleByID(sID As String)` _(public)_
+- `ExcelColumnIndex(ColumnName As String)` As Int _(public)_
+- `ExcelColumnName(n As Int)` As String _(public)_
+- `ExtractDateOfBirthFromRSAID(IDNumber As String)` As String _(public)_
+- `ExtractFirstWords(input As String, numwords As Int)` As String _(public)_
+- `FieldExists(el As BANanoElement, fldName As String)` As Boolean _(public)_
+- `fileToDataURL(fileObj As Object)` As String _(public)_
+- `FixColor(prefix As String, v As String)` As String _(public)_
+- `FixColorIntensity(prefix As String, v As String, i As String)` As String _(public)_
+- `FixIconSize(s As String)` As String _(public)_
+- `FixIconSizeByButtonSize(s As String)` As String _(public)_
+- `FixMask(mask As String)` As String _(public)_
+- `FixOffset(s As String)` As String _(public)_
+- `FixRounded(s As String)` As String _(public)_
+- `FixShadow(s As String)` As String _(public)_
+- `FixSize(prefix As String, v As String)` As String _(public)_
+- `Focus(mElement As BANanoElement)` _(public)_
+- `FocusByID(sID As String)` _(public)_
+- `FormatDisplayDate(item As String, sFormat As String)` As String _(public)_
+- `FormatDisplayNumber(item As String, sFormat As String)` As String _(public)_
+- `FormatFileSize(Bytes As Float)` As String _(public)_
+- `GeneratePassword(plength As Int, includeLowercase As Boolean,  includeUppercase As Boolean, includeNumbers As Boolean, includeSpecialChars As Boolean)` As String _(public)_
+- `HexToHSL(h As String)` As String _(public)_
+- `hexToRgba(shex As String)` As String _(public)_
+- `Hide(sID As String)` _(public)_
+- `HideLoader()` _(public)_
+- `Increment(ival As Int)` As Int _(public)_
+- `Initialize(self As Object)` _(public)_
+- `Initials(FullName As String)` As String _(public)_
+- `InsertCSSRule(selector As String, ostyles As Object)` _(public)_
+- `InStr(sText As String, sFind As String)` As Int _(public)_
+- `InStr1(Text As String, sFind As String)` As Int _(public)_
+- `InStrRev(Text As String, str As String)` As Int _(public)_
+- `IsBlockEnd(strLine As String)` As Boolean _(public)_
+- `IsBlockStart(strLine As String)` As Boolean _(public)_
+- `IsValidRSAID_Luhn(IDNumber As String)` As Boolean _(public)_
+- `Join(delimiter As String, lst As List)` As String _(public)_
+- `JoinQuote(delimiter As String, lst As List)` As String _(public)_
+- `Json2CreateMap(svalue As String)` As String _(public)_
+- `LCase(Text As String)` As String _(public)_
+- `Left(Text As String, xLength As Long)` As String _(public)_
+- `Len(Text As String)` As Int _(public)_
+- `ListAddUnique(lst As List, item As String)` _(public)_
+- `ListDoubleQuoteItems(lst As List)` _(public)_
+- `ListIndexOf(lst As List, prop As String, value As String)` As Int _(public)_
+- `ListOfMapsKeysToLowerCase(lst As List)` _(public)_
+- `ListOfMapsToCSV(content As List, quotes As Boolean, delimiter As String, hasHeader As Boolean)` As String _(public)_
+- `ListPaginate(lst As List, pageSize As Int, pageNumber As Int)` As Paginate _(public)_
+- `ListRemoveDuplicates(lst As List, bSort As Boolean)` As List _(public)_
+- `ListSingleQuoteItems(lst As List)` _(public)_
+- `ListSum(lst As List)` As String _(public)_
+- `ListToArrayVariable(lst As List)` As String _(public)_
+- `ListToSelectOptions(lst As List)` As Map _(public)_
+- `ListToSelectOptionsSort(lst As List)` As Map _(public)_
+- `ListTrimItems(cols As List)` As List _(public)_
+- `LoadAssetsOnDemand(Key As String, Items As List)` _(public)_
 - `LongDateTimeToday()` As String _(public)_
-- `GetWorkingDates(startDate As String, endDate As String)` As List _(public)_
-- `GetWeekEnds(startDate As String, endDate As String)` As List _(public)_
-- `OpenURLTab(url As String)` As 'ignoredeadcode _(public)_
+- `LoremIpsum(count As Int)` As String _(public)_
+- `MakeMoney(sValue As String)` As String _(public)_
+- `MapKeysToList(m As Map)` As List _(public)_
+- `MapLowerKeys(m As Map)` As Map _(public)_
+- `MapMakeLowerCaseKeys(m As Map)` As Map _(public)_
+- `MapPropertiesToList(m As Map, props As List)` As List _(public)_
+- `MapToOptionsString(m As Map)` As String _(public)_
+- `MapValuesToList(m As Map)` As List _(public)_
+- `Mid(Text As String, Start As Int, lLength As Int)` As String _(public)_
+- `MinuteDiff(currentDate As String, otherDate As String)` As Int _(public)_
+- `MonthAdd(mDate As String, HowManyMonths As Int)` As String _(public)_
+- `MonthDiff(currentDate As String, otherDate As String)` As Int _(public)_
+- `MonthNow()` As String _(public)_
+- `MvCount(strMV As String, Delimiter As String)` As Int _(public)_
+- `MvField(sValue As String, iPosition As Int, Delimiter As String)` As String _(public)_
+- `MvLast(delim As String, value As String)` As String _(public)_
+- `MvRemoveItems(delim As String, value As String, sitems As String)` As String _(public)_
+- `MvRest(delim As String, svalue As String, startPos As String)` As String _(public)_
+- `MvSearch(searchvalues As String,strsearch As String,delim As String)` As Int _(public)_
+- `NiceDate(sdate As String)` As String _(public)_
+- `NiceDateTime(stime As String)` As String _(public)_
+- `NiceFileSize(fsx As String)` As String _(public)_
+- `NiceMoney(smoney As String)` As String _(public)_
+- `NiceMonth(sdate As String)` As String _(public)_
+- `NiceTime(stime As String)` As String _(public)_
+- `NiceYear(sdate As String)` As String _(public)_
+- `Now()` As String _(public)_
+- `NumberOfDaysBetweenDates(CurrentDate As String, OtherDate As String)` As Int _(public)_
+- `OnChildEvent(child As String, event As String, Module As Object, methodName As String)` _(public)_
+- `OnEvent(mElement As BANanoElement, event As String, CallBack As Object, MethodName As String)` _(public)_
+- `OnEventByID(sID As String, event As String, CallBack As Object, MethodName As String)` _(public)_
+- `OnEventMethod(mElement As BANanoElement, event As String, Module As Object, MethodName As String)` _(public)_
+- `OnEventMethodByID(sID As String, event As String, CallBack As Object, MethodName As String)` _(public)_
+- `OpenDropDownByID(sID As String)` _(public)_
+- `OpenURLTab(url As String)` _(public)_
 - `OpenURLTarget(url As String, target As String)` _(public)_
+- `OpenURLTel(tel As String)` _(public)_
 - `OpenURLWhatsApp(tel As String)` _(public)_
 - `OpenURLWhatsAppText(tel As String, text As String)` _(public)_
-- `OpenURLTel(tel As String)` _(public)_
-- `GeneratePassword(plength As Int, includeLowercase As Boolean,  includeUppercase As Boolean, includeNumbers As Boolean, includeSpecialChars As Boolean)` As String				'ignoredeadcode _(public)_
-- `RunMethodByID(sID As String, sEvent As String)` _(public)_
-- `SetToolTipByID(sID As String, tooltip As String, tooltipPosition As String)` _(public)_
-- `SetToolTip(mElement As BANanoElement, tooltip As String, tooltipPosition As String)` _(public)_
-- `ToKiloBytes(kbSize As Int)` As Int _(public)_
-- `ToBytes(kbSize As Int)` As Long _(public)_
-- `dataURLToBlob(dataURL As String)` As Object _(public)_
-- `dataURLtoFile(dataURL As String, fileName As String)` As Object _(public)_
-- `fileToDataURL(fileObj As Object)` As String _(public)_
-- `CompressBase64(dataURL As String)` As String _(public)_
-- `DeCompressBase64(dataURL As String)` As String _(public)_
-- `GetMonthStartEnd(dateString As String)` As List _(public)_
-- `StrMid1(Text As String, Start As Int, iLength As Int)` As String _(public)_
-- `GetGenderFromRSAID(IDNumber As String)` As String _(public)_
-- `IsValidRSAID_Luhn(IDNumber As String)` As Boolean _(public)_
-- `CalculateAge(birthDateString As String)` As Int _(public)_
-- `DateDiff(dateStr1 As String, dateStr2 As String)` As Int _(public)_
-- `YearDiff(currentDate As String, otherDate As String)` As Int _(public)_
-- `MonthDiff(currentDate As String, otherDate As String)` As Int _(public)_
-- `MinuteDiff(currentDate As String, otherDate As String)` As Int _(public)_
-- `ListSingleQuoteItems(lst As List)` _(public)_
-- `ListDoubleQuoteItems(lst As List)` _(public)_
-- `ListToArrayVariable(lst As List)` As String _(public)_
-- `MvRest(delim As String, svalue As String, startPos As String)` As String _(public)_
-- `ReadTextFileFromAssets(fn As String)` As String _(public)_
-- `ReadJSONFileFromAssets(fn As String)` As Object _(public)_
+- `OptionsToMap(opt As String)` As Map _(public)_
+- `PadRight(Value As String, MaxLen As Int, PadChar As String)` As String _(public)_
+- `PercentOf(cvalue As Int, tvalue As Int)` As Double _(public)_
+- `PeriodBetweenInDays(CurrentDate As String, OtherDate As String)` As Int _(public)_
+- `PlayAudio(af As String)` _(public)_
+- `PrettierCode(code As String)` As String _(public)_
+- `ProperCase(myStr As String)` As String _(public)_
+- `ProperSubName(vx As String, removePref As Boolean)` As String _(public)_
+- `PutRecursive(data As Map, path As String, value As Object)` _(public)_
+- `RandomTimeBetween(StartTime As String, EndTime As String)` As String _(public)_
 - `ReadBase64FileFromAssets(fn As String)` As Object _(public)_
-- `AESEncrypt(v As String, s As String)` As String _(public)_
-- `AESDecrypt(v As String, s As String)` As String _(public)_
-- `GetString(m As Map, fld As String)` As String _(public)_
-- `GetBoolean(m As Map, fld As String)` As Boolean _(public)_
-- `GetInt(m As Map, fld As String)` As Int _(public)_
-- `GetDouble(m As Map, fld As String)` As Double _(public)_
-- `GetLong(m As Map, fld As String)` As Long _(public)_
-- `MapPropertiesToList(m As Map, props As List)` As List _(public)_
-- `MapKeysToList(m As Map)` As List _(public)_
-- `MapValuesToList(m As Map)` As List _(public)_
-- `LoadAssetsOnDemand(Key As String, Items As List)` _(public)_
-- `YearNow()` As String _(public)_
-- `MonthNow()` As String _(public)_
-- `ConvertMinutesToHours(totalMinutes As Int)` As String _(public)_
-- `ConvertHoursToMinutes(hours As String)` As Int _(public)_
+- `ReadJSONFileFromAssets(fn As String)` As Object _(public)_
+- `ReadTextFileFromAssets(fn As String)` As String _(public)_
+- `RemDelim(sValue As String, Delim As String)` As String _(public)_
+- `RemoveAttr(mElement As BANanoElement, attr As String)` _(public)_
+- `RemoveAttrByID(sID As String, k As String)` _(public)_
+- `RemoveBackgroundColor(mElement As BANanoElement)` _(public)_
+- `RemoveBackgroundColorByID(sID As String)` _(public)_
+- `RemoveClass(mElement As BANanoElement, xtext As String)` _(public)_
+- `RemoveClassByID(sID As String, s As String)` _(public)_
+- `RemoveClassList(mElement As BANanoElement, lst As List)` _(public)_
+- `RemoveCSSRule(selector As String)` _(public)_
+- `RemoveElementByID(sID As String)` _(public)_
+- `RemoveLastClass(mElement As BANanoElement, xattr As String)` _(public)_
+- `RemoveLastClassByID(sID As String, xClass As String)` _(public)_
+- `RemoveStyle(mElement As BANanoElement, k As String)` _(public)_
+- `RemoveStyleByID(sID As String, k As String)` _(public)_
+- `ReplaceString(Text As String, sFind As String, sReplaceWith As String)` As String _(public)_
+- `ResizeIconByID(sID As String, sPercentage As String)` _(public)_
+- `ResizeIconByIDFromButtonSize(sID As String, btnSize As String)` _(public)_
+- `ResponsiveClass(mElement As BANanoElement, className As String, xs As Boolean, sm As Boolean, md As Boolean, lg As Boolean)` _(public)_
+- `rgbaToHexAuto(rgba As String)` As String _(public)_
+- `Right(Text As String, lLength As Long)` As String _(public)_
+- `RightSize(v As String)` As String _(public)_
+- `RunMethodByID(sID As String, sEvent As String)` _(public)_
+- `SearchList(lst As List, key As String, value As String)` As Int _(public)_
+- `Show(sID As String)` _(public)_
+- `ShowLoader()` _(public)_
+- `ShuffleList(pl As List)` As List _(public)_
+- `SizeIconByID(sID As String, sPercentage As String)` _(public)_
+- `Space(HM As Int)` As String _(public)_
+- `Split(Text As String, Delimiter As String)` As String _(public)_
+- `StartOfMonth(mDate As String)` As String _(public)_
+- `StartOfThisMonth()` _(public)_
+- `StrMid(Text As String, Start As Int)` As String _(public)_
+- `StrMid1(Text As String, Start As Int, iLength As Int)` As String _(public)_
+- `StrParse(delim As String, inputString As String)` As List _(public)_
+- `StrParseTrim(delim As String, inputString As String)` As List _(public)_
+- `Thousands(smoney As String)` As String _(public)_
 - `TimeAdd(currentTime As String, minutes2Add As String)` As String _(public)_
 - `TimeAdd1(currentDate As String, currentTime As String, minutes2Add As String)` As String _(public)_
-- `StartOfMonth(mDate As String)` As String _(public)_
-- `StartOfThisMonth()` As String _(public)_
-- `EndOfThisMonth()` As String _(public)_
-- `EndOfMonth(mDate As String)` As String _(public)_
-- `MonthAdd(mDate As String, HowManyMonths As Int)` As String _(public)_
-- `YearsAdd(mDate As String, HowManyYears As Int)` As String _(public)_
-- `NumberOfDaysBetweenDates(CurrentDate As String, OtherDate As String)` As Int _(public)_
-- `PeriodBetweenInDays(CurrentDate As String, OtherDate As String)` As Int _(public)_
+- `TimeAgo(dt As String)` As String _(public)_
 - `TimeDiff(startTime As String, endTime As String)` As String _(public)_
-- `GetBase64BlackPercentage(base64 As String)` As Int _(public)_
-- `GetActualGradient(source As String)` As String			'ignoredeadcode _(public)_
-- `SetLinearGradientByID(sID As String, orientation As String, firstColor As String, secondColor As String)` As 'ignoredeadcode _(public)_
-- `SetLinearGradient(mElement As BANanoElement, orientation As String, firstColor As String, secondColor As String)` As 'ignoredeadcode _(public)_
-- `MapLowerKeys(m As Map)` As Map _(public)_
-- `SetBorder(mElement As BANanoElement, width As String, color As String, radius As String)` _(public)_
-- `SetBoxShadowNone(mElement As BANanoElement)` _(public)_
-- `SetBoxShadowInner(mElement As BANanoElement)` _(public)_
-- `SetBoxShadowSM(mElement As BANanoElement)` _(public)_
-- `SetBoxShadowMD(mElement As BANanoElement)` _(public)_
-- `SetBoxShadowLG(mElement As BANanoElement)` _(public)_
-- `SetBoxShadowXL(mElement As BANanoElement)` _(public)_
-- `SetBoxShadow2XL(mElement As BANanoElement)` _(public)_
-- `SetBoxShadow(mElement As BANanoElement)` _(public)_
-- `FieldExists(el As BANanoElement, fldName As String)` As Boolean _(public)_
-- `SetRotate(mElement As BANanoElement, deg As String)` _(public)_
-- `SetColorAndBorder(mElement As BANanoElement, BackGroundColor As String, BorderWidth As String, BorderColor As String, BorderCornerRadius As String)` _(public)_
-- `SetLayout(mElement As BANanoElement, sLeft As String, sTop As String, sWidth As String, sHeight As String)` _(public)_
-- `SetLayoutRadius(mElement As BANanoElement, sLeft As String, stop As String, swidth As String, sheight As String, sradius As String)` _(public)_
-- `CenterHorizontally(mElement As BANanoElement)` _(public)_
-- `CenterVertically(mElement As BANanoElement)` _(public)_
-- `SetRadius(mElement As BANanoElement, radius As String)` _(public)_
-- `SetScale(mElement As BANanoElement, scale As Double)` _(public)_
-- `SetFontSize(mElement As BANanoElement, size As String)` _(public)_
-- `SetOpacity(mElement As BANanoElement, b As Boolean)` _(public)_
+- `TimeNow()` As String _(public)_
+- `ToBytes(kbSize As Int)` As Long _(public)_
+- `Toggle(mElement As BANanoElement)` _(public)_
+- `ToggleByID(sID As String)` _(public)_
+- `ToggleClass(mElement As BANanoElement, sClass As String)` _(public)_
+- `ToggleClassByID(sID As String, sClass As String)` _(public)_
+- `ToggleDropDownByID(sID As String)` _(public)_
+- `ToKiloBytes(kbSize As Int)` As Int _(public)_
+- `Trigger(mElement As BANanoElement, event As String, params()` As String _(public)_
+- `TrimString(Text As String)` As String _(public)_
+- `UCase(Text As String)` As String _(public)_
+- `UpdateClass(mElement As BANanoElement, rpClass As String, nv As String)` _(public)_
+- `UpdateClassByID(sID As String, k As String, v As String)` _(public)_
+- `UpdateClassDT(className As String, sclsName As String)` _(public)_
+- `UpdateClassOnly(mElement As BANanoElement, rpClass As String, nv As String)` _(public)_
+- `Val(value As String)` As String _(public)_
+- `YearDiff(currentDate As String, otherDate As String)` As Int _(public)_
+- `YearNow()` As String _(public)_
+- `YearsAdd(mDate As String, HowManyYears As Int)` As String _(public)_
+- `YYYYMM(sdate As String)` As String _(public)_
+- `YYYYMMDD(sdate As String)` As String _(public)_
+
+## Key Setters (174)
 - `SetAlpha(mElement As BANanoElement, v As Double)` _(public)_
-- `GetStyleProperty(mElement As BANanoElement, key As String)` As Object _(public)_
-- `SetPadding(mElement As BANanoElement, LeftM As Int, TopM As Int, RightM As Int, BottomM As Int)` _(public)_
-- `SetMargin(mElement As BANanoElement, LeftM As Int, TopM As Int, RightM As Int, BottomM As Int)` _(public)_
-- `GetPaddingLeft(mElement As BANanoElement)` As String _(public)_
-- `GetPaddingTop(mElement As BANanoElement)` As String _(public)_
-- `GetPaddingBottom(mElement As BANanoElement)` As String _(public)_
-- `GetPaddingRight(mElement As BANanoElement)` As String _(public)_
-- `GetMarginLeft(mElement As BANanoElement)` As String _(public)_
-- `GetMarginTop(mElement As BANanoElement)` As String _(public)_
-- `GetMarginBottom(mElement As BANanoElement)` As String _(public)_
-- `GetMarginRight(mElement As BANanoElement)` As String _(public)_
-- `GetTopStyle(mElement As BANanoElement)` As String _(public)_
-- `GetBottomStyle(mElement As BANanoElement)` As String _(public)_
-- `GetLeftStyle(mElement As BANanoElement)` As String _(public)_
-- `GetRightStyle(mElement As BANanoElement)` As String _(public)_
-- `SetTop(mElement As BANanoElement, s As String)` _(public)_
-- `SetLeft(mElement As BANanoElement, s As String)` _(public)_
-- `SetWidth1(mElement As BANanoElement, s As String)` _(public)_
-- `SetHeigh1(mElement As BANanoElement, s As String)` _(public)_
-- `SetColorAnimated(mElement As BANanoElement,duration As Int, FromColor As String, ToColor As String)` As BANanoAnimeJS _(public)_
-- `SetScaleAnimated(mElement As BANanoElement,duration As Int, FromScale As Double, ToScale As Double)` As BANanoAnimeJS _(public)_
-- `SetVisibleAnimated(mElement As BANanoElement,duration As Int, b As Boolean)` As BANanoAnimeJS _(public)_
 - `SetAlphaAnimated(mElement As BANanoElement,duration As Int, dAlpha As Double)` As BANanoAnimeJS _(public)_
+- `SetAttr(mElement As BANanoElement, Attr As String, text As String)` _(public)_
+- `SetAttrByID(sID As String, k As String, v As String)` _(public)_
+- `SetAttrHeight(mElement As BANanoElement, s As String)` _(public)_
+- `SetAttrHeightByID(sID As String, s As String)` _(public)_
+- `SetAttributes(mElement As BANanoElement, s As String)` _(public)_
+- `SetAttributesByID(sID As String, s As String)` _(public)_
+- `SetAttrWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetAttrWidthByID(sID As String, s As String)` _(public)_
+- `SetBackgroundColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetBackgroundColorByID(sID As String, s As String)` _(public)_
+- `SetBackgroundColorStyle(mElement As BANanoElement, s As String)` _(public)_
+- `SetBackgroundColorStyleByID(sID As String, s As String)` _(public)_
+- `SetBackgroundImage(mElement As BANanoElement, s As String)` _(public)_
+- `SetBackgroundImageByID(sID As String, s As String)` _(public)_
+- `SetBorder(mElement As BANanoElement, width As String, color As String, radius As String)` _(public)_
+- `SetBorderColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetBorderColorByID(sID As String, s As String)` _(public)_
+- `SetBorderColorStyle(mElement As BANanoElement, s As String)` _(public)_
+- `SetBorderRadius(mElement As BANanoElement, s As String)` _(public)_
+- `SetBorderStyle(mElement As BANanoElement, s As String)` _(public)_
+- `SetBorderWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetBoxShadow(mElement As BANanoElement)` _(public)_
+- `SetBoxShadow2XL(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowInner(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowLG(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowMD(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowNone(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowSM(mElement As BANanoElement)` _(public)_
+- `SetBoxShadowXL(mElement As BANanoElement)` _(public)_
+- `SetButtonEnabledByID(sID As String, bEnabled As Boolean)` _(public)_
+- `SetButtonImageSize(mElement As BANanoElement, s As String)` _(public)_
+- `SetButtonImageSizeByID(sID As String, s As String)` _(public)_
+- `SetCenterChildren(mElement As BANanoElement, b As Boolean)` _(public)_
+- `SetCenterChildrenByID(sID As String, b As Boolean)` _(public)_
+- `SetChecked(mElement As BANanoElement, v As Boolean)` _(public)_
+- `SetCheckedByID(sID As String, b As Boolean)` _(public)_
+- `SetCheckedColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetCheckedColorByID(sID As String, s As String)` _(public)_
+- `SetCheckedTextColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetCheckedTextColorByID(sID As String, s As String)` _(public)_
+- `SetClasses(mElement As BANanoElement, s As String)` _(public)_
+- `SetClassesByID(sID As String, s As String)` _(public)_
+- `SetColor(mElement As BANanoElement, colorName As String, prefix As String, s As String)` _(public)_
+- `SetColorAndBorder(mElement As BANanoElement, BackGroundColor As String, BorderWidth As String, BorderColor As String, BorderCornerRadius As String)` _(public)_
+- `SetColorAnimated(mElement As BANanoElement,duration As Int, FromColor As String, ToColor As String)` As BANanoAnimeJS _(public)_
+- `SetColorByID(sID As String, colorName As String, prefix As String, s As String)` _(public)_
+- `SetColorStyle(mElement As BANanoElement, s As String)` _(public)_
+- `SetColorStyleByID(sID As String, s As String)` _(public)_
+- `SetColumns(mElement As BANanoElement, s As String)` _(public)_
+- `SetCursorPointer(mElement As BANanoElement)` _(public)_
+- `SetCursorPointerByID(sID As String)` _(public)_
+- `SetData(mElement As BANanoElement, k As String, v As String)` _(public)_
+- `SetDataAttrByID(sID As String, k As String, v As String)` _(public)_
+- `SetEnabled(mElement As BANanoElement, bEnabled As Boolean)` _(public)_
+- `SetEnabledByID(sID As String, bEnabled As Boolean)` _(public)_
+- `SetField(mElement As BANanoElement, k As String, v As String)` _(public)_
+- `SetFieldByID(sID As String, k As String, v As String)` _(public)_
+- `SetFontSize(mElement As BANanoElement, size As String)` _(public)_
+- `SetGap(mElement As BANanoElement, s As String)` _(public)_
+- `SetGridCols(mElement As BANanoElement, s As String)` _(public)_
+- `SetHeigh1(mElement As BANanoElement, s As String)` _(public)_
+- `SetHeight(mElement As BANanoElement, s As String)` _(public)_
+- `SetHeightAnimated(mElement As BANanoElement,duration As Int, height As String)` As BANanoAnimeJS _(public)_
+- `SetHeightByID(sID As String, s As String)` _(public)_
+- `SetHeightResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
+- `SetHeightResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
+- `SetHTML(mElement As BANanoElement, sContent As String)` _(public)_
+- `SetHTMLByID(sID As String, sContent As String)` _(public)_
+- `SetIconColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetIconColorByID(sID As String, s As String)` _(public)_
+- `SetIconFill(mElement As BANanoElement, s As String)` _(public)_
+- `SetIconFillByID(sID As String, s As String)` _(public)_
+- `SetIconHeight(mElement As BANanoElement, s As String)` _(public)_
+- `SetIconHeightByID(sID As String, s As String)` _(public)_
+- `SetIconNameByID(elName As String, scontent As String)` _(public)_
+- `SetIconSize(mElement As BANanoElement, s As String)` _(public)_
+- `SetIconSizeByID(sID As String, s As String)` _(public)_
+- `SetIconWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetIconWidthByID(sID As String, s As String)` _(public)_
+- `SetImage(mElement As BANanoElement, s As String)` _(public)_
+- `SetImageByID(sID As String, s As String)` _(public)_
+- `SetLayout(mElement As BANanoElement, sLeft As String, sTop As String, sWidth As String, sHeight As String)` _(public)_
 - `SetLayoutAnimated(mElement As BANanoElement, duration As Int, sLeft As String, stop As String, swidth As String, sheight As String)` As BANanoAnimeJS _(public)_
 - `SetLayoutAnimatedRadius(mElement As BANanoElement,duration As Int, sLeft As String, stop As String, swidth As String, sheight As String, sradius As String)` As BANanoAnimeJS _(public)_
-- `SetWidthAnimated(mElement As BANanoElement,duration As Int, width As String)` As BANanoAnimeJS _(public)_
-- `SetHeightAnimated(mElement As BANanoElement,duration As Int, height As String)` As BANanoAnimeJS _(public)_
-- `SetRadiusAnimated(mElement As BANanoElement,duration As Int, radius As String)` As BANanoAnimeJS _(public)_
-- `SetTextSizeAnimated(mElement As BANanoElement,duration As Int, textSize As String)` As BANanoAnimeJS _(public)_
+- `SetLayoutRadius(mElement As BANanoElement, sLeft As String, stop As String, swidth As String, sheight As String, sradius As String)` _(public)_
+- `SetLeft(mElement As BANanoElement, s As String)` _(public)_
 - `SetLeftAnimated(mElement As BANanoElement,duration As Int, sLeft As String)` As BANanoAnimeJS _(public)_
-- `SetTopAnimated(mElement As BANanoElement,duration As Int, top As String)` As BANanoAnimeJS _(public)_
+- `SetLinearGradient(mElement As BANanoElement, orientation As String, firstColor As String, secondColor As String)` _(public)_
+- `SetLinearGradientByID(sID As String, orientation As String, firstColor As String, secondColor As String)` _(public)_
+- `SetMargin(mElement As BANanoElement, LeftM As Int, TopM As Int, RightM As Int, BottomM As Int)` _(public)_
+- `SetMarginAXYTBLR(mElement As BANanoElement, s As String)` _(public)_
+- `SetMarginAXYTBLRByID(sID As String, s As String)` _(public)_
+- `SetMask(mElement As BANanoElement, s As String)` _(public)_
+- `SetMaskByID(sID As String, s As String)` _(public)_
+- `SetMaxHeight(mElement As BANanoElement, s As String)` _(public)_
+- `SetMaxHeightByID(sID As String, s As String)` _(public)_
+- `SetMaxHeightResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
+- `SetMaxHeightResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
+- `SetMaxWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetMaxWidthByID(sID As String, s As String)` _(public)_
+- `SetMaxWidthResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
+- `SetMaxWidthResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
+- `SetMinHeight(mElement As BANanoElement, s As String)` _(public)_
+- `SetMinHeightByID(sID As String, s As String)` _(public)_
+- `SetMinWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetMinWidthByID(sID As String, s As String)` _(public)_
+- `SetNoArrows(mElement As BANanoElement)` _(public)_
+- `SetOpacity(mElement As BANanoElement, b As Boolean)` _(public)_
+- `SetPadding(mElement As BANanoElement, LeftM As Int, TopM As Int, RightM As Int, BottomM As Int)` _(public)_
+- `SetPaddingAXYTBLR(mElement As BANanoElement, s As String)` _(public)_
+- `SetPaddingAXYTBLRByID(sID As String, s As String)` _(public)_
+- `SetParentID(s As String)` _(public)_
+- `SetPlacement(mElement As BANanoElement, sprefix As String, sPlacement As String)` _(public)_
+- `SetPlacementByID(sID As String, sprefix As String, splacement As String)` _(public)_
+- `SetPosition(mElement As BANanoElement, s As String)` _(public)_
+- `SetPositionByID(sID As String, s As String)` _(public)_
+- `SetPositionStyle(mElement As BANanoElement, s As String)` _(public)_
+- `SetProps(props As Map)` _(public)_
+- `SetRadius(mElement As BANanoElement, radius As String)` _(public)_
+- `SetRadiusAnimated(mElement As BANanoElement,duration As Int, radius As String)` As BANanoAnimeJS _(public)_
+- `SetReadOnly(mElement As BANanoElement, b As Boolean)` _(public)_
+- `SetRingColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetRingColorByID(sID As String, s As String)` _(public)_
+- `SetRotate(mElement As BANanoElement, deg As String)` _(public)_
 - `SetRotationAnimated(mElement As BANanoElement,duration As Int, degrees As Int)` As BANanoAnimeJS _(public)_
-- `ColorToHSL(n As String)` As String _(public)_
-- `ColorToHex(n As String)` As String _(public)_
-- `HexToHSL(h As String)` As String _(public)_
+- `SetRounded(mElement As BANanoElement, s As String)` _(public)_
+- `SetRoundedBL(mElement As BANanoElement, s As String)` _(public)_
+- `SetRoundedBLByID(sID As String, s As String)` _(public)_
+- `SetRoundedBox(mElement As BANanoElement, b As Boolean)` _(public)_
+- `SetRoundedBoxByID(sID As String, b As Boolean)` _(public)_
+- `SetRoundedBR(mElement As BANanoElement, s As String)` _(public)_
+- `SetRoundedBRByID(sID As String, s As String)` _(public)_
+- `SetRoundedByID(sID As String, s As String)` _(public)_
+- `SetRoundedTL(mElement As BANanoElement, s As String)` _(public)_
+- `SetRoundedTLByID(sID As String, s As String)` _(public)_
+- `SetRoundedTR(mElement As BANanoElement, s As String)` _(public)_
+- `SetRoundedTRByID(sID As String, s As String)` _(public)_
+- `SetScale(mElement As BANanoElement, scale As Double)` _(public)_
+- `SetScaleAnimated(mElement As BANanoElement,duration As Int, FromScale As Double, ToScale As Double)` As BANanoAnimeJS _(public)_
+- `SetShadow(mElement As BANanoElement, s As String)` _(public)_
+- `SetShadowByID(sID As String, s As String)` _(public)_
+- `SetSize(mElement As BANanoElement, sizeName As String, prefix As String, s As String)` _(public)_
+- `SetSizeByID(sID As String, sizeName As String, prefix As String, s As String)` _(public)_
+- `SetStyle(mElement As BANanoElement, k As String, v As String)` _(public)_
+- `SetStyleByID(sID As String, k As String, v As String)` _(public)_
+- `SetStyleProperty(mElement As BANanoElement, key As String, value As String)` _(public)_
+- `SetStyles(mElement As BANanoElement, s As String)` _(public)_
+- `SetStylesByID(sID As String, s As String)` _(public)_
+- `SetSVGFill(mElement As BANanoElement, s As String)` _(public)_
+- `SetSVGFillByID(sID As String, s As String)` _(public)_
+- `SetText(mElement As BANanoElement, hx As String)` _(public)_
+- `SetTextByID(sID As String, s As String)` _(public)_
+- `SetTextColor(mElement As BANanoElement, s As String)` _(public)_
+- `SetTextColorByID(sID As String, s As String)` _(public)_
+- `SetTextSize(mElement As BANanoElement, s As String)` _(public)_
+- `SetTextSizeAnimated(mElement As BANanoElement,duration As Int, textSize As String)` As BANanoAnimeJS _(public)_
+- `SetTextSizeByID(sID As String, s As String)` _(public)_
+- `SetToolTip(mElement As BANanoElement, tooltip As String, tooltipPosition As String)` _(public)_
+- `SetToolTipByID(sID As String, tooltip As String, tooltipPosition As String)` _(public)_
+- `SetTop(mElement As BANanoElement, s As String)` _(public)_
+- `SetTopAnimated(mElement As BANanoElement,duration As Int, top As String)` As BANanoAnimeJS _(public)_
+- `SetValue(mElement As BANanoElement, v As Object)` _(public)_
+- `SetValueByID(sID As String, v As Object)` _(public)_
+- `SetVisible(mElement As BANanoElement, bVisible As Boolean)` _(public)_
+- `SetVisibleAnimated(mElement As BANanoElement,duration As Int, b As Boolean)` As BANanoAnimeJS _(public)_
+- `SetVisibleByID(sID As String, b As Boolean)` _(public)_
+- `SetWidth(mElement As BANanoElement, s As String)` _(public)_
+- `SetWidth1(mElement As BANanoElement, s As String)` _(public)_
+- `SetWidthAnimated(mElement As BANanoElement,duration As Int, width As String)` As BANanoAnimeJS _(public)_
+- `SetWidthByID(sID As String, s As String)` _(public)_
+- `SetWidthResponsive(mElement As BANanoElement, breakpoint As String, s As String)` _(public)_
+- `SetWidthResponsiveByID(sID As String, breakpoint As String, s As String)` _(public)_
+
+## Getters (77)
+- `GetAbbreviations(fullName As String)` As String _(public)_
+- `GetActualGradient(source As String)` As String _(public)_
+- `GetAlphaColor(a As String)` As String _(public)_
+- `GetAttr(mElement As BANanoElement, attr As String)` As String _(public)_
+- `GetAttrByID(sID As String, attr As String)` As String _(public)_
+- `GetAttributes()` As String _(public)_
+- `GetAvatarColor(color As String)` As String _(public)_
+- `GetAvatarColorMap()` _(public)_
+- `GetAvatarTextColor(color As String)` As String _(public)_
+- `GetAvatarTextColorMap()` _(public)_
+- `GetBackgroundColor()` As String _(public)_
+- `GetBase64BlackPercentage(base64 As String)` As Int _(public)_
+- `GetBoolean(m As Map, fld As String)` As Boolean _(public)_
+- `GetBorderColor()` As String _(public)_
+- `GetBorderRadius()` As String _(public)_
+- `GetBorderStyle()` As String _(public)_
+- `GetBorderWidth()` As String _(public)_
+- `GetBottomStyle(mElement As BANanoElement)` As String _(public)_
+- `GetChecked(mElement As BANanoElement)` As Boolean _(public)_
+- `GetCheckedByID(sID As String)` As Boolean _(public)_
+- `GetClasses()` As String _(public)_
+- `GetColor()` As String _(public)_
+- `GetComputedStyle(mElement As BANanoElement, k As String)` As String _(public)_
+- `GetComputedStyleByID(sID As String, k As String)` As String _(public)_
+- `GetData(mElement As BANanoElement, k As String)` As String _(public)_
+- `GetDataAttr(mElement As BANanoElement, k As String)` As String _(public)_
+- `GetDataAttrByID(sID As String, attr As String)` As String _(public)_
+- `GetDatesBetween(startDate As String, endDate As String)` As List _(public)_
+- `GetDeviceSizes(varOffsets As String)` As Map _(public)_
+- `GetDouble(m As Map, fld As String)` As Double _(public)_
+- `GetElementByData(dataattr As String, value As String)` As BANanoElement _(public)_
+- `GetElementByID(sID As String)` As BANanoElement _(public)_
+- `GetElementObjectByID(sID As String)` As BANanoObject _(public)_
+- `GetEnabled(mElement As BANanoElement)` As Boolean _(public)_
+- `GetField(mElement As BANanoElement, k As String)` As String _(public)_
+- `GetFieldByID(sID As String, k As String)` As String _(public)_
+- `GetGenderFromRSAID(IDNumber As String)` As String _(public)_
+- `GetHexColor(Color As String, Intensity As String)` As String _(public)_
+- `GetHTML()` As String _(public)_
 - `GetHTML1(mElement As BANanoElement)` As String _(public)_
 - `GetHTMLByID(sid As String)` As String _(public)_
-- `GetElementByData(dataattr As String, value As String)` As BANanoElement _(public)_
 - `GetHTMLTemplate(mElement As BANanoElement)` As String _(public)_
-- `CreateCSSRule(className As String, important As Boolean)` _(public)_
-- `ClearCSSRule()` _(public)_
-- `AddCSSRuleMap(m As Map)` _(public)_
-- `AddCSSRule(key As String, value As String)` _(public)_
-- `ApplyCSSRule()` _(public)_
-- `GetAbbreviations(fullName As String)` As String _(public)_
-- `Json2CreateMap(svalue As String)` As String _(public)_
-- `AddCodeLine(lst As List, cl As String)` _(public)_
-- `BuildCodeLine(lst As List)` As String _(public)_
-- `AddComment(sb1 As StringBuilder, cl As String)` _(public)_
-- `BuildCode(sb1 As StringBuilder)` As String _(public)_
-- `OptionsToMap(opt As String)` As Map _(public)_
-- `Right(Text As String, lLength As Long)` As String _(public)_
-- `Mid(Text As String, Start As Int, lLength As Int)` As String _(public)_
-- `Split(Text As String, Delimiter As String) As String()` _(public)_
-- `ReplaceString(Text As String, sFind As String, sReplaceWith As String)` As String _(public)_
-- `LCase(Text As String)` As String _(public)_
-- `UCase(Text As String)` As String _(public)_
-- `TrimString(Text As String)` As String _(public)_
-- `InStrRev(Text As String, str As String)` As Int _(public)_
-- `ListSum(lst As List)` As String _(public)_
-- `MvSearch(searchvalues As String,strsearch As String,delim As String)` As Int _(public)_
-- `rgbaToHexAuto(rgba As String)` As String			'ignoredeadcode _(public)_
-- `hexToRgba(shex As String)` As String _(public)_
-## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
-## Getters (0)
-_(none)_
-## Private Methods (2)
-- `GetVisibleDT()` As Boolean _(private)_
+- `GetInt(m As Map, fld As String)` As Int _(public)_
+- `GetKeyValues(varStyles As String, deCamel As Boolean)` As Map _(public)_
+- `GetLeftStyle(mElement As BANanoElement)` As String _(public)_
+- `GetLong(m As Map, fld As String)` As Long _(public)_
+- `GetMarginAXYTBLR()` As String _(public)_
+- `GetMarginBottom(mElement As BANanoElement)` As String _(public)_
+- `GetMarginLeft(mElement As BANanoElement)` As String _(public)_
+- `GetMarginRight(mElement As BANanoElement)` As String _(public)_
+- `GetMarginTop(mElement As BANanoElement)` As String _(public)_
+- `GetMonthName3(sMonth As String)` As String _(public)_
+- `GetMonthStartEnd(dateString As String)` As List _(public)_
+- `GetOptions(varStyles As String)` As List _(public)_
+- `GetPaddingAXYTBLR()` As String _(public)_
+- `GetPaddingBottom(mElement As BANanoElement)` As String _(public)_
+- `GetPaddingLeft(mElement As BANanoElement)` As String _(public)_
+- `GetPaddingRight(mElement As BANanoElement)` As String _(public)_
+- `GetPaddingTop(mElement As BANanoElement)` As String _(public)_
+- `GetParentID()` As String _(public)_
+- `GetPosition()` As String _(public)_
+- `GetPositionStyle()` As String _(public)_
+- `GetRecursive(data As Map, path As String)` As Object _(public)_
+- `GetRightStyle(mElement As BANanoElement)` As String _(public)_
+- `GetString(m As Map, fld As String)` As String _(public)_
+- `GetStyleByID(sID As String, k As String)` As String _(public)_
+- `GetStyleProperty(mElement As BANanoElement, key As String)` As Object _(public)_
+- `GetStyles()` As String _(public)_
+- `GetText(mElement As BANanoElement)` As String _(public)_
+- `GetTextByID(sID As String)` As String _(public)_
+- `GetTextColor()` As String _(public)_
+- `GetTopStyle(mElement As BANanoElement)` As String _(public)_
+- `GetValue(mElement As BANanoElement)` As Object _(public)_
+- `GetValueByID(sID As String)` As String _(public)_
+- `GetVisible(mElement As BANanoElement)` As Boolean _(public)_
+- `GetWeekEnds(startDate As String, endDate As String)` As List _(public)_
+- `GetWorkingDates(startDate As String, endDate As String)` As List _(public)_
+
+## Private Methods (16)
+- `BuildAttributes(o As Map)` As String _(private)_
+- `GetBordersMap(typeof As String, varOffsets As String)` As Map _(private)_
+- `GetClassList(s As String)` As List _(private)_
 - `GetEnabledDT()` As Boolean _(private)_
+- `GetMarginPaddingMap(varOffsets As String)` As Map _(private)_
+- `GetPositionMap(varStyles As String)` As Map _(private)_
+- `GetVisibleDT()` As Boolean _(private)_
+- `ListRemoveItem(lst As List, item As String)` _(private)_
+- `MakePx(sValue As String)` As String _(private)_
+- `MarginPaddingToList(prefix As String, mm As Map)` As List _(private)_
+- `NumberFormat2Fix(number As Double, minimumIntegers As Int, maximumFractions As Int, minimumFractions As Int, groupingUsed As Boolean)` As Double _(private)_
+- `SetIconSizeStyle(mElement As BANanoElement, s As String)` _(private)_
+- `SetIconSizeStyleByID(sID As String, s As String)` _(private)_
+- `SetSVGSrc(mElement As BANanoElement, s As String)` _(private)_
+- `SetSVGSrcByID(sID As String, s As String)` _(private)_
+- `TargetID(s As String)` As String _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -484,5 +579,3 @@ helper.Initialize(self As Object)
 ```
 ## Composes With
 - Used internally by every SDUI5 component for attribute/style/class emission — you rarely instantiate it yourself.
-
-

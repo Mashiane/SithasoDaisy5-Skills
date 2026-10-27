@@ -30,135 +30,159 @@ _(inherits from SDUI5Component base — see base contract)_
 _(none declared)_
 
 Wire in parent: `Sub pouchdb_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (110)
-- `Initialize(Module As Object, EventName As String, DataBase As String, TableName As String)` _(public)_
-- `MoveStart()` _(public)_
-- `orderBy(fldNames As List)` As SDUIPouchDB _(public)_
-- `orderByDesc(fldNames As List)` As SDUIPouchDB _(public)_
-- `selectFields(fldNames As List)` As SDUIPouchDB _(public)_
-- `whereEqual(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `whereGreaterThan(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `whereGreaterThanEqualTo(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `whereLike(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `SetNextID()` _(public)_
-- `ConnectRemote(xHost As String, xPort As String, xUserName As String, xPassword As String, xDBName As String, xTableName As String)` _(public)_
-- `Sync(bLive As Boolean, bRetry As Boolean)` As RelaxSync _(public)_
-- `GetAffectedID()` _(public)_
-- `NextID()` As String _(public)_
-- `Info()` As Map _(public)_
-- `COUNT_ALL()` As Int _(public)_
-- `COMPACT()` _(public)_
-- `WATCH_CHANGES(sinceWhen As String, live As Boolean, includedocs As Boolean)` _(public)_
-- `CREATE()` As String _(public)_
-- `SELECT_RANGE(range As String)` _(public)_
-- `READ(docID As String)` As Map _(public)_
-- `READ_BY(fldName As String, fldValue As Object)` As Map _(public)_
-- `ContainsField(fldName As String, id As String)` As Boolean _(public)_
-- `GetKeyValues(bHasNothing As Boolean, k As String, v As String)` As Map _(public)_
-- `ContainsKey(id As String)` As Boolean _(public)_
-- `READ_BY_STRING_FIELDS(fldName As String, fldValue As Object, theseFlds As List)` As Map _(public)_
-- `READ_ID_BY_STRING(fldName As String, fldValue As String)` As String _(public)_
-- `READ_ID_BY(fldName As String, fldValue As String)` As String _(public)_
-- `READ_FIELDS(fldValue As Object, theseFlds As List)` As Map _(public)_
-- `SetRecordAt(pos As Int, rec As Map)` _(public)_
-- `GetImage(fld As String)` As String _(public)_
-- `DELETE(docID As String)` As Boolean _(public)_
-- `PURGE(docID As String)` As Boolean _(public)_
-- `UPDATE()` As String _(public)_
-- `UPDATE_BULK(nrecs As List)` _(public)_
-- `DELETE_BULK(nrecs As List)` _(public)_
-- `CREATE_BULK(nrecs As List)` _(public)_
-- `SELECT_ALL()` _(public)_
-- `FirstRecord()` As Map _(public)_
-- `GetIndexes()` As Map _(public)_
-- `CreateIndexes(idName As String, xFields As List)` As Map _(public)_
-- `CreateMultipleIndexes(xFields As List)` _(public)_
-- `CreateIndex(idxName As String)` As Map _(public)_
-- `SELECT_WHERE1()` As List _(public)_
-- `SetRecords(lst As List)` _(public)_
-- `SetRecordAsIs(rec As Map)` _(public)_
-- `SELECT_WHERE()` _(public)_
-- `GET_ID_BY_FIELD(fldName As String, fldValue As String)` As String _(public)_
-- `UPDATE_BY_STRING(fldName As String, fldValue As String)` As String _(public)_
-- `UPDATE_BY(fldName As String, fldValue As String)` As String _(public)_
-- `CLEAR_WHERE()` _(public)_
-- `ADD_FIELDS(flds As List)` _(public)_
+## Public Methods (88)
 - `ADD_FIELD(fld As String)` _(public)_
+- `ADD_FIELDS(flds As List)` _(public)_
 - `ADD_ORDER_BY(fld As String)` _(public)_
 - `ADD_ORDER_BY_DESC(fld As String)` _(public)_
 - `ADD_WHERE(fld As String, operator As String, value As Object)` _(public)_
+- `CLEAR_WHERE()` _(public)_
 - `CLOSE()` _(public)_
-- `GetRecordsCount()` As Int _(public)_
-- `SchemaAddBlob(bools As List)` _(public)_
-- `SchemaAddBoolean(bools As List)` _(public)_
-- `SchemaAddDouble(bools As List)` _(public)_
-- `SchemaAddFloat(bools As List)` _(public)_
-- `SchemaAddText(bools As List)` _(public)_
-- `SchemaAddInt(bools As List)` _(public)_
-- `SchemaAddField(fldName As String, fldType As String)` _(public)_
-- `SchemaClear()` _(public)_
-- `PrepareRecord()` _(public)_
-- `SetRecord(rec As Map)` _(public)_
-- `RecordFromMap(sm As Map)` _(public)_
-- `SetField(fldName As String, fldValue As Object)` _(public)_
-- `SetFieldAttachment(fileName As String, mimeType As String, base64Data As String)` _(public)_
-- `PutAttachment(sid As String, fileName As String, base64Data As String, mimeType As String)` As Map _(public)_
-- `GetAttachment(sid As String, fileName As String)` As Map _(public)_
-- `NextRow()` As Boolean _(public)_
-- `SchemaAddLongText1(b As String)` _(public)_
-- `SchemaAddLongText(bools As List)` _(public)_
-- `SchemaAddFile(bools As List)` _(public)_
-- `SchemaAddFile1(b As String)` _(public)_
-- `GetInt(fld As String)` As Int _(public)_
-- `GetLong(fld As String)` As Long _(public)_
-- `GetString(fld As String)` As String _(public)_
-- `whereLessThanEqualTo(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `whereLessThan(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `whereBetween(fldName As String, fldStart As Object, fldEnd As Object)` As SDUIPouchDB _(public)_
-- `whereNotEqual(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
-- `GetBoolean(fld As String)` As Boolean _(public)_
-- `GetDouble(fld As String)` As Double _(public)_
+- `COMPACT()` _(public)_
+- `ConnectRemote(xHost As String, xPort As String, xUserName As String, xPassword As String, xDBName As String, xTableName As String)` _(public)_
+- `ContainsField(fldName As String, id As String)` As Boolean _(public)_
+- `ContainsKey(id As String)` As Boolean _(public)_
+- `COUNT_ALL()` _(public)_
+- `CREATE()` _(public)_
+- `CREATE_BULK(nrecs As List)` _(public)_
+- `CreateIndex(idxName As String)` As Map _(public)_
+- `CreateIndexes(idName As String, xFields As List)` As Map _(public)_
+- `CreateMultipleIndexes(xFields As List)` _(public)_
+- `DELETE(docID As String)` As Boolean _(public)_
+- `DELETE_BULK(nrecs As List)` _(public)_
 - `DELETE_BY(fldName As String, fldValue As String)` As Boolean _(public)_
-- `deleteWhere(priKey As String, whereMap As Map, whereOps As List)` As Boolean _(public)_
 - `DELETE_WHERE()` _(public)_
-- `GetRecord(pos As Int)` As Map _(public)_
+- `deleteWhere(priKey As String, whereMap As Map, whereOps As List)` As Boolean _(public)_
+- `FirstRecord()` _(public)_
+- `GroupBy(groupFields()` As String _(public)_
+- `Info()` _(public)_
+- `Initialize(Module As Object, EventName As String, DataBase As String, TableName As String)` _(public)_
+- `IsRecordValid(m As Map, props As List)` As Boolean _(public)_
 - `MoveFirst()` _(public)_
 - `MoveLast()` _(public)_
-- `MovePrevious()` _(public)_
 - `MoveNext()` _(public)_
+- `MovePrevious()` _(public)_
+- `MoveStart()` _(public)_
+- `NextID()` _(public)_
+- `NextRow()` _(public)_
+- `NumberFormat2Fix(number As Double, minimumIntegers As Int, maximumFractions As Int, minimumFractions As Int, groupingUsed As Boolean)` As Double _(public)_
+- `orderBy(fldNames As List)` As SDUIPouchDB _(public)_
+- `orderByDesc(fldNames As List)` As SDUIPouchDB _(public)_
+- `PrepareRecord()` _(public)_
+- `PURGE(docID As String)` As Boolean _(public)_
+- `PutAttachment(sid As String, fileName As String, base64Data As String, mimeType As String)` As Map _(public)_
 - `PutRecursive(data As Map, path As String, value As Object)` _(public)_
 - `PutRecursiveDelim(data As Map, path As String, value As Object, delim As String)` _(public)_
-- `GetRecursive(data As Map, path As String)` As Object _(public)_
-- `SetSchemaFromDataModel1(sourceTable As String, models As Map)` _(public)_
-- `SchemaAddBoolean1(b As String)` _(public)_
-- `SchemaAddDouble1(b As String)` _(public)_
-- `SchemaAddInt1(b As String)` _(public)_
-- `SchemaAddText1(b As String)` _(public)_
-- `SetSchemaFromDataModel(models As Map)` _(public)_
-- `SetFieldsFromDataModel(models As Map)` _(public)_
+- `READ(docID As String)` As Map _(public)_
+- `READ_BY(fldName As String, fldValue As Object)` As Map _(public)_
+- `READ_BY_STRING_FIELDS(fldName As String, fldValue As Object, theseFlds As List)` As Map _(public)_
+- `READ_FIELDS(fldValue As Object, theseFlds As List)` As Map _(public)_
+- `READ_ID_BY(fldName As String, fldValue As String)` As String _(public)_
+- `READ_ID_BY_STRING(fldName As String, fldValue As String)` As String _(public)_
+- `RecordFromMap(sm As Map)` _(public)_
 - `RemoveFields(themFields As List)` _(public)_
+- `SchemaAddBlob(bools As List)` _(public)_
+- `SchemaAddBoolean(bools As List)` _(public)_
+- `SchemaAddBoolean1(b As String)` _(public)_
+- `SchemaAddDouble(bools As List)` _(public)_
+- `SchemaAddDouble1(b As String)` _(public)_
+- `SchemaAddField(fldName As String, fldType As String)` _(public)_
+- `SchemaAddFile(bools As List)` _(public)_
+- `SchemaAddFile1(b As String)` _(public)_
+- `SchemaAddFloat(bools As List)` _(public)_
 - `SchemaAddIndex(idxName As String, bUnique As Boolean)` _(public)_
 - `SchemaAddIndexes(idxNames1 As List)` _(public)_
+- `SchemaAddInt(bools As List)` _(public)_
+- `SchemaAddInt1(b As String)` _(public)_
+- `SchemaAddLongText(bools As List)` _(public)_
+- `SchemaAddLongText1(b As String)` _(public)_
+- `SchemaAddText(bools As List)` _(public)_
+- `SchemaAddText1(b As String)` _(public)_
 - `SchemaAddUniqueIndexes(idxNames1 As List)` _(public)_
-- `GroupBy(groupFields() As String, aggDefs() As String, orderDefs() As String)` _(public)_
-## Key Setters (7)
-- `setTableName(s As String)` _(public)_
-- `setIncludeDesignLocal(b As Boolean)` _(public)_
-- `setIncludeDocs(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setIncludeAttachments(b As Boolean)` As 'ignoredeadcode _(public)_
+- `SchemaClear()` _(public)_
+- `SELECT_ALL()` _(public)_
+- `SELECT_RANGE(range As String)` _(public)_
+- `SELECT_WHERE()` _(public)_
+- `SELECT_WHERE1()` _(public)_
+- `selectFields(fldNames As List)` As SDUIPouchDB _(public)_
+- `Sync(bLive As Boolean, bRetry As Boolean)` As RelaxSync _(public)_
+- `UPDATE()` _(public)_
+- `UPDATE_BULK(nrecs As List)` _(public)_
+- `UPDATE_BY(fldName As String, fldValue As String)` As String _(public)_
+- `UPDATE_BY_STRING(fldName As String, fldValue As String)` As String _(public)_
+- `WATCH_CHANGES(sinceWhen As String, live As Boolean, includedocs As Boolean)` _(public)_
+- `whereBetween(fldName As String, fldStart As Object, fldEnd As Object)` As SDUIPouchDB _(public)_
+- `whereEqual(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereGreaterThan(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereGreaterThanEqualTo(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereLessThan(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereLessThanEqualTo(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereLike(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+- `whereNotEqual(fldName As String, fldValue As Object)` As SDUIPouchDB _(public)_
+
+## Key Setters (17)
 - `setAutoKeys(b As Boolean)` _(public)_
+- `SetField(fldName As String, fldValue As Object)` _(public)_
+- `SetFieldAttachment(fileName As String, mimeType As String, base64Data As String)` _(public)_
 - `setFields(tflds As List)` _(public)_
+- `SetFieldsFromDataModel(models As Map)` _(public)_
+- `setIncludeAttachments(b As Boolean)` _(public)_
+- `setIncludeDesignLocal(b As Boolean)` _(public)_
+- `setIncludeDocs(b As Boolean)` _(public)_
+- `SetNextID()` _(public)_
 - `setPosition(pos As Int)` _(public)_
-## Getters (7)
-- `getTableName()` As String _(public)_
-- `getIncludeDesignLocal()` As Boolean _(public)_
-- `getIncludeDocs()` As Boolean _(public)_
-- `getIncludeAttachments()` As Boolean _(public)_
-- `getAutoKeys()` As Boolean _(public)_
-- `getFields()` As List _(public)_
-- `getPosition()` As Int _(public)_
-## Private Methods (0)
-_(none)_
+- `SetRecord(rec As Map)` _(public)_
+- `SetRecordAsIs(rec As Map)` _(public)_
+- `SetRecordAt(pos As Int, rec As Map)` _(public)_
+- `SetRecords(lst As List)` _(public)_
+- `SetSchemaFromDataModel(models As Map)` _(public)_
+- `SetSchemaFromDataModel1(sourceTable As String, models As Map)` _(public)_
+- `setTableName(s As String)` _(public)_
+
+## Getters (21)
+- `GET_ID_BY_FIELD(fldName As String, fldValue As String)` As String _(public)_
+- `GetAffectedID()` _(public)_
+- `GetAttachment(sid As String, fileName As String)` As Map _(public)_
+- `getAutoKeys()` _(public)_
+- `GetBoolean(fld As String)` As Boolean _(public)_
+- `GetDouble(fld As String)` As Double _(public)_
+- `getFields()` _(public)_
+- `GetImage(fld As String)` As String _(public)_
+- `getIncludeAttachments()` _(public)_
+- `getIncludeDesignLocal()` _(public)_
+- `getIncludeDocs()` _(public)_
+- `GetIndexes()` _(public)_
+- `GetInt(fld As String)` As Int _(public)_
+- `GetKeyValues(bHasNothing As Boolean, k As String, v As String)` As Map _(public)_
+- `GetLong(fld As String)` As Long _(public)_
+- `getPosition()` _(public)_
+- `GetRecord(pos As Int)` As Map _(public)_
+- `GetRecordsCount()` _(public)_
+- `GetRecursive(data As Map, path As String)` As Object _(public)_
+- `GetString(fld As String)` As String _(public)_
+- `getTableName()` _(public)_
+
+## Private Methods (19)
+- `BuildSelector(xFields As List, xfieldAndValue As Map, xFieldOperators As List, xSortBy As List, xLimitTo As Int, xSkip As Int)` As Map _(private)_
+- `CBool(v As Object)` As Boolean _(private)_
+- `CDbl(o As String)` As Double _(private)_
+- `CInt(o As Object)` As Int _(private)_
+- `CStr(o As Object)` As String _(private)_
+- `EvaluateCondition(rec As Map, condition As String)` As Boolean _(private)_
+- `guidAlphaApp(glen As Int)` As String _(private)_
+- `InStr(sText As String, sFind As String)` As Int _(private)_
+- `isBase64Image(imgURL As String)` As Boolean _(private)_
+- `isNaN(obj As Object)` As Boolean _(private)_
+- `Join(delimiter As String, lst As List)` As String _(private)_
+- `ListOfMapsGetProperty(lst As List, key As String)` As List _(private)_
+- `ListOfMapsSort(lst As List, xorderBy As String, ascdesc As Boolean)` As List _(private)_
+- `ListRemoveItem(lst As List, item As String)` _(private)_
+- `MvField(sValue As String, iPosition As Int, Delimiter As String)` As String _(private)_
+- `StrParse(delim As String, inputString As String)` As List _(private)_
+- `ToRelaxErr(res As Map)` As RelaxErr _(private)_
+- `ToRelaxRec(res As Map)` As RelaxRec _(private)_
+- `Val(value As String)` As String _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -168,5 +192,3 @@ svc.Initialize(Module As Object, EventName As String, DataBase As String, TableN
 ```
 ## Composes With
 - Pairs with the SDUI5 page components: call service methods from page/component event handlers.
-
-

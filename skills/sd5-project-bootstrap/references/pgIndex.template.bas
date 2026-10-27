@@ -14,7 +14,7 @@ Version=10
 #IgnoreWarnings:12
 Sub Process_Globals
 	Public BANano As BANano		'ignore
-	Public App As SDUI5App
+	Public App As SDUI5App		'ignore
 	Private appnavbar As SDUI5NavBar		'ignore — top navbar (title host)
 	Private pageView As SDUI5Container		'ignore — ALL pages mount here (id: pageview)
 End Sub

@@ -72,6 +72,44 @@ Apply: `app.SetTheme(THEME_NORD)`. Detect dark mode: `app.IsDarkMode`.
 
 New external lib = add file to `Files/` + `BANano.Header.AddJavascriptFileForLater(...)` (or `AddCSSFileForLater`) in `SithasoDaisy5.b4j` + expose a `UsesX` sub in `SDUI5App` calling `UI.LoadAssetsOnDemand`. "For later" = not loaded at startup; the `UsesX` call loads it on demand.
 
+## B4X Code Property vs Designer Key Golden Rules
+
+In B4X, property assignments (e.g. `obj.Property = value`) map to setter subs (`setProperty(value)`). The **Designer Key** in `.bas` files is an internal key for the visual designer, which often differs from the B4X code setter!
+
+### 1. The `Raw*` Stripping Rule
+Whenever a Designer Key begins with `Raw`, the B4X code property is ALWAYS stripped of `Raw`:
+| Designer Key (Layouts only) | B4X Code Property | Setter Sub | Example |
+|---|---|---|---|
+| `RawContent` | `.Content` | `setContent` | `card.Content = "Card body text"` |
+| `RawSteps` | `.Steps` | `setSteps` | `steps.Steps = "Step 1;Step 2;Step 3"` |
+| `RawOptions` | `.Options` | `setOptions` | `select.Options = "Option 1;Option 2"` |
+| `RawChildKeys` | `.ChildKeys` | `setChildKeys` | `speeddial.ChildKeys = "edit;delete;share"` |
+| `RawChildIcons` | `.ChildIcons` | `setChildIcons` | `speeddial.ChildIcons = "pencil;trash;share"` |
+| `RawImages` | `.Images` | `setImages` | `avatargroup.Images = "img1.jpg;img2.jpg"` |
+| `RawClasses` | `.Classes` | `setClasses` | `btn.Classes = "shadow-lg"` |
+| `RawStyles` | `.Styles` | `setStyles` | `btn.Styles = "z-index: 10;"` |
+| `RawAttributes` | `.Attributes` | `setAttributes` | `btn.Attributes = "data-test=cta"` |
+
+*Calling `.RawContent`, `.RawSteps`, `.RawOptions`, etc. in B4X code immediately fails with `Method not found: setRawX`!*
+
+### 2. High-Frequency Component API Traps (Source-Grounded)
+| Component | What Fails (Do NOT write) | What Works (Verified B4X Code) | Reason / Source |
+|---|---|---|---|
+| `SDUI5Card` | `card.Color = "base-200"` | `card.BackgroundColor = "base-200"` | Has `setBackgroundColor`, no `setColor` |
+| `SDUI5Card` | `card.RawContent = "..."` | `card.Content = "..."` | Setter is `setContent` |
+| `SDUI5StatItem` | `stat.Description = "..."` | `stat.Desc = "..."` | Setter is `setDesc` |
+| `SDUI5StatItem` | `stat.Color = "primary"` | `stat.ValueTextColor = "primary"` or `.TitleTextColor` | No generic `.Color` property |
+| `SDUI5ListItem` | `item.Title = "..."`, `item.Color = ...` | `item.Text = "..."` | `SDUI5ListItem` only has `.Text`, `.CursorPointer`, `.ListRow`, `.Opacity`, `.TextSize`, `.TextColor` |
+| `SDUI5Steps` | `steps.StepsColor = "primary"` | `item.Color = "primary"` on `SDUI5StepsItem` | `SDUI5Steps` has NO setter for `StepsColor` |
+| `SDUI5Steps` | `steps.RawSteps = "..."` | `steps.Steps = "..."` | Setter is `setSteps` |
+| `SDUI5RadialProgress` | `rad.Size = "5rem"`, `rad.Thickness = "2px"` | `rad.ProgressSize = "5rem"`, `rad.ProgressThickness = "2px"` | Setters are `setProgressSize` and `setProgressThickness` |
+| `SDUI5DropDown` | `dd.Options = "..."` | Mount trigger button + menu inside `dd` | `SDUI5DropDown` is a pure container `<div>`, no options |
+| `SDUI5Divider` | `divider.Title = "..."` | `divider.Text = "..."` | Setter is `setText` |
+| `SDUI5Drawer` | `ParentID = "drawer"` | `ParentID = "drawer_sidecontent"` | Children mount to sub-container `_sidecontent` |
+
+### 3. Module Self-Invocation Scope Gotcha
+Inside any static code module `pgFoo.bas`, calling `BANano.Await(pgFoo.Show)` causes B4J compiler error: `Undeclared variable 'pgfoo'`. Inside the module itself, invoke directly: `BANano.Await(Show)`.
+
 ## Tells & smells
 
 - **`SDUI5Slider` ≠ slider input** — it's a carousel pager (`jcarousel-item`). For a range slider use `SDUI5Range` or `SDUI5NoUISlider`.
@@ -80,3 +118,6 @@ New external lib = add file to `Files/` + `BANano.Header.AddJavascriptFileForLat
 - **Don't emit raw HTML** — you're writing B4J that drives the framework; use components.
 - **Every `UsesX` is `Banano.Await`-able** — wrap in `Banano.Await(app.UsesX)` before first use of the dependent component.
 - **Handler name is `${mEventName}_${event}`**, not `${mName}_${event}` — they usually match but EventName is the authority.
+- **Never write `.RawX = ...`** — always use the stripped property name (`.Content`, `.Steps`, `.Options`).
+- **Never guess properties on `SDUI5ListItem`** — for rich cards/avatars in a list, mount child components or use `.Text`.
+

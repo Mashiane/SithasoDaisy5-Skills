@@ -65,129 +65,106 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub groupselect_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (18)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
-- `SetItemsChips(titems As Map)` _(public)_
-- `SetOptionsFromMap(mItems As Map)` As 'ignoredeadcode _(public)_
 - `AddOption(k As String, v As String)` _(public)_
-- `IsBlank()` As Boolean _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsBlank()` _(public)_
+- `Remove()` _(public)_
 - `ResetValidation()` _(public)_
-- `SetLanguages()` _(public)_
-- `SetCountries()` _(public)_
-- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
-- `SetMonths()` _(public)_
-- `SetDays()` _(public)_
-- `SetThemes()` _(public)_
-## Key Setters (29)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setThemeController(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` _(public)_
+
+## Key Setters (38)
 - `setActiveColor(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
 - `setBorder(b As Boolean)` _(public)_
 - `setBorderColor(s As String)` _(public)_
+- `setChipColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `SetCountries()` _(public)_
+- `SetDays()` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setGroupName(s As String)` _(public)_
 - `setHeight(s As String)` _(public)_
+- `SetItemsChips(titems As Map)` _(public)_
 - `setLabel(s As String)` _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
+- `SetLanguages()` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `SetMonths()` _(public)_
+- `setOptions(s As String)` _(public)_
+- `SetOptionsFromMap(mItems As Map)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
-- `setSelected(s As String)` As 'ignoredeadcode _(public)_
+- `setSelected(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
 - `setSingleSelect(b As Boolean)` _(public)_
 - `setSize(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setChipColor(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setThemeController(b As Boolean)` _(public)_
+- `SetThemes()` _(public)_
 - `setValue(s As String)` _(public)_
-## Getters (31)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
+
+## Getters (32)
+- `getActiveColor()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getChipColor()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getGroupName()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getThemeController()` As Boolean _(public)_
-- `getLegendColor()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getActiveColor()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getGroupName()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getOptions()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getSelected()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getSingleSelect()` As Boolean _(public)_
-- `getSize()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getChipColor()` As String _(public)_
-- `getValue()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getLabel()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getSelected()` _(public)_
+- `getShadow()` _(public)_
+- `getSingleSelect()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getThemeController()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (5)
+- `BuildIconColor(nc As String)` As String _(private)_
+- `changed(e As BANanoEvent)` _(private)_
+- `IconClick(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+- `UpdateChanges(fireEvent As Boolean)` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgThemeSelect.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgThemeSelect.bas) (verified demo). `SDUI5GroupSelect1` = a SDUI5GroupSelect.
+Real syntax from [`pgGroupSelect.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGroupSelect.bas) (verified demo):
 
 ```b4j
-	SDUI5GroupSelect1.Initialize(Me, "SDUI5GroupSelect1", "SDUI5GroupSelect1")
-	SDUI5GroupSelect1.ParentID = "SDUI5Column1"
-	SDUI5GroupSelect1.ActiveColor = "#22c55e"
-	SDUI5GroupSelect1.BackgroundColor = ""
-	SDUI5GroupSelect1.Border = False
-	SDUI5GroupSelect1.BorderColor = ""
-	SDUI5GroupSelect1.ChipColor = "neutral"
-	SDUI5GroupSelect1.Enabled = True
-	SDUI5GroupSelect1.GroupName = "group1"
-	SDUI5GroupSelect1.Height = ""
-	SDUI5GroupSelect1.Label = "Select Theme"
-	SDUI5GroupSelect1.LegendColor = ""
-	SDUI5GroupSelect1.MarginAXYTBLR = "a=?; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5GroupSelect1.PaddingAXYTBLR = "a=4; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5GroupSelect1.Position = "t=?; b=?; r=?; l=?"
-	SDUI5GroupSelect1.PositionStyle = "none"
-	SDUI5GroupSelect1.Attributes = ""
-	SDUI5GroupSelect1.Classes = ""
-	SDUI5GroupSelect1.Options = ""
-	SDUI5GroupSelect1.Styles = ""
-	SDUI5GroupSelect1.RoundedBox = True
-	SDUI5GroupSelect1.Selected = ""
-	SDUI5GroupSelect1.Shadow = "none"
-	SDUI5GroupSelect1.SingleSelect = True
-	SDUI5GroupSelect1.Size = "sm"
-	SDUI5GroupSelect1.TextColor = "#ffffff"
-	SDUI5GroupSelect1.ThemeController = True
-	SDUI5GroupSelect1.Visible = True
-	SDUI5GroupSelect1.Width = "full"
-	BANano.Await(SDUI5GroupSelect1.AddComponent)
+Private SDUI5GroupSelect1 As SDUI5GroupSelect		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Change` — handlers named `SDUI5GroupSelect1_<Event>`.
-
-Also used in: `pgGroupSelect`, `pgModal`, `pgValidation`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `fieldset`, `border`, `rounded-box`
 ## Code Example
@@ -202,5 +179,3 @@ BANano.Await(groupselect.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

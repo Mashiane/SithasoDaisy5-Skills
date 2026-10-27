@@ -235,8 +235,11 @@ External JS/CSS lives in `Files/` (252 assets). Three registration paths:
 ```b4j
 '=== pgHello.bas ===
 Sub Process_Globals
-    Private BANano As BANano
-    Private app As SDUI5App
+    Private BANano As BANano                    'ignore
+    Private app As SDUI5App                     'ignore
+    Private SDUI5Container1 As SDUI5Container   'ignore
+    Private SDUI5Row1 As SDUI5Row               'ignore
+    Private SDUI5Button1 As SDUI5Button         'ignore
 End Sub
 
 Sub Show

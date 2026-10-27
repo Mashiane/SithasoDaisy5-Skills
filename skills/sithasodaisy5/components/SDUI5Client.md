@@ -31,59 +31,62 @@ _(none declared)_
 Wire in parent: `Sub client_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (26)
 - `Initialize()` _(public)_
-- `isMobile()` As Boolean _(public)_
-- `isMobileAndroid()` As Boolean _(public)_
-- `isMobileIOS()` As Boolean _(public)_
-- `isIE()` As Boolean _(public)_
-- `isChrome()` As Boolean _(public)_
-- `isFirefox()` As Boolean _(public)_
-- `isSafari()` As Boolean _(public)_
-- `isOpera()` As Boolean _(public)_
-- `isMobileSafari()` As Boolean _(public)_
-- `isWindows()` As Boolean _(public)_
-- `isMac()` As Boolean _(public)_
-- `isLinux()` As Boolean _(public)_
-- `isUbuntu()` As Boolean _(public)_
-- `isSolaris()` As Boolean _(public)_
-- `isMobileMajor()` As Boolean _(public)_
-- `isMobileOpera()` As Boolean _(public)_
-- `isMobileWindows()` As Boolean _(public)_
-- `isMobileBlackBerry()` As Boolean _(public)_
-- `isIphone()` As Boolean _(public)_
-- `isIpad()` As Boolean _(public)_
-- `isIpod()` As Boolean _(public)_
-- `isLocalStorage()` As Boolean _(public)_
-- `isSessionStorage()` As Boolean _(public)_
-- `isCookie()` As Boolean _(public)_
-- `SystemLanguage()` As String _(public)_
+- `isChrome()` _(public)_
+- `isCookie()` _(public)_
+- `isFirefox()` _(public)_
+- `isIE()` _(public)_
+- `isIpad()` _(public)_
+- `isIphone()` _(public)_
+- `isIpod()` _(public)_
+- `isLinux()` _(public)_
+- `isLocalStorage()` _(public)_
+- `isMac()` _(public)_
+- `isMobile()` _(public)_
+- `isMobileAndroid()` _(public)_
+- `isMobileBlackBerry()` _(public)_
+- `isMobileIOS()` _(public)_
+- `isMobileMajor()` _(public)_
+- `isMobileOpera()` _(public)_
+- `isMobileSafari()` _(public)_
+- `isMobileWindows()` _(public)_
+- `isOpera()` _(public)_
+- `isSafari()` _(public)_
+- `isSessionStorage()` _(public)_
+- `isSolaris()` _(public)_
+- `isUbuntu()` _(public)_
+- `isWindows()` _(public)_
+- `SystemLanguage()` _(public)_
+
 ## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+
 ## Getters (23)
-- `getFingerprint()` As Object _(public)_
-- `getSoftwareVersion()` As String _(public)_
-- `getUserAgent()` As String _(public)_
-- `getBrowser()` As String _(public)_
-- `getBrowserVersion()` As String _(public)_
-- `getBrowserMajorVersion()` As String _(public)_
-- `getEngine()` As String _(public)_
-- `getEngineVersion()` As String _(public)_
-- `getOS()` As String _(public)_
-- `getOSVersion()` As String _(public)_
-- `getDevice()` As String _(public)_
-- `getDeviceType()` As String _(public)_
-- `getDeviceVendor()` As String _(public)_
-- `getCPU()` As String _(public)_
-- `getScreenPrint()` As String _(public)_
-- `getColorDepth()` As String _(public)_
-- `getCurrentResolution()` As String _(public)_
-- `getAvailableResolution()` As String _(public)_
-- `getDeviceXDPI()` As String _(public)_
-- `getDeviceYDPI()` As String _(public)_
-- `getPlugins()` As String _(public)_
-- `getTimeZone()` As String _(public)_
-- `getLanguage()` As String _(public)_
+- `getAvailableResolution()` _(public)_
+- `getBrowser()` _(public)_
+- `getBrowserMajorVersion()` _(public)_
+- `getBrowserVersion()` _(public)_
+- `getColorDepth()` _(public)_
+- `getCPU()` _(public)_
+- `getCurrentResolution()` _(public)_
+- `getDevice()` _(public)_
+- `getDeviceType()` _(public)_
+- `getDeviceVendor()` _(public)_
+- `getDeviceXDPI()` _(public)_
+- `getDeviceYDPI()` _(public)_
+- `getEngine()` _(public)_
+- `getEngineVersion()` _(public)_
+- `getFingerprint()` _(public)_
+- `getLanguage()` _(public)_
+- `getOS()` _(public)_
+- `getOSVersion()` _(public)_
+- `getPlugins()` _(public)_
+- `getScreenPrint()` _(public)_
+- `getSoftwareVersion()` _(public)_
+- `getTimeZone()` _(public)_
+- `getUserAgent()` _(public)_
+
 ## Private Methods (0)
 _(none)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -98,5 +101,3 @@ BANano.Await(client.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

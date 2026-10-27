@@ -55,28 +55,22 @@ Where a designer key and method name differ, the method names shown are the sour
 `ItemClick`
 
 Wire in parent: `Sub contextmenu_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (11)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (9)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `UpdateSettings()` _(public)_
 - `AddItem(parentId As String, nodeId As String, iconUrl As String, label As String)` _(public)_
-- `Refresh()` _(public)_
 - `Clear()` _(public)_
-## Key Setters (21)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Refresh()` _(public)_
+- `Remove()` _(public)_
+- `UpdateSettings()` _(public)_
+
+## Key Setters (22)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHorizontal(b As Boolean)` _(public)_
 - `setIconHeight(s As String)` _(public)_
 - `setIconWidth(s As String)` _(public)_
@@ -84,49 +78,56 @@ Wire in parent: `Sub contextmenu_<eventname>(e As BANanoEvent)` — the handler 
 - `setItemColor(s As String)` _(public)_
 - `setItemFocusColor(s As String)` _(public)_
 - `setItemHoverColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setShadow(s As String)` _(public)_
 - `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTarget(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (23)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (24)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getHorizontal()` As Boolean _(public)_
-- `getIconHeight()` As String _(public)_
-- `getIconWidth()` As String _(public)_
-- `getItemActiveColor()` As String _(public)_
-- `getItemColor()` As String _(public)_
-- `getItemFocusColor()` As String _(public)_
-- `getItemHoverColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getTarget()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHorizontal()` _(public)_
+- `getIconHeight()` _(public)_
+- `getIconWidth()` _(public)_
+- `getID()` As String _(public)_
+- `getItemActiveColor()` _(public)_
+- `getItemColor()` _(public)_
+- `getItemFocusColor()` _(public)_
+- `getItemHoverColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `GetProperties()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getTarget()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgTreeView.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeView.bas) (verified demo). `cmenu1` = a SDUI5ContextMenu.
+Real syntax from [`pgTreeView.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeView.bas) (verified demo):
 
 ```b4j
-	cmenu1.Initialize(Me, "cmenu1", "cmenu1")
-	cmenu1.ParentID = "SDUI5Row1"
-	cmenu1.Target = "treeView"
-	BANano.Await(cmenu1.AddComponent)
+Private cmenu1 As SDUI5ContextMenu		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `ItemClick` — handlers named `cmenu1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -141,5 +142,3 @@ BANano.Await(contextmenu.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

@@ -53,18 +53,16 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 `EmojiSelect`, `ClickOutside`
 
 Wire in parent: `Sub emojimart_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (9)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (7)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Refresh(Module As Object, SelectMethod As String, ClickOutSideMethod As String)` As 'ignoredeadcode _(public)_
-- `LinkExisting()` As 'ignoredeadcode _(public)_
-## Key Setters (21)
-- `setParentID(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LinkExisting()` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Refresh(Module As Object, SelectMethod As String, ClickOutSideMethod As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (22)
 - `setAutoFocus(b As Boolean)` _(public)_
 - `setDynamicWidth(b As Boolean)` _(public)_
 - `setEmojiButtonSize(i As Int)` _(public)_
@@ -77,40 +75,46 @@ Wire in parent: `Sub emojimart_<eventname>(e As BANanoEvent)` — the handler na
 - `setNavPosition(s As String)` _(public)_
 - `setNoCountryFlags(b As Boolean)` _(public)_
 - `setNoResultsEmoji(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
 - `setPerLine(i As Int)` _(public)_
 - `setPreviewEmoji(s As String)` _(public)_
 - `setPreviewPosition(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setSearchPosition(s As String)` _(public)_
 - `setSetOf(s As String)` _(public)_
 - `setSkin(i As Int)` _(public)_
 - `setSkinTonePosition(s As String)` _(public)_
 - `setTheme(s As String)` _(public)_
-## Getters (23)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (24)
+- `getAutoFocus()` _(public)_
+- `getDynamicWidth()` _(public)_
+- `getEmojiButtonSize()` _(public)_
+- `getEmojiButtonsRadius()` _(public)_
+- `getEmojiSize()` _(public)_
+- `getEmojiVersion()` _(public)_
 - `getHere()` As String _(public)_
-- `getAutoFocus()` As Boolean _(public)_
-- `getDynamicWidth()` As Boolean _(public)_
-- `getEmojiButtonSize()` As Int _(public)_
-- `getEmojiButtonsRadius()` As String _(public)_
-- `getEmojiSize()` As Int _(public)_
-- `getEmojiVersion()` As String _(public)_
-- `getIcons()` As String _(public)_
-- `getLocale()` As String _(public)_
-- `getMaxFrequentRows()` As Int _(public)_
-- `getNavPosition()` As String _(public)_
-- `getNoCountryFlags()` As Boolean _(public)_
-- `getNoResultsEmoji()` As String _(public)_
-- `getPerLine()` As Int _(public)_
-- `getPreviewEmoji()` As String _(public)_
-- `getPreviewPosition()` As String _(public)_
-- `getSearchPosition()` As String _(public)_
-- `getSetOf()` As String _(public)_
-- `getSkin()` As Int _(public)_
-- `getSkinTonePosition()` As String _(public)_
-- `getTheme()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getIcons()` _(public)_
+- `getID()` As String _(public)_
+- `getLocale()` _(public)_
+- `getMaxFrequentRows()` _(public)_
+- `getNavPosition()` _(public)_
+- `getNoCountryFlags()` _(public)_
+- `getNoResultsEmoji()` _(public)_
+- `getParentID()` _(public)_
+- `getPerLine()` _(public)_
+- `getPreviewEmoji()` _(public)_
+- `getPreviewPosition()` _(public)_
+- `GetProperties()` _(public)_
+- `getSearchPosition()` _(public)_
+- `getSetOf()` _(public)_
+- `getSkin()` _(public)_
+- `getSkinTonePosition()` _(public)_
+- `getTheme()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -125,5 +129,3 @@ BANano.Await(emojimart.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

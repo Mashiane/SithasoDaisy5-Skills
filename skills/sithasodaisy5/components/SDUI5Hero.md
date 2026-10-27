@@ -65,113 +65,92 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub hero_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (30)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (31)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
 - `setBackgroundImage(s As String)` _(public)_
-- `setContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
-- `setContentTextAlign(s As String)` As 'ignoredeadcode _(public)_
+- `setClasses(s As String)` _(public)_
+- `setContentAttributes(s As String)` _(public)_
+- `setContentClass(s As String)` _(public)_
+- `setContentFlexDirection(s As String)` _(public)_
+- `setContentStyle(s As String)` _(public)_
+- `setContentTextAlign(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setLgContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
-- `setMdContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
+- `setLgContentFlexDirection(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMdContentFlexDirection(s As String)` _(public)_
 - `setMinHeight(s As String)` _(public)_
 - `setMinWidth(s As String)` _(public)_
-- `setOverlay(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setContentAttributes(s As String)` As 'ignoredeadcode _(public)_
-- `setContentClass(s As String)` As 'ignoredeadcode _(public)_
-- `setContentStyle(s As String)` As 'ignoredeadcode _(public)_
-- `setSmContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setXlContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
-- `setXxlContentFlexDirection(s As String)` As 'ignoredeadcode _(public)_
+- `setOverlay(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
-## Getters (32)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setSmContentFlexDirection(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setXlContentFlexDirection(s As String)` _(public)_
+- `setXxlContentFlexDirection(s As String)` _(public)_
+
+## Getters (33)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBackgroundImage()` _(public)_
+- `getClasses()` _(public)_
+- `getContentAttributes()` _(public)_
+- `getContentClass()` _(public)_
+- `getContentFlexDirection()` _(public)_
+- `getContentStyle()` _(public)_
+- `getContentTextAlign()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBackgroundImage()` As String _(public)_
-- `getContentFlexDirection()` As String _(public)_
-- `getContentTextAlign()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getLgContentFlexDirection()` As String _(public)_
-- `getMdContentFlexDirection()` As String _(public)_
-- `getMinHeight()` As String _(public)_
-- `getMinWidth()` As String _(public)_
-- `getOverlay()` As Boolean _(public)_
-- `getContentAttributes()` As String _(public)_
-- `getContentClass()` As String _(public)_
-- `getContentStyle()` As String _(public)_
-- `getSmContentFlexDirection()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getXlContentFlexDirection()` As String _(public)_
-- `getXxlContentFlexDirection()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getLgContentFlexDirection()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMdContentFlexDirection()` _(public)_
+- `getMinHeight()` _(public)_
+- `getMinWidth()` _(public)_
+- `getOverlay()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getSmContentFlexDirection()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getXlContentFlexDirection()` _(public)_
+- `getXxlContentFlexDirection()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgHero.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgHero.bas) (verified demo). `SDUI5Hero4` = a SDUI5Hero.
+Real syntax from [`pgHero.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgHero.bas) (verified demo):
 
 ```b4j
-	SDUI5Hero4.Initialize(Me, "SDUI5Hero4", "SDUI5Hero4")
-	SDUI5Hero4.ParentID = "SDUI5Column4"
-	SDUI5Hero4.BackgroundImage = "https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp"
-	SDUI5Hero4.ContentTextAlign = "center"
-	SDUI5Hero4.Height = "480px"
-	SDUI5Hero4.MinHeight = ""
-	SDUI5Hero4.Overlay = True
-	SDUI5Hero4.ContentAttributes = ""
-	SDUI5Hero4.ContentClass = ""
-	SDUI5Hero4.ContentStyle = ""
-	SDUI5Hero4.Rounded = "lg"
-	SDUI5Hero4.Shadow = "lg"
-	SDUI5Hero4.TextColor = "neutral-content"
-	BANano.Await(SDUI5Hero4.AddComponent)
+Private SDUI5Hero1 As SDUI5Hero		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Composite structure — children mount into sub-regions: a `SDUI5Image1` inside `SDUI5Hero2_content`:
-
-```b4j
-	SDUI5Image1.Initialize(Me, "SDUI5Image1", "SDUI5Image1")
-	SDUI5Image1.ParentID = "SDUI5Hero2_content"
-	SDUI5Image1.Height = ""
-	SDUI5Image1.Mask = "rounded-lg"
-	SDUI5Image1.MaxWidth = "sm"
-	SDUI5Image1.Shadow = "2xl"
-	SDUI5Image1.Src = "https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-	SDUI5Image1.Width = ""
-	BANano.Await(SDUI5Image1.AddComponent)
-```
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `hero`
 ## Code Example
@@ -180,11 +159,24 @@ Composite structure — children mount into sub-regions: a `SDUI5Image1` inside 
 Dim hero As SDUI5Hero
 hero.Initialize(Me, "SDUI5Hero", "SDUI5Hero")
 hero.ParentID = "placeholder"
+hero.BackgroundImage = "./assets/hero-bg.webp"
+hero.Overlay = True
+hero.Rounded = "lg"
+hero.Classes = "overflow-hidden"     ' CRITICAL: clips the .hero-overlay to the rounded border; prevents square overlay corners bleeding out
 BANano.Await(hero.AddComponent)   ' DesignerCreateView runs internally
 ```
+
+### Rounded Corners + Overlay Gotcha
+When `Overlay = True` and `Rounded` is set (e.g., `"lg"`, `"box"`, `"2xl"`), the inner child `<div id="${mName}_overlay" class="hero-overlay">` has `border-radius: 0px` (square corners). Because the outer hero container defaults to `overflow: visible`, the dark semi-transparent overlay spills outside the container's curved boundary, creating sharp triangular artifacts at each corner.
+
+**Two ways to solve this:**
+1. **Container Clipping (Recommended / Official daisyUI pattern)**: Set `hero.Classes = "overflow-hidden"`. The container clips all child elements (including the overlay) to the rounded border curve.
+2. **Direct Overlay Class**: Add the matching rounded class directly to the overlay DOM element after `AddComponent`:
+   ```vb
+   app.UI.AddClassByID($"${hero.ID}_overlay"$, "rounded-lg")
+   ```
+
 ## Composes With
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

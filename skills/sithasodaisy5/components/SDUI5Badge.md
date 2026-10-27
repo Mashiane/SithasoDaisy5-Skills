@@ -76,119 +76,124 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`, `LeftClick`, `RightClick`
 
 Wire in parent: `Sub badge_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (41)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (42)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setHasLeftImage(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHasLeftIcon(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHasRightIcon(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHasRightImage(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setLeftImage(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftImageSize(s As String)` As 'ignoredeadcode _(public)_
-- `setRightImage(s As String)` As 'ignoredeadcode _(public)_
-- `setRightImageSize(s As String)` As 'ignoredeadcode _(public)_
-- `setRounded(s As String)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
 - `setBackgroundColor(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setDash(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setGhost(b As Boolean)` _(public)_
+- `setHasLeftIcon(b As Boolean)` _(public)_
+- `setHasLeftImage(b As Boolean)` _(public)_
+- `setHasRightIcon(b As Boolean)` _(public)_
+- `setHasRightImage(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setLeftIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setLeftIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setOutline(b As Boolean)` _(public)_
-- `setRightIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setRightIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRightIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setSoft(b As Boolean)` _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTextSize(s As String)` As 'ignoredeadcode _(public)_
-- `setUseSpan(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setIndicatorPosition(s As String)` As 'ignoredeadcode _(public)_
 - `setIndicatorItem(b As Boolean)` _(public)_
-## Getters (42)
-- `getID()` As String _(public)_
+- `setIndicatorPosition(s As String)` _(public)_
+- `setLeftIcon(s As String)` _(public)_
+- `setLeftIconColor(s As String)` _(public)_
+- `setLeftIconSize(s As String)` _(public)_
+- `setLeftImage(s As String)` _(public)_
+- `setLeftImageSize(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setOutline(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRightIcon(s As String)` _(public)_
+- `setRightIconColor(s As String)` _(public)_
+- `setRightIconSize(s As String)` _(public)_
+- `setRightImage(s As String)` _(public)_
+- `setRightImageSize(s As String)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setSoft(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setText(text As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setTextSize(s As String)` _(public)_
+- `setUseSpan(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (44)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getDash()` _(public)_
+- `getEnabled()` _(public)_
+- `getGhost()` _(public)_
+- `getHasLeftIcon()` _(public)_
+- `getHasLeftImage()` _(public)_
+- `getHasRightIcon()` _(public)_
+- `getHasRightImage()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getText()` As String _(public)_
-- `getHasLeftImage()` As Boolean _(public)_
-- `getHasLeftIcon()` As Boolean _(public)_
-- `getHasRightIcon()` As Boolean _(public)_
-- `getHasRightImage()` As Boolean _(public)_
-- `getLeftImage()` As String _(public)_
-- `getLeftImageSize()` As String _(public)_
-- `getRightImage()` As String _(public)_
-- `getRightImageSize()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getDash()` As Boolean _(public)_
-- `getGhost()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getLeftIcon()` As String _(public)_
-- `getLeftIconColor()` As String _(public)_
-- `getLeftIconSize()` As String _(public)_
-- `getOutline()` As Boolean _(public)_
-- `getRightIcon()` As String _(public)_
-- `getRightIconColor()` As String _(public)_
-- `getRightIconSize()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getSoft()` As Boolean _(public)_
-- `getTextColor()` As String _(public)_
-- `getTextSize()` As String _(public)_
-- `getUseSpan()` As Boolean _(public)_
-- `getWidth()` As String _(public)_
-- `getIndicatorPosition()` As String _(public)_
-- `getIndicatorItem()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getIndicatorItem()` _(public)_
+- `getIndicatorPosition()` _(public)_
+- `getLeftIcon()` _(public)_
+- `getLeftIconColor()` _(public)_
+- `getLeftIconSize()` _(public)_
+- `getLeftImage()` _(public)_
+- `getLeftImageSize()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOutline()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` As String _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRightIcon()` _(public)_
+- `getRightIconColor()` _(public)_
+- `getRightIconSize()` _(public)_
+- `getRightImage()` _(public)_
+- `getRightImageSize()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getSoft()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getTextColor()` _(public)_
+- `getTextSize()` _(public)_
+- `getUseSpan()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgBadge.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBadge.bas) (verified demo). `SDUI5Badge45` = a SDUI5Badge.
+Real syntax from [`pgBadge.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBadge.bas) (verified demo):
 
 ```b4j
-	SDUI5Badge45.Initialize(Me, "SDUI5Badge45", "SDUI5Badge45")
-	SDUI5Badge45.ParentID = "SDUI5Row1"
-	SDUI5Badge45.LeftIconSize = ""
-	SDUI5Badge45.LeftImage = "./assets/check.svg"
-	SDUI5Badge45.RightIconSize = ""
-	SDUI5Badge45.RightImage = "./assets/close.svg"
-	SDUI5Badge45.Shadow = "lg"
-	SDUI5Badge45.Size = ""
-	SDUI5Badge45.Text = "Primary"
-	SDUI5Badge45.TextSize = ""
-	BANano.Await(SDUI5Badge45.AddComponent)
+Private SDUI5Badge1 As SDUI5Badge		'ignore
+Private SDUI5Badge10 As SDUI5Badge		'ignore
+Private SDUI5Badge11 As SDUI5Badge		'ignore
+Private SDUI5Badge12 As SDUI5Badge		'ignore
+Private SDUI5Badge13 As SDUI5Badge		'ignore
+Private SDUI5Badge14 As SDUI5Badge		'ignore
+Private SDUI5Badge15 As SDUI5Badge		'ignore
+Private SDUI5Badge16 As SDUI5Badge		'ignore
+Private SDUI5Badge17 As SDUI5Badge		'ignore
+Private SDUI5Badge18 As SDUI5Badge		'ignore
+Private SDUI5Badge19 As SDUI5Badge		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Also used in: `pgCard`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `badge flex-nowrap inline-flex items-center`, `badge-dash`, `badge-ghost`, `badge-outline`, `badge-soft`, `indicator-item`
 **Colors**: `badge:sColor`
@@ -204,5 +209,3 @@ BANano.Await(badge.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

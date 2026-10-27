@@ -67,112 +67,104 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub range_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (15)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `Focus()` _(public)_
-- `SetEndValue(s As String)` _(public)_
-- `SetShowStartEnd(b As Boolean)` _(public)_
-- `SetStartValue(s As String)` _(public)_
-- `SetTooltip(s As String)` _(public)_
-- `SetTooltipVisible(b As Boolean)` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `IsBlank()` As Boolean _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsBlank()` _(public)_
+- `Remove()` _(public)_
 - `ResetValidation()` _(public)_
-## Key Setters (31)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+
+## Key Setters (37)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBorderColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setRangeType(s As String)` _(public)_
-- `setRangeBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setColor(s As String)` As 'ignoredeadcode _(public)_
+- `setColor(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `SetEndValue(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
 - `setHint(s As String)` _(public)_
 - `setLabel(s As String)` _(public)_
-- `setMaxValue(s As String)` As 'ignoredeadcode _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMaxValue(s As String)` _(public)_
 - `setMeasure(b As Boolean)` _(public)_
-- `setMinValue(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setStepValue(s As String)` As 'ignoredeadcode _(public)_
+- `setMinValue(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRangeBackgroundColor(s As String)` _(public)_
+- `setRangeType(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `SetShowStartEnd(b As Boolean)` _(public)_
+- `setSize(s As String)` _(public)_
+- `SetStartValue(s As String)` _(public)_
+- `setStepValue(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
 - `setThumbColor(s As String)` _(public)_
-- `setValue(s As String)` As 'ignoredeadcode _(public)_
-## Getters (33)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `SetTooltip(s As String)` _(public)_
+- `SetTooltipVisible(b As Boolean)` _(public)_
+- `setValue(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (34)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getLegendColor()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getRangeType()` As String _(public)_
-- `getRangeBackgroundColor()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getHint()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getMaxValue()` As String _(public)_
-- `getMeasure()` As Boolean _(public)_
-- `getMinValue()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getStepValue()` As String _(public)_
-- `getTextColor()` As String _(public)_
-- `getThumbColor()` As String _(public)_
-- `getValue()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getLabel()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxValue()` _(public)_
+- `getMeasure()` _(public)_
+- `getMinValue()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRangeBackgroundColor()` _(public)_
+- `getRangeType()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStepValue()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getThumbColor()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `changed(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgModal.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgModal.bas) (verified demo). `rgSalary` = a SDUI5Range.
+Real syntax from [`pgRange.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgRange.bas) (verified demo):
 
 ```b4j
-	rgSalary.Initialize(Me, "rgSalary", "rgSalary")
-	rgSalary.ParentID = "SDUI5Column9"
-	rgSalary.Color = "neutral"
-	rgSalary.Label = "What is your Salary?"
-	rgSalary.MaxValue = "1000"
-	rgSalary.PaddingAXYTBLR = "a=4; x=?; y=?; t=?; b=?; l=?; r=?"
-	rgSalary.RangeType = "legend"
-	rgSalary.RoundedBox = True
-	rgSalary.Shadow = "lg"
-	rgSalary.StepValue = "100"
-	rgSalary.Value = "100"
-	BANano.Await(rgSalary.AddComponent)
+Private SDUI5Range17 As SDUI5Range		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `Change` — handlers named `rgSalary_<Event>`.
-
-Also used in: `pgRange`, `pgValidation`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -187,5 +179,3 @@ BANano.Await(range.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

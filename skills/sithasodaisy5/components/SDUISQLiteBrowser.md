@@ -30,48 +30,62 @@ _(inherits from SDUI5Component base — see base contract)_
 `Ready`, `Error`, `Complete`
 
 Wire in parent: `Sub sqlitebrowser_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (33)
-- `Initialize(Module As Object, EventName As String, fileName As String)` _(public)_
-- `OpenDatabase()` _(public)_
-- `ExecQueryResult(qry As String)` _(public)_
-- `SELECT_TABLES()` _(public)_
-- `TABLE_SCHEMA(tblName As String)` _(public)_
-- `TABLE_INDEX_LIST(tblName As String)` _(public)_
-- `TABLE_INDEX_INFO(idxName As String)` _(public)_
-- `TABLE_FOREIGN_KEY_LIST(tblName As String)` _(public)_
-- `TABLE_COUNT(tblName As String)` _(public)_
-- `TABLE_SUM(tblName As String, fldName As String)` _(public)_
-- `SELECT_ALL(tblName As String)` _(public)_
-- `CLEAR_WHERE()` _(public)_
+## Public Methods (25)
 - `ADD_FIELD(fld As String)` _(public)_
 - `ADD_FIELDS(fields As List)` _(public)_
-- `ADD_WHERE(fld As String, operator As String, value As Object)` _(public)_
 - `ADD_ORDER_BY(fld As String)` _(public)_
-- `SetField(fldName As String, fldValue As Object)` _(public)_
-- `RecordFromMap(sm As Map)` _(public)_
-- `FirstRecord()` As Map _(public)_
-- `NextRow()` As Boolean _(public)_
-- `SchemaClear()` _(public)_
-- `SetRecord(rec As Map)` _(public)_
-- `PrepareRecord()` _(public)_
-- `GetInt(fld As String)` As Int _(public)_
-- `GetLong(fld As String)` As Long _(public)_
-- `GetString(fld As String)` As String _(public)_
-- `GetBoolean(fld As String)` As Boolean _(public)_
-- `GetDouble(fld As String)` As Double _(public)_
-- `GetRecord(pos As Int)` As Map _(public)_
+- `ADD_WHERE(fld As String, operator As String, value As Object)` _(public)_
+- `CLEAR_WHERE()` _(public)_
+- `ExecQueryResult(qry As String)` _(public)_
+- `FirstRecord()` _(public)_
+- `Initialize(Module As Object, EventName As String, fileName As String)` _(public)_
 - `MoveFirst()` _(public)_
 - `MoveLast()` _(public)_
-- `MovePrevious()` _(public)_
 - `MoveNext()` _(public)_
-## Key Setters (2)
-- `setTableName(s As String)` _(public)_
+- `MovePrevious()` _(public)_
+- `NextRow()` _(public)_
+- `OpenDatabase()` _(public)_
+- `PrepareRecord()` _(public)_
+- `RecordFromMap(sm As Map)` _(public)_
+- `SchemaClear()` _(public)_
+- `SELECT_ALL(tblName As String)` _(public)_
+- `SELECT_TABLES()` _(public)_
+- `TABLE_COUNT(tblName As String)` _(public)_
+- `TABLE_FOREIGN_KEY_LIST(tblName As String)` _(public)_
+- `TABLE_INDEX_INFO(idxName As String)` _(public)_
+- `TABLE_INDEX_LIST(tblName As String)` _(public)_
+- `TABLE_SCHEMA(tblName As String)` _(public)_
+- `TABLE_SUM(tblName As String, fldName As String)` _(public)_
+
+## Key Setters (4)
+- `SetField(fldName As String, fldValue As Object)` _(public)_
 - `setPosition(pos As Int)` _(public)_
-## Getters (2)
-- `getTableName()` As String _(public)_
-- `getPosition()` As Int _(public)_
-## Private Methods (0)
-_(none)_
+- `SetRecord(rec As Map)` _(public)_
+- `setTableName(s As String)` _(public)_
+
+## Getters (8)
+- `GetBoolean(fld As String)` As Boolean _(public)_
+- `GetDouble(fld As String)` As Double _(public)_
+- `GetInt(fld As String)` As Int _(public)_
+- `GetLong(fld As String)` As Long _(public)_
+- `getPosition()` _(public)_
+- `GetRecord(pos As Int)` As Map _(public)_
+- `GetString(fld As String)` As String _(public)_
+- `getTableName()` _(public)_
+
+## Private Methods (11)
+- `CBool(v As Object)` As Boolean _(private)_
+- `CDbl(o As String)` As Double _(private)_
+- `CInt(o As Object)` As Int _(private)_
+- `CStr(o As Object)` As String _(private)_
+- `FileExist(fn As String)` As Boolean _(private)_
+- `InStr(sText As String, sFind As String)` As Int _(private)_
+- `isNaN(obj As Object)` As Boolean _(private)_
+- `Join(delimiter As String, lst As List)` As String _(private)_
+- `RaiseComplete(Task As String)` _(private)_
+- `RaiseError(Task As String, Message As String)` _(private)_
+- `Val(value As String)` As String _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -81,5 +95,3 @@ svc.Initialize(Module As Object, EventName As String, fileName As String)
 ```
 ## Composes With
 - Pairs with the SDUI5 page components: call service methods from page/component event handlers.
-
-

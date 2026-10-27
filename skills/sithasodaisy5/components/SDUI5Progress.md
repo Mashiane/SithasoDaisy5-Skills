@@ -73,119 +73,113 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub progress_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (12)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (5)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `SetEndValue(s As String)` _(public)_
-- `SetShowStartEnd(b As Boolean)` _(public)_
-- `SetStartValue(s As String)` _(public)_
-- `SetTooltip(s As String)` _(public)_
-- `SetTooltipVisible(b As Boolean)` _(public)_
-## Key Setters (37)
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (43)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBorderColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setValue(i As Int)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTextSize(s As String)` As 'ignoredeadcode _(public)_
-- `setTextVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setHint(s As String)` _(public)_
-- `setLabel(s As String)` _(public)_
-- `setProgressType(s As String)` _(public)_
-- `setProgressBackgroundColor(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setIndeterminate(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `SetEndValue(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setHint(s As String)` _(public)_
+- `setIndeterminate(b As Boolean)` _(public)_
+- `setLabel(s As String)` _(public)_
 - `setLeftIcon(s As String)` _(public)_
 - `setLeftIconColor(s As String)` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxValue(i As Int)` _(public)_
 - `setMinValue(i As Int)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setProgressBackgroundColor(s As String)` _(public)_
+- `setProgressType(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRightIcon(s As String)` _(public)_
 - `setRightIconColor(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `SetShowStartEnd(b As Boolean)` _(public)_
+- `setSize(s As String)` _(public)_
+- `SetStartValue(s As String)` _(public)_
 - `setStepValue(i As Int)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setTextSize(s As String)` _(public)_
+- `setTextVisible(b As Boolean)` _(public)_
 - `setTicks(s As String)` _(public)_
-## Getters (38)
-- `getID()` As String _(public)_
-- `getLegendColor()` As String _(public)_
+- `SetTooltip(s As String)` _(public)_
+- `SetTooltipVisible(b As Boolean)` _(public)_
+- `setValue(i As Int)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (40)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getValue()` As Int _(public)_
-- `getTextColor()` As String _(public)_
-- `getTextSize()` As String _(public)_
-- `getTextVisible()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getHint()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getProgressType()` As String _(public)_
-- `getProgressBackgroundColor()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getIndeterminate()` As Boolean _(public)_
-- `getLeftIcon()` As String _(public)_
-- `getLeftIconColor()` As String _(public)_
-- `getMaxValue()` As Int _(public)_
-- `getMinValue()` As Int _(public)_
-- `getRightIcon()` As String _(public)_
-- `getRightIconColor()` As String _(public)_
-- `getStepValue()` As Int _(public)_
-- `getTicks()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getIndeterminate()` _(public)_
+- `getLabel()` _(public)_
+- `getLeftIcon()` _(public)_
+- `getLeftIconColor()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMaxValue()` _(public)_
+- `getMinValue()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` As String _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `getProgressBackgroundColor()` _(public)_
+- `getProgressType()` _(public)_
+- `GetProperties()` _(public)_
+- `getRightIcon()` _(public)_
+- `getRightIconColor()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStepValue()` _(public)_
+- `getStyles()` _(public)_
+- `getTextColor()` _(public)_
+- `getTextSize()` _(public)_
+- `getTextVisible()` _(public)_
+- `getTicks()` _(public)_
+- `getValue()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `SetDefaults()` _(private)_
+- `UpdateTooltipTop()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgModal.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgModal.bas) (verified demo). `pgTasks` = a SDUI5Progress.
+Real syntax from [`pgProgress.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgProgress.bas) (verified demo):
 
 ```b4j
-	pgTasks.Initialize(Me, "pgTasks", "pgTasks")
-	pgTasks.ParentID = "SDUI5Column12"
-	pgTasks.Color = "success"
-	pgTasks.Label = "Tasks Completed"
-	pgTasks.PaddingAXYTBLR = "a=4; x=?; y=?; t=?; b=?; l=?; r=?"
-	pgTasks.ProgressType = "legend"
-	pgTasks.RoundedBox = True
-	pgTasks.Shadow = "lg"
-	pgTasks.TextColor = "#000000"
-	pgTasks.TextSize = "sm"
-	pgTasks.TextVisible = True
-	pgTasks.Value = 20
-	BANano.Await(pgTasks.AddComponent)
+Private progTip As SDUI5Progress		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Also used in: `pgProgress`, `pgValidation`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -200,5 +194,3 @@ BANano.Await(progress.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

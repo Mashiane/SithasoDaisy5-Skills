@@ -56,79 +56,86 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub carouselitem_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (22)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (23)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setImage(s As String)` _(public)_
+- `setImageHeight(s As String)` _(public)_
+- `setImageRounded(s As String)` _(public)_
+- `setImageRoundedBox(b As Boolean)` _(public)_
+- `setImageShadow(s As String)` _(public)_
+- `setImageWidth(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
-- `setRefresh(b As Boolean)` _(public)_
-- `setImageRounded(s As String)` As 'ignoredeadcode _(public)_
-- `setImageRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setImageShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setImageHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setImageWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setImage(s As String)` As 'ignoredeadcode _(public)_
 - `setNavigationButtons(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRefresh(b As Boolean)` _(public)_
 - `setRelative(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTypeOf(s As String)` _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-## Getters (24)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (25)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getRefresh()` As Boolean _(public)_
-- `getImageRounded()` As String _(public)_
-- `getImageRoundedBox()` As Boolean _(public)_
-- `getImageShadow()` As String _(public)_
-- `getImageHeight()` As String _(public)_
-- `getImageWidth()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getImage()` As String _(public)_
-- `getNavigationButtons()` As Boolean _(public)_
-- `getRelative()` As Boolean _(public)_
-- `getTypeOf()` As String _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getImage()` _(public)_
+- `getImageHeight()` _(public)_
+- `getImageRounded()` _(public)_
+- `getImageRoundedBox()` _(public)_
+- `getImageShadow()` _(public)_
+- `getImageWidth()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getNavigationButtons()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRefresh()` _(public)_
+- `getRelative()` _(public)_
+- `getStyles()` _(public)_
+- `getTypeOf()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgCarousel.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCarousel.bas) (verified demo). `SDUI5CarouselItem4` = a SDUI5CarouselItem.
+Real syntax from [`pgCarousel.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCarousel.bas) (verified demo):
 
 ```b4j
-	SDUI5CarouselItem4.Initialize(Me, "SDUI5CarouselItem4", "SDUI5CarouselItem4")
-	SDUI5CarouselItem4.ParentID = "carousel1"
-	SDUI5CarouselItem4.Height = "full"
-	SDUI5CarouselItem4.Image = "https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-	SDUI5CarouselItem4.ImageHeight = "full"
-	SDUI5CarouselItem4.ImageWidth = "full"
-	SDUI5CarouselItem4.NavigationButtons = True
-	SDUI5CarouselItem4.Refresh = True
-	SDUI5CarouselItem4.Width = "full"
-	BANano.Await(SDUI5CarouselItem4.AddComponent)
+Private SDUI5CarouselItem1 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem10 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem11 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem12 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem13 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem14 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem15 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem16 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem17 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem18 As SDUI5CarouselItem		'ignore
+Private SDUI5CarouselItem19 As SDUI5CarouselItem		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `carousel-item`, `relative`
 ## Code Example
@@ -143,5 +150,3 @@ BANano.Await(carouselitem.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

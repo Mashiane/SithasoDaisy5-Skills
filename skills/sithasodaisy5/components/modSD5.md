@@ -30,25 +30,27 @@ _(none declared)_
 
 Wire in parent: `Sub modsd5_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (13)
-- `Process_Globals()` _(public)_
-- `Val(InputStr As String)` As String _(public)_
 - `CInt(o As Object)` As Int _(public)_
 - `CleanID(s As String)` As String _(public)_
-- `DOMContentLoaded()` As String _(public)_
-- `InitDays()` As 'ignoredeadcode _(public)_
-- `Len(Text As String)` As Int _(public)_
 - `CStr(o As Object)` As String _(public)_
-- `PadRight(Value As String, MaxLen As Int, PadChar As String)` As String _(public)_
-- `InitColors()` As 'ignoredeadcode _(public)_
-- `InitMonths()` As 'ignoredeadcode _(public)_
+- `DOMContentLoaded()` _(public)_
+- `InitColors()` _(public)_
 - `InitCountries()` _(public)_
+- `InitDays()` _(public)_
 - `InitLanguages()` _(public)_
+- `InitMonths()` _(public)_
+- `Len(Text As String)` As Int _(public)_
+- `NumberFormat2Fix(number As Double, minimumIntegers As Int, maximumFractions As Int, minimumFractions As Int, groupingUsed As Boolean)` As Double _(public)_
+- `PadRight(Value As String, MaxLen As Int, PadChar As String)` As String _(public)_
+- `Val(InputStr As String)` As String _(public)_
+
 ## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+
 ## Getters (0)
-_(none)_
+
 ## Private Methods (0)
 _(none)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -63,5 +65,3 @@ BANano.Await(modsd5.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

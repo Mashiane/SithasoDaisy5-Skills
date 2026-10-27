@@ -22,13 +22,14 @@ Applies to: `SDUI5Button`, `SDUI5Badge`, `SDUI5Alert`, `SDUI5Card`, `SDUI5Toggle
 ' Step 1: Initialize
 Component.Initialize(Me, "ComponentEventName")
 
-' Step 2: Set Properties (variant, size, text, icon, etc.)
-Button.Color = "primary"           ' SDUI5Button variant; follow the specific component's color list
-Component.Size = "md"              ' optional: xs|sm|md|lg|xl
-Component.Text = "Button Text"     ' optional
-Component.Icon = "./assets/img.svg"' optional: asset path
-Component.Title = "Title"          ' optional
-Component.Width = "full"           ' component-specific: "full" or numeric (none preferred)
+' Step 2: Set Properties (Prompt-to-Setter Alignment — see references/component-default-setters.md)
+' Audit component defaults! Set every property where the user prompt diverges from SetDefaults.
+Button.Color = "primary"           ' buttons default to "none"; set explicitly for theme colors
+Button.Outline = True              ' buttons default to False; set True if outlined in prompt
+Card.Width = "full"                ' cards default to "96" (384px); MUST override to "full" inside columns
+Card.Border = False                ' cards default to True; set False if prompt calls for flat/borderless
+Stat.Direction = "horizontal"      ' stats default to "vertical"; set "horizontal" for stat bars
+Component.Icon = "./assets/img.svg"' asset path must include ./assets/ and extension
 
 ' Step 3: Mount to parent hierarchy
 Component.ParentID = "SDUI5Column1"' must reference existing parent
@@ -59,225 +60,160 @@ Use only properties listed for that exact component. `MarginAXYTBLR` and `Paddin
 
 ---
 
-## 2. Container Deviations
+## 2. Parent Container & Child Leaf (Companion) Architecture
 
-These components require **non-standard** mount sequences. Read the per-component `.md` before using.
+In SithasoDaisy5, components strictly separate into **Parent Containers** (structural daisyUI layout wrappers) and **Child Leaf Components** (content items that populate those wrappers).
 
-### 2.1 SDUI5Stat (Stat container)
+### The Inviolable Companion Rules (RULE-LAYOUT-005)
+1. **Never Orphan a Child Leaf**: A child leaf component (`SDUI5StatItem`, `SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5Column`, `SDUI5CarouselItem`, `SDUI5SwiperSlide`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5FooterTitle`) **CANNOT** mount directly to `app.PageView`, `SDUI5Container`, or an unrelated parent. Its `ParentID` MUST be the ID of its designated parent container.
+2. **Parent First Lifecycle**: The Parent Container MUST be initialized, configured, and awaited (`BANano.Await(Parent.AddComponent)`) **BEFORE** any Child Leaf Component is mounted to it.
+3. **Universal 3-Step Mounting**: Child leaf components do **NOT** use imaginary container methods like `.AddItem()` or `.Refresh()`. They are standard `SDUI5*` components mounted via `ParentID = "parentID"` and `BANano.Await(child.AddComponent)`.
 
+### Companion Taxonomy Table
+
+| Parent Container | Child Leaf Component | daisyUI Relationship | Notes |
+|---|---|---|---|
+| `SDUI5Row` | `SDUI5Column` | `.grid` container → `.col-span-*` cells | Row defines grid layout (`GridCols`, `GridColsMd`); Column defines cell span (`Size`, `SizeMd`). |
+| `SDUI5Stat` | `SDUI5StatItem` | `.stats` wrapper → `.stat` tile | `SDUI5Stat` sets orientation/borders; `SDUI5StatItem` holds `Title`, `Value`, `Desc`, figure. |
+| `SDUI5Steps` | `SDUI5StepsItem` | `.steps` wrapper → `step` item | `SDUI5Steps` sets direction/color; `SDUI5StepsItem` holds step label and active/completed state. |
+| `SDUI5Timeline` | `SDUI5TimelineItem` | `.timeline` list → item | `SDUI5Timeline` sets vertical/horizontal; `SDUI5TimelineItem` holds start/middle/end content. |
+| `SDUI5Tabs` | `SDUI5TabsItem` | `.tabs` bar → tab button/content | `SDUI5Tabs` sets tab style (`boxed`, `bordered`); `SDUI5TabsItem` holds label and content. |
+| `SDUI5Carousel` | `SDUI5CarouselItem` | `.carousel` scroller → item | `SDUI5Carousel` sets snapping; `SDUI5CarouselItem` mounts image/content inside. |
+| `SDUI5Swiper` | `SDUI5SwiperSlide` | Swiper slider → slide | `SDUI5Swiper` sets autoplay/pagination; `SDUI5SwiperSlide` holds slide content. |
+| `SDUI5Slider` | `SDUI5SliderItem` | Slider wrapper → slide | `SDUI5Slider` controls track; `SDUI5SliderItem` holds slide elements. |
+| `SDUI5Menu` | `SDUI5MenuItem` | `.menu` list → `<li>` entry | `SDUI5Menu` sets sizing/orientation; `SDUI5MenuItem` holds link/title/icon. |
+| `SDUI5List` | `SDUI5ListItem` | `.list` container → item row | `SDUI5List` formats list rows; `SDUI5ListItem` holds item content. |
+| `SDUI5Footer` | `SDUI5FooterTitle` | `.footer` layout → column header | `SDUI5Footer` organizes columns; `SDUI5FooterTitle` renders section heading. |
+
+---
+
+### Implementation Patterns for Companion Pairs
+
+#### 2.1 Grid Layout: SDUI5Row (Parent) + SDUI5Column (Child Leaf)
 ```b4j
-' Stat requires structural properties BEFORE AddComponent
-SDUI5Stat1.Initialize(Me, "stat1")
-SDUI5Stat1.Direction = "horizontal"     ' "horizontal" or "vertical"
-SDUI5Stat1.AlignHorizontal = "center"
-SDUI5Stat1.Boxed = True
+' 1. Parent Row FIRST
+SDUI5Row1.Initialize(Me, "SDUI5Row1", "SDUI5Row1")
+SDUI5Row1.ParentID = "SDUI5Container1"
+SDUI5Row1.GridCols = 1
+SDUI5Row1.GridColsMd = 3
+SDUI5Row1.Gap = "6"
+BANano.Await(SDUI5Row1.AddComponent)
+
+' 2. Child Column mounting into Row
+SDUI5Column1.Initialize(Me, "SDUI5Column1", "SDUI5Column1")
+SDUI5Column1.ParentID = "SDUI5Row1"           ' Parent is SDUI5Row1!
+SDUI5Column1.Size = "12"
+SDUI5Column1.SizeMd = "4"
+BANano.Await(SDUI5Column1.AddComponent)
+```
+
+#### 2.2 Stats KPI: SDUI5Stat (Parent) + SDUI5StatItem (Child Leaf)
+```b4j
+' 1. Parent Stat Container FIRST
+SDUI5Stat1.Initialize(Me, "SDUI5Stat1", "SDUI5Stat1")
 SDUI5Stat1.ParentID = "SDUI5Column1"
+SDUI5Stat1.Shadow = "sm"
+SDUI5Stat1.Border = True
+SDUI5Stat1.RoundedBox = True
 BANano.Await(SDUI5Stat1.AddComponent)
 
-' Items added AFTER AddComponent
-SDUI5StatItem1.Initialize(Me, "item1")
-SDUI5StatItem1.Title = "Page Views"
-SDUI5StatItem1.Value = "31,200"
-SDUI5Stat1.AddItem(SDUI5StatItem1)    ' STAT-SPECIFIC: AddItem after mount
+' 2. Child Stat Items mounting into SDUI5Stat1
+SDUI5StatItem1.Initialize(Me, "SDUI5StatItem1", "SDUI5StatItem1")
+SDUI5StatItem1.ParentID = "SDUI5Stat1"       ' Parent is SDUI5Stat1!
+SDUI5StatItem1.Title = "Total Revenue"
+SDUI5StatItem1.Value = "$45,200"
+SDUI5StatItem1.Desc = "12% from last month"
+SDUI5StatItem1.ValueTextColor = "primary"
+BANano.Await(SDUI5StatItem1.AddComponent)
 ```
 
-### 2.2 SDUI5Dock (Bottom navigation)
-
+#### 2.3 Timeline: SDUI5Timeline (Parent) + SDUI5TimelineItem (Child Leaf)
 ```b4j
-' Set tab properties BEFORE AddComponent
-SDUI5Dock1.Initialize(Me, "dock1")
-SDUI5Dock1.AddHomeTab("home", "Home", "./assets/home.svg")
-SDUI5Dock1.AddSearchTab("search", "Search", "./assets/search.svg")
-SDUI5Dock1.AddProfileTab("profile", "Profile", "./assets/profile.svg")
-SDUI5Dock1.ActiveTab = "home"
-SDUI5Dock1.ParentID = "SDUI5Container1"
-BANano.Await(SDUI5Dock1.AddComponent)
-```
-
-### 2.3 SDUI5Carousel / SDUI5Swiper (Carousel + items)
-
-```b4j
-' Standard init for carousel
-SDUI5Carousel1.Initialize(Me, "carousel1")
-SDUI5Carousel1.Rounded = "rounded-box"
-SDUI5Carousel1.Width = "full"
-SDUI5Carousel1.ParentID = "SDUI5Column1"
-BANano.Await(SDUI5Carousel1.AddComponent)
-
-' Items registered AFTER AddComponent (CAROUSEL-SPECIFIC)
-Dim itm As SDUI5CarouselItem
-itm.Initialize(Me, "item1")
-itm.Source = "./assets/slide1.jpg"
-itm.Title = "Slide 1"
-SDUI5Carousel1.AddItem(itm)        ' CAROUSEL-SPECIFIC
-SDUI5Carousel1.Refresh              ' CAROUSEL-SPECIFIC: re-render with new items
-```
-
-### 2.4 SDUI5Timeline (Timeline + items)
-
-```b4j
-SDUI5Timeline1.Initialize(Me, "timeline1")
+' 1. Parent Timeline Container FIRST
+SDUI5Timeline1.Initialize(Me, "SDUI5Timeline1", "SDUI5Timeline1")
 SDUI5Timeline1.ParentID = "SDUI5Column1"
+SDUI5Timeline1.Vertical = True
 BANano.Await(SDUI5Timeline1.AddComponent)
 
-' Items added AFTER AddComponent
-Dim item As SDUI5TimelineItem
-item.Initialize(Me, "item1")
-item.Title = "Event 1"
-item.Date = "Jan 15, 2024"
-SDUI5Timeline1.AddItem(item)         ' TIMELINE-SPECIFIC
+' 2. Child Timeline Items mounting into SDUI5Timeline1
+SDUI5TimelineItem1.Initialize(Me, "SDUI5TimelineItem1", "SDUI5TimelineItem1")
+SDUI5TimelineItem1.ParentID = "SDUI5Timeline1" ' Parent is SDUI5Timeline1!
+SDUI5TimelineItem1.StartText = "09:00 AM"
+SDUI5TimelineItem1.EndText = "Sprint Planning"
+SDUI5TimelineItem1.EndBox = True
+BANano.Await(SDUI5TimelineItem1.AddComponent)
 ```
 
-### 2.5 SDUI5Accordion / SDUI5Collapse (Header + content)
-
+#### 2.4 Steps Progress: SDUI5Steps (Parent) + SDUI5StepsItem (Child Leaf)
 ```b4j
-SDUI5Accordion1.Initialize(Me, "accordion1")
-SDUI5Accordion1.ParentID = "SDUI5Column1"
-BANano.Await(SDUI5Accordion1.AddComponent)
+' 1. Parent Steps Container FIRST
+SDUI5Steps1.Initialize(Me, "SDUI5Steps1", "SDUI5Steps1")
+SDUI5Steps1.ParentID = "SDUI5Container1"
+SDUI5Steps1.Vertical = False
+BANano.Await(SDUI5Steps1.AddComponent)
 
-' Items with header + content
-Dim item As SDUI5AccordionItem
-item.Initialize(Me, "acc1")
-item.Title = "Section 1"
-item.Content = "Content for section 1"
-SDUI5Accordion1.AddItem(item)        ' ACCORDION-SPECIFIC
-SDUI5Accordion1.Refresh              ' ACCORDION-SPECIFIC
+' 2. Child Steps Items mounting into SDUI5Steps1
+SDUI5StepsItem1.Initialize(Me, "SDUI5StepsItem1", "SDUI5StepsItem1")
+SDUI5StepsItem1.ParentID = "SDUI5Steps1"     ' Parent is SDUI5Steps1!
+SDUI5StepsItem1.Text = "Register"
+SDUI5StepsItem1.StepColor = "primary"
+BANano.Await(SDUI5StepsItem1.AddComponent)
 ```
 
-### 2.6 SDUI5SweetAlert / SDUI5Swal (Modal dialog)
-
+#### 2.5 Tabs Navigation: SDUI5Tabs (Parent) + SDUI5TabsItem (Child Leaf)
 ```b4j
-' SweetAlert uses 3-argument Initialize, NOT the standard 2-argument
-SDUI5Swal1.Initialize(Me, "swal", Root)  ' NOTE: 3 args, not 2
-SDUI5Swal1.Header = "Confirmation"
-SDUI5Swal1.Text = "Are you sure?"
-SDUI5Swal1.AddButton("cancel", "No", "cancel", "")
-SDUI5Swal1.AddButton("confirm", "Yes", "confirm", "")
-SDUI5Swal1.ParentID = "body"              ' NOT: pageScroll.Panel
-' OR: SDUI5Swal1.Show                      ' alternative: show directly
+' 1. Parent Tabs Container FIRST
+SDUI5Tabs1.Initialize(Me, "SDUI5Tabs1", "SDUI5Tabs1")
+SDUI5Tabs1.ParentID = "SDUI5Container1"
+SDUI5Tabs1.Boxed = True
+BANano.Await(SDUI5Tabs1.AddComponent)
 
-' Event handling
-' Wait For SDUI5Swal1_EventName(result)    ' async
-' result = True/False based on button clicked
-```
-
-### 2.7 SDUI5Modal
-
-These follow standard 3-step BUT mount into a wrapper, not directly into the page hierarchy. It's designed to host child controls.
-
-```b4j
-SDUI5Modal1.Initialize(Me, "modal1")
-SDUI5Modal1.Title = "Edit Profile"
-SDUI5Modal1.ParentID = "SDUI5Column1"
-BANano.Await(SDUI5Modal1.AddComponent)
-
-' Children mount into the modal's named regions (e.g., SDUI5Modal1_actions)
-SDUI5Button1.Initialize(Me, "ok_btn")
-SDUI5Button1.ParentID = "SDUI5Modal1_actions"   ' modal's named action slot
-SDUI5Button1.Color = "primary"
-SDUI5Button1.Text = "OK"
-BANano.Await(SDUI5Button1.AddComponent)
-```
-
-For a dialog (`IsCard = False`), open it with `SDUI5Modal1.Show`. Call `Close` in every action handler that should dismiss the dialog, including Cancel:
-
-```b4j
-SDUI5Modal1.Show
-
-Sub SDUI5Modal1_Yes_Click(e As BANanoEvent)
-    SDUI5Modal1.Close
-End Sub
-
-Sub SDUI5Modal1_Cancel_Click(e As BANanoEvent)
-    SDUI5Modal1.Close
-End Sub
-```
-
-Do not use `SDUI5Modal1.Open = True/False` or `setOpen` for dialog visibility. `Show` and `Close` keep the modal's hidden checkbox synchronized with its close and backdrop controls.
-
-### 2.8 SDUI5TreeView
-
-```b4j
-SDUI5TreeView1.Initialize(Me, "tree1")
-SDUI5TreeView1.ParentID = "SDUI5Column1"
-BANano.Await(SDUI5TreeView1.AddComponent)
-
-' Add nodes via AddNode or set Items
-SDUI5TreeView1.AddNode("root", "", "Root")   ' parentId, beforeId, label
-SDUI5TreeView1.AddNode("child1", "root", "Child 1")
-SDUI5TreeView1.Refresh
-```
-
-### 2.9 SDUI5List (Virtualized)
-
-```b4j
-SDUI5List1.Initialize(Me, "list1")
-SDUI5List1.ParentID = "SDUI5Column1"
-BANano.Await(SDUI5List1.AddComponent)
-
-' Items added via SetItems
-SDUI5List1.SetItems(myDataList)     ' accepts B4J List of Maps
-```
-
-### 2.10 SDUI5Drawer / SDUI5Modal (Overlay positioning)
-
-Drawer/Modal components often render into `body` not the page hierarchy:
-
-```b4j
-SDUI5Modal1.Initialize(Me, "modal1")
-SDUI5Modal1.ParentID = "body"        ' render at root level, not in page tree
-BANano.Await(SDUI5Modal1.AddComponent)
-' OR use Show() for one-shot display
-SDUI5Modal1.Show
+' 2. Child Tabs Items mounting into SDUI5Tabs1
+SDUI5TabsItem1.Initialize(Me, "SDUI5TabsItem1", "SDUI5TabsItem1")
+SDUI5TabsItem1.ParentID = "SDUI5Tabs1"       ' Parent is SDUI5Tabs1!
+SDUI5TabsItem1.Text = "Overview"
+SDUI5TabsItem1.Checked = True
+BANano.Await(SDUI5TabsItem1.AddComponent)
 ```
 
 ---
 
-## 3. Decision Flowchart
+## 3. Specialized Layout & Feedback Containers
 
+### 3.1 SDUI5Modal (Dialog wrapper)
+Hosts child controls inside named regions (e.g., `_actions`, `_box`).
+```b4j
+SDUI5Modal1.Initialize(Me, "SDUI5Modal1", "SDUI5Modal1")
+SDUI5Modal1.ParentID = "SDUI5Container1"
+SDUI5Modal1.Title = "Confirm Action"
+BANano.Await(SDUI5Modal1.AddComponent)
+
+' Children mount into modal's named regions
+SDUI5Button1.Initialize(Me, "SDUI5Button1", "SDUI5Button1")
+SDUI5Button1.ParentID = "SDUI5Modal1_actions"
+SDUI5Button1.Color = "primary"
+SDUI5Button1.Text = "Confirm"
+BANano.Await(SDUI5Button1.AddComponent)
 ```
-Need a child component?
-  ├─ Is it a leaf (Button, Input, Badge, Image, ...)?
-  │    → Standard 3-step: Initialize → Properties → AddComponent
-  ├─ Is it a leaf that goes INTO a container (Modal action, Drawer body, etc.)?
-  │    → Standard 3-step but ParentID = <container>_<slot>
-  └─ Is it a CONTAINER holding children (Stat, Dock, Carousel, Timeline, Accordion)?
-       → Container pattern: container mounts first, then AddItem/Refresh
 
-Is the component dialog-y (SweetAlert, Modal, Drawer)?
-  → Check parent placement — may be `body` not page hierarchy
+### 3.2 SDUI5Swal / SweetAlert (Alert dialog)
+Programmatic dialog; uses 3-argument initialize:
+```b4j
+SDUI5Swal1.Initialize(Me, "SDUI5Swal1", "SDUI5Swal1")
+SDUI5Swal1.ParentID = app.PageView
+BANano.Await(SDUI5Swal1.AddComponent)
 ```
 
 ---
 
 ## 4. Anti-Patterns
 
-| Anti-pattern | Why |
-|---|---|
-| Skipping `ParentID = ...` before `AddComponent` | "Parent not found" runtime error |
-| Skipping `Initialize` | Component has no mCallBack/mName/mEventName — events can't fire |
-| Setting properties AFTER `AddComponent` | Most properties work, but `Size`/`Color` are usually rendered during AddComponent. Verify per-component. |
-| Mixing `Initialize(Me, "x")` with `Initialize(Me, "x", "x")` | First form is correct. Second form (`3-argument`) is SweetAlert-only. Wrong count = compile/runtime error. |
-| Adding child without parent `AddComponent` | `ParentID` references a DOM node that doesn't exist yet |
-
----
-
-## 5. Quick Reference Table
-
-| Component | Standard 3-step | Container deviation | Notes |
-|---|---|---|---|
-| `SDUI5Button`, `SDUI5TextBox`, etc. | ✅ | — | most common |
-| `SDUI5Stat` | — | AddItem after AddComponent | holds StatItems |
-| `SDUI5Dock` | — | AddHomeTab/Search/etc. before AddComponent | holds tabs |
-| `SDUI5Carousel` | — | AddItem + Refresh after AddComponent | holds CarouselItems |
-| `SDUI5Timeline` | — | AddItem after AddComponent | holds TimelineItems |
-| `SDUI5Accordion` | — | AddItem + Refresh after AddComponent | holds AccordionItems |
-| `SDUI5Collapse` | — | Similar to Accordion | holds CollapseItems |
-| `SDUI5SweetAlert` | — | 3-arg Initialize; mounts to body | async dialog |
-| `SDUI5Modal` | ✅ | children mount into modal's named slots | overlay |
-| `SDUI5TreeView` | — | AddNode + Refresh | tree structure |
-| `SDUI5List` | — | SetItems | virtualized |
-| `SDUI5Table` | ✅ | SetItems / SetItemsPerPage | — |
+| Anti-pattern | Why It Fails | Correct Pattern |
+|---|---|---|
+| Mounting child leaf (`SDUI5StatItem`, `SDUI5TimelineItem`, `SDUI5Column`) directly to Row, Container, or PageView | DaisyUI CSS classes expect the exact parent container wrapper (e.g. `.stats`, `.timeline`, `.grid`). Missing wrapper breaks styling and alignment. | Always mount child leaf into its designated parent container (`ParentID = parentID`). |
+| Calling `.AddItem()` or `.Refresh()` on parent container | Neither method exists in SithasoDaisy5 B4J library; causes compile or runtime failure. | Use standard `child.ParentID = parentID` + `BANano.Await(child.AddComponent)`. |
+| Mounting child before parent `AddComponent` | Child looks for DOM element `#parentID`, which does not exist yet. | Always `BANano.Await(parent.AddComponent)` BEFORE mounting any children. |
+| Skipping `'ignore` suffix in Globals | B4J compiler warns about unused variables. | Always append `'ignore` to component declarations. |
 
 ---
 

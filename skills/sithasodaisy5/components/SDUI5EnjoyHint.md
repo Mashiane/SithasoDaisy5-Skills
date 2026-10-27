@@ -29,35 +29,41 @@ _(inherits from SDUI5Component base — see base contract)_
 `EnjoyStarted`, `EnjoyEnded`, `EnjoySkip`
 
 Wire in parent: `Sub enjoyhint_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (22)
-- `Initialize(Module As Object, EventName As String, bUnique As Boolean)` _(public)_
-- `JoinDescription(items As List)` As String _(public)_
-- `AddStep(eID As String,eDescription As String)` As String _(public)_
-- `AddStepAsIs(eID As String,eDescription As String)` As String _(public)_
+## Public Methods (15)
 - `AddClick(eID As String,eDescription As String)` As String _(public)_
 - `AddClickAsIs(eID As String,eDescription As String)` As String _(public)_
 - `AddKeyPress(eID As String,eDescription As String)` As String _(public)_
 - `AddKeyPressAsIs(eID As String,eDescription As String)` As String _(public)_
+- `AddStep(eID As String,eDescription As String)` As String _(public)_
+- `AddStepAsIs(eID As String,eDescription As String)` As String _(public)_
 - `EndsOn(eID As String, Description As String)` _(public)_
 - `EndsOnAsIs(eID As String, Description As String)` _(public)_
-- `HideSkip(eID As String)` _(public)_
-- `HideSkipAsIs(eID As String)` _(public)_
 - `HideNext(eID As String)` _(public)_
 - `HideNextAsIs(eID As String)` _(public)_
-- `SetOnBeforeStart(eID As String, Module As Object, MethodName As String)` _(public)_
-- `SetNextButton(eID As String, Text As String)` _(public)_
-- `SetNextButtonAsIs(eID As String, Text As String)` _(public)_
-- `SetSkipButton(eID As String, Text As String)` _(public)_
-- `SetSkipButtonAsIs(eID As String, Text As String)` _(public)_
+- `HideSkip(eID As String)` _(public)_
+- `HideSkipAsIs(eID As String)` _(public)_
+- `Initialize(Module As Object, EventName As String, bUnique As Boolean)` _(public)_
+- `JoinDescription(items As List)` As String _(public)_
+- `Run(Module As Object)` _(public)_
+
+## Key Setters (7)
 - `SetCircle(eID As String, radius As Int)` _(public)_
 - `SetCircleAsIs(eID As String, radius As Int)` _(public)_
-- `Run(Module As Object)` _(public)_
-## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+- `SetNextButton(eID As String, Text As String)` _(public)_
+- `SetNextButtonAsIs(eID As String, Text As String)` _(public)_
+- `SetOnBeforeStart(eID As String, Module As Object, MethodName As String)` _(public)_
+- `SetSkipButton(eID As String, Text As String)` _(public)_
+- `SetSkipButtonAsIs(eID As String, Text As String)` _(public)_
+
 ## Getters (0)
-_(none)_
-## Private Methods (0)
-_(none)_
+
+## Private Methods (5)
+- `CleanID(s As String)` As String _(private)_
+- `CStr(o As Object)` As String _(private)_
+- `Join(delimiter As String, lst As List)` As String _(private)_
+- `MvField(sValue As String, iPosition As Int, Delimiter As String)` As String _(private)_
+- `StrParse(delim As String, inputString As String)` As List _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -72,5 +78,3 @@ BANano.Await(enjoyhint.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

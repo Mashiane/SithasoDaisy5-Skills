@@ -59,102 +59,92 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub timelineitem_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (25)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (26)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setEnd(b As Boolean)` _(public)_
+- `setEndBox(b As Boolean)` _(public)_
+- `setEndJoinSuffix(b As Boolean)` _(public)_
+- `setEndJoinSuffixColor(s As String)` _(public)_
+- `setEndText(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
-- `setEnd(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setEndBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setEndJoinSuffix(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setEndJoinSuffixColor(s As String)` As 'ignoredeadcode _(public)_
-- `setEndText(s As String)` As 'ignoredeadcode _(public)_
-- `setMiddle(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setMiddleBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setMiddleIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setMiddleIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setMiddleText(s As String)` As 'ignoredeadcode _(public)_
-- `setStart(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setStartBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setStartJoinPrefix(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setStartJoinPrefixColor(s As String)` As 'ignoredeadcode _(public)_
-- `setStartText(s As String)` As 'ignoredeadcode _(public)_
-## Getters (27)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setMiddle(b As Boolean)` _(public)_
+- `setMiddleBox(b As Boolean)` _(public)_
+- `setMiddleIcon(s As String)` _(public)_
+- `setMiddleIconSize(s As String)` _(public)_
+- `setMiddleText(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setStart(b As Boolean)` _(public)_
+- `setStartBox(b As Boolean)` _(public)_
+- `setStartJoinPrefix(b As Boolean)` _(public)_
+- `setStartJoinPrefixColor(s As String)` _(public)_
+- `setStartText(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+
+## Getters (28)
+- `getAttributes()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getEnd()` _(public)_
+- `getEndBox()` _(public)_
+- `getEndJoinSuffix()` _(public)_
+- `getEndJoinSuffixColor()` _(public)_
+- `getEndText()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getEnd()` As Boolean _(public)_
-- `getEndBox()` As Boolean _(public)_
-- `getEndJoinSuffix()` As Boolean _(public)_
-- `getEndJoinSuffixColor()` As String _(public)_
-- `getEndText()` As String _(public)_
-- `getMiddle()` As Boolean _(public)_
-- `getMiddleBox()` As Boolean _(public)_
-- `getMiddleIcon()` As String _(public)_
-- `getMiddleIconSize()` As String _(public)_
-- `getMiddleText()` As String _(public)_
-- `getStart()` As Boolean _(public)_
-- `getStartBox()` As Boolean _(public)_
-- `getStartJoinPrefix()` As Boolean _(public)_
-- `getStartJoinPrefixColor()` As String _(public)_
-- `getStartText()` As String _(public)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMiddle()` _(public)_
+- `getMiddleBox()` _(public)_
+- `getMiddleIcon()` _(public)_
+- `getMiddleIconSize()` _(public)_
+- `getMiddleText()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getStart()` _(public)_
+- `getStartBox()` _(public)_
+- `getStartJoinPrefix()` _(public)_
+- `getStartJoinPrefixColor()` _(public)_
+- `getStartText()` _(public)_
+- `getStyles()` _(public)_
+- `getVisible()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgTimeline.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTimeline.bas) (verified demo). `SDUI5TimelineItem1` = a SDUI5TimelineItem.
+Real syntax from [`pgTimeline.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTimeline.bas) (verified demo):
 
 ```b4j
-	SDUI5TimelineItem1.Initialize(Me, "SDUI5TimelineItem1", "SDUI5TimelineItem1")
-	SDUI5TimelineItem1.ParentID = "SDUI5Timeline1"
-	SDUI5TimelineItem1.Enabled = True
-	SDUI5TimelineItem1.End = True
-	SDUI5TimelineItem1.EndBox = True
-	SDUI5TimelineItem1.EndJoinSuffix = True
-	SDUI5TimelineItem1.EndJoinSuffixColor = ""
-	SDUI5TimelineItem1.EndText = "First Macintosh computer"
-	SDUI5TimelineItem1.MarginAXYTBLR = "a=?; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5TimelineItem1.Middle = True
-	SDUI5TimelineItem1.MiddleBox = False
-	SDUI5TimelineItem1.MiddleIcon = "./assets/checkblack.svg"
-	SDUI5TimelineItem1.MiddleIconSize = "16px"
-	SDUI5TimelineItem1.MiddleText = ""
-	SDUI5TimelineItem1.PaddingAXYTBLR = "a=?; x=?; y=?; t=?; b=?; l=?; r=?"
-	SDUI5TimelineItem1.Position = "t=?; b=?; r=?; l=?"
-	SDUI5TimelineItem1.PositionStyle = "none"
-	SDUI5TimelineItem1.Attributes = ""
-	SDUI5TimelineItem1.Classes = ""
-	SDUI5TimelineItem1.Styles = ""
-	SDUI5TimelineItem1.Start = True
-	SDUI5TimelineItem1.StartBox = False
-	SDUI5TimelineItem1.StartJoinPrefix = False
-	SDUI5TimelineItem1.StartJoinPrefixColor = ""
-	SDUI5TimelineItem1.StartText = "1984"
-	SDUI5TimelineItem1.Visible = True
-	BANano.Await(SDUI5TimelineItem1.AddComponent)
+Private SDUI5TimelineItem1 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem10 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem11 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem12 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem13 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem14 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem15 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem16 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem17 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem18 As SDUI5TimelineItem		'ignore
+Private SDUI5TimelineItem19 As SDUI5TimelineItem		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -169,5 +159,3 @@ BANano.Await(timelineitem.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

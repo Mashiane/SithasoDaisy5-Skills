@@ -79,157 +79,151 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`, `Prepend`, `Append`
 
 Wire in parent: `Sub select_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (29)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (18)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Focus()` _(public)_
-- `SetOptionsFromMap(m As Map)` As 'ignoredeadcode _(public)_
-- `SetOptionsFromList(m As List)` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
 - `AddOption(iKey As String, iValue As String)` _(public)_
 - `AddOptionSelected(iKey As String, iValue As String)` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `IsBlank()` As Boolean _(public)_
-- `ResetValidation()` _(public)_
-- `SetLanguages()` _(public)_
-- `SetCountries()` _(public)_
-- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
-- `SetMonths()` _(public)_
-- `SetDays()` _(public)_
-- `SetThemes()` _(public)_
-- `SetValueByText(stext As String)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `findIndexByValue(value As String)` As Int _(public)_
 - `findValueByText(text As String)` As String _(public)_
+- `Focus()` _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsBlank()` _(public)_
 - `MoveNext()` _(public)_
 - `MovePrevious()` _(public)_
-- `removeSelected()` _(public)_
+- `Remove()` _(public)_
 - `removeByIndex(idx As Int)` _(public)_
-- `findIndexByValue(value As String)` As Int _(public)_
 - `removeByValue(value As String)` _(public)_
-## Key Setters (43)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `removeSelected()` _(public)_
+- `ResetValidation()` _(public)_
+
+## Key Setters (53)
 - `setAllowBlank(b As Boolean)` _(public)_
+- `setAppendColor(s As String)` _(public)_
+- `setAppendIcon(s As String)` _(public)_
+- `setAppendIconColor(s As String)` _(public)_
+- `setAppendImage(s As String)` _(public)_
+- `setAppendVisible(b As Boolean)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBorderColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setAppendColor(s As String)` As 'ignoredeadcode _(public)_
-- `setAppendIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependColor(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setInputType(s As String)` _(public)_
-- `setPrependVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAppendVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
-- `setValuesAsIs(b As Boolean)` _(public)_
-- `setColor(s As String)` As 'ignoredeadcode _(public)_
-- `setGhost(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setGrow(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setColor(s As String)` _(public)_
+- `SetCountries()` _(public)_
+- `SetDays()` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setGhost(b As Boolean)` _(public)_
+- `setGrow(b As Boolean)` _(public)_
 - `setHint(s As String)` _(public)_
+- `setInputType(s As String)` _(public)_
 - `setLabel(s As String)` _(public)_
-- `setPlaceholder(s As String)` As 'ignoredeadcode _(public)_
-- `setRequired(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setAppendImage(s As String)` As 'ignoredeadcode _(public)_
-- `setAppendIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependImage(s As String)` As 'ignoredeadcode _(public)_
-- `setPrependIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
+- `SetLanguages()` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `SetMonths()` _(public)_
+- `setOptions(s As String)` _(public)_
+- `SetOptionsFromList(m As List)` _(public)_
+- `SetOptionsFromMap(m As Map)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPlaceholder(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPrependColor(s As String)` _(public)_
+- `setPrependIcon(s As String)` _(public)_
+- `setPrependIconColor(s As String)` _(public)_
+- `setPrependImage(s As String)` _(public)_
+- `setPrependVisible(b As Boolean)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRequired(b As Boolean)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setSelectedIndex(i As Int)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `SetThemes()` _(public)_
 - `setValidator(b As Boolean)` _(public)_
 - `setValidatorHint(s As String)` _(public)_
-- `setValue(s As String)` As 'ignoredeadcode _(public)_
-- `setSelectedIndex(i As Int)` _(public)_
-## Getters (47)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setValue(s As String)` _(public)_
+- `SetValueByText(stext As String)` _(public)_
+- `setValuesAsIs(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `SetYears(yearsIntoPast As Int, yearsIntoFuture As Int)` _(public)_
+
+## Getters (48)
+- `getAllowBlank()` _(public)_
+- `getAppendColor()` _(public)_
+- `getAppendIcon()` _(public)_
+- `getAppendIconColor()` _(public)_
+- `getAppendImage()` _(public)_
+- `getAppendVisible()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getEnabled()` _(public)_
+- `getGhost()` _(public)_
+- `getGrow()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getLegendColor()` As String _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAllowBlank()` As Boolean _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getAppendColor()` As String _(public)_
-- `getAppendIconColor()` As String _(public)_
-- `getPrependColor()` As String _(public)_
-- `getPrependIconColor()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getInputType()` As String _(public)_
-- `getAppendIcon()` As String _(public)_
-- `getAppendVisible()` As Boolean _(public)_
-- `getPrependIcon()` As String _(public)_
-- `getPrependVisible()` As Boolean _(public)_
-- `getOptions()` As String _(public)_
-- `getValuesAsIs()` As Boolean _(public)_
-- `getAppendImage()` As String _(public)_
-- `getPrependImage()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getGhost()` As Boolean _(public)_
-- `getGrow()` As Boolean _(public)_
-- `getHint()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getPlaceholder()` As String _(public)_
-- `getRequired()` As Boolean _(public)_
-- `getSize()` As String _(public)_
-- `getValidator()` As Boolean _(public)_
-- `getValidatorHint()` As String _(public)_
-- `getValue()` As String _(public)_
-- `getText()` As String _(public)_
-- `getSelectedIndex()` As Int _(public)_
-- `getItemCount()` As Int _(public)_
-## Private Methods (0)
-_(none)_
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getInputType()` _(public)_
+- `getItemCount()` _(public)_
+- `getLabel()` _(public)_
+- `getLegendColor()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPlaceholder()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `getPrependColor()` _(public)_
+- `getPrependIcon()` _(public)_
+- `getPrependIconColor()` _(public)_
+- `getPrependImage()` _(public)_
+- `getPrependVisible()` _(public)_
+- `GetProperties()` _(public)_
+- `getRequired()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getSelectedIndex()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getStyles()` _(public)_
+- `getText()` _(public)_
+- `getValidator()` _(public)_
+- `getValidatorHint()` _(public)_
+- `getValue()` _(public)_
+- `getValuesAsIs()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (2)
+- `changed(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgContacts.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgContacts.bas) (verified demo). `cboCategory` = a SDUI5Select.
+Real syntax from [`pgSelect.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSelect.bas) (verified demo):
 
 ```b4j
-	cboCategory.Initialize(Me, "cboCategory", "cboCategory")
-	cboCategory.InputType = "legend"
-	cboCategory.Label = "Category"
-	cboCategory.Placeholder = "Select Category"
-	cboCategory.Options = ""
-	cboCategory.Required = true
-	cboCategory.AppendIcon = "./assets/plus-solid.svg"
-	cboCategory.AppendVisible = True
-	cboCategory.BackgroundColor = ""
-	cboCategory.Border = false
-	cboCategory.BorderColor = ""
-	cboCategory.MarginAXYTBLR = ""
-	cboCategory.PaddingAXYTBLR = ""
-	cboCategory.ParentID = mdlContacts.Form.CellID("5", "1")
-	BANano.Await(cboCategory.AddComponent)
+Private SDUI5Select1 As SDUI5Select		'ignore
+Private SDUI5Select10 As SDUI5Select		'ignore
+Private SDUI5Select11 As SDUI5Select		'ignore
+Private SDUI5Select12 As SDUI5Select		'ignore
+Private SDUI5Select13 As SDUI5Select		'ignore
+Private SDUI5Select14 As SDUI5Select		'ignore
+Private SDUI5Select15 As SDUI5Select		'ignore
+Private SDUI5Select16 As SDUI5Select		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Other called methods: `SetOptionsFromMap()`
-
-Demo-wired events: `Append`, `Change`, `Prepend`, `append` — handlers named `cboCategory_<Event>`.
-
-Also used in: `pgModal`, `pgSelect`, `pgValidation`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -244,5 +238,3 @@ BANano.Await(select.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Shared helpers: Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/TextSize/BackgroundImage. Dimensions are component-specific: this component exposes Width, but not Height; use only dimensions listed in this component's properties and methods above.
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

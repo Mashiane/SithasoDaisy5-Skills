@@ -32,34 +32,36 @@ _(none declared)_
 
 Wire in parent: `Sub jsonquery_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (22)
-- `Initialize(jsonObject As Object)` As SDUIJSONQuery _(public)_
-- `selectFields(flds As List)` As SDUIJSONQuery _(public)_
-- `groupBy(fld As String)` As SDUIJSONQuery _(public)_
-- `whereOr(fld As String, operator As String, val As String)` As SDUIJSONQuery _(public)_
-- `whereEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereNotEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereLike(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereBetween(fld As String, val1 As Object, val2 As Object)` As SDUIJSONQuery _(public)_
-- `whereGreaterThan(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereGreaterThanOrEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereLessThan(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereLessThanOrEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
-- `whereIn(fld As String, values As List)` As SDUIJSONQuery _(public)_
-- `whereNotIn(fld As String, values As List)` As SDUIJSONQuery _(public)_
-- `Unique(fld As String)` As SDUIJSONQuery _(public)_
-- `Pluck(fld As String)` As SDUIJSONQuery _(public)_
-- `OrderAsc(fld As String)` As SDUIJSONQuery _(public)_
-- `OrderDesc(fld As String)` As SDUIJSONQuery _(public)_
+- `Exec()` _(public)_
 - `Find(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `groupBy(fld As String)` As SDUIJSONQuery _(public)_
+- `Initialize(jsonObject As Object)` As SDUIJSONQuery _(public)_
 - `Limit(i As Int)` As SDUIJSONQuery _(public)_
 - `Offset(i As Int)` As SDUIJSONQuery _(public)_
-- `Exec()` As List _(public)_
+- `OrderAsc(fld As String)` As SDUIJSONQuery _(public)_
+- `OrderDesc(fld As String)` As SDUIJSONQuery _(public)_
+- `Pluck(fld As String)` As SDUIJSONQuery _(public)_
+- `selectFields(flds As List)` As SDUIJSONQuery _(public)_
+- `Unique(fld As String)` As SDUIJSONQuery _(public)_
+- `whereBetween(fld As String, val1 As Object, val2 As Object)` As SDUIJSONQuery _(public)_
+- `whereEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereGreaterThan(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereGreaterThanOrEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereIn(fld As String, values As List)` As SDUIJSONQuery _(public)_
+- `whereLessThan(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereLessThanOrEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereLike(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereNotEqual(fld As String, val As Object)` As SDUIJSONQuery _(public)_
+- `whereNotIn(fld As String, values As List)` As SDUIJSONQuery _(public)_
+- `whereOr(fld As String, operator As String, val As String)` As SDUIJSONQuery _(public)_
+
 ## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+
 ## Getters (0)
-_(none)_
-## Private Methods (0)
-_(none)_
+
+## Private Methods (1)
+- `Reset()` _(private)_
+
 ## Verified Demo Usage
 Real syntax from [`pgJSONQuery.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgJSONQuery.bas) (verified demo). Methods are chainable; the demo
 shows them commented as a cheat-sheet — the active call is `Initialize`:
@@ -85,5 +87,3 @@ svc.Initialize(jsonObject As Object)
 ```
 ## Composes With
 - Pairs with the SDUI5 page components: call service methods from page/component event handlers.
-
-

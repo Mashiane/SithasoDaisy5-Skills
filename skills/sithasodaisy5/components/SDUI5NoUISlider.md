@@ -84,164 +84,151 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`, `Slide`, `Update`
 
 Wire in parent: `Sub nouislider_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (20)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (13)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `HintError(s As String)` As 'ignoredeadcode _(public)_
-- `GetValues()` As String _(public)_
-- `GetRawValues()` As String _(public)_
-- `SetValues(sValues As String)` _(public)_
-- `SetHandle(iHandle As Int, dValue As Double)` _(public)_
-- `Reset()` _(public)_
+- `Destroy()` _(public)_
 - `DisableSlider()` _(public)_
 - `EnableSlider()` _(public)_
-- `StepUp(iSteps As Int)` _(public)_
-- `StepDown(iSteps As Int)` _(public)_
-- `UpdateOptions(sOptions As String)` _(public)_
+- `HintError(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `Rebuild()` _(public)_
-- `GetPositions()` As String _(public)_
-- `Destroy()` _(public)_
-## Key Setters (50)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Remove()` _(public)_
+- `Reset()` _(public)_
+- `StepDown(iSteps As Int)` _(public)_
+- `StepUp(iSteps As Int)` _(public)_
+- `UpdateOptions(sOptions As String)` _(public)_
+
+## Key Setters (53)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBorderColor(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setStartValues(s As String)` As 'ignoredeadcode _(public)_
-- `setRangeMin(s As String)` As 'ignoredeadcode _(public)_
-- `setRangeMax(s As String)` As 'ignoredeadcode _(public)_
-- `setStepValue(s As String)` As 'ignoredeadcode _(public)_
-- `setConnect(s As String)` As 'ignoredeadcode _(public)_
-- `setMargin(s As String)` As 'ignoredeadcode _(public)_
-- `setLimit(s As String)` As 'ignoredeadcode _(public)_
-- `setPadding(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltips(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setPipsMode(s As String)` As 'ignoredeadcode _(public)_
-- `setPipsValues(s As String)` As 'ignoredeadcode _(public)_
-- `setPipsDensity(s As String)` As 'ignoredeadcode _(public)_
-- `setPipsStepped(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setClickablePips(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setSnap(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setFormatterPrefix(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterSuffix(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterDecimals(i As Int)` As 'ignoredeadcode _(public)_
-- `setFormatterThousand(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterMark(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterNegative(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterNegativeBefore(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterEncoder(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterDecoder(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterEdit(s As String)` As 'ignoredeadcode _(public)_
-- `setFormatterUndo(s As String)` As 'ignoredeadcode _(public)_
-- `setColor(s As String)` As 'ignoredeadcode _(public)_
-- `setSize(s As String)` As 'ignoredeadcode _(public)_
-- `setTooltipColor(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` _(public)_
+- `setClickablePips(b As Boolean)` _(public)_
+- `setColor(s As String)` _(public)_
+- `setConnect(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setFormatterDecimals(i As Int)` _(public)_
+- `setFormatterDecoder(s As String)` _(public)_
+- `setFormatterEdit(s As String)` _(public)_
+- `setFormatterEncoder(s As String)` _(public)_
+- `setFormatterMark(s As String)` _(public)_
+- `setFormatterNegative(s As String)` _(public)_
+- `setFormatterNegativeBefore(s As String)` _(public)_
+- `setFormatterPrefix(s As String)` _(public)_
+- `setFormatterSuffix(s As String)` _(public)_
+- `setFormatterThousand(s As String)` _(public)_
+- `setFormatterUndo(s As String)` _(public)_
+- `SetHandle(iHandle As Int, dValue As Double)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setSliderType(s As String)` _(public)_
-- `setLabel(s As String)` _(public)_
-- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
 - `setHint(s As String)` _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
-- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setShadow(s As String)` As 'ignoredeadcode _(public)_
-## Getters (52)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setLabel(s As String)` _(public)_
+- `setLegendColor(s As String)` _(public)_
+- `setLimit(s As String)` _(public)_
+- `setMargin(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPadding(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPipsDensity(s As String)` _(public)_
+- `setPipsMode(s As String)` _(public)_
+- `setPipsStepped(b As Boolean)` _(public)_
+- `setPipsValues(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRangeMax(s As String)` _(public)_
+- `setRangeMin(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setSliderType(s As String)` _(public)_
+- `setSnap(b As Boolean)` _(public)_
+- `setStartValues(s As String)` _(public)_
+- `setStepValue(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTooltipColor(s As String)` _(public)_
+- `setTooltips(b As Boolean)` _(public)_
+- `SetValues(sValues As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (56)
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getClasses()` _(public)_
+- `getClickablePips()` _(public)_
+- `getColor()` _(public)_
+- `getConnect()` _(public)_
+- `getEnabled()` _(public)_
+- `getFormatterDecimals()` _(public)_
+- `getFormatterDecoder()` _(public)_
+- `getFormatterEdit()` _(public)_
+- `getFormatterEncoder()` _(public)_
+- `getFormatterMark()` _(public)_
+- `getFormatterNegative()` _(public)_
+- `getFormatterNegativeBefore()` _(public)_
+- `getFormatterPrefix()` _(public)_
+- `getFormatterSuffix()` _(public)_
+- `getFormatterThousand()` _(public)_
+- `getFormatterUndo()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getStartValues()` As String _(public)_
-- `getRangeMin()` As String _(public)_
-- `getRangeMax()` As String _(public)_
-- `getStepValue()` As String _(public)_
-- `getConnect()` As String _(public)_
-- `getMargin()` As String _(public)_
-- `getLimit()` As String _(public)_
-- `getPadding()` As String _(public)_
-- `getTooltips()` As Boolean _(public)_
-- `getPipsMode()` As String _(public)_
-- `getPipsValues()` As String _(public)_
-- `getPipsDensity()` As String _(public)_
-- `getPipsStepped()` As Boolean _(public)_
-- `getClickablePips()` As Boolean _(public)_
-- `getSnap()` As Boolean _(public)_
-- `getFormatterPrefix()` As String _(public)_
-- `getFormatterSuffix()` As String _(public)_
-- `getFormatterDecimals()` As Int _(public)_
-- `getFormatterThousand()` As String _(public)_
-- `getFormatterMark()` As String _(public)_
-- `getFormatterNegative()` As String _(public)_
-- `getFormatterNegativeBefore()` As String _(public)_
-- `getFormatterEncoder()` As String _(public)_
-- `getFormatterDecoder()` As String _(public)_
-- `getFormatterEdit()` As String _(public)_
-- `getFormatterUndo()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getSize()` As String _(public)_
-- `getTooltipColor()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getSliderType()` As String _(public)_
-- `getLabel()` As String _(public)_
-- `getLegendColor()` As String _(public)_
-- `getHint()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-## Private Methods (5)
+- `getHint()` _(public)_
+- `getID()` As String _(public)_
+- `getLabel()` _(public)_
+- `getLegendColor()` _(public)_
+- `getLimit()` _(public)_
+- `getMargin()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPadding()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPipsDensity()` _(public)_
+- `getPipsMode()` _(public)_
+- `getPipsStepped()` _(public)_
+- `getPipsValues()` _(public)_
+- `getPosition()` _(public)_
+- `GetPositions()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRangeMax()` _(public)_
+- `getRangeMin()` _(public)_
+- `GetRawValues()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getSliderType()` _(public)_
+- `getSnap()` _(public)_
+- `getStartValues()` _(public)_
+- `getStepValue()` _(public)_
+- `getStyles()` _(public)_
+- `getTooltipColor()` _(public)_
+- `getTooltips()` _(public)_
+- `GetValues()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (6)
 - `BuildPips()` _(private)_
-- `ChangeEvent(e As BANanoEvent)` As 'ignoredeadcode _(private)_
-- `SlideEvent(e As BANanoEvent)` As 'ignoredeadcode _(private)_
-- `UpdateEvent(e As BANanoEvent)` As 'ignoredeadcode _(private)_
+- `ChangeEvent(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+- `SlideEvent(e As BANanoEvent)` _(private)_
+- `UpdateEvent(e As BANanoEvent)` _(private)_
 - `UpdateValueSpans(values As Object, formatted As Object)` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgNoUISlider.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgNoUISlider.bas) (verified demo). `nosFormattedPips` = a SDUI5NoUISlider.
+Real syntax from [`pgNoUISlider.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgNoUISlider.bas) (verified demo):
 
 ```b4j
-	nosFormattedPips.Initialize(Me, "nosFormattedPips", "nosFormattedPips")
-	nosFormattedPips.ParentID = "nosCol2"
-	nosFormattedPips.StartValues = "18,32"
-	nosFormattedPips.RangeMin = "-10"
-	nosFormattedPips.RangeMax = "50"
-	nosFormattedPips.Connect = "true"
-	nosFormattedPips.Margin = "2"
-	nosFormattedPips.Color = "error"
-	nosFormattedPips.Size = "md"
-	nosFormattedPips.FormatterSuffix = "°C"
-	nosFormattedPips.FormatterDecimals = 1
-	nosFormattedPips.FormatterMark = "."
-	nosFormattedPips.PipsMode = "values"
-	nosFormattedPips.PipsValues = "-10,0,10,20,30,40,50"
-	nosFormattedPips.PipsDensity = "5"
-	nosFormattedPips.SliderType = "legend"
-	nosFormattedPips.Label = "Formatted Pips (Temperature °C)"
-	nosFormattedPips.Hint = "Pip labels show formatted values"
-	BANano.Await(nosFormattedPips.AddComponent)
+Private nosPrimary As SDUI5NoUISlider		'ignore
+BANano.Await(cont.AddComponent)
 ```
 
-Demo-wired events: `Change`, `Update` — handlers named `nosFormattedPips_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -256,5 +243,3 @@ BANano.Await(nouislider.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

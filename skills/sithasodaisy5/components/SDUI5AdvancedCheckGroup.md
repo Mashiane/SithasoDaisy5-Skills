@@ -60,105 +60,97 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub advancedcheckgroup_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (14)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (11)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `addOption(k As String, v As String)` _(public)_
+- `areKeysChecked(k As List)` As Boolean _(public)_
 - `clear()` _(public)_
+- `clearChecked()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `Remove()` _(public)_
 - `toggleCheckBox(key As String)` _(public)_
 - `toggleState(key As String, state As Boolean)` _(public)_
-- `clearChecked()` _(public)_
-- `SetOptionsMap(lst As Map)` _(public)_
-- `areKeysChecked(k As List)` As Boolean _(public)_
-- `addOption(k As String, v As String)` _(public)_
-## Key Setters (28)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+
+## Key Setters (30)
 - `setActiveBorderColor(s As String)` _(public)_
 - `setActiveColor(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
 - `setBorder(b As Boolean)` _(public)_
 - `setBorderColor(s As String)` _(public)_
+- `setChecked(lst As List)` _(public)_
+- `setCheckedMV(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setColumns(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setLegendLabel(s As String)` _(public)_
-- `setOptions(s As String)` As 'ignoredeadcode _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setOptions(s As String)` _(public)_
+- `SetOptionsMap(lst As Map)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
+- `setSelected(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTypeOf(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-- `setChecked(lst As List)` _(public)_
-- `setCheckedMV(s As String)` As 'ignoredeadcode _(public)_
-- `setSelected(s As String)` As 'ignoredeadcode _(public)_
-## Getters (30)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (32)
+- `getActiveBorderColor()` _(public)_
+- `getActiveColor()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBorderColor()` _(public)_
+- `getChecked()` _(public)_
+- `getCheckedMV()` _(public)_
+- `getClasses()` _(public)_
+- `getColor()` _(public)_
+- `getColumns()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getActiveBorderColor()` As String _(public)_
-- `getActiveColor()` As String _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getBorderColor()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getColumns()` As String _(public)_
-- `getHeight()` As String _(public)_
-- `getLegendLabel()` As String _(public)_
-- `getRawOptions()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getTypeOf()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getChecked()` As List _(public)_
-- `getSelected()` As String _(public)_
-- `getCheckedMV()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getLegendLabel()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOptions()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRawOptions()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getSelected()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getTypeOf()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (1)
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgAdvancedCheckGroup.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAdvancedCheckGroup.bas) (verified demo). `grp2` = a SDUI5AdvancedCheckGroup.
+Real syntax from [`pgAdvancedCheckGroup.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAdvancedCheckGroup.bas) (verified demo):
 
 ```b4j
-	grp2.Initialize(Me, "grp2", "grp2")
-	grp2.ParentID = "SDUI5Column2"
-	grp2.Border = True
-	grp2.LegendLabel = "Locations Radio"
-	grp2.Options = ""
-	grp2.Shadow = "lg"
-	grp2.TypeOf = "radio"
-	BANano.Await(grp2.AddComponent)
+Private grp1 As SDUI5AdvancedCheckGroup		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Builder methods, real call order (from `pgAdvancedCheckGroup.bas`):
-
-```b4j
-	grp1.SetOptionsMap(nm)
-```
-
-Demo-wired events: `Change` — handlers named `grp2_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -173,5 +165,3 @@ BANano.Await(advancedcheckgroup.AddComponent)   ' DesignerCreateView runs intern
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

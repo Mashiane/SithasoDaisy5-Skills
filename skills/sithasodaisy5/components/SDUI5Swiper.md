@@ -95,56 +95,25 @@ Where a designer key and method name differ, the method names shown are the sour
 `ImageClick`
 
 Wire in parent: `Sub swiper_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (17)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `AddComponent()` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
-- `LoadComponentJson(designName As String)` _(public)_
-- `Remove()` _(public)_
-- `Clear()` As 'ignoredeadcode _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `AddSlides(numOf As Int)` _(public)_
-- `AddSlide()` As 'ignoredeadcode _(public)_
-- `Slide(pos As Int)` As SDUI5SwiperSlide _(public)_
+## Public Methods (15)
 - `AddBreakPoint(bp As Int, slidesPerView As Double, spaceBetween As Int)` _(public)_
+- `AddComponent()` _(public)_
+- `AddSlide()` _(public)_
+- `AddSlideImageStyle(m As Map)` _(public)_
+- `AddSlides(numOf As Int)` _(public)_
+- `AddSlideStyle(m As Map)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LoadComponentJson(designName As String)` _(public)_
 - `Refresh()` _(public)_
+- `Remove()` _(public)_
+- `Slide(pos As Int)` As SDUI5SwiperSlide _(public)_
 - `slideNext()` _(public)_
 - `slidePrev()` _(public)_
-- `AddSlideStyle(m As Map)` As 'ignoredeadcode _(public)_
-- `AddSlideImageStyle(m As Map)` As 'ignoredeadcode _(public)_
-## Key Setters (71)
-- `setMouseWheel(b As Boolean)` _(public)_
-- `setCssMode(b As Boolean)` _(public)_
+
+## Key Setters (72)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setElement(e As BANanoElement)` _(public)_
-- `setNextNavigation(s As String)` _(public)_
-- `setOwnNavigation(b As Boolean)` _(public)_
-- `setPrevNavigation(s As String)` _(public)_
-- `setKeyboardEnabled(b As Boolean)` _(public)_
-- `setCardsEffectPerSlideOffset(i As Int)` _(public)_
-- `setCardsEffectPerSlideRotate(i As Int)` _(public)_
-- `setCardsEffectRotate(b As Boolean)` _(public)_
-- `setCardsEffectSlideShadows(b As Boolean)` _(public)_
-- `setCoverFlowEffectDepth(i As Int)` _(public)_
-- `setCoverFlowEffectModifier(i As Int)` _(public)_
-- `setCoverFlowEffectRotate(i As Int)` _(public)_
-- `setCoverFlowEffectScale(i As Int)` _(public)_
-- `setCoverFlowEffectSlideShadows(b As Boolean)` _(public)_
-- `setCoverFlowEffectStretch(i As Int)` _(public)_
-- `setCubeEffectShadow(b As Boolean)` _(public)_
-- `setCubeEffectShadowOffset(i As Int)` _(public)_
-- `setCubeEffectShadowScale(d As Double)` _(public)_
-- `setCubeEffectSlideShadows(b As Boolean)` _(public)_
-- `setSlideImageStyle(s As String)` _(public)_
-- `setSlideStyle(s As String)` _(public)_
 - `setAutoPlay(b As Boolean)` _(public)_
 - `setAutoPlayDelay(i As Int)` _(public)_
 - `setAutoPlayDisableOnInteraction(b As Boolean)` _(public)_
@@ -152,139 +121,152 @@ Wire in parent: `Sub swiper_<eventname>(e As BANanoEvent)` — the handler name 
 - `setAutoPlayReverseDirection(b As Boolean)` _(public)_
 - `setAutoPlayStopOnLastSlide(b As Boolean)` _(public)_
 - `setAutoPlayWaitForTransition(b As Boolean)` _(public)_
-- `setGrid(b As Boolean)` _(public)_
-- `setGridFill(s As String)` _(public)_
-- `setGridRows(i As Int)` _(public)_
-- `setParentID(xParentID As String)` _(public)_
-- `setCenteredSlides(b As Boolean)` _(public)_
-- `setDirection(s As String)` _(public)_
-- `setEffect(s As String)` _(public)_
-- `setHasNavigation(b As Boolean)` _(public)_
-- `setHasPagination(b As Boolean)` _(public)_
-- `setHasScrollbar(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setInit(b As Boolean)` _(public)_
-- `setInitialSlide(s As String)` _(public)_
-- `setLoops(b As Boolean)` _(public)_
-- `setSlidesPerView(s As String)` _(public)_
-- `setSpaceBetween(s As String)` _(public)_
-- `setSpeed(s As String)` _(public)_
-- `setUpdateOnWindowResize(b As Boolean)` _(public)_
-- `setParallax(b As Boolean)` _(public)_
-- `setPaginationType(s As String)` _(public)_
-- `setTotalSlides(s As String)` _(public)_
-- `setDynamicBullets(b As Boolean)` _(public)_
 - `setCardEffectPerSlideOffset(i As Int)` _(public)_
 - `setCardEffectPerSlideRotate(i As Int)` _(public)_
 - `setCardEffectRotate(b As Boolean)` _(public)_
 - `setCardEffectSlideShadows(b As Boolean)` _(public)_
+- `setCardsEffectPerSlideOffset(i As Int)` _(public)_
+- `setCardsEffectPerSlideRotate(i As Int)` _(public)_
+- `setCardsEffectRotate(b As Boolean)` _(public)_
+- `setCardsEffectSlideShadows(b As Boolean)` _(public)_
+- `setCenteredSlides(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
 - `setCoverFlowDepth(i As Int)` _(public)_
+- `setCoverFlowEffectDepth(i As Int)` _(public)_
+- `setCoverFlowEffectModifier(i As Int)` _(public)_
+- `setCoverFlowEffectRotate(i As Int)` _(public)_
+- `setCoverFlowEffectScale(i As Int)` _(public)_
+- `setCoverFlowEffectSlideShadows(b As Boolean)` _(public)_
+- `setCoverFlowEffectStretch(i As Int)` _(public)_
 - `setCoverFlowModifier(i As Int)` _(public)_
 - `setCoverFlowRotate(i As Int)` _(public)_
 - `setCoverFlowScale(i As Int)` _(public)_
 - `setCoverFlowSlideShadows(b As Boolean)` _(public)_
 - `setCoverFlowStretch(i As Int)` _(public)_
-## Getters (66)
-- `getMouseWheel()` As Boolean _(public)_
-- `getCssMode()` As Boolean _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
+- `setCssMode(b As Boolean)` _(public)_
+- `setCubeEffectShadow(b As Boolean)` _(public)_
+- `setCubeEffectShadowOffset(i As Int)` _(public)_
+- `setCubeEffectShadowScale(d As Double)` _(public)_
+- `setCubeEffectSlideShadows(b As Boolean)` _(public)_
+- `setDirection(s As String)` _(public)_
+- `setDynamicBullets(b As Boolean)` _(public)_
+- `setEffect(s As String)` _(public)_
+- `setElement(e As BANanoElement)` _(public)_
+- `setGrid(b As Boolean)` _(public)_
+- `setGridFill(s As String)` _(public)_
+- `setGridRows(i As Int)` _(public)_
+- `setHasNavigation(b As Boolean)` _(public)_
+- `setHasPagination(b As Boolean)` _(public)_
+- `setHasScrollbar(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setInit(b As Boolean)` _(public)_
+- `setInitialSlide(s As String)` _(public)_
+- `setKeyboardEnabled(b As Boolean)` _(public)_
+- `setLoops(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMouseWheel(b As Boolean)` _(public)_
+- `setNextNavigation(s As String)` _(public)_
+- `setOwnNavigation(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setPaginationType(s As String)` _(public)_
+- `setParallax(b As Boolean)` _(public)_
+- `setParentID(xParentID As String)` _(public)_
+- `setPrevNavigation(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSlideImageStyle(s As String)` _(public)_
+- `setSlidesPerView(s As String)` _(public)_
+- `setSlideStyle(s As String)` _(public)_
+- `setSpaceBetween(s As String)` _(public)_
+- `setSpeed(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTotalSlides(s As String)` _(public)_
+- `setUpdateOnWindowResize(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (67)
+- `getAttributes()` _(public)_
+- `getAutoPlay()` _(public)_
+- `getAutoPlayDelay()` _(public)_
+- `getAutoPlayDisableOnInteraction()` _(public)_
+- `getAutoPlayPauseOnMouseEnter()` _(public)_
+- `getAutoPlayReverseDirection()` _(public)_
+- `getAutoPlayStopOnLastSlide()` _(public)_
+- `getAutoPlayWaitForTransition()` _(public)_
+- `getCardEffectPerSlideOffset()` _(public)_
+- `getCardEffectPerSlideRotate()` _(public)_
+- `getCardEffectRotate()` _(public)_
+- `getCardEffectSlideShadows()` _(public)_
+- `getCenteredSlides()` _(public)_
+- `getClasses()` _(public)_
+- `getCoverFlowDepth()` _(public)_
+- `getCoverFlowModifier()` _(public)_
+- `getCoverFlowRotate()` _(public)_
+- `getCoverFlowScale()` _(public)_
+- `getCoverFlowSlideShadows()` _(public)_
+- `getCoverFlowStretch()` _(public)_
+- `getCssMode()` _(public)_
+- `getCubeEffectShadow()` _(public)_
+- `getCubeEffectShadowOffset()` _(public)_
+- `getCubeEffectShadowScale()` _(public)_
+- `getCubeEffectSlideShadows()` _(public)_
+- `getDirection()` _(public)_
+- `getDynamicBullets()` _(public)_
+- `getEffect()` _(public)_
 - `getElement()` As BANanoElement _(public)_
-- `getID()` As String _(public)_
+- `getGrid()` _(public)_
+- `getGridFill()` _(public)_
+- `getGridRows()` _(public)_
+- `getHasNavigation()` _(public)_
+- `getHasPagination()` _(public)_
+- `getHasScrollbar()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getSlidesHere()` As String _(public)_
-- `getNextNavigation()` As String _(public)_
-- `getOwnNavigation()` As Boolean _(public)_
-- `getPrevNavigation()` As String _(public)_
-- `getKeyboardEnabled()` As Boolean _(public)_
-- `getCardEffectPerSlideOffset()` As Int _(public)_
-- `getCardEffectPerSlideRotate()` As Int _(public)_
-- `getCardEffectRotate()` As Boolean _(public)_
-- `getCardEffectSlideShadows()` As Boolean _(public)_
-- `getCoverFlowDepth()` As Int _(public)_
-- `getCoverFlowModifier()` As Int _(public)_
-- `getCoverFlowRotate()` As Int _(public)_
-- `getCoverFlowScale()` As Int _(public)_
-- `getCoverFlowSlideShadows()` As Boolean _(public)_
-- `getCoverFlowStretch()` As Int _(public)_
-- `getCubeEffectShadow()` As Boolean _(public)_
-- `getCubeEffectShadowOffset()` As Int _(public)_
-- `getCubeEffectShadowScale()` As Double _(public)_
-- `getCubeEffectSlideShadows()` As Boolean _(public)_
-- `getSlideStyle()` As String _(public)_
-- `getAutoPlay()` As Boolean _(public)_
-- `getAutoPlayDelay()` As Int _(public)_
-- `getAutoPlayDisableOnInteraction()` As Boolean _(public)_
-- `getAutoPlayPauseOnMouseEnter()` As Boolean _(public)_
-- `getAutoPlayReverseDirection()` As Boolean _(public)_
-- `getAutoPlayStopOnLastSlide()` As Boolean _(public)_
-- `getAutoPlayWaitForTransition()` As Boolean _(public)_
-- `getGrid()` As Boolean _(public)_
-- `getGridFill()` As String _(public)_
-- `getGridRows()` As Int _(public)_
-- `getWidth()` As String _(public)_
-- `getHeight()` As String _(public)_
+- `getID()` As String _(public)_
+- `getInit()` _(public)_
+- `getInitialSlide()` _(public)_
+- `getKeyboardEnabled()` _(public)_
+- `getLoop()` _(public)_
+- `getLoops()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMouseWheel()` _(public)_
+- `getNextNavigation()` _(public)_
+- `getOwnNavigation()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getPaginationType()` _(public)_
+- `getParallax()` _(public)_
+- `getParentID()` _(public)_
+- `getPrevNavigation()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getSlideImageStyle()` _(public)_
 - `getSlideName(pos As Int)` As String _(public)_
-- `getParentID()` As String _(public)_
-- `getParallax()` As Boolean _(public)_
-- `getPaginationType()` As String _(public)_
-- `getSlidesPerView()` As String _(public)_
-- `getSpaceBetween()` As String _(public)_
-- `getCenteredSlides()` As Boolean _(public)_
-- `getDirection()` As String _(public)_
-- `getEffect()` As String _(public)_
-- `getHasNavigation()` As Boolean _(public)_
-- `getHasPagination()` As Boolean _(public)_
-- `getHasScrollbar()` As Boolean _(public)_
-- `getSpeed()` As String _(public)_
-- `getInit()` As Boolean _(public)_
-- `getInitialSlide()` As String _(public)_
-- `getTotalSlides()` As String _(public)_
-- `getLoop()` As Boolean _(public)_
-- `getDynamicBullets()` As Boolean _(public)_
-- `getUpdateOnWindowResize()` As Boolean _(public)_
-- `getLoops()` As Boolean _(public)_
-- `getSlideImageStyle()` As String _(public)_
+- `getSlidesHere()` As String _(public)_
+- `getSlidesPerView()` _(public)_
+- `getSlideStyle()` _(public)_
+- `getSpaceBetween()` _(public)_
+- `getSpeed()` _(public)_
+- `getStyles()` _(public)_
+- `getTotalSlides()` _(public)_
+- `getUpdateOnWindowResize()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgSwiper.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSwiper.bas) (verified demo). `swiper7` = a SDUI5Swiper.
+Real syntax from [`pgSwiper.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSwiper.bas) (verified demo):
 
 ```b4j
-	swiper7.Initialize(Me, "swiper7", "swiper7")
-	swiper7.ParentID = "SDUI5Column12"
-	swiper7.Height = "300px"
-	swiper7.HasPagination = True
-	swiper7.HasNavigation = False
-	swiper7.OwnNavigation = True
-	swiper7.NextNavigation = "#btnNext7"
-	swiper7.PrevNavigation = "#btnPrev7"
-	swiper7.Rounded = "lg"
-	swiper7.Shadow = "md"
-	BANano.Await(swiper7.AddComponent)
+Private swiper1 As SDUI5Swiper		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Composite structure — children mount into sub-regions: a `slide11` inside `swiper1_slides`:
-
-```b4j
-	slide11.Initialize(Me, "slide11", "slide11")
-	slide11.ParentID = "swiper1_slides"
-	slide11.SwiperId = "swiper1"
-	slide11.Image = "./assets/swiper_01.jpg"
-	slide11.ImageCover = True
-	slide11.ImageClasses = "w-full h-full object-cover"
-	slide11.RefreshSwiper = False
-	slide11.Classes = "w-full h-full"
-	BANano.Await(slide11.AddComponent)
-```
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `swiper`
 ## Code Example
@@ -299,5 +281,3 @@ BANano.Await(swiper.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

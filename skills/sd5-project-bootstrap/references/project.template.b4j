@@ -1,5 +1,7 @@
 AppType=JavaFX
 Build1=Default,b4j.example
+File1=env.json
+FileGroup1=Default Group
 Group=Default Group
 Library1=banano
 Library2=jcore
@@ -8,7 +10,7 @@ Library4=json
 Library5=sithasodaisy5
 Module1=pgIndex
 Module2=pgHome
-NumberOfFiles=0
+NumberOfFiles=1
 NumberOfLibraries=5
 NumberOfModules=2
 Version=10.2
@@ -61,6 +63,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 	BANano.Header.Description = "SithasoDaisy5 web app"
 	BANano.Header.Keywords = "banano,tailwindcss,app,sithasodaisy"
 	BANano.Header.Language = "en"
+	BANano.Header.AddCSS("animate.min.css")
 	BANano.TranspilerOptions.MinifyOnline = False
 	BANano.TranspilerOptions.RemoveDeadCode = False
 	BANano.TranspilerOptions.IgnoreWarningsOldBrowsers = True

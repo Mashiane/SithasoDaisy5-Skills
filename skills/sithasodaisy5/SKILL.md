@@ -82,6 +82,17 @@ When an app needs an icon that is not already in `assets/`, source it from **Ico
 
 ---
 
+### Prompt-to-Setter Alignment Protocol (RULE-DEFAULTS-001)
+
+When generating code to fulfill an AI prompt or design specification, **never rely on component defaults blindly**. Every SithasoDaisy5 component executes `SetDefaults` during `Initialize`, assigning built-in values tailored for standalone Visual Designer canvas drops.
+
+1. **Audit Defaults Before Writing Setters**: Review [references/component-default-setters.md](references/component-default-setters.md) for the active defaults of your target components.
+2. **Explicitly Override Divergent Properties**: When the prompt specifies styling, dimensions, or layout that differs from the component's default (e.g. prompt asks for borderless cards, but `SDUI5Card` defaults to `Border = True`; prompt asks for a primary button, but `SDUI5Button` defaults to `Color = "none"`), you MUST explicitly call the corresponding setter.
+3. **Enforce Container-Context Overrides**: When mounting components into constrained parent containers (e.g. `SDUI5Card` or `SDUI5Wizard` inside an `SDUI5Column`), always set `.Width = "full"` to prevent fixed-width overflow (see [references/context-aware-defaults.md](references/context-aware-defaults.md)).
+4. **Replace Placeholder Options**: Form components like `SDUI5Select` and `SDUI5RadioGroup` default to placeholder demo options (`b4a=b4a; ...`) and must always be assigned real prompt options via `.Options = ...`.
+
+---
+
 ## Component Index
 
 Use the per-component **Designer Properties** table for both the designer key
@@ -89,7 +100,7 @@ and its actual setter/getter method names. A `—` means that component does not
 declare a named accessor for that side; it does not imply that the designer
 value is ignored at creation time. See [the complete accessor audit](references/designer-property-accessors.md)
 for all 3,636 properties, missing accessors, and keys whose methods use a
-different name. Preserve those source API names in app code; do not infer
+different name. For built-in defaults and their override rules, see [the default properties & setters reference](references/component-default-setters.md). Preserve those source API names in app code; do not infer
 `set<Key>` or `get<Key>` when the table shows another name.
 
 | Component | Props | Events | Key daisyUI classes emitted |

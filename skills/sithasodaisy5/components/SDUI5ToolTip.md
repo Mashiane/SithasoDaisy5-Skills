@@ -33,56 +33,58 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `HasContent` | Boolean | False | — | `setHasContent` | `getHasContent` |
 | `Color` | String | none | accent, error, info, neutral, none, primary, secondary, success, warning | `setColor` | `getColor` |
 | `Open` | Boolean | False | — | `setOpen` | `getOpen` |
-| `TooltipPosition` | String | top | bottom, left, right, top | `setPosition` | `getPosition` |
-| `TooltipAlignment` | String | none | start, center, end, none | `setAlignment` | `getAlignment` |
+| `TooltipPosition` | String | top | bottom, left, right, top | `setTooltipPosition` | `getTooltipPosition` |
+| `TooltipAlignment` | String | none | start, center, end, none | `setTooltipAlignment` | `getTooltipAlignment` |
 
 Setter and getter names are the actual source `Sub` names. `—` means this component has no named accessor for that side; designer-time values may still be consumed through `Props` in `DesignerCreateView`.
-Where a designer key and method name differ, the method names shown are the source-verified mapping.
 ## Events
 _(none declared)_
 
 Wire in parent: `Sub tooltip_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (4)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-## Key Setters (7)
-- `setParentID(s As String)` _(public)_
-- `setHasContent(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setColor(s As String)` _(public)_
-- `setOpen(b As Boolean)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (10)
 - `setAlignment(s As String)` _(public)_
+- `setColor(s As String)` _(public)_
+- `setHasContent(b As Boolean)` _(public)_
+- `setOpen(b As Boolean)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setTip(s As String)` _(public)_
-## Getters (8)
-- `getID()` As String _(public)_
+- `setTooltipAlignment(s As String)` _(public)_
+- `setTooltipPosition(s As String)` _(public)_
+
+## Getters (12)
+- `getAlignment()` _(public)_
+- `getColor()` _(public)_
+- `getHasContent()` _(public)_
 - `getHere()` As String _(public)_
-- `getHasContent()` As Boolean _(public)_
-- `getAlignment()` As String _(public)_
-- `getColor()` As String _(public)_
-- `getOpen()` As Boolean _(public)_
-- `getPosition()` As String _(public)_
-- `getTip()` As String _(public)_
+- `getID()` As String _(public)_
+- `getOpen()` _(public)_
+- `getParentID()` As String _(public)_
+- `getPosition()` _(public)_
+- `GetProperties()` _(public)_
+- `getTip()` _(public)_
+- `getTooltipAlignment()` _(public)_
+- `getTooltipPosition()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgToolTip.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToolTip.bas) (verified demo). `SDUI5ToolTip1` = a SDUI5ToolTip.
+Real syntax from [`pgToolTip.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToolTip.bas) (verified demo):
 
 ```b4j
-	SDUI5ToolTip1.Initialize(Me, "SDUI5ToolTip1", "SDUI5ToolTip1")
-	SDUI5ToolTip1.ParentID = "SDUI5Container1"
-	SDUI5ToolTip1.Color = "none"
-	SDUI5ToolTip1.HasContent = False
-	SDUI5ToolTip1.Open = False
-	SDUI5ToolTip1.Tip = "Hello"
-	SDUI5ToolTip1.Position = "right"
-	SDUI5ToolTip1.Alignment = "start"
-	BANano.Await(SDUI5ToolTip1.AddComponent)
+Private SDUI5ToolTip1 As SDUI5ToolTip		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `tooltip`, `tooltip-open`
 **Colors**: `tooltip:sColor`
@@ -101,5 +103,3 @@ BANano.Await(tooltip.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

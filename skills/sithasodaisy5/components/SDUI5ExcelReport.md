@@ -29,29 +29,33 @@ _(inherits from SDUI5Component base — see base contract)_
 _(none declared)_
 
 Wire in parent: `Sub excelreport_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `Initialize()` _(public)_
-- `InStr(sText As String, sFind As String)` As Int _(public)_
-- `AlphaNumeric(value As String)` As String _(public)_
-- `GetListFromMapKeys(m As Map, keys As List)` As List _(public)_
+## Public Methods (7)
 - `AddColumn(colPosition As String, colName As String)` _(public)_
-- `SetColumn(ColName As String,fldValue As String)` _(public)_
+- `AlphaNumeric(value As String)` As String _(public)_
 - `ClearColumns()` _(public)_
 - `ClearRows()` _(public)_
-- `SetRows(r As List)` _(public)_
 - `Execute()` _(public)_
-## Key Setters (4)
+- `Initialize()` _(public)_
+- `InStr(sText As String, sFind As String)` As Int _(public)_
+
+## Key Setters (6)
+- `SetColumn(ColName As String,fldValue As String)` _(public)_
+- `setReportFileName(s As String)` _(public)_
+- `SetRows(r As List)` _(public)_
+- `setSheetName(s As String)` _(public)_
 - `setStartRow(i As Int)` _(public)_
 - `setTemplateFile(s As String)` _(public)_
-- `setSheetName(s As String)` _(public)_
-- `setReportFileName(s As String)` _(public)_
-## Getters (4)
-- `getStartRow()` As Int _(public)_
-- `getTemplateFile()` As String _(public)_
-- `getSheetName()` As String _(public)_
-- `getReportFileName()` As String _(public)_
-## Private Methods (0)
-_(none)_
+
+## Getters (5)
+- `GetListFromMapKeys(m As Map, keys As List)` As List _(public)_
+- `getReportFileName()` _(public)_
+- `getSheetName()` _(public)_
+- `getStartRow()` _(public)_
+- `getTemplateFile()` _(public)_
+
+## Private Methods (1)
+- `CStr(o As Object)` As String _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -66,5 +70,3 @@ BANano.Await(excelreport.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

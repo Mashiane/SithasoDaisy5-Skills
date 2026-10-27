@@ -211,26 +211,50 @@ To give a new app the reference asset set:
    daisyUI URLs + `600by600.jpg`), keep `NumberOfFiles=0` and skip the copy —
    that is the default §1a template state.
 
-### 1c. `env.json` runtime config (template: `env.template.json`)
+### 1c. `env.json` runtime config (template: `references/Files/env.json`)
 
-Studied from demo `Files\env.json` (379 bytes, `File103=env.json` in the demo
-`.b4j`). `BANano_Ready` fetches `./assets/env.json?now` (`no-store`) and fills
-`APIKey/ServerURL/DB*` globals + version check (`Version` mismatch →
-`Location.Reload` — a mismatch **reload-loops**, so sync it). Copy
-`env.template.json` → `<AppFolder>\Files\env.json`, register
-`FileN=env.json` + `FileGroupN=` and bump `NumberOfFiles` when used; omit the
-file AND the `BANano_Ready` env block together for static apps.
+Studied from demo `Files\env.json` (377 bytes, `File103=env.json` in the demo
+`.b4j`). Every project created by skills must ship a valid `env.json` in `Files/env.json`
+and have `FileN=env.json` + `FileGroupN=Default Group` registered in the `.b4j` `[FilesGroup]`
+(with `NumberOfFiles` bumped) so BANano automatically copies it to `assets/` on build.
 
-| Key | Demo value | Change for a new app |
+When creating an app using skills, update `env.json` as follows:
+- **`api-key`**: A newly generated API key (128 random alphanumeric characters).
+- **`api-url`**: `"http://127.0.0.1/<appname>"` containing the name of the app being created.
+- **`version`**: The new version of the app we are starting on, usually `"1.00"`.
+  **CRITICAL**: This must equal `Public Version As String` and `Public AppVersion As String` defined in the `.b4j` file (a mismatch triggers `BANano.Location.Reload(True)` in an infinite reload-loop).
+- Standard database defaults:
+  - `"host": "../assets/northwind.sqlite"`
+  - `"driver": "sqlite"`
+  - `"user": ""`
+  - `"password": ""`
+  - `"port": "3306"`
+  - `"dbname": "addressbook"`
+
+```json
+{
+    "api-key": "<newly-generated-128-char-key>",
+    "api-url": "http://127.0.0.1/<appname>",
+    "host": "../assets/northwind.sqlite",
+    "driver": "sqlite",
+    "user": "",
+    "password": "",
+    "port": "3306",
+    "dbname": "addressbook",
+    "version": "1.00"
+}
+```
+
+| Key | Value for newly created app | Note |
 |---|---|---|
-| `api-key` | live-shaped 208-char token | **Must replace** (empty for static apps). Ships publicly — hardening FAILs non-empty values |
-| `api-url` | `http://127.0.0.1/sd5demo` (stale name) | Own backend URL (note demo points at `sd5demo`, not `sd5codedemo`) |
-| `host` | `../assets/northwind.sqlite` | Own DB path, or empty for static apps |
-| `driver` | `sqlite` | `sqlite` or DB driver in use |
-| `user` / `password` | `""` | Keep empty in shipped output — never real credentials (hardening FAIL) |
-| `port` | `3306` | Only meaningful for server DBs; ignored by sqlite |
-| `dbname` | `addressbook` | Own database/logical name |
-| `version` | `"57.47"` | **Must equal `.b4j` `Version`** or the app reloads forever |
+| `api-key` | Newly generated 128-char alphanumeric string | Unique per app |
+| `api-url` | `"http://127.0.0.1/<appname>"` | Contains the name of the app being created |
+| `host` | `"../assets/northwind.sqlite"` | Local SQLite DB path |
+| `driver` | `"sqlite"` | DB driver |
+| `user` / `password` | `""` | Keep empty in shipped output |
+| `port` | `"3306"` | Database port |
+| `dbname` | `"addressbook"` | Database name |
+| `version` | `"1.00"` | **Must equal `.b4j` `Version` and `AppVersion`** |
 
 > `verify-conformance.ps1` enforces the wiring: every `FileN=` must have a
 > matching `FileGroupN=Default Group\...`, every `FileN` must exist in `Files\`,
@@ -281,17 +305,17 @@ Version=10
 
 Sub Process_Globals
 	Public BANano As BANano		'ignore
-	Public App As SDUI5App
-	'--- shell chrome ---
-	Private appdrawer As SDUI5Drawer			'left drawer (side nav + content)
-	Private drawerNav As SDUI5NavBar			'navbar inside drawer side content
-	Private drawerbody As SDUI5Panel			'panel hosting the drawer menu
-	Private drawermenu As SDUI5Menu				'side navigation menu
-	Private draweruser As SDUI5DrawerUser		'user card under the menu
-	Private appnavbar As SDUI5NavBar			'top navbar over the content area
-	Private pageView As SDUI5Container			'ALL pages mount here (id: pageview)
-	Private rightdrawer As SDUI5Drawer			'optional right-side drawer
-	Private bottomdrawer As SDUI5BottomDrawer	'optional bottom drawer
+	Public App As SDUI5App		'ignore
+	'--- shell chrome (Private + 'ignore to prevent compile warnings) ---
+	Private appdrawer As SDUI5Drawer			'ignore
+	Private drawerNav As SDUI5NavBar			'ignore
+	Private drawerbody As SDUI5Panel			'ignore
+	Private drawermenu As SDUI5Menu				'ignore
+	Private draweruser As SDUI5DrawerUser		'ignore
+	Private appnavbar As SDUI5NavBar			'ignore
+	Private pageView As SDUI5Container			'ignore
+	Private rightdrawer As SDUI5Drawer			'ignore
+	Private bottomdrawer As SDUI5BottomDrawer	'ignore
 End Sub
 
 Sub Initialize

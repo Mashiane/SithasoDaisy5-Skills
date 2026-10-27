@@ -63,114 +63,94 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub treespider_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (8)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Clear()` _(public)_
 - `AddItem(parentID As String, id As String, name As String, role As String, location As String, image As String)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
 - `Refresh()` _(public)_
-## Key Setters (29)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `Remove()` _(public)_
+
+## Key Setters (30)
 - `setAnimationRotationInterval(i As Int)` _(public)_
 - `setAnimationRotationSpeed(i As Int)` _(public)_
+- `setAttributes(s As String)` _(public)_
 - `setAutoInitialize(b As Boolean)` _(public)_
 - `setAutoSetChartHeadBg(b As Boolean)` _(public)_
 - `setBackgroundPattern(s As String)` _(public)_
-- `setChartHeadType(s As String)` _(public)_
 - `setChartHeadBg(s As String)` _(public)_
+- `setChartHeadType(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeadImageShape(s As String)` _(public)_
 - `setHeadLinkerThumbCircleRadius(i As Int)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setLinkerThumbShape(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setShowChartHeadBorder(b As Boolean)` _(public)_
 - `setShowTools(b As Boolean)` _(public)_
-- `setTreeType(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTreeLinkType(s As String)` _(public)_
+- `setTreeType(s As String)` _(public)_
 - `setVerticalSpace(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
 - `setZoomInDistance(d As Double)` _(public)_
 - `setZoomOutDistance(d As Double)` _(public)_
-## Getters (31)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (32)
+- `getAnimationRotationInterval()` _(public)_
+- `getAnimationRotationSpeed()` _(public)_
+- `getAttributes()` _(public)_
+- `getAutoInitialize()` _(public)_
+- `getAutoSetChartHeadBg()` _(public)_
+- `getBackgroundPattern()` _(public)_
+- `getChartHeadBg()` _(public)_
+- `getChartHeadType()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeadImageShape()` _(public)_
+- `getHeadLinkerThumbCircleRadius()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getAnimationRotationInterval()` As Int _(public)_
-- `getAnimationRotationSpeed()` As Int _(public)_
-- `getAutoInitialize()` As Boolean _(public)_
-- `getAutoSetChartHeadBg()` As Boolean _(public)_
-- `getBackgroundPattern()` As String _(public)_
-- `getChartHeadType()` As String _(public)_
-- `getChartHeadBg()` As String _(public)_
-- `getHeadImageShape()` As String _(public)_
-- `getHeadLinkerThumbCircleRadius()` As Int _(public)_
-- `getHeight()` As String _(public)_
-- `getLinkerThumbShape()` As String _(public)_
-- `getShowChartHeadBorder()` As Boolean _(public)_
-- `getShowTools()` As Boolean _(public)_
-- `getTreeType()` As String _(public)_
-- `getTreeLinkType()` As String _(public)_
-- `getVerticalSpace()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getZoomInDistance()` As Double _(public)_
-- `getZoomOutDistance()` As Double _(public)_
+- `getID()` As String _(public)_
+- `getLinkerThumbShape()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getShowChartHeadBorder()` _(public)_
+- `getShowTools()` _(public)_
+- `getStyles()` _(public)_
+- `getTreeLinkType()` _(public)_
+- `getTreeType()` _(public)_
+- `getVerticalSpace()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getZoomInDistance()` _(public)_
+- `getZoomOutDistance()` _(public)_
+
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgTreeSpider.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeSpider.bas) (verified demo). `tsOrganogram` = a SDUI5TreeSpider.
+Real syntax from [`pgTreeSpider.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgTreeSpider.bas) (verified demo):
 
 ```b4j
-	tsOrganogram.Initialize(Me, "tsOrganogram", "tsOrganogram")
-	tsOrganogram.ParentID = "SDUI5Column1"
-	tsOrganogram.AutoInitialize = False
-	tsOrganogram.AutoSetChartHeadBg = True
-	tsOrganogram.BackgroundPattern = "none"
-	tsOrganogram.ChartHeadBg = "#c3ff52"
-	tsOrganogram.HeadLinkerThumbCircleRadius = 10
-	tsOrganogram.Height = "700px"
-	tsOrganogram.ShowTools = False
-	tsOrganogram.VerticalSpace = "80px"
-	tsOrganogram.Width = "100%"
-	BANano.Await(tsOrganogram.AddComponent)
+Private tsOrganogram As SDUI5TreeSpider		'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Builder methods, real call order (from `pgTreeSpider.bas`):
-
-```b4j
-	tsOrganogram.AddItem("", "1", "Abayomi Amusa", "Manager", "Lagos, Nigeria", "./assets/face1.jpg")
-	tsOrganogram.AddItem("1", "2", "Trey Anderson", "Product Manager", "California, United States", "./assets/face2.jpg")
-	tsOrganogram.AddItem("1", "3", "Troy Manuel", "Software Developer", "Alberta, Canada", "./assets/face3.jpg")
-	tsOrganogram.AddItem("1", "4", "Rebecca Oslon", "Software Developer", "London, United Kingdom", "./assets/face4.jpg")
-	tsOrganogram.AddItem("1", "5", "David Scheg", "Product Designer", "Jiaozian, China", "./assets/face5.jpg")
-	tsOrganogram.AddItem("2", "6", "James Zucks", "DevOps", "Accra, Ghana", "./assets/face6.jpg")
-	tsOrganogram.AddItem("2", "7", "Zu Po Xe", "Backend Developer", "Johanesburg, South Africa", "./assets/face7.jpg")
-	tsOrganogram.AddItem("2", "8", "Scott Ziagler", "FrontEnd Developer Intern", "", "./assets/face8.jpg")
-	tsOrganogram.AddItem("7", "9", "Xervia Allero", "FrontEnd Developer Intern", "", "./assets/face9.jpg")
-	tsOrganogram.AddItem("3", "10", "Adebowale Ajanlekoko", "Fullstack Developer", "", "./assets/face10.jpg")
-```
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -185,5 +165,3 @@ BANano.Await(treespider.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

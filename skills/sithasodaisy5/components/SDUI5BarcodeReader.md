@@ -55,81 +55,82 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`, `ScanFailure`, `ScanSuccess`
 
 Wire in parent: `Sub barcodereader_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (12)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (10)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Restart()` _(public)_
-- `StopScanWait()` As Boolean _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
 - `Pause(shouldPauseVideo As Boolean)` _(public)_
+- `Remove()` _(public)_
+- `Restart()` _(public)_
 - `Resume()` _(public)_
-- `StartScanWait()` As Boolean _(public)_
-## Key Setters (21)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+- `StartScanWait()` _(public)_
+- `StopScanWait()` _(public)_
+
+## Key Setters (22)
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setCamera(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setFps(i As Int)` _(public)_
 - `setHeight(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setQrboxHeight(i As Int)` _(public)_
 - `setQrboxWidth(i As Int)` _(public)_
 - `setRememberLastUsedCamera(b As Boolean)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
 - `setShadow(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setTorch(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-## Getters (23)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (24)
+- `getAttributes()` _(public)_
+- `getCamera()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getFps()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getCamera()` As String _(public)_
-- `getFps()` As Int _(public)_
-- `getHeight()` As String _(public)_
-- `getQrboxHeight()` As Int _(public)_
-- `getQrboxWidth()` As Int _(public)_
-- `getRememberLastUsedCamera()` As Boolean _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getShadow()` As String _(public)_
-- `getTorch()` As Boolean _(public)_
-- `getWidth()` As String _(public)_
-## Private Methods (0)
-_(none)_
+- `getID()` As String _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getQrboxHeight()` _(public)_
+- `getQrboxWidth()` _(public)_
+- `getRememberLastUsedCamera()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getStyles()` _(public)_
+- `getTorch()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (3)
+- `onScanFailure(errorName As Object)` _(private)_
+- `onScanSuccess(decodedText As String, decodedResult As Map)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgBarcodeReader.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBarcodeReader.bas) (verified demo). `bcr1` = a SDUI5BarcodeReader.
+Real syntax from [`pgBarcodeReader.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBarcodeReader.bas) (verified demo):
 
 ```b4j
-	bcr1.Initialize(Me, "bcr1", "bcr1")
-	bcr1.ParentID = "SDUI5Column1"
-	bcr1.Fps = 10
-	bcr1.Rounded = "md"
-	bcr1.Shadow = "shadow"
-	BANano.Await(bcr1.AddComponent)
+Private bcr1 As SDUI5BarcodeReader			'ignore
+BANano.Await(SDUI5Container1.AddComponent)
 ```
 
-Demo-wired events: `ScanFailure`, `ScanSuccess` — handlers named `bcr1_<Event>`.
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -144,5 +145,3 @@ BANano.Await(barcodereader.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

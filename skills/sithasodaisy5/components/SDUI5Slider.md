@@ -56,84 +56,89 @@ Where a designer key and method name differ, the method names shown are the sour
 `PageChanged`, `ItemClicked`
 
 Wire in parent: `Sub slider_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (22)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (13)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `AddItem(ItemID As String, Src As String)` _(public)_
 - `AddPage(PageElement As BANanoElement, Value As String)` _(public)_
 - `AddPageAt(PageElement As BANanoElement, Index As Int, Value As String)` _(public)_
-- `GetPanel(Index As Int)` As BANanoObject _(public)_
-- `GetValue(Index As Int)` As String _(public)_
-- `RemovePageAt(Index As Int)` _(public)_
-- `SetLazyLoadingExtraSize(Size As Int)` _(public)_
-- `SetLazyLoadingAddContent(Handler As Object)` _(public)_
-- `GetIndex()` As Int _(public)_
-- `SetIndex(index As Int)` _(public)_
+- `Clear()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `NextPage()` _(public)_
 - `PreviousPage()` _(public)_
-- `GetSize()` As Int _(public)_
-- `Clear()` _(public)_
+- `Remove()` _(public)_
+- `RemovePageAt(Index As Int)` _(public)_
 - `StartAutoplay()` _(public)_
 - `StopAutoplay()` _(public)_
-## Key Setters (23)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
+
+## Key Setters (27)
+- `setAllowBack(b As Boolean)` _(public)_
+- `setAllowNext(b As Boolean)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setOrientation(s As String)` _(public)_
-- `setShowButtons(b As Boolean)` _(public)_
-- `setShowIndicators(b As Boolean)` _(public)_
-- `setLoop(b As Boolean)` _(public)_
 - `setAutoplay(b As Boolean)` _(public)_
 - `setAutoplayInterval(i As Int)` _(public)_
-- `setAllowNext(b As Boolean)` _(public)_
-- `setAllowBack(b As Boolean)` _(public)_
-- `setLazyLoading(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setWidth(s As String)` _(public)_
-- `setShadow(value As String)` _(public)_
+- `SetIndex(index As Int)` _(public)_
+- `setLazyLoading(b As Boolean)` _(public)_
+- `SetLazyLoadingAddContent(Handler As Object)` _(public)_
+- `SetLazyLoadingExtraSize(Size As Int)` _(public)_
+- `setLoop(b As Boolean)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setOrientation(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
 - `setRounded(value As String)` _(public)_
-## Getters (25)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+- `setShadow(value As String)` _(public)_
+- `setShowButtons(b As Boolean)` _(public)_
+- `setShowIndicators(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+
+## Getters (30)
+- `getAllowBack()` _(public)_
+- `getAllowNext()` _(public)_
+- `getAttributes()` _(public)_
+- `getAutoplay()` _(public)_
+- `getAutoplayInterval()` _(public)_
+- `getClasses()` _(public)_
+- `getEnabled()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getOrientation()` As String _(public)_
-- `getShowButtons()` As Boolean _(public)_
-- `getShowIndicators()` As Boolean _(public)_
-- `getLoop()` As Boolean _(public)_
-- `getAutoplay()` As Boolean _(public)_
-- `getAutoplayInterval()` As Int _(public)_
-- `getAllowNext()` As Boolean _(public)_
-- `getAllowBack()` As Boolean _(public)_
-- `getLazyLoading()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getRounded()` As String _(public)_
-## Private Methods (4)
-- `PageChanged(e As BANanoEvent)` _(private)_
+- `getID()` As String _(public)_
+- `GetIndex()` _(public)_
+- `getLazyLoading()` _(public)_
+- `getLoop()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getOrientation()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `GetPanel(Index As Int)` As BANanoObject _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getShadow()` _(public)_
+- `getShowButtons()` _(public)_
+- `getShowIndicators()` _(public)_
+- `GetSize()` _(public)_
+- `getStyles()` _(public)_
+- `GetValue(Index As Int)` As String _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+
+## Private Methods (5)
 - `ItemClicked_Event(e As BANanoEvent)` _(private)_
 - `MouseEnter_Event(e As BANanoEvent)` _(private)_
 - `MouseLeave_Event(e As BANanoEvent)` _(private)_
+- `PageChanged(e As BANanoEvent)` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -148,5 +153,3 @@ BANano.Await(slider.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-

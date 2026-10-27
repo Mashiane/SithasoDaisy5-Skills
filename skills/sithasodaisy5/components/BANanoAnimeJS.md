@@ -31,21 +31,24 @@ _(inherits from SDUI5Component base — see base contract)_
 
 Wire in parent: `Sub bananoanimejs_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (9)
-- `Initialize(Module As Object, EventName As String, targetx As Object)` As BANanoAnimeJS _(public)_
-- `animation()` As BANanoAnimeJSItem _(public)_
-- `keyframes(kf As BANanoAnimeJSItem)` As BANanoAnimeJS _(public)_
-- `target(jTarget As String)` As BANanoAnimeJS _(public)_
+- `animation()` _(public)_
 - `create()` _(public)_
-- `play()` _(public)_
+- `Initialize(Module As Object, EventName As String, targetx As Object)` As BANanoAnimeJS _(public)_
+- `keyframes(kf As BANanoAnimeJSItem)` As BANanoAnimeJS _(public)_
 - `pause()` _(public)_
+- `play()` _(public)_
 - `restart()` _(public)_
 - `reverse()` _(public)_
+- `target(jTarget As String)` As BANanoAnimeJS _(public)_
+
 ## Key Setters (0)
-_(none — uses base SDUI5Component setters only)_
+
 ## Getters (0)
-_(none)_
-## Private Methods (0)
-_(none)_
+
+## Private Methods (2)
+- `CleanID(s As String)` As String _(private)_
+- `CStr(o As Object)` As String _(private)_
+
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example
@@ -55,5 +58,3 @@ helper.Initialize(Module As Object, EventName As String, targetx As Object)
 ```
 ## Composes With
 - Call from SDUI5 page/component event handlers.
-
-

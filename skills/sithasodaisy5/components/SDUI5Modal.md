@@ -91,179 +91,170 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `RawStyles` | String | — | — | `setStyles` | `getStyles` |
 | `RawAttributes` | String | — | — | `setAttributes` | `getAttributes` |
 
-> **Dialog visibility rule:** The `Open` designer property and `setOpen` method are listed because they exist in the source API, but do not use them to show or hide modal dialogs. Call `Show` and `Close`; those methods operate the hidden checkbox used by the modal's close and backdrop controls.
-
 Setter and getter names are the actual source `Sub` names. `—` means this component has no named accessor for that side; designer-time values may still be consumed through `Props` in `DesignerCreateView`.
 Where a designer key and method name differ, the method names shown are the source-verified mapping.
 ## Events
 `Yes_Click`, `No_Click`, `Cancel_Click`, `Ok_Click`, `Retry_Click`, `Abort_Click`, `Ignore_Click`
 
 Wire in parent: `Sub modal_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (13)
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `GetProperties()` As Map _(public)_
+## Public Methods (11)
 - `AddComponent()` _(public)_
-- `Remove()` _(public)_
+- `Close()` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `IsValid()` _(public)_
+- `Remove()` _(public)_
 - `RemoveBodyPadding()` _(public)_
 - `RemoveFormPadding()` _(public)_
-- `Show()` _(public)_
-- `Close()` _(public)_
 - `ResetValidation()` _(public)_
+- `Show()` _(public)_
 - `Validate(response As Boolean)` _(public)_
-- `IsValid()` As Boolean _(public)_
-## Key Setters (58)
-- `setParentID(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setTitleVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setIsCard(b As Boolean)` _(public)_
-- `setSize(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setRoundedBox(b As Boolean)` _(public)_
-- `setDash(b As Boolean)` _(public)_
-- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
-- `setBorder(b As Boolean)` _(public)_
-- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
-- `setIconVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setIcon(s As String)` As 'ignoredeadcode _(public)_
-- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
-- `setTitleTextColor(s As String)` As 'ignoredeadcode _(public)_
-- `setButtonsRounded(s As String)` _(public)_
-- `setBottonsWidth(s As String)` _(public)_
-- `setButtonsShadow(s As String)` _(public)_
-- `setFullScreen(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHTML(s As String)` As 'ignoredeadcode _(public)_
+
+## Key Setters (59)
+- `setActionsVisible(b As Boolean)` _(public)_
 - `setActionType(s As String)` _(public)_
-- `setActionsVisible(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setBackdrop(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setClosable(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setGlass(b As Boolean)` As 'ignoredeadcode _(public)_
-- `setHeight(s As String)` As 'ignoredeadcode _(public)_
-- `setLGMoveFrom(s As String)` _(public)_
-- `setMDMoveFrom(s As String)` _(public)_
-- `setMoveFrom(s As String)` _(public)_
-- `setOpen(b As Boolean)` _(public)_
-- `setSMMoveFrom(s As String)` _(public)_
-- `setTitle(s As String)` As 'ignoredeadcode _(public)_
-- `setWidth(s As String)` As 'ignoredeadcode _(public)_
-- `setXLMoveFrom(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setBackdrop(b As Boolean)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorder(b As Boolean)` _(public)_
+- `setBottonsWidth(s As String)` _(public)_
+- `setButtonsRounded(s As String)` _(public)_
+- `setButtonsShadow(s As String)` _(public)_
 - `setCancelCaption(s As String)` _(public)_
 - `setCancelColor(s As String)` _(public)_
 - `setCancelLoading(b As Boolean)` _(public)_
 - `setCancelTextColor(s As String)` _(public)_
 - `setCancelVisible(b As Boolean)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setClosable(b As Boolean)` _(public)_
+- `setDash(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setFullScreen(b As Boolean)` _(public)_
+- `setGlass(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setHTML(s As String)` _(public)_
+- `setIcon(s As String)` _(public)_
+- `setIconColor(s As String)` _(public)_
+- `setIconSize(s As String)` _(public)_
+- `setIconVisible(b As Boolean)` _(public)_
+- `setIsCard(b As Boolean)` _(public)_
+- `setLGMoveFrom(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setMDMoveFrom(s As String)` _(public)_
+- `setMoveFrom(s As String)` _(public)_
 - `setNoCaption(s As String)` _(public)_
 - `setNoColor(s As String)` _(public)_
 - `setNoLoading(b As Boolean)` _(public)_
 - `setNoTextColor(s As String)` _(public)_
 - `setNoVisible(b As Boolean)` _(public)_
+- `setOpen(b As Boolean)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSize(s As String)` _(public)_
+- `setSMMoveFrom(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setTitle(s As String)` _(public)_
+- `setTitleTextColor(s As String)` _(public)_
+- `setTitleVisible(b As Boolean)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setXLMoveFrom(s As String)` _(public)_
 - `setYesCaption(s As String)` _(public)_
 - `setYesColor(s As String)` _(public)_
 - `setYesLoading(b As Boolean)` _(public)_
 - `setYesTextColor(s As String)` _(public)_
 - `setYesVisible(b As Boolean)` _(public)_
-## Getters (60)
-- `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
+
+## Getters (61)
+- `getActionsVisible()` _(public)_
+- `getActionType()` _(public)_
+- `getAttributes()` _(public)_
+- `getBackdrop()` _(public)_
+- `getBackgroundColor()` _(public)_
+- `getBorder()` _(public)_
+- `getBottonsWidth()` _(public)_
+- `getButtonsRounded()` _(public)_
+- `getButtonsShadow()` _(public)_
+- `getCancelCaption()` _(public)_
+- `getCancelColor()` _(public)_
+- `getCancelLoading()` _(public)_
+- `getCancelTextColor()` _(public)_
+- `getCancelVisible()` _(public)_
+- `getClasses()` _(public)_
+- `getClosable()` _(public)_
+- `getDash()` _(public)_
+- `getEnabled()` _(public)_
+- `getFullScreen()` _(public)_
+- `getGlass()` _(public)_
+- `getHeight()` _(public)_
 - `getHere()` As String _(public)_
-- `getVisible()` As Boolean _(public)_
-- `getEnabled()` As Boolean _(public)_
-- `getPositionStyle()` As String _(public)_
-- `getPosition()` As String _(public)_
-- `getAttributes()` As String _(public)_
-- `getTitleVisible()` As Boolean _(public)_
-- `getStyles()` As String _(public)_
-- `getClasses()` As String _(public)_
-- `getPaddingAXYTBLR()` As String _(public)_
-- `getIsCard()` As Boolean _(public)_
-- `getSize()` As String _(public)_
-- `getMarginAXYTBLR()` As String _(public)_
-- `getShadow()` As String _(public)_
-- `getRounded()` As String _(public)_
-- `getRoundedBox()` As Boolean _(public)_
-- `getDash()` As Boolean _(public)_
-- `getBackgroundColor()` As String _(public)_
-- `getBorder()` As Boolean _(public)_
-- `getIconSize()` As String _(public)_
-- `getIconVisible()` As Boolean _(public)_
-- `getIcon()` As String _(public)_
-- `getIconColor()` As String _(public)_
-- `getTitleTextColor()` As String _(public)_
-- `getButtonsRounded()` As String _(public)_
-- `getBottonsWidth()` As String _(public)_
-- `getButtonsShadow()` As String _(public)_
-- `getFullScreen()` As Boolean _(public)_
-- `getHTML()` As String _(public)_
-- `getActionsVisible()` As Boolean _(public)_
-- `getBackdrop()` As Boolean _(public)_
-- `getClosable()` As Boolean _(public)_
-- `getGlass()` As Boolean _(public)_
-- `getHeight()` As String _(public)_
-- `getLGMoveFrom()` As String _(public)_
-- `getMDMoveFrom()` As String _(public)_
-- `getMoveFrom()` As String _(public)_
-- `getOpen()` As Boolean _(public)_
-- `getSMMoveFrom()` As String _(public)_
-- `getTitle()` As String _(public)_
-- `getWidth()` As String _(public)_
-- `getXLMoveFrom()` As String _(public)_
-- `getActionType()` As String _(public)_
-- `getCancelCaption()` As String _(public)_
-- `getCancelColor()` As String _(public)_
-- `getCancelLoading()` As Boolean _(public)_
-- `getCancelTextColor()` As String _(public)_
-- `getCancelVisible()` As Boolean _(public)_
-- `getNoCaption()` As String _(public)_
-- `getNoColor()` As String _(public)_
-- `getNoLoading()` As Boolean _(public)_
-- `getNoTextColor()` As String _(public)_
-- `getNoVisible()` As Boolean _(public)_
-- `getYesCaption()` As String _(public)_
-- `getYesColor()` As String _(public)_
-- `getYesLoading()` As Boolean _(public)_
-- `getYesTextColor()` As String _(public)_
-- `getYesVisible()` As Boolean _(public)_
-## Private Methods (0)
-_(none)_
+- `getHTML()` _(public)_
+- `getIcon()` _(public)_
+- `getIconColor()` _(public)_
+- `getIconSize()` _(public)_
+- `getIconVisible()` _(public)_
+- `getID()` As String _(public)_
+- `getIsCard()` _(public)_
+- `getLGMoveFrom()` _(public)_
+- `getMarginAXYTBLR()` _(public)_
+- `getMDMoveFrom()` _(public)_
+- `getMoveFrom()` _(public)_
+- `getNoCaption()` _(public)_
+- `getNoColor()` _(public)_
+- `getNoLoading()` _(public)_
+- `getNoTextColor()` _(public)_
+- `getNoVisible()` _(public)_
+- `getOpen()` _(public)_
+- `getPaddingAXYTBLR()` _(public)_
+- `getParentID()` _(public)_
+- `getPosition()` _(public)_
+- `getPositionStyle()` _(public)_
+- `GetProperties()` _(public)_
+- `getRounded()` _(public)_
+- `getRoundedBox()` _(public)_
+- `getShadow()` _(public)_
+- `getSize()` _(public)_
+- `getSMMoveFrom()` _(public)_
+- `getStyles()` _(public)_
+- `getTitle()` _(public)_
+- `getTitleTextColor()` _(public)_
+- `getTitleVisible()` _(public)_
+- `getVisible()` _(public)_
+- `getWidth()` _(public)_
+- `getXLMoveFrom()` _(public)_
+- `getYesCaption()` _(public)_
+- `getYesColor()` _(public)_
+- `getYesLoading()` _(public)_
+- `getYesTextColor()` _(public)_
+- `getYesVisible()` _(public)_
+
+## Private Methods (4)
+- `AddCancelButton()` _(private)_
+- `AddNoButton()` _(private)_
+- `AddYesButton()` _(private)_
+- `SetDefaults()` _(private)_
+
 ## Verified Demo Usage
 
-Real syntax from [`pgContacts.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgContacts.bas) (verified demo). `mdlContacts` = a SDUI5Modal.
+Real syntax from [`pgModal.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgModal.bas) (verified demo):
 
 ```b4j
-	mdlContacts.Initialize(Me, "mdlContacts", "mdlContacts")
-	mdlContacts.ParentID = "#bottomdrawercontent"
-	mdlContacts.Backdrop = False
-	mdlContacts.Border = False
-	mdlContacts.Closable = False
-	mdlContacts.IsCard = True
-	mdlContacts.Html = ""
-	mdlContacts.Shadow = "none"
-	mdlContacts.Width = "full"
-	BANano.Await(mdlContacts.AddComponent)
+Private modal1 As SDUI5Modal		'ignore
+modal1.Initialize(Me, "modal1", "modal1")
+modal1.ParentID = app.PageView
+'modal1.ActionType = "yes-no"
+modal1.Backdrop = False
+modal1.Html = ""
+modal1.Title = "Modal 1"
+BANano.Await(modal1.AddComponent)
 ```
 
-Composite structure — children mount into sub-regions: a `r1` inside `mdlLogin_form`:
-
-```b4j
-	r1.Initialize(Me, "r1", "r1")
-	r1.ParentID = "mdlLogin_form"
-	r1.Gap = ""
-	BANano.Await(r1.AddComponent)
-```
-
-Demo-wired events: `Show` — handlers named `mdlContacts_<Event>`.
-
-Also used in: `pgCategories`, `pgGhostLogin`, `pgModal`, `pgModalHTML`, `pgSwiper`
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `card`, `card-border`, `card-dash`, `rounded-box`, `modal`, `modal-open`, `overflow-y-auto`
 ## Code Example
@@ -278,5 +269,3 @@ BANano.Await(modal.AddComponent)   ' DesignerCreateView runs internally
 <!-- Parent containers / child items / sibling components this pairs with. Fill for high-value components. -->
 - Inherits base behavior from **SDUI5Component** (Visible/Enabled/Position/Margins/Paddings/RawClasses/RawStyles/RawAttributes/Height/Width/TextSize/BackgroundImage).
 - Add to a parent via `ParentID` then `BANano.Await(AddComponent)` — never call `DesignerCreateView` explicitly; `AddComponent` runs it internally.
-
-
