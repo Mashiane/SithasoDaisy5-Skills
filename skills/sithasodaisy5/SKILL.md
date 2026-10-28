@@ -14,6 +14,11 @@ description: SithasoDaisy5 — B4J/BANano component library (daisyUI + Tailwind)
 - **With a goal** — "build a login form", "make a dashboard"; I compose components per `patterns.md`.
 - **Browse** — "which components do X?" → I use the Component/Topic Index below.
 
+For every new screen, or a screen whose visual direction is changing, consult:
+1. **[Design Craft Guide](references/design-craft-guide.md)** — Mandatory typography pairings, surface elevation, glassmorphism, Bento grid composition, accent rarity, and micro-interactions.
+2. **[Scenario Blueprints](chapters/)** — Canonical B4J layout recipes: [ch01-dashboards.md](chapters/ch01-dashboards.md), [ch02-interactive-forms.md](chapters/ch02-interactive-forms.md), [ch03-navigation.md](chapters/ch03-navigation.md), [ch04-feedback.md](chapters/ch04-feedback.md), [ch05-media-cards.md](chapters/ch05-media-cards.md), and [ch06-data-display.md](chapters/ch06-data-display.md).
+3. **[Design Quality Playbook](references/design-quality-playbook.md)** — The Creative Brief and rendered quality bar (G6 release gate). API conformance alone is not a visual-quality pass.
+
 When you ask about a component not in Core below, I read its `components/<Name>.md` before answering. Per-component files are **on-demand** — they don't cost tokens until loaded.
 
 ---

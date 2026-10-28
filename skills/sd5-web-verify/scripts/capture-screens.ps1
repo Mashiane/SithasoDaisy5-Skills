@@ -132,7 +132,7 @@ foreach ($pg in $pages) {
 
         $errLog = Join-Path $env:TEMP ("sd5-cap-err-" + [System.Guid]::NewGuid().ToString("N") + ".log")
         $args = @(
-            "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
+            "--headless=new", "--disable-gpu", "--force-device-scale-factor=1", "--no-first-run", "--no-default-browser-check",
             "--user-data-dir=$profileDir",
             "--window-size=$Width,$Height",
             "--virtual-time-budget=$SettleMs",

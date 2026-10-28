@@ -10,7 +10,7 @@
                     {
                         "name":  "sithasodaisy5-skills",
                         "description":  "Turn plain-language prompts into source-grounded B4J/BANano web apps: verified components, bootstrap, contracts, build/runtime checks, visual review.",
-                        "version":  "0.8.3",
+                        "version":  "0.8.4",
                         "source":  "./",
                         "category":  "developer-tools"
                     }

@@ -7,19 +7,23 @@ description: Pre-build design reasoning for SithasoDaisy5 web apps. Brand mood, 
 
 The **Stage 3** of the agentic workflow. Before you write any component, commit to a design direction by answering the questions below. Cite your answers in the reasoning trace so the orchestrator can audit.
 
+For a new screen or visual redesign, also complete the [Design Quality Playbook](design-quality-playbook.md) Creative Brief in the screen contract. The five decisions below do not replace the visual thesis, product-specific signature, typography, surface, image, and responsive decisions in that brief.
+
 ---
 
-## 1. The 5 Design Decisions
+## 1. The 7 Design Decisions for Award-Winning Software
 
-Every screen needs an answer to each of these:
+Every screen needs an answer to each of these before generating code:
 
 1. **What is the user trying to do here?** (one sentence)
 2. **What is the density?** (Comfortable / High / Hero)
-3. **Which theme + primary CTA color?** (one token each)
-4. **What's the 4-state story?** (Loading / Populated / Empty / Error — at least one explicit treatment)
-5. **What page model from `page-architectures.md` does this map to?** (ARCH-01 through ARCH-N)
+3. **Which theme + primary CTA color?** (one token each; enforce accent rarity: primary used strictly ONCE per viewport)
+4. **What is the typography pairing & signature move?** (curated Google font e.g. Plus Jakarta Sans / Inter; tight tracking; see `design-craft-guide.md`)
+5. **What is the surface & elevation strategy?** (subtle hairline borders `border-base-200/80`, glassmorphism, rounded-2xl/3xl, ambient canvas `bg-base-200/30`; NEVER naked default cards)
+6. **What's the 4-state story?** (Loading shimmer skeleton / Populated / Empty with action / Error with retry)
+7. **What page model from `page-architectures.md` does this map to?** (ARCH-01 through ARCH-15, prioritizing modern models ARCH-11 Bento, ARCH-12 Split Hero, ARCH-13 Dash Pro, ARCH-14 Settings Split, ARCH-15 Product Studio)
 
-Skip any and the orchestrator flags it.
+Skip any and the orchestrator flags it. Consult [design-craft-guide.md](design-craft-guide.md) for execution.
 
 ---
 

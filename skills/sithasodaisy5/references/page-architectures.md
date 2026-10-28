@@ -273,6 +273,153 @@ SDUI5Container1 (min-h-screen, flex items-center justify-center)
 
 ---
 
+## ARCH-11 (ARCH-BENTO-01) — Modern Asymmetric Bento Showcase
+
+**Purpose**: Modern high-impact product landing / feature showcase (Apple / Linear / Stripe aesthetic)  
+**Layout**: Asymmetrical 12-column grid mixing wide hero card, live simulated UI, radial metric, and twin glass micro-cards  
+**Responsive**: Single column on mobile (`Size="12"`) → 8/4 split and 4/4/4 split on desktop (`SizeLg="8"`, `SizeLg="4"`)
+
+```
+SDUI5Container1 (max-w-7xl, px-4, py-12)
+  ├── SDUI5Row (Header: Eyebrow + Display Title + Subtitle centered)
+  ├── SDUI5Row1 (gap-6, mb-6) — Asymmetric Bento Hero Row
+  │     ├── SDUI5Column1 (Size="12", SizeLg="8")
+  │     │     └── SDUI5Card (Featured card, p-8, rounded-3xl, bg-base-100/90, border border-base-200/80, shadow-xl)
+  │     │           ├── SDUI5Badge (Eyebrow: "Live Platform")
+  │     │           ├── SDUI5Text (Display feature heading, font-extrabold, tracking-tight)
+  │     │           ├── SDUI5Text (Benefit description)
+  │     │           └── SDUI5Container (Interactive simulated UI preview card with live status & tabs)
+  │     └── SDUI5Column2 (Size="12", SizeLg="4")
+  │           └── SDUI5Card (KPI / Metric card, p-8, rounded-3xl, bg-gradient-to-br from-base-100 to-base-200/50, border border-base-200/80)
+  │                 ├── SDUI5RadialProgress (Value=88, Color="primary", Size="4.5rem")
+  │                 ├── SDUI5Text (KPI Value: "99.98%", text-3xl, font-bold)
+  │                 └── SDUI5Text (Caption: "System Uptime & SLA Guarantee")
+  └── SDUI5Row2 (gap-6) — Trio Micro-Feature Row
+        ├── SDUI5Column3 (Size="12", SizeMd="4") -> SDUI5Card (Micro-card 1, rounded-2xl, border border-base-200/70)
+        ├── SDUI5Column4 (Size="12", SizeMd="4") -> SDUI5Card (Micro-card 2, rounded-2xl, border border-base-200/70)
+        └── SDUI5Column5 (Size="12", SizeMd="4") -> SDUI5Card (Micro-card 3, rounded-2xl, border border-base-200/70)
+```
+
+**Components used**: `SDUI5Card`, `SDUI5RadialProgress`, `SDUI5Badge`, `SDUI5Text`, `SDUI5Button`  
+**Density**: Comfortable / Hero  
+**Craft Guidance**: Apply `design-craft-guide.md` surface rules: `Classes = "bg-base-100/80 backdrop-blur-md border border-base-200/80 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"`.
+
+---
+
+## ARCH-12 (ARCH-HERO-SPLIT) — High-Conversion SaaS Split Hero
+
+**Purpose**: Modern SaaS conversion hero section  
+**Layout**: Two-column split: left column has eyebrow badge + tight editorial title + description + avatar proof stack + CTA button; right column has interactive simulated application preview card  
+**Responsive**: Stacks vertically on mobile (text first, preview below); 50/50 split on desktop (`SizeLg="6"`)
+
+```
+SDUI5Container1 (max-w-7xl, px-4, py-16 md:py-24)
+  └── SDUI5Row1 (items-center, gap-12)
+        ├── SDUI5Column1 (Size="12", SizeLg="6") — Value Proposition
+        │     ├── SDUI5Badge (Eyebrow: "New - V5.0 Released", Color="primary", Style="soft", Classes="mb-4")
+        │     ├── SDUI5Text (Heading: text-4xl sm:text-5xl lg:text-6xl, font-extrabold, tracking-tight)
+        │     ├── SDUI5Text (Subtitle: text-lg, text-base-content/70, py-6)
+        │     ├── SDUI5Row (CTA Row: SDUI5Button .Color="primary" .Size="lg" + SDUI5Button .Color="neutral" .Style="ghost")
+        │     └── SDUI5Row (Social Proof: SDUI5AvatarGroup + SDUI5Text "Loved by 4,200+ engineers")
+        └── SDUI5Column2 (Size="12", SizeLg="6") — Interactive Product Preview
+              └── SDUI5Card (Mockup surface: bg-base-100/90, backdrop-blur-2xl, border border-base-200, rounded-3xl, shadow-2xl, p-6)
+                    ├── SDUI5NavBar (Simulated topbar: window controls, breadcrumb, live status dot)
+                    ├── SDUI5Tabs (Active preview tabs)
+                    ├── SDUI5Stat (Live metric preview)
+                    └── SDUI5Table (Simulated live activity feed)
+```
+
+**Components used**: `SDUI5Badge`, `SDUI5Text`, `SDUI5Button`, `SDUI5AvatarGroup`, `SDUI5Card`, `SDUI5Tabs`, `SDUI5Stat`, `SDUI5Table`  
+**Density**: Hero  
+
+---
+
+## ARCH-13 (ARCH-DASH-PRO) — Executive Command Center
+
+**Purpose**: Production analytics & operational workspace  
+**Layout**: Sticky Topbar $\rightarrow$ Trend Stat Row with delta pills $\rightarrow$ 2-Column Analytics Split (chart slot + activity feed) $\rightarrow$ Paginated Data Table with user avatars & status pills  
+**Responsive**: High density, auto-wrapping KPI stats, responsive tables
+
+```
+SDUI5NavBar (sticky top, z-40, border-b border-base-200/80, bg-base-100/80 backdrop-blur-md)
+SDUI5Container1 (max-w-7xl, px-4, py-8)
+  ├── SDUI5Row1 (gap-4, mb-8) — KPI Row with Trend Badges (4 columns: Size="12", SizeSm="6", SizeLg="3")
+  │     ├── SDUI5Column1 -> SDUI5Card (Revenue: stat + "+14.8% vs last mo" badge)
+  │     ├── SDUI5Column2 -> SDUI5Card (Active Users: stat + "+8.3%" badge)
+  │     ├── SDUI5Column3 -> SDUI5Card (Conversion: stat + "+2.1%" badge)
+  │     └── SDUI5Column4 -> SDUI5Card (Avg Latency: stat + "-18ms" badge)
+  ├── SDUI5Row2 (gap-6, mb-8) — Analytics Split (SizeLg="8" & SizeLg="4")
+  │     ├── SDUI5Column5 (SizeLg="8") -> SDUI5Card (Analytics / Chart panel + time-range Segment Tabs)
+  │     └── SDUI5Column6 (SizeLg="4") -> SDUI5Card (Realtime Event Feed / Notifications list)
+  └── SDUI5Row3 — Data Table
+        └── SDUI5Column7 (Size="12")
+              └── SDUI5Card (border border-base-200/80, rounded-2xl, p-6)
+                    ├── SDUI5Row (Search bar + Filter Dropdown + Export Button)
+                    ├── SDUI5Table (Avatar cells, status badges, formatted currency, action menu)
+                    └── SDUI5Pagination (Page navigation)
+```
+
+**Components used**: `SDUI5NavBar`, `SDUI5Card`, `SDUI5Badge`, `SDUI5Stat`, `SDUI5Tabs`, `SDUI5Table`, `SDUI5Pagination`, `SDUI5Button`  
+**Density**: High  
+
+---
+
+## ARCH-14 (ARCH-SETTINGS-SPLIT) — Modern Two-Column Account / Settings
+
+**Purpose**: Profile, preferences, integrations, security settings  
+**Layout**: Two-column split per section (Left: section title, description, and context; Right: elevated card with grouped fieldsets, switch toggles, inputs, and actions)  
+**Responsive**: Single column on mobile; 4/8 split on desktop (`SizeLg="4"`, `SizeLg="8"`)
+
+```
+SDUI5Container1 (max-w-5xl, px-4, py-10)
+  ├── SDUI5Row1 (Header: Title + description + breadcrumbs)
+  ├── SDUI5Divider (my-8)
+  ├── SDUI5Row2 (Section 1: Profile & Identity)
+  │     ├── SDUI5Column1 (Size="12", SizeLg="4") -> SDUI5Text (Title + guidance)
+  │     └── SDUI5Column2 (Size="12", SizeLg="8") -> SDUI5Card (Avatar uploader + TextBox name/email)
+  ├── SDUI5Divider (my-8)
+  └── SDUI5Row3 (Section 2: Notifications & Privacy)
+        ├── SDUI5Column3 (Size="12", SizeLg="4") -> SDUI5Text (Title + guidance)
+        └── SDUI5Column4 (Size="12", SizeLg="8") -> SDUI5Card (Toggle switches with descriptive labels)
+```
+
+**Components used**: `SDUI5Card`, `SDUI5Avatar`, `SDUI5TextBox`, `SDUI5Toggle`, `SDUI5Button`, `SDUI5Divider`  
+**Density**: Comfortable  
+
+---
+
+## ARCH-15 (ARCH-PRODUCT-SHOWCASE) — Modern E-Commerce Studio
+
+**Purpose**: Product drop, luxury retail, tech hardware showcase  
+**Layout**: Left sticky media gallery with thumbnail carousel; right sticky purchase card with price, stock pill, star rating, color chips, size selector, and primary Add to Cart CTA  
+**Responsive**: Mobile single column; desktop 6/6 split with sticky positioning
+
+```
+SDUI5NavBar (sticky top)
+SDUI5Container1 (max-w-6xl, px-4, py-10)
+  └── SDUI5Row1 (gap-12)
+        ├── SDUI5Column1 (Size="12", SizeLg="6") — Gallery Studio
+        │     └── SDUI5Card (Rounded-3xl, overflow-hidden, border border-base-200/80)
+        │           ├── SDUI5Carousel (Main high-res product imagery)
+        │           └── SDUI5Row (Thumbnail selector strip)
+        └── SDUI5Column2 (Size="12", SizeLg="6") — Purchase Configuration
+              └── SDUI5Card (p-8, rounded-3xl, border border-base-200/80, bg-base-100)
+                    ├── SDUI5Badge (Brand / Series pill)
+                    ├── SDUI5Text (Product Name, text-3xl, font-bold, tracking-tight)
+                    ├── SDUI5Row (Star Rating + Review count badge)
+                    ├── SDUI5Text (Price: "$349.00", text-3xl, font-extrabold, text-primary)
+                    ├── SDUI5Divider
+                    ├── SDUI5RadioGroup (Color variants with circular color chips)
+                    ├── SDUI5Select (Size / Edition selector)
+                    ├── SDUI5Button (Single Primary Action: "Add to Bag", .Color="primary", .Size="lg", full-width)
+                    └── SDUI5Text (Shipping & guarantee trust badges)
+```
+
+**Components used**: `SDUI5Carousel`, `SDUI5Card`, `SDUI5Badge`, `SDUI5Text`, `SDUI5Rating`, `SDUI5RadioGroup`, `SDUI5Select`, `SDUI5Button`  
+**Density**: Comfortable  
+
+---
+
 ## How to Use These Patterns
 
 1. **Pick the closest ARCH-N** before composing any page

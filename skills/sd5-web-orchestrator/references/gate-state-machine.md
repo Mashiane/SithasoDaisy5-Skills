@@ -11,7 +11,7 @@ This is the delivery contract for prompt-to-app work. It adapts the B4XDaisyUIKi
 | `IMPLEMENTED → STATIC_VERIFIED` | G3 source integrity | `sd5-web-verify` | pre-scan, registry coverage, lifecycle and conformance logs pass |
 | `STATIC_VERIFIED → BUILT` | G4 compilation | `build-banano-app.ps1` | B4JBuilder exit 0 + fresh BANano `index.html`/`scripts/app.js` + success marker; `BUILD-<stamp>.md` written; `Publish` path lands in the Laragon app folder |
 | `BUILT → RUNTIME_VERIFIED` | G5 browser runtime | build-watch/browser | app loads; no console/resource errors; contracted page, title, theme and content render |
-| `RUNTIME_VERIFIED → UX_VERIFIED` | G6 UX/accessibility | capture + UX review | viewport screenshots exist and actual render review has no release-blocking findings |
+| `RUNTIME_VERIFIED → UX_VERIFIED` | G6 UX/design quality/accessibility | desktop + phone captures + UX review | every contracted screen has desktop and phone renders; each viewport passes the scored design gate, accessibility review, and has no release-blocking findings |
 | `UX_VERIFIED → REGRESSION_VERIFIED` | G7 regression | `sd5-web-regression` | changed and impacted checks pass; baseline failures are separately listed |
 | `REGRESSION_VERIFIED → RELEASE_CANDIDATE` | — (bundling) | orchestrator | G0–G7 evidence collected into the app folder |
 | `RELEASE_CANDIDATE → DELIVERED` | G8 evidence | orchestrator + `verify-production-hardening.ps1` | hardening PASS on published output + all gate evidence and run instructions bundled |
@@ -92,7 +92,7 @@ judgment.
 | 5. G3 Static integrity (pre-scan + contract + conformance) | G3 |
 | 6. G4 Build (`build-banano-app.ps1` + Laragon `Publish`) | G4 (exit 0 + identified output in app folder) |
 | 7. G5 Runtime (build-watch) | G5 (load, console, resources, title/theme/content) |
-| 8. G6 UX (capture + ux-review.md) | G6 (screenshots reviewed, no blocking findings) |
+| 8. G6 UX (desktop + phone capture + ux-review.md) | G6 (all screenshots reviewed; score gate and accessibility pass; no blocking findings) |
 | 9. G7 Regression | G7 (impact scope passes; `.agent/REGRESSION.md`) |
 | 10. G8 Delivery | bundling + G8 (hardening PASS + evidence bundle, per-gate status) |
 

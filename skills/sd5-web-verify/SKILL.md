@@ -1,4 +1,4 @@
-﻿---
+---
 name: sd5-web-verify
 description: Quality inspection and conformance gate for SithasoDaisy5 web apps. Pre-scan (L4) catches banned patterns; verify-conformance (L5) enforces the Skill Coverage Contract + lifecycle + wiring. Used by sd5-web-orchestrator Stages 5/6/8.
 metadata:
@@ -96,6 +96,52 @@ pwsh -File <skill>/scripts/capture-screens.ps1 `
 
 Outputs PNG per page in `<AppFolder>/ux-review/screens/<PageId>.png`. Used in orchestrator Stage 8.
 No headless browser = fallback message, exit 0 (drop PNGs manually).
+
+For G6 design review, capture **both desktop and phone widths**. Run once per viewport with a separate `-Out` directory so the same page name cannot overwrite its other capture. Example:
+
+```powershell
+pwsh -File <skill>/scripts/capture-screens.ps1 -AppFolder <AppFolder> -BaseUrl http://localhost/<app> -Page home,profile,dashboard -Width 1280 -Height 900 -Out <AppFolder>\ux-review\screens\desktop
+pwsh -File <skill>/scripts/capture-screens.ps1 -AppFolder <AppFolder> -BaseUrl http://localhost/<app> -Page home,profile,dashboard -Width 390 -Height 844 -Out <AppFolder>\ux-review\screens\phone
+```
+
+Use the contracted viewport when the user specifies a target. Add tablet or 200% zoom evidence when the page design, interaction model, or contract makes that relevant. These captures are required G6 evidence; screenshots from only one width leave G6 open.
+
+For exact CSS viewport emulation, use `scripts/browser_capture.js`. It sets the viewport through Chrome DevTools Protocol, waits for image assets, writes a full-page PNG, and reports horizontal overflow, console messages, and uncaught exceptions. This avoids Windows display scaling changing the CSS viewport behind `--window-size`.
+
+```powershell
+node <skill>/scripts/browser_capture.js `
+  http://127.0.0.1:8765/<app>/index.html `
+  <AppFolder>/ux-review/screens/mobile.png 390 844
+```
+
+### `scripts/verify-example-apps.ps1` — suite visual verification
+
+Builds each app folder's `.b4j` project, runs the generated JAR through the BANano transpiler, then captures desktop and phone screenshots with exact viewport metrics. It writes build logs, per-viewport JSON evidence, screenshots, and a suite summary. Start a local static server rooted at the shared publish directory before running it.
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File `
+  <skill>/scripts/verify-example-apps.ps1 `
+  -AppsRoot C:\b4j\workspace\0SithasoDaisy5Skills\AIExamples `
+  -BaseUrlRoot http://127.0.0.1:8765
+```
+
+Use `-AppFolders @('01-landing-hero')` to run one project, or `-SkipCompile` only when its JAR was built from its current source.
+
+This script follows the verified first-example build flow: compile the `.b4j`
+project with B4JBuilder, run its JAR with the configured JavaFX runtime to
+transpile BANano, serve the published output, and open that output in headless
+Chrome. Keep compile and transpile logs with each capture so a blank screenshot
+can be tied to the actual build/runtime failure.
+
+For a visual audit, use the suite script rather than capturing at device-pixel
+width. The browser capture emulates the CSS viewport directly (default
+1280×900 and 390×844), waits for image assets, and records overflow candidates,
+visible control DOM, console messages, and uncaught exceptions. Review both
+screenshots for every app; a zero-overflow metric does not establish that the
+layout is usable or visually sound. Fix issues from screenshot/DOM evidence,
+then rebuild and recapture the affected app at both viewports. A screenshot with
+`ready: false`, a visible loader, or runtime exceptions is a failed visual check,
+even when a PNG exists.
 
 ### `references/build-watch.template.ps1` — build-stage runtime gate (L4)
 

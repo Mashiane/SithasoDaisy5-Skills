@@ -4,14 +4,14 @@ ModulesStructureVersion=1
 Type=StaticCode
 Version=10
 @EndOfDesignText@
-'Static code module — DATA / CRUD PAGE (SDUI5Table + input modal).
+'Static code module - DATA / CRUD PAGE (SDUI5Table + input modal).
 'Studied from pgCategories / pgContacts / pgProvinces (exceptions flagged):
-'they use UPPERCASE App and would FAIL the L5 gate — this template uses
+'they use UPPERCASE App and would FAIL the L5 gate - this template uses
 'lowercase app throughout. Splash lifecycle, shell reset, Build/Mount split,
 'table + modal event shapes follow the demos exactly.
 Sub Process_Globals
 	Private BANano As BANano		'ignore
-	Private app As SDUI5App			'ignore — borrowed from pgIndex
+	Private app As SDUI5App			'ignore - borrowed from pgIndex
 	Private tblXxx As SDUI5Table		'ignore
 	Private mdlXxx As SDUI5Modal		'ignore
 	'...form controls for BuildXxxModal...

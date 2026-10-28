@@ -4,7 +4,7 @@ ModulesStructureVersion=1
 Type=StaticCode
 Version=10
 @EndOfDesignText@
-'Static code module — PAGE. Studied from 0SithasoDaisy5DemoCode\B4J\pg*.bas
+'Static code module - PAGE. Studied from 0SithasoDaisy5DemoCode\B4J\pg*.bas
 '(117+ pages follow this shape exactly: pgButtons, pgCard, pgModal, ...).
 'RULES: Private declares + 'ignore; the Show routine takes no args; lowercase app;
 'ClearPageView first; parent-first mount with Await; UpdateTitle LAST;
@@ -13,11 +13,11 @@ Version=10
 'Any caller of Show must likewise await it when it depends on the page finishing.
 'handlers named <ComponentName>_<Event>. L5 gate enforces lifecycle casing.
 'Wire into app: ModuleN=pgXxx in <AppName>.b4j (+ NumberOfModules bump) and,
-'for menu apps, AddItemChild + route Case in pgIndex (app-scaffolds.md §4).
+'for menu apps, AddItemChild + route Case in pgIndex (app-scaffolds.md sec. 4).
 Sub Process_Globals
 	Private BANano As BANano		'ignore
-	Private app As SDUI5App			'ignore — borrowed from pgIndex, never created here
-	'declare EVERY component you will mount — Private + 'ignore.
+	Private app As SDUI5App			'ignore - borrowed from pgIndex, never created here
+	'declare EVERY component you will mount - Private + 'ignore.
 	'The 2nd Initialize arg becomes the DOM id: unique names app-wide.
 	Private SDUI5Container1 As SDUI5Container		'ignore
 	Private SDUI5Row1 As SDUI5Row					'ignore
@@ -25,9 +25,9 @@ Sub Process_Globals
 	Private SDUI5Button1 As SDUI5Button				'ignore
 End Sub
 
-'entry point — no arguments, ever (callers invoke pgXxx.Show plain)
+'entry point - no arguments, ever (callers invoke pgXxx.Show plain)
 Sub Show
-	'1. borrow the app + wipe the previous page (lowercase app — L5 gate regex)
+	'1. borrow the app + wipe the previous page (lowercase app - L5 gate regex)
 	app = pgIndex.App
 	BANano.Await(app.ClearPageView)
 
@@ -57,7 +57,7 @@ Sub Show
 	SDUI5Button1.Text = "Get Started"
 	BANano.Await(SDUI5Button1.AddComponent)
 
-	'4. LAST line — navbar title through the shell
+	'4. LAST line - navbar title through the shell
 	pgIndex.UpdateTitle("Xxx")
 End Sub
 

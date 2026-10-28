@@ -94,7 +94,13 @@ if (Test-Path $settersJsonPath) {
 
 function Scan-File([System.IO.FileInfo]$File) {
     $findings = @()
-    $src = Get-Content $File.FullName -Raw -ErrorAction Stop
+    # Encoding Gate: Ensure UTF-8 without BOM (RULE-ENCODING-001)
+    $bytes = [System.IO.File]::ReadAllBytes($File.FullName)
+    if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+        $findings += [PSCustomObject]@{ Sev='FAIL'; Line=1; Msg="File '$($File.Name)' contains UTF-8 BOM (Byte Order Mark). B4J requires UTF-8 WITHOUT BOM; BOM breaks compiler header detection (B4J=true)." }
+    }
+
+    $src = Get-Content -LiteralPath $File.FullName -Raw -Encoding UTF8 -ErrorAction Stop
     $lines = $src -split "`r?`n"
     $inGlobals = $false
 
@@ -142,9 +148,32 @@ function Scan-File([System.IO.FileInfo]$File) {
         if ($line -match $readmePropertyRe) {
             $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="ReadMe is purely designer-only layout metadata: $($line.Trim()). It has no setter or getter and must never be referenced in code." }
         }
+        # Visual Defect Check: Default placeholder pollution
+        if ($line -match '(?i)\.(Title|Content|Text)\s*=\s*"(Card Title|Card Content|Lorem ipsum[^"]*)"') {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Default framework placeholder text '$($Matches[2])' detected in $($File.Name). Explicitly overwrite with product copy or clear defaults via .Title = `"`" (RULE-DEFAULTS-001)." }
+        }
+        # Visual Defect Check: w-screen horizontal overflow trap
+        if ($line -match '(?i)\.Classes\s*=\s*"[^"]*\bw-screen\b[^"]*"') {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="w-screen utility in .Classes causes horizontal page overflow in web browsers. Use w-full or max-w-* containers instead." }
+        }
         $selfCallRe = "\bBANano\.Await\(\s*$([regex]::Escape($File.BaseName))\.Show\s*\)"
         if ($line -match $selfCallRe) {
             $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Self-calling module via BANano.Await($($File.BaseName).Show) in $($File.Name) fails compilation. Use BANano.Await(Show)." }
+        }
+        # Encoding / Mojibake Gate: Detect corrupted characters (RULE-ENCODING-002)
+        if ($line -match '(\uFFFD|\?{3,}|\u00E2\u20AC|\u00E2\u2020|\u00C3\u2014|\u00C3\u00A9)') {
+            $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Mojibake / unprintable character sequence detected in $($File.Name). Keep files strictly UTF-8 without BOM. Use pure ASCII, HTML entities (&rarr;, &mdash;, &bull;), or FontAwesome/Heroicons." }
+        }
+        # Non-ASCII in string literal check (RULE-ENCODING-003: Hard Gate)
+        $quoteMatch = [regex]::Match($line, '"([^"]+)"')
+        if ($quoteMatch.Success) {
+            $hasHighChar = $false
+            foreach ($ch in $quoteMatch.Groups[1].Value.ToCharArray()) {
+                if ([int]$ch -gt 127) { $hasHighChar = $true; break }
+            }
+            if ($hasHighChar) {
+                $findings += [PSCustomObject]@{ Sev='FAIL'; Line=$no; Msg="Non-ASCII character in string literal in $($File.Name): $($line.Trim().Substring(0, [Math]::Min(100, $line.Trim().Length))). B4J/Java compiler will corrupt this on Windows into unprintable characters (mojibake). Use pure ASCII, HTML entities (&uarr;, &darr;, &rarr;, &mdash;, &bull;), or FontAwesome/Heroicons." }
+            }
         }
 
         # Invented setters - skip lines that are comments or Sub declarations
@@ -221,6 +250,19 @@ function Scan-File([System.IO.FileInfo]$File) {
                 }
             }
         }
+    }
+
+    # Accent Rarity check: Warn if more than 1 primary button exists on a single page
+    $primaryBtnMatches = [regex]::Matches($src, '(?i)\b([A-Za-z0-9_]+)\.Color\s*=\s*"primary"')
+    $primaryBtns = @()
+    foreach ($pbm in $primaryBtnMatches) {
+        $btnVar = $pbm.Groups[1].Value.ToLower()
+        if ($varToType.ContainsKey($btnVar) -and $varToType[$btnVar] -match '(?i)button') {
+            $primaryBtns += $btnVar
+        }
+    }
+    if ($primaryBtns.Count -gt 1) {
+        $findings += [PSCustomObject]@{ Sev='WARN'; Line=0; Msg="Multiple primary buttons ($($primaryBtns -join ', ')) in $($File.Name). Violates Accent Rarity (one primary CTA per viewport; demote secondary actions to 'neutral', 'ghost', or 'outline' per design-craft-guide.md)." }
     }
 
     # Lifecycle: Sub Show must reference pgIndex.App + ClearPageView in first statements.

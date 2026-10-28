@@ -52,6 +52,8 @@ if ($SkipCompile) {
 } else {
     Push-Location $ProjectRoot
     try {
+        # Ensure all Java compilation and transpile processes use UTF-8
+        $env:JAVA_TOOL_OPTIONS = "-Dfile.encoding=UTF-8"
         # Start-Process keeps native stderr from becoming a terminating
         # PowerShell error, so failed B4JBuilder diagnostics are still saved.
         $builderProc = Start-Process -FilePath $Builder -ArgumentList @("-Task=Build") -WorkingDirectory $ProjectRoot `
@@ -70,7 +72,7 @@ if ($buildExit -ne 0 -or -not (Test-Path -LiteralPath $jar)) {
 
 $started = Get-Date
 $objectsDir = Join-Path $ProjectRoot "Objects"
-$proc = Start-Process -FilePath $Java -ArgumentList @("--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $objectsDir -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
+$proc = Start-Process -FilePath $Java -ArgumentList @("-Dfile.encoding=UTF-8", "--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $objectsDir -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
 $deadline = $started.AddSeconds($TimeoutSec)
 $success = $false
 $failure = ""

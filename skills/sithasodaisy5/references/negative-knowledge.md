@@ -45,6 +45,26 @@ Grounded in: 139 registered `SDUI5*` UI classes + 121 demo files with matching U
 
 ---
 
+### NEG-039 — FieldSet Stray Default "Label"
+
+**Wrong**: An `SDUI5FieldSet` is given a real `Legend` but `Label`/`LabelVisible` are left at defaults (`Label = "Label"`, `LabelVisible = True`), so the rendered fieldset carries a stray `<p class="fieldset-label">Label</p>` that is not part of the design.
+
+**Reality**: `SDUI5FieldSet.Label` defaults to the literal string `"Label"` and `LabelVisible` defaults to `True`. The `Label` is a *secondary* descriptor (distinct from `Legend`); when you only want a legend, the default label still renders.
+
+**Correct**: Set `LabelVisible = False` (or set a meaningful `Label`) whenever a fieldset only needs a `Legend`. Never rely on the default.
+
+---
+
+### NEG-040 — Toggle / Range Labels Hidden by Default
+
+**Wrong**: `SDUI5Toggle` / `SDUI5Range` are given a `Label` but render with no visible label, because `ToggleType` / `RangeType` are left at their default `"normal"`.
+
+**Reality**: `SDUI5Toggle.Label` only renders when `ToggleType` is `legend` / `left-label` / `right-label` (`normal` renders no label). `SDUI5Range.Label` only renders when `RangeType` is `legend` (which also shows the current value); `normal`/`tooltip` render no static label. Defaults are `"normal"` for both.
+
+**Correct**: Set `ToggleType = "left-label"` (or `right-label`/`legend`) and `RangeType = "legend"` when a label is required. Verify the label text actually appears in the rendered DOM.
+
+---
+
 ## 2. Lifecycle Anti-Patterns
 
 ### NEG-006 — Missing `ClearPageView`
@@ -120,6 +140,16 @@ End If
 **Wrong**: Delete button that fires the destructive action on click.  
 **Reality**: One-tap destruction is hostile UX.  
 **Correct**: `app.ShowSwalConfirm(message)` async before executing.
+
+---
+
+### NEG-041 — Grid Row Children Without Column Spans
+
+**Wrong**: Two or more controls are placed in an `SDUI5Row` (which renders `grid grid-cols-12`) and `JustifyContent = "between"` is set, but the children are given no `Classes = "col-span-N"`. They collapse to the left and overlap, because each defaults to a single grid column.
+
+**Reality**: `SDUI5Row` defaults to `GridCols = 12` (`grid-cols-12`). Without explicit `col-span-*` on the children, `justify-between` has no columns to distribute and the items stack in column 1.
+
+**Correct**: Give each child an explicit span (`col-span-6`, `col-span-4`, etc.) so the 12-column grid lays them out. Verify the rendered row shows the buttons separated, not overlapping.
 
 ---
 
@@ -210,6 +240,16 @@ End If
 **Wrong**: Light grey text on white background (`text-base-100` on `bg-base-100`).  
 **Reality**: Insufficient contrast. WCAG fail.  
 **Correct**: Match content to container (`text-base-content` on `bg-base-100`, `text-primary-content` on `bg-primary`).
+
+---
+
+### NEG-038 — Requested Theme Never Activated
+
+**Wrong**: The prompt specifies `Theme: NORD` (or any named theme), but the generated page never calls `app.SetTheme("nord")` and `<html>` ends up with no `data-theme` attribute. daisyUI falls back to its default light theme, so the rendered palette (avatar, controls, surfaces) ignores the requested brand and the app looks like a different product.
+
+**Reality**: `app.SetTheme(s)` is a one-line, synchronous setter on `SDUI5App` that sets `data-theme` on `<html>`. The shipped `daisyuithemes.css` already contains the named themes (e.g. `nord`); they are simply never switched on. Verified in the wild: `grep` for `data-theme`/`nord` in the transpiled `app.js` returns 0 hits even though the CSS ships the theme.
+
+**Correct**: Call `app.SetTheme("<theme>")` in the page's `Show` (after `app = ...App`), using the exact lowercase theme name from the prompt/spec. Verify by checking `<html data-theme="...">` in the rendered DOM or by grepping the transpiled bundle.
 
 ---
 
@@ -319,6 +359,16 @@ BANano.Await(SDUI5StatItem1.AddComponent)
 
 ---
 
+### NEG-042 — Unverified Icon Name on a Button
+
+**Wrong**: A button is given `RightIcon = "save"` (or any icon name) without confirming the icon resolves in the shipped `svg-renderer`/FontAwesome set. The renderer emits `data-src="save"` and, on failure, shows red "Failed to load SVG" text that breaks the CTA; on mobile the broken button can also clip/overlap siblings.
+
+**Reality**: Not every short icon name resolves against the bundled icon set/SVG renderer. The failure is silent at generation time and only surfaces in the rendered DOM.
+
+**Correct**: Use only verified icon names, or remove the icon (`NoRightIcon = True` / `NoLeftIcon = True`, or omit the property) when an icon is not essential. Verify the rendered button has no "Failed to load SVG" text.
+
+---
+
 ## 10. Quick Red Reference Table
 
 | Mistake | Rule violated | Citation |
@@ -338,6 +388,11 @@ BANano.Await(SDUI5StatItem1.AddComponent)
 | Missing `ModuleN=` | NEG-029 | Page silently omitted |
 | Swallow exceptions | NEG-034 | User has no feedback |
 | Mockup-mapped components 1:1 | NEG-036 | Component cargo-culting (DI-12) |
+| Requested theme never activated (`data-theme` missing) | NEG-038 | daisyUI falls back to default light palette |
+| FieldSet stray default "Label" (`LabelVisible` left True) | NEG-039 | Stray `<p class="fieldset-label">Label</p>` |
+| Toggle/Range labels hidden (ToggleType/RangeType = "normal") | NEG-040 | Labels silently dropped |
+| Grid row children without `col-span-*` | NEG-041 | Buttons collapse/overlap in `grid-cols-12` |
+| Unverified icon name on a button | NEG-042 | "Failed to load SVG" breaks the CTA |
 
 ---
 

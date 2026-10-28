@@ -49,14 +49,13 @@ Version=10
 **What**: Custom assets in your app's `Files/` need BOTH `FileN=<filename>` + `FileGroupN=Default Group`. `NumberOfFiles` must match the count.  
 **Why**: Missing `FileGroupN` causes build crash with `ResourcesNotFoundException`.
 
-### RULE-SETUP-005 — L2 — One Module Per Page
-### RULE-SETUP-006 ??? L2 ??? AppName lowercase web domain
+### RULE-SETUP-006 -- L2 -- AppName lowercase web domain
 
 **What**: `Public AppName` in `<AppName>.b4j` MUST be lowercase alphanumeric+hyphens only (`^[a-z0-9-]+$`). No uppercase, spaces, or underscores. The publish folder is `C:\laragon\www`. The app name becomes the subfolder name and URL path segment.
 
 **Why**: Uppercase breaks URL routing on case-sensitive servers/CDNs; spaces break URL encoding. The `verify-conformance.ps1` gate enforces this gate.
 
-### RULE-SETUP-005 ??? L2 ??? One Module Per Page
+### RULE-SETUP-005 — L2 — One Module Per Page
 
 **What**: One `pg*.bas` per page. Do not combine pages into a single mega-module.  
 **Why**: Easier navigation, easier wire-up, easier debugging.
@@ -286,6 +285,32 @@ Version=10
 
 ---
 
+## 8.1 Encoding & Unprintable Character Prevention Rules
+
+### RULE-ENCODING-001 — L5 — UTF-8 Without BOM Only
+
+**What**: All `.bas`, `.b4j`, `.json`, and `.md` files MUST be encoded as strictly UTF-8 **WITHOUT BOM** (Byte Order Mark `0xEF 0xBB 0xBF`).  
+**Why**: A UTF-8 BOM on Line 1 corrupts B4J compiler header parsing (`B4J=true` fails to match), causing hard compilation crashes.  
+**Enforcement**: `pre-scan.ps1` checks raw file byte headers. Violation → exit 1.
+
+### RULE-ENCODING-002 — L5 — Zero Mojibake or Replacement Characters
+
+**What**: Source code and skills must NEVER contain replacement characters (`\ufffd`), consecutive question marks (`???`), or mojibake sequences (`â€”`, `â†‘`, `Ã©`).  
+**Why**: Mojibake results from reading UTF-8 through Windows-1252 ANSI codepages. BANano transpiles this corruption directly into live client `app.js`.  
+**Enforcement**: `pre-scan.ps1` scans for mojibake byte patterns. Violation → exit 1.
+
+### RULE-ENCODING-003 — L5 — Pure ASCII in Code & String Literals
+
+**What**: Never write raw high-Unicode characters (arrows `↑` `→`, em-dashes `—`, smart quotes `“”`, symbols `★` `⌘`, or emojis `🎉` `🔍`) in `.bas` code or string literals.  
+**Allowed alternatives**:
+- Pure ASCII: Use `-` for dashes, `'` for quotes, `...` for ellipses.
+- Standard HTML entities: `&uarr;`, `&darr;`, `&rarr;`, `&mdash;`, `&bull;`, `&#9733;`.
+- Semantic icon properties: `.Icon = "fa-solid fa-arrow-trend-up"`, `.Icon = "fa-solid fa-magnifying-glass"`, `.Icon = "fa-solid fa-star"`.  
+**Why**: Windows Java/BANano transpilers default to Windows-1252. Raw non-ASCII string literals are corrupted into multi-byte unprintable characters in the browser.  
+**Enforcement**: `pre-scan.ps1` validates string literals with `[int]$ch -gt 127`. Violation → exit 1.
+
+---
+
 ## 9. Quick Rule Reference (for the orchestrator's audit trace)
 
 | Rule | Level | Failure mode | Script check |
@@ -294,6 +319,9 @@ Version=10
 | SETUP-002 StaticCode header | L5 | Build crash | `--check-headers` |
 | SETUP-003 ModuleN= wiring | L5 | Silent page omission | `--check-wiring` |
 | SETUP-004 Custom assets | L4 | Build crash | `--check-assets` |
+| ENCODING-001 UTF-8 without BOM | L5 | Compiler header crash | `pre-scan.ps1` |
+| ENCODING-002 No mojibake tokens | L5 | Live runtime corruption | `pre-scan.ps1` |
+| ENCODING-003 Pure ASCII in string literals | L5 | Codepage transpile mojibake | `pre-scan.ps1` |
 | LIFECYCLE-001 ClearPageView first | L4 | Stale views | `--check-lifecycle` |
 | LIFECYCLE-002 UpdateTitle last | L4 | Stale tab title | `--check-lifecycle` |
 | LAYOUT-001 Hierarchy | L4 | Layout collapse | `--check-hierarchy` |
