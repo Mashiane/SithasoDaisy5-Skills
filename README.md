@@ -1,4 +1,4 @@
-# SithasoDaisy5-Skills
+﻿# SithasoDaisy5-Skills
 
 > AI agent skills for building B4J and BANano web applications using SithasoDaisy5 (daisyUI v5 + Tailwind CSS v4).
 
@@ -205,14 +205,14 @@ The suite includes 9 production skills:
 | Skill | Authority | Category | When to Use (Triggers) | Core Objective & Output |
 | :--- | :---: | :---: | :--- | :--- |
 | **sd5-application-planner** | L4 | planning | build app, create web app, plan app, dashboard prompt, app requirements... | Turn a plain-language SithasoDaisy5 app or feature request into a source-grounded plan, page contracts, navigation map, and acceptance checks before implementation. Use for greenfield apps and substantial feature work; it does not invent SDUI5 APIs or backend behavior. |
-| **sd5-code-smells** | L4 | quality | code-smell, quality, refactoring, validation, clean-code... | Detect and remediate code smells from codesmells.org catalog across SithasoDaisy5 skills â€” markdown, B4J code, Python scripts, JSON configs |
+| **sd5-code-smells** | L4 | quality | code-smell, quality, refactoring, validation, clean-code... | Detect and remediate code smells from codesmells.org catalog across SithasoDaisy5 skills — markdown, B4J code, Python scripts, JSON configs |
 | **sd5-feature-engineer** | L4 | implementation | implement feature, build dashboard, add page, compose screen, vertical slice... | Implement a planned SithasoDaisy5 app feature as a traceable B4J/BANano vertical slice. Use after contracts exist; verify every component API and lifecycle call against source-backed references and demos. |
 | **sd5-project-bootstrap** | L4 | scaffolding | new app, new project, scaffold app, bootstrap b4j, banano scaffold... | Create or extend a code-first B4J/BANano web app that uses SithasoDaisy5. Use for project setup, embedded app entry, page module wiring, app shell startup, asset loading, and first-page composition; consult sithasodaisy5 for component APIs and screen design. |
-| **sd5-visual-analysis** | L3 | visual-analysis | screenshot to code, replicate design, mockup to app, wireframe to code, visual forensics... | Design-to-code forensics for SithasoDaisy5. Turns a screenshot, mockup, wireframe, or reference URL into verified B4J/SDUI5 code via the 10-stage visual pipeline â€” function-first extraction (NEVER literal pixel mapping), screen contract, implementation through the orchestrator gates, then capture-and-compare fidelity review. Use when the user provides a design reference to replicate. |
+| **sd5-visual-analysis** | L3 | visual-analysis | screenshot to code, replicate design, mockup to app, wireframe to code, visual forensics... | Design-to-code forensics for SithasoDaisy5. Turns a screenshot, mockup, wireframe, or reference URL into verified B4J/SDUI5 code via the 10-stage visual pipeline — function-first extraction (NEVER literal pixel mapping), screen contract, implementation through the orchestrator gates, then capture-and-compare fidelity review. Use when the user provides a design reference to replicate. |
 | **sd5-web-orchestrator** | L4 | orchestration | orchestrate, release gate, first-time-right, ship app, build full app... | Turn a plain-language request into a complete source-grounded SithasoDaisy5 B4J/BANano app and carry it through planning, implementation, static/build/runtime/visual/regression gates, and an evidence-based delivery decision. Use for greenfield apps, complete features, or release work. |
 | **sd5-web-regression** | L4 | quality | regression, modify existing app, refactor, bug fix, impact analysis... | Assess and verify change impact in an existing SithasoDaisy5 B4J/BANano app. Use for bug fixes, refactors, shared component or route changes, and release readiness; report pre-existing failures separately. |
 | **sd5-web-verify** | L4 | verification | verify app, conformance check, pre-scan, gate, coverage contract... | Quality inspection and conformance gate for SithasoDaisy5 web apps. Pre-scan (L4) catches banned patterns; verify-conformance (L5) enforces the Skill Coverage Contract + lifecycle + wiring. Used by sd5-web-orchestrator Stages 5/6/8. |
-| **sithasodaisy5** | L2 | domain | sithasodaisy5, sdui5, b4j component, banano, daisyui native... | SithasoDaisy5 â€” B4J/BANano component library (daisyUI + Tailwind) transpiled to JS. Use when building web apps/UIs with SithasoDaisy5 components in B4J/BANano, when you need a component's designer properties, events, setters, emitted daisyUI classes, or the app scaffold (SDUI5App), theme system, UsesX lazy-loaders, or the SDUI5Component skeleton contract. Produces B4J `.bas` code that calls the framework; never raw HTML. |
+| **sithasodaisy5** | L2 | domain | sithasodaisy5, sdui5, b4j component, banano, daisyui native... | SithasoDaisy5 — B4J/BANano component library (daisyUI + Tailwind) transpiled to JS. Use when building web apps/UIs with SithasoDaisy5 components in B4J/BANano, when you need a component's designer properties, events, setters, emitted daisyUI classes, or the app scaffold (SDUI5App), theme system, UsesX lazy-loaders, or the SDUI5Component skeleton contract. Produces B4J `.bas` code that calls the framework; never raw HTML. |
 <!-- AUTOGEN_SKILLS_END -->
 
 ### Which Skill to Use When
@@ -226,12 +226,12 @@ The suite includes 9 production skills:
 | **plan web app, feature planning, requirements, architecture** | sd5-application-planner (+ sd5-web-orchestrator for full build) | contract set before code; no contract = no gen | sd5-feature-engineer (no contract yet), bootstrap (plan before shell) |
 | **implement feature, vertical slice, connect screen** | sd5-feature-engineer, sithasodaisy5, sd5-web-verify | slice needs domain + gate | bootstrap (not greenfield), orchestrator (single feature, not release) |
 | **compose UI, screen, form, dashboard, card, modal, DaisyUI web** | sithasodaisy5, sd5-web-verify | domain generation + conformance gate | generic styling skill (platform mismatch; authority 6 loses to 2) |
-| **screenshot to web app, recreate screenshot, mockup to B4J, wireframe to code** | sd5-visual-analysis + sd5-application-planner + sithasodaisy5 + sd5-web-verify; add sd5-project-bootstrap for a new app and sd5-web-regression for an existing app | visual forensics â†’ canonical screen contract â†’ verified BANano/SDUI5 mapping â†’ appropriate app gates | image-to-code workflow (skips contracts, API truth, or existing-app impact) |
+| **screenshot to web app, recreate screenshot, mockup to B4J, wireframe to code** | sd5-visual-analysis + sd5-application-planner + sithasodaisy5 + sd5-web-verify; add sd5-project-bootstrap for a new app and sd5-web-regression for an existing app | visual forensics → canonical screen contract → verified BANano/SDUI5 mapping → appropriate app gates | image-to-code workflow (skips contracts, API truth, or existing-app impact) |
 | **adapt another app's screenshot, use screenshot as inspiration** | sd5-visual-analysis + sd5-application-planner + sithasodaisy5 + sd5-web-verify when implementing | extract structure and hierarchy while preserving the destination app's approved design system | faithful brand copy when the user asked for adaptation |
 | **compare current web app screenshot with target** | sd5-visual-analysis + sd5-web-regression + sithasodaisy5 + sd5-web-verify when changing the app; sd5-web-verify for review only | classify current-state evidence, protect existing behavior, and review the rendered result against the target | treating the current screenshot as the target without user intent |
-| **verify, conformance, invented API, module wiring, before build** | sd5-web-verify | static gate before compile | â€” (gate never skipped; failed gate blocks) |
+| **verify, conformance, invented API, module wiring, before build** | sd5-web-verify | static gate before compile | — (gate never skipped; failed gate blocks) |
 | **release, ship web app, end-to-end, full app, screen contract** | sd5-web-orchestrator + all depends | thin sequencer owns G0-G8 for multi-scope release | single-component shortcut (release requires full gate chain) |
-| **change existing web app, fix, regression, impact** | sd5-web-regression, sd5-web-verify | baseline â†’ impact â†’ targeted + smoke | bootstrap (not greenfield), planner (unless contract changes) |
+| **change existing web app, fix, regression, impact** | sd5-web-regression, sd5-web-verify | baseline → impact → targeted + smoke | bootstrap (not greenfield), planner (unless contract changes) |
 <!-- AUTOGEN_ROUTER_END -->
 
 ---
@@ -277,7 +277,7 @@ SithasoDaisy5-Skills/
     â””â”€â”€ sithasodaisy5/                       # Core DaisyUI/Tailwind component composition skill
         â”œâ”€â”€ SKILL.md                         # Master component orchestrator
         â”œâ”€â”€ components/                      # 160 reference guides for SDUI5* UI and support modules
-        â””â”€â”€ references/                      # 20 Architecture, Token, and Doctrine references
+        â””â”€â”€ references/                      # 24 Architecture, Token, and Doctrine references
 ```
 
 ---
@@ -304,14 +304,21 @@ All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
 ### [0.8.5] — 2026-10-30
 
 #### Added
-- **Layout Mechanics & State Recipes**:
-  - Added `skills/sithasodaisy5/references/layout-mechanics.md` covering grid, flex, hierarchy, and nested container mechanics.
-  - Added `skills/sithasodaisy5/references/state-recipes.md` documenting verified patterns for UI state, modal lifecycles, and reactive views.
+- **Layout Mechanics & Hierarchy Reference**:
+  - Added skills/sithasodaisy5/references/layout-mechanics.md: Comprehensive doctrine on grid systems (SDUI5Row / SDUI5Column), flex distribution, auto margins, nested container nesting rules, spacing scales, and alignment mechanics.
+- **BANano UI State Recipes**:
+  - Added skills/sithasodaisy5/references/state-recipes.md: Documented and verified implementation patterns for UI loading spinners, alert triggers, drawer toggle mechanisms, modal lifecycles, active tab indicators, and reactive data table binding.
 - **Orchestration Pipeline Automation**:
-  - Added `skills/sd5-web-orchestrator/scripts/run-pipeline.ps1` for end-to-end execution of G0 through G8 delivery gates.
-- **Build & Verification Refinements**:
-  - Enhanced `build-banano-app.ps1` with strict ASCII/UTF-8 safety for Windows PowerShell 5.1 and B4JBuilder compatibility.
-  - Hardened headless browser screenshot capture in `browser_capture.js`.
+  - Added skills/sd5-web-orchestrator/scripts/run-pipeline.ps1: Single-command runner executing G0 through G8 delivery gates with release evidence collection.
+
+#### Changed
+- **Build Engine & Host Environment Hardening**:
+  - ASCII-fied and hardened skills/sd5-web-verify/scripts/build-banano-app.ps1 to prevent Windows-1252 parsing failures on non-UTF8 PowerShell 5.1 hosts during B4JBuilder smoke testing.
+  - Standardized local web server endpoints and live build-watch configurations across all skills and golden applications to Laragon default port 80.
+  - Hardened headless browser rendering and screenshot capture in skills/sd5-web-verify/scripts/browser_capture.js.
+- **Documentation & Inventory Metrics**:
+  - Synchronized repository layout with 24 active doctrine and reference guides.
+  - Aligned package version across all 9 production skills in skills-registry.json and marketplace manifests.
 
 ### [0.8.4] â€” 2026-10-28
 
@@ -446,6 +453,7 @@ All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
 * **Repository**: [https://github.com/Mashiane/SithasoDaisy5-Skills](https://github.com/Mashiane/SithasoDaisy5-Skills)
 * **Parent Framework**: [SithasoDaisy5](https://github.com/Mashiane/SithasoDaisy5)
 * **License**: [MIT License](LICENSE)
+
 
 
 
