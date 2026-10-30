@@ -41,8 +41,14 @@ description: Per-page contract template. Filled in Stage 0 of the orchestrator w
 - **Signature move**: <one restrained, repeatable visual detail specific to this product>
 - **Hierarchy**: <page title, key content, primary action, supporting information>
 - **Density**: Hero | Comfortable | High (DI-6)
-- **Theme**: `app.THEME_<X>` (picked in Stage 3)
-- **Primary CTA color**: `primary` | custom override via theme CSS vars
+- **3 Design Dials Calibration** (from `design-craft-guide.md`):
+  - **Visual Density Dial [1-10]**: <e.g. 8 (Compact) | 5 (Balanced) | 2 (Spacious)> -> dictates padding/gap rhythm (`p-3 gap-3` vs `p-6 gap-6` vs `p-8 gap-8`)
+  - **Design Variance Dial [1-10]**: <e.g. 8 (Expressive Bento) | 5 (Modern split) | 2 (Formal symmetrical)> -> dictates layout composition & column rhythm
+  - **Motion Intensity Dial [1-10]**: <e.g. 7 (Tactile/Physical hover elevation + active click depression) | 2 (Subtle/Restrained)>
+- **Typography System & Google Font**: <e.g. Plus Jakarta Sans (`https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap`) with `tracking-tight font-extrabold` headings>
+- **Theme**: `app.THEME_<X>` (picked in Stage 3) or custom brand theme
+- **Colors**: Semantic tokens (`primary`, etc.) or custom hex colors (`#hex`) — hex colors are fully allowed across `.Color`, `.BackgroundColor`, `.Classes`, and `.Styles`
+- **Primary CTA color**: `primary` | custom hex/brand override
 - **Visual tokens**: <type roles + verified font, spacing rhythm, surface/border/shadow/radius>
 - **Image / icon direction**: <purpose, style, crop, source/licensing, local path, or N/A>
 - **Interaction tone**: <feedback, transitions, motion preference>

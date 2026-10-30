@@ -20,6 +20,14 @@ request → plan/contracts → G0 contract → G1 bootstrap → G2 feature slice
 
 Use [the gate state machine](references/gate-state-machine.md) for entry criteria, outputs, status semantics, and retry limits. Track state in the generated app's `.agent/STATE.md` and append evidence; do not report a later gate as pass when an earlier prerequisite failed.
 
+### Automated Pipeline Runner (Single Command Execution)
+
+To run the entire G0 → G8 gate chain deterministically:
+```powershell
+pwsh -File skills/sd5-web-orchestrator/scripts/run-pipeline.ps1 -AppFolder <AppFolder>
+```
+With `-SkipBuild` (contracts & static scan only) or `-BaseUrl <url>` for custom host ports. Halts on first failure (exit code 1).
+
 ## Procedure
 
 1. **Plan** — Run `sd5-application-planner` on the original prompt. Preserve explicit visual and platform requirements; record sample data and assumptions. A text-only prompt does not need screenshot reconnaissance. Do not ask for details the prompt already gives.

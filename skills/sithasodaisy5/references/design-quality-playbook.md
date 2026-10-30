@@ -41,7 +41,7 @@ If the user supplied an image, brand guide, or URL, use it as design evidence an
 Choose tokens once and assign each a role. Use the selected daisyUI theme as a palette foundation, not as a complete design. Define and verify the actual screen's:
 
 - **Type**: a small hierarchy with a clear display/page heading, section heading, body, label, and metadata role. Verify the font is loaded and that labels remain readable at the contracted viewport and zoom.
-- **Color**: page canvas, raised surface, primary text, muted text, primary action, and semantic success/warning/error roles. Use one dominant accent; don't color unrelated cards just to make them “pop.”
+- **Color**: page canvas, raised surface, primary text, muted text, primary action, and semantic success/warning/error roles. Use one dominant accent; don't color unrelated cards just to make them “pop.” Semantic tokens (`primary`, `base-100`, etc.) ensure theme adaptivity, but **hex colors (`#hex`) are fully supported and never banned** for brand palettes, charts, and precision styling.
 - **Space and grid**: one spacing rhythm, shared alignment edges, intentional content width, and different density only where the task requires it.
 - **Surfaces**: decide where a border, background, divider, or card communicates a real grouping. Prefer open layout and whitespace for incidental grouping; do not box every section.
 - **Shape and depth**: a consistent radius and shadow policy. Use elevation only when it explains hierarchy or interaction.
@@ -101,3 +101,38 @@ For every 0–2 score, write a specific fix with the screenshot region, expected
 - [Page architectures](page-architectures.md) — practical composition starting points.
 - [UX review](../../sd5-web-orchestrator/references/ux-review.md) — screenshot critique, severity, and revision loop.
 - B4XDaisyUIKit `SKILL.md` and scenario chapters — native component and domain recipes; verify web behavior separately.
+
+
+## 6. Six Canonical Design Exemplar Blueprints
+
+To eliminate formulaic "AI card-slop", study and replicate these six proven architectural archetypes:
+
+### Exemplar 1: Asymmetric Bento Grid (SaaS / Product Showcase)
+- **Composition**: Multi-span mosaic (e.g. 8-column main interactive preview + 4-column feature list, or 5/7 column split).
+- **Surface**: Hairline borders (`border border-base-200/80` or `border-white/10`), frosted glass (`backdrop-blur-md bg-base-100/80`), `rounded-2xl`.
+- **Rhythm**: Varied card heights and internal padding (`p-6` vs `p-8`); one dominant feature card with graphic treatment.
+- **Color**: Canvas in `bg-base-200/30`, single primary CTA button, neutral or ghost secondary actions. Hex brand colors allowed for bespoke accents.
+
+### Exemplar 2: High-Density Command Center (FinTech / Operations)
+- **Composition**: 4-card metric KPI row with mini sparklines or trend pills (`+14.2%`), followed by an asymmetric 8/4 split with a real-time activity table.
+- **Typography**: Tabular numbers (`font-mono`), tight tracking (`tracking-tight`), uppercase kicker labels (`text-xs font-semibold uppercase tracking-widest text-base-content/60`).
+- **Density**: Dial 8-10 (`p-3 sm:p-4`, `gap-3 sm:gap-4`, `table-xs` or `table-sm`).
+- **Live Indicator**: Breathing pulse dot (`animate-ping`) on live system status.
+
+### Exemplar 3: Editorial Split-Screen (Authentication / Onboarding)
+- **Composition**: 50/50 split on desktop (`col-12 lg:col-6`): Left side is a rich ambient showcase with brand thesis, subtle mesh background, and customer quote; right side is a clean, focused form.
+- **Mobile Adaptation**: On mobile (390px), form comes first; brand/quote collapses below or transforms into a compact header logo.
+- **Controls**: Floating labels, visible focus rings, full-width primary submit button, social auth buttons in `neutral` or `outline`.
+
+### Exemplar 4: Immersive Media Player & Studio
+- **Composition**: Dark canvas with subtle ambient backdrops (`bg-base-300`), floating glassmorphic playback controls, and crisp high-res album/media art.
+- **Surface**: Translucent controls with `backdrop-blur-lg bg-black/40 border border-white/10`.
+- **Micro-Interactions**: Smooth slider response, active track highlight, and tactile button feedback (`active:scale-95`).
+
+### Exemplar 5: E-Commerce Product Studio
+- **Composition**: Sticky left gallery with thumbnail carousel and full-bleed hero photo; right column holds product title (`text-3xl font-extrabold tracking-tight`), star rating badge, size/variant selector chips, and stock status pill.
+- **Mobile Adaptation**: Sticky bottom bar on mobile containing the Price and "Add to Cart" CTA so purchase action is always within the thumb zone.
+
+### Exemplar 6: Dense Data Explorer & Master-Detail
+- **Composition**: Persistent master list with instant search and filter chips on left; rich detail view with tabbed inspection panels on right.
+- **States**: Complete coverage of Loading skeleton (`SDUI5Skeleton`), Empty state illustration (`SDUI5Empty` with icon, title, copy, CTA), and Error state with retry action.

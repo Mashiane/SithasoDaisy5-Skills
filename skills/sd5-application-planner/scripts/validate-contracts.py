@@ -47,6 +47,8 @@ def main() -> int:
         if not sid: errors.append(f"Screen file has no SCREEN-* ID: {p.relative_to(root)}")
         if len(owners) != 1: errors.append(f"Screen must name exactly one feature owner: {p.relative_to(root)}")
         elif owners.isdisjoint(feature_ids): errors.append(f"Screen owner has no feature definition: {p.relative_to(root)}")
+        has_design = bool(re.search(r"\b(?:Visual thesis|Design Direction|Creative Brief|Density|Theme)\b", body, re.IGNORECASE))
+        if not has_design: errors.append(f"Screen contract missing Design Direction / Visual Thesis: {p.relative_to(root)}")
     declared_screens = {m for p in screens for m in re.findall(r"\bSCREEN-\d{3,}\b", p.read_text(encoding="utf-8-sig"))}
     for sid in sorted(set(re.findall(r"\bSCREEN-\d{3,}\b", nav)) - declared_screens): errors.append(f"Navigation references undefined screen: {sid}")
     open_ids = set(re.findall(r"\bOPEN-\d{3,}\b", app))

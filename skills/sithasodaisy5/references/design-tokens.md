@@ -7,6 +7,8 @@ description: SithasoDaisy5 design token vocabulary — common semantic colors, s
 
 The vocabulary of common values for `SDUI5*` properties. Prefer semantic theme tokens for ordinary UI colors, but treat every color property as component-specific: inspect its Designer Properties list and source behavior before choosing a value. A property called `Color` is not a universal API contract.
 
+> **Hex Colors Policy**: Hex colors (`#hex`, `#RRGGBB`) are **fully supported and allowed across all components**. They are converted cleanly by `UIShared.FixColor` into Tailwind arbitrary classes (e.g. `bg-[#1e293b]`, `text-[#3b82f6]`), inline `.Styles`, or component color properties. While semantic tokens (`primary`, `secondary`, `accent`, etc.) remain recommended when multi-theme switching is desired, hex colors are completely valid and never banned when implementing custom brand palettes, data visualization charts, or bespoke art direction.
+
 ---
 
 ## 1. Color Tokens (Semantic)

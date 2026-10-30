@@ -187,9 +187,7 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
             })()`,
             returnByValue: true
         });
-        if (childRes?.result?.result?.value) {
-            console.log('CONTAINER_CHILDREN:', JSON.stringify(childRes.result.result.value));
-        }
+
 
         const layoutRes = await send('Runtime.evaluate', {
             expression: `(() => {

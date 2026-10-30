@@ -14,11 +14,10 @@
                                     BANano.Await(app.ClearPageView) and
                                     pgIndex.UpdateTitle(...).
       4. Grid sizing              - SizeMd + SizeSm <= 12 per column (WARN only).
-      5. .Color setter contract   - .Color takes semantic tokens only; hex in
-                                    .Color fails. Hex is legal via .Classes
-                                    (incl. arbitrary values), .Styles, component
-                                    CSS-string color props, theme palettes
-                                    (design-tokens.md §1.1 Color Channels).
+      5. .Color value policy      - Semantic tokens preferred for theme
+                                    switching; hex colors are allowed and supported
+                                    across .Color, .Classes (Tailwind arbitrary),
+                                    .Styles, and component color props (WARN only).
       6. State coverage (WARN)    - data-driven pages (fetch/SetItems heuristic)
                                     should reference Empty + Error + Loading
                                     components. Hard review happens at Stage 9

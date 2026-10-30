@@ -26,14 +26,16 @@ pwsh -File <skill>/scripts/pre-scan.ps1 -AppFolder <AppFolder>
 ```
 
 **Bans** (L4 = hard fail):
-- Hex colors in `.Color = "#..."`
-- Tailwind arbitrary hex (`bg-[#FF6B35]`)
 - Raw HTML tags (`<html>`, `<div>`, `<button>`, ...) — B4J shouldn't emit raw HTML
 - Inline `<style>` blocks
-- Numeric pixel dimensions on `.Width` / `.Height`
+- Numeric pixel dimensions on `.Width` / `.Height` (use semantic or Tailwind sizing like `"full"`, `"screen"`, `"64"`)
 - Missing `pgIndex.UpdateTitle(...)` before `End Sub`
 
-**Warnings** (L1-L3 = advisory):
+**Allowed with Advisory (L1-L3 = advisory warning, not fail)**:
+- Hex colors in `.Color = "#..."` or Tailwind arbitrary hex (`bg-[#FF6B35]`) — hex colors are fully supported for custom brand palettes; semantic tokens (`primary`, `secondary`, etc.) remain preferred when dynamic multi-theme switching is desired.
+- Possibly-invented setters (`setX` where X isn't in the documented allowlist)
+- Raw HTML tags (advisory — confirm they are framework-emitted, not hand-written)
+- Missing `BANano.Await(app.ClearPageView)` in the first statements of `Sub Show`
 - Possibly-invented setters (`setX` where X isn't in the documented allowlist)
 - Raw HTML tags (advisory — confirm they are framework-emitted, not hand-written)
 - Missing `BANano.Await(app.ClearPageView)` in the first statements of `Sub Show`
@@ -59,7 +61,7 @@ pwsh -File <skill>/scripts/verify-conformance.ps1 `
 2. **App uses documented components** — every framework-registered `SDUI5*` class in `pg*.bas` MUST have a `.md` file; external path-qualified `SDUI5*` modules are reported as advisory warnings
 3. **Lifecycle** — every `Sub Show` MUST contain `ClearPageView` and end with `UpdateTitle`
 4. **Grid sizing** — `SizeMd + SizeSm ≤ 12` per column (warn, not fail)
-5. **Hex colors** — no hex in `.Color =` (fail)
+5. **Color policy** — semantic tokens preferred for theme switching; hex colors are allowed and supported (warn, not fail)
 
 **Exit codes**:
 - `0` = PASS

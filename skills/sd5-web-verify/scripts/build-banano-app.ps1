@@ -9,7 +9,7 @@
 #>
 param(
     [Parameter(Mandatory = $true)][string]$ProjectRoot,
-    [int]$TimeoutSec = 240,
+    [int]$TimeoutSec = 420,
     [switch]$SkipCompile,
     [string]$Builder = "C:\Program Files\Anywhere Software\B4J\B4JBuilder.exe",
     [string]$Java = "C:\b4j\java\bin\java.exe",

@@ -62,11 +62,13 @@ from app code unless the framework registry adopts them.
     produce it instead of the agent's own claims.
 11. Output is B4J/BANano code that drives the framework — never raw HTML.
     The framework injects markup from property setters (RULE-ANTI-001).
-12. `.Color` takes semantic tokens only (`primary|secondary|accent|neutral|
-    info|success|warning|error`). Hex/rgb travels only via sanctioned channels:
-    `.Classes` (incl. Tailwind arbitrary values), `.Styles` (inline CSS),
-    component CSS-string color props, custom themes via daisyUI CSS vars +
-    `app.SetTheme` (design-tokens.md §1.1).
+12. Color Channels (design-tokens.md §1.1): Semantic tokens (`primary`,
+    `secondary`, `accent`, `neutral`, `info`, `success`, `warning`, `error`,
+    `base-100`, etc.) are recommended for theme-aware UI. Hex colors (`#hex`)
+    are fully supported and NOT banned — they are valid across `.Color`,
+    `.BackgroundColor`, `.TextColor`, `.BorderColor`, `.Classes` (Tailwind
+    arbitrary values like `bg-[#1a2b3c]`), `.Styles`, and component color props
+    for brand identity and custom art direction.
 13. Lifecycle (RULE-LIFECYCLE-001/002): every `Sub Show` starts with
     `BANano.Await(app.ClearPageView)` and ends with `pgIndex.UpdateTitle(...)`.
 14. Demonstrated status (RULE-MOUNT-003): prefer components classified ✅

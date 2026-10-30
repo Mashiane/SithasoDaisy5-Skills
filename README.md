@@ -1,9 +1,9 @@
-﻿# SithasoDaisy5-Skills
+# SithasoDaisy5-Skills
 
 > AI agent skills for building B4J and BANano web applications using SithasoDaisy5 (daisyUI v5 + Tailwind CSS v4).
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-SithasoDaisy5-007ACC?style=flat&logo=b4x)](https://www.b4x.com/android/forum/threads/web-sithasodaisy5-create-websites-webapps-with-the-power-of-the-abstract-designer-opensource.165095/#content)
-[![GitHub Release](https://img.shields.io/badge/Release-v0.8.4-blue.svg)](https://github.com/Mashiane/SithasoDaisy5-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v0.8.5-blue.svg)](https://github.com/Mashiane/SithasoDaisy5-Skills/releases)
 [![Skills Suite](https://img.shields.io/badge/Skills-9_Modules-purple.svg)](#available-skills)
 [![Components](https://img.shields.io/badge/Components-160_Classes-brightgreen.svg)](https://github.com/Mashiane/SithasoDaisy5)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -15,7 +15,7 @@
 When you ask AI coding assistants (Claude, GitHub Copilot, ChatGPT, Cursor, OpenCode, etc.) to build web apps in B4J using SithasoDaisy5, they often struggle:
 - They try to output raw HTML (`<div>`, `<button>`), JSX, or CSS styles directly in B4J strings.
 - They invent methods, properties, or event names that don't exist in the library.
-- They output raw hex colors (`#1e293b`) instead of daisyUI semantic color tokens (`primary`, `secondary`, `accent`, etc.).
+- They misuse color channels or invent CSS properties instead of leveraging DaisyUI semantic tokens and supported color channels.
 - They miss essential BANano lifecycle requirements like `app.ClearPageView` or `pgIndex.UpdateTitle`.
 
 **SithasoDaisy5-Skills** solves this. It equips your AI assistant with verified reference data extracted directly from the SithasoDaisy5 library source codeâ€”covering all **160 UI and support components**, proven page layouts, and the exact rules needed to write working B4J web apps.
@@ -239,7 +239,7 @@ The suite includes 9 production skills:
 ## Core Rules & Coding Conventions
 
 1. **No Raw HTML**: Always instantiate `SDUI5*` components in B4J. BANano handles transpilation into browser HTML and JavaScript. Never concatenate HTML strings.
-2. **Semantic Color Tokens**: Pass semantic tokens (`primary`, `secondary`, `accent`, `neutral`, `info`, `success`, `warning`, `error`) into `.Color` and `.BackgroundColor`. If you need custom hex or CSS colors, set them via `.Classes` or `.Styles`.
+2. **Color Tokens & Hex Support**: Use semantic tokens (`primary`, `secondary`, `accent`, `neutral`, `info`, `success`, `warning`, `error`) for theme-adaptive elements. Hex colors (`#hex`) are fully supported across `.Color`, `.BackgroundColor`, `.TextColor`, `.BorderColor`, `.Classes` (e.g. `bg-[#1e293b]`), and `.Styles` for custom brand palettes, data charts, and bespoke art direction.
 3. **Override Fixed Widths in Columns**: When mounting a card inside a column (`SDUI5Column`), always set `.Width = "full"`. By default, designer cards default to fixed widths (`Width = "96"`) which will break responsive grids if not overridden.
 4. **Pair Parent Containers with Child Items**: Always pair layout containers with their designated child classes:
    - `SDUI5Stat` â†’ `SDUI5StatItem`
@@ -300,6 +300,18 @@ SithasoDaisy5-Skills/
 ## Changelog
 
 All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
+
+### [0.8.5] — 2026-10-30
+
+#### Added
+- **Layout Mechanics & State Recipes**:
+  - Added `skills/sithasodaisy5/references/layout-mechanics.md` covering grid, flex, hierarchy, and nested container mechanics.
+  - Added `skills/sithasodaisy5/references/state-recipes.md` documenting verified patterns for UI state, modal lifecycles, and reactive views.
+- **Orchestration Pipeline Automation**:
+  - Added `skills/sd5-web-orchestrator/scripts/run-pipeline.ps1` for end-to-end execution of G0 through G8 delivery gates.
+- **Build & Verification Refinements**:
+  - Enhanced `build-banano-app.ps1` with strict ASCII/UTF-8 safety for Windows PowerShell 5.1 and B4JBuilder compatibility.
+  - Hardened headless browser screenshot capture in `browser_capture.js`.
 
 ### [0.8.4] â€” 2026-10-28
 
@@ -434,6 +446,7 @@ All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
 * **Repository**: [https://github.com/Mashiane/SithasoDaisy5-Skills](https://github.com/Mashiane/SithasoDaisy5-Skills)
 * **Parent Framework**: [SithasoDaisy5](https://github.com/Mashiane/SithasoDaisy5)
 * **License**: [MIT License](LICENSE)
+
 
 
 
