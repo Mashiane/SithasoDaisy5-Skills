@@ -3,7 +3,7 @@
 > AI agent skills for building B4J and BANano web applications using SithasoDaisy5 (daisyUI v5 + Tailwind CSS v4).
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-SithasoDaisy5-007ACC?style=flat&logo=b4x)](https://www.b4x.com/android/forum/threads/web-sithasodaisy5-create-websites-webapps-with-the-power-of-the-abstract-designer-opensource.165095/#content)
-[![GitHub Release](https://img.shields.io/badge/Release-v0.8.5-blue.svg)](https://github.com/Mashiane/SithasoDaisy5-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v0.85-blue.svg)](https://github.com/Mashiane/SithasoDaisy5-Skills/releases)
 [![Skills Suite](https://img.shields.io/badge/Skills-9_Modules-purple.svg)](#available-skills)
 [![Components](https://img.shields.io/badge/Components-160_Classes-brightgreen.svg)](https://github.com/Mashiane/SithasoDaisy5)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -301,7 +301,7 @@ SithasoDaisy5-Skills/
 
 All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
 
-### [0.8.5] — 2026-10-30
+### [0.85] — 2026-10-30
 
 #### Added
 - **Layout Mechanics & Hierarchy Reference**:
@@ -453,6 +453,7 @@ All notable changes to the **SithasoDaisy5-Skills** suite are documented below.
 * **Repository**: [https://github.com/Mashiane/SithasoDaisy5-Skills](https://github.com/Mashiane/SithasoDaisy5-Skills)
 * **Parent Framework**: [SithasoDaisy5](https://github.com/Mashiane/SithasoDaisy5)
 * **License**: [MIT License](LICENSE)
+
 
 
 

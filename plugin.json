@@ -1,7 +1,7 @@
 ﻿{
     "name":  "sithasodaisy5-skills",
     "description":  "SithasoDaisy5 skills — turn plain-language prompts into source-grounded B4J/BANano apps using verified components, project bootstrapping, contracts, build/runtime checks, and visual review.",
-    "version":  "0.8.5",
+    "version":  "0.85",
     "author":  "SithasoDaisy5 Team",
     "skills":  [
                    "sd5-project-bootstrap",
