@@ -77,6 +77,16 @@ from app code unless the framework registry adopts them.
 15. Forms, validation behavior, keyboard traversal, and IME behavior are out
     of scope unless the user explicitly reopens them. No form/keyboard gate
     may be invented from the Android suite's IME tooling.
+16. Property-First Law & Strict `.Classes` Boundary (RULE-PROP-001): Dedicated
+    component properties must be used for sizing, spacing, positioning, elevation,
+    and layout. Never put static/unprefixed `m-`, `p-`, `w-`, `h-`, `shadow-`,
+    `rounded-`, `relative`, or `absolute` utilities into `.Classes`. Never call
+    capitalized `Set*` methods on designer properties (e.g. `SetPosition`,
+    `SetMarginAXYTBLR`); always use property assignment syntax (`.Position = ...`,
+    `.MarginAXYTBLR = ...`). `PositionStyle` and `Position` generate inline HTML
+    `style` attributes via `UI.BuildExStyle`, not `class` attributes. Reserve
+    `.Classes` strictly for responsive overrides (`md:...`), animations, transitions,
+    and unmanaged utilities.
 
 ## Article III — Artifact Types
 
@@ -181,7 +191,7 @@ appended, prior results never overwritten.
 | **G5** | Browser runtime | App loads; content/title/theme/resources verified via build-watch (no browser = open) |
 | **G6** | UX/accessibility | Rendered screenshots reviewed (ux-review.md); hierarchy, fit, contrast, labels judged by a human |
 | **G7** | Regression | Impact-scoped acceptance + smoke checks; `.agent/REGRESSION.md` separates new/fixed/pre-existing failures |
-| **G8** | Delivery evidence | Hardening PASS on published output + app path, run instructions, screenshots, gate logs, limitations, per-gate pass/open/blocked status |
+| **G8** | Delivery evidence | Hardening PASS on published output + `check-delivery.ps1` exits 0 against `.agent/DELIVERY.json` (G0-G8 all PASS, digest current); app path, run instructions, screenshots, gate logs, limitations recorded |
 
 Scope/skill/evidence/remediation wiring: `skills/sd5-web-orchestrator/references/gate-state-machine.md`
 is normative for entry criteria, outputs, status semantics, retry limits,
@@ -219,3 +229,12 @@ retroactively reinterpret gates already closed under a prior version.
 Adoption log: v1.0 (2026-10-11) — adapted from Android constitution v1.0;
 Articles II/IV/V/VI/VIII rewritten for B4J/BANano, registry manifest,
 color channels, lifecycle, and deferred form/IME scope.
+
+## Article XII — Evidence over Assertion
+
+A delivery claim requires an artifact produced by deterministic tooling, addressable
+and reproducible. For this system that artifact is `.agent/DELIVERY.json`, written only
+by `run-pipeline.ps1` and read only by `check-delivery.ps1`; the gate exits 0 only when
+G0-G8 are all `PASS` against the current source digest. A prose summary, a console
+scorecard, screenshots without a gate row, or model confidence does not satisfy it.
+Assertion without artifact is a defect, not an opinion.

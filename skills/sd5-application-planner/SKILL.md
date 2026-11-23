@@ -8,31 +8,30 @@ metadata:
 
 # SithasoDaisy5 Application Planner
 
-Translate the user's request into an implementable, traceable application contract. This skill owns requirements, assumptions, feature and page scope, navigation, and acceptance criteria. It does not implement the app.
+Turn the request into an implementable, traceable contract. It owns requirements, assumptions, scope, navigation, and acceptance criteria. It does not implement the app.
 
-For complete delivery, hand the approved artifacts to `sd5-web-orchestrator`. For screenshot-led requests, use `sd5-visual-analysis` for visual evidence and incorporate its findings without treating inferred interactions as requirements.
+Hand approved artifacts to `sd5-web-orchestrator`. For screenshot-led requests, use `sd5-visual-analysis`; treat its findings as evidence, not requirements.
 
 ## Work from the request
 
-1. Preserve the user's requested outcome, framework, target devices, visual direction, and explicit exclusions.
-2. Classify consequential details as `REQUIREMENT`, `CONSTRAINT`, `BUSINESS RULE`, `ASSUMPTION`, or `OPEN`. Infer routine copy/data needed for a static demo, but label invented sample data as illustrative. Never invent service endpoints, credentials, database fields, or framework APIs.
-3. Identify actors, user journeys, features, pages, and the smallest useful app shell. Each screen has one owning feature and one primary task. Do not add routes or shell chrome to a single-screen brief without a clear need.
-4. Record data source and behavior boundaries. If the request only describes a static UI, use explicit sample data and say so; do not imply live financial or external data.
-5. Map each critical requirement to at least one acceptance check. Checks should be observable and describe both source/static gates and runtime behavior where possible.
-6. Choose component candidates only after checking `skills/sithasodaisy5/references/component-manifest.md`, the matching `components/<Name>.md`, source, and the closest real demo. Mark documented-only or unverified behavior accurately. Enforce B4X code naming: strip `Raw` prefixes for code properties (`.Content`, `.Steps`, `.Options`, `.Classes`, etc.) and exclude `ReadMe` from all code contracts. **Companion Hierarchy Planning (RULE-LAYOUT-005):** Maintain a strict distinction between structural Parent Containers (`SDUI5Row`, `SDUI5Stat`, `SDUI5Steps`, `SDUI5Timeline`, `SDUI5Tabs`, `SDUI5Menu`, `SDUI5List`, `SDUI5Carousel`, `SDUI5Slider`, `SDUI5Swiper`, `SDUI5Footer`) and Child Leaf Components (`SDUI5Column`, `SDUI5StatItem`, `SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5CarouselItem`, `SDUI5SliderItem`, `SDUI5SwiperSlide`, `SDUI5FooterTitle`). Whenever child leaf components are planned, their mandatory parent container MUST be included in the screen contract component inventory and component hierarchy tree. Child leaf components can never be planned as orphans. **Default Property Setter Alignment (RULE-DEFAULTS-001):** In screen contracts and component inventories, explicitly specify any non-default property values required to fulfill the user prompt. Cross-reference candidate component default values against `skills/sithasodaisy5/references/component-default-setters.md`. Do not rely on framework defaults when the user prompt specifies visual directions, styling (e.g. borderless cards, primary buttons, horizontal stats, full-width inputs), or container sizing overrides (e.g. `.Width = "full"` for cards in columns).
-7. Maintain a shared glossary/ADR practice: update `GLOSSARY.md` and record decisions in `.agent/DECISIONS.md` when terminology or architecture changes.
-8. **Mandatory Visual & Craft Contract**: In `contract/screens/<page-id>.md`, establish the Creative Brief per `skills/sithasodaisy5/references/design-quality-playbook.md` and `skills/sithasodaisy5/references/design-craft-guide.md`:
-   - Visual Thesis & Industry Archetype: Select primary profile (Fintech, B2B SaaS, Command Center, E-Commerce, Healthcare, or Creative Showcase).
-   - The 3 Design Dials (1-10): Declare explicit values for Visual Density (1-10), Design Variance (1-10), and Motion/Interaction Intensity (1-10).
-   - Page Architecture: Prioritize modern archetypes (`ARCH-11` Bento, `ARCH-12` Split Hero, `ARCH-13` Dash Pro, `ARCH-14` Settings Split, `ARCH-15` Product Studio) over legacy models.
-   - Typography Pairing: Declare Google font pairing (e.g. `Plus Jakarta Sans` / `Inter`) and tracking hierarchy (`tracking-tight` on headings, `tracking-widest uppercase` on kickers).
-   - Surface & Elevation Strategy: Declare hairline borders (`border-base-200/80` or `border-white/10`), glassmorphism (`backdrop-blur-md bg-base-100/80`), `rounded-2xl`/`rounded-3xl` radius, and ambient canvas.
-   - Accent Rarity: Declare the single primary action; secondary controls must be `neutral`, `ghost`, or `outline`.
-   - Empty State Strategy: Declare illustrated empty states (icon + copy + CTA) for every dynamic table/list container.
+1. Preserve the outcome, framework, target devices, visual direction, and exclusions.
+2. Classify consequential details as `REQUIREMENT`, `CONSTRAINT`, `BUSINESS RULE`, `ASSUMPTION`, or `OPEN`. Label inferred sample copy/data as illustrative. Never invent endpoints, credentials, database fields, or framework APIs.
+3. Identify actors, journeys, features, pages, and the smallest useful shell. Each screen has one owning feature and one primary task. Do not add routes or chrome without a need.
+4. Record data source and behavior boundaries. A static UI uses explicit sample data; do not imply live external data.
+5. Map each critical requirement to at least one observable acceptance check, covering static gates and runtime behavior where possible.
+6. Select components only after checking the manifest, component file, source, and closest demo.
+   Include the parent container for every child leaf (RULE-LAYOUT-005).
+   Declare every prompt-specific non-default value (RULE-DEFAULTS-001).
+   Strip `Raw*` and `ReadMe` from code contracts; mark documented-only behavior.
+7. Maintain `GLOSSARY.md` and record material decisions in `.agent/DECISIONS.md`.
+8. Record the visual contract in `contract/screens/<page-id>.md`:
+   - **Thesis**: industry archetype and one-sentence direction.
+   - **Dials (1-10)**: density, variance, motion intensity.
+   - **Architecture**: modern archetypes (Bento, split hero, dash pro) over legacy shells.
+   - **Type and surfaces**: font pairing, tracking, border weight, radius, elevation.
+   - **Accent rarity and states**: one primary action; secondary controls neutral/ghost/outline; empty states for every dynamic list/table.
 
-## Required planning artifacts
-
-Create or update these in the target app project before implementation:
+## Required artifacts
 
 ```text
 .agent/PLAN.md
@@ -41,30 +40,40 @@ Create or update these in the target app project before implementation:
 contract/application.md
 contract/navigation.md
 contract/data-contract.md
-contract/domain-model.md            # optional — only when the app persists/exchanges domain entities (see references/domain-model.template.md)
+contract/domain-model.md            # optional - only for persisted/exchanged entities
 contract/business-rules.md
 contract/acceptance-tests.md
 contract/features/<feature-id>.md
 contract/screens/<page-id>.md
 ```
 
-Use [contract-schema.md](references/contract-schema.md) and [application-plan.template.md](references/application-plan.template.md). Per-screen visual/task fields can extend `sd5-web-orchestrator/references/screen-contract.template.md`; don't maintain competing copies of shared rules.
+Use [contract-schema.md](references/contract-schema.md) and [application-plan.template.md](references/application-plan.template.md). Extend `sd5-web-orchestrator/references/screen-contract.template.md` for visual fields; do not maintain competing rule copies.
 
 ## Gate and handoff
 
-Planning is complete when requirements and exclusions are preserved, each screen is parented to one feature, navigation matches the requested journey, component choices have evidence, critical requirements map to acceptance checks, and no implementation-blocking `OPEN` remains. Run `scripts/validate-contracts.py` from this skill before bootstrap. A failing G0 returns to planning; it does not skip or suppress planning.
+Planning is complete when requirements and exclusions are preserved, each screen has one feature, navigation matches the journey, component choices have evidence, critical requirements map to checks, and no implementation-blocking `OPEN` remains.
 
-For low-risk visual ambiguity, state a reversible assumption and proceed. Escalate only a material decision that cannot be inferred and would change the product, data, security, or irreversible behavior. Do not ask questions already answered by the prompt or project context.
+Run `scripts/validate-contracts.py` before bootstrap. A failing G0 returns to planning; it is never skipped. For low-risk visual ambiguity, state a reversible assumption and proceed. Escalate only a material decision that cannot be inferred.
 
 ## Scope boundaries
 
 - Do not modify framework or demo-library source.
-- Form validation, keyboard traversal, and IME behavior are outside the current skills project scope unless the user reopens it.
-- Do not claim an app builds, runs, or passes visual review from contracts or source inspection alone.
+- Form validation, keyboard traversal, and IME behavior are out of scope unless reopened.
+- Do not claim a build, runtime, or visual pass from contracts alone.
+
+## Non-negotiables
+
+- RULE-LAYOUT-005: every child leaf has its designated parent in the inventory.
+- RULE-DEFAULTS-001: prompt-specific values are declared, not left to defaults.
+- No invented APIs or backend behavior.
+
+Full definitions: [rules-enforcer.md](../sithasodaisy5/references/rules-enforcer.md).
 
 ## References
 
 - [Application plan template](references/application-plan.template.md)
 - [Contract schema and traceability](references/contract-schema.md)
+- [ADR template](references/adr-template.md) — how to record decisions and gate exceptions in `.agent/DECISIONS.md`.
+- [Recipe crosswalk](../sithasodaisy5/chapters/ch07-recipes.md) — common page patterns and SDUI5 composition.
 - [Planning evaluations](evals/planning-cases.md)
-- `../sd5-web-orchestrator/SKILL.md` for end-to-end execution.
+- `../sd5-web-orchestrator/SKILL.md` for end-to-end execution

@@ -1,4 +1,4 @@
-﻿{
+{
     "$schema":  "https://json-schema.org/draft/2020-12/schema",
     "description":  "Machine-readable skill registry for SithasoDaisy5-Skills. Authority scale mirrors ENGINEERING-CONSTITUTION.md Art I (0 framework source highest, 6 AI reasoning lowest).",
     "skills":  [
@@ -12,13 +12,12 @@
                        "entry":  "skills/sd5-application-planner/SKILL.md",
                        "id":  "sd5-application-planner",
                        "keywords":  [
-                                        "build app",
-                                        "create web app",
-                                        "plan app",
+                                        "build an app",
+                                        "create a web app",
+                                        "plan a SithasoDaisy5 app",
                                         "dashboard prompt",
                                         "app requirements",
-                                        "screen contracts",
-                                        "plan sithasodaisy5"
+                                        "screen contracts"
                                     ],
                        "name":  "sd5-application-planner",
                        "platforms":  [
@@ -29,11 +28,11 @@
                                       ],
                        "risk":  "safe",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "id":  "sd5-code-smells",
-                       "version":  "0.85",
+                       "version":  "0.92",
                        "entry":  "skills/sd5-code-smells/SKILL.md",
                        "recommends":  [
                                           "sd5-web-verify"
@@ -50,7 +49,7 @@
                                      ],
                        "name":  "sd5-code-smells",
                        "description":  "Detect and remediate code smells from codesmells.org catalog across SithasoDaisy5 skills — markdown, B4J code, Python scripts, JSON configs",
-                       "status":  "experimental",
+                       "status":  "stable",
                        "keywords":  [
                                         "code-smell",
                                         "quality",
@@ -75,12 +74,11 @@
                        "entry":  "skills/sd5-feature-engineer/SKILL.md",
                        "id":  "sd5-feature-engineer",
                        "keywords":  [
-                                        "implement feature",
-                                        "build dashboard",
-                                        "add page",
-                                        "compose screen",
-                                        "vertical slice",
-                                        "sithasodaisy5 feature"
+                                        "implement a feature",
+                                        "build this dashboard",
+                                        "add a page",
+                                        "compose a screen",
+                                        "implement a SithasoDaisy5 feature"
                                     ],
                        "name":  "sd5-feature-engineer",
                        "platforms":  [
@@ -91,7 +89,7 @@
                                       ],
                        "risk":  "code-generation",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  4,
@@ -103,14 +101,12 @@
                        "entry":  "skills/sd5-project-bootstrap/SKILL.md",
                        "id":  "sd5-project-bootstrap",
                        "keywords":  [
-                                        "new app",
-                                        "new project",
-                                        "scaffold app",
-                                        "bootstrap b4j",
-                                        "banano scaffold",
-                                        "pgindex",
-                                        "page module",
-                                        "greenfield app"
+                                        "new SithasoDaisy5 app",
+                                        "B4J BANano scaffold",
+                                        "project bootstrap",
+                                        "add page module",
+                                        "wire pgIndex",
+                                        "app entry point"
                                     ],
                        "name":  "sd5-project-bootstrap",
                        "platforms":  [
@@ -122,7 +118,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  3,
@@ -135,12 +131,13 @@
                        "id":  "sd5-visual-analysis",
                        "keywords":  [
                                         "screenshot to code",
-                                        "replicate design",
+                                        "replicate this design",
+                                        "copy this screen",
                                         "mockup to app",
                                         "wireframe to code",
                                         "visual forensics",
                                         "design reference",
-                                        "rebuild UI"
+                                        "rebuild this UI"
                                     ],
                        "name":  "sd5-visual-analysis",
                        "platforms":  [
@@ -153,7 +150,7 @@
                                       ],
                        "risk":  "safe",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  4,
@@ -170,14 +167,11 @@
                        "entry":  "skills/sd5-web-orchestrator/SKILL.md",
                        "id":  "sd5-web-orchestrator",
                        "keywords":  [
-                                        "orchestrate",
-                                        "release gate",
-                                        "first-time-right",
-                                        "ship app",
-                                        "build full app",
-                                        "end-to-end",
-                                        "screen contract",
-                                        "prompt to app"
+                                        "build a complete app",
+                                        "create app from prompt",
+                                        "end-to-end SithasoDaisy5",
+                                        "ship a screen",
+                                        "release gate"
                                     ],
                        "name":  "sd5-web-orchestrator",
                        "platforms":  [
@@ -188,7 +182,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  4,
@@ -201,12 +195,11 @@
                        "id":  "sd5-web-regression",
                        "keywords":  [
                                         "regression",
-                                        "modify existing app",
+                                        "change existing SithasoDaisy5 app",
                                         "refactor",
                                         "bug fix",
                                         "impact analysis",
-                                        "release regression",
-                                        "change feature"
+                                        "release regression"
                                     ],
                        "name":  "sd5-web-regression",
                        "platforms":  [
@@ -217,7 +210,7 @@
                                       ],
                        "risk":  "safe",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  4,
@@ -225,20 +218,16 @@
                        "depends":  [
                                        "sithasodaisy5"
                                    ],
-                       "description":  "Quality inspection and conformance gate for SithasoDaisy5 web apps. Pre-scan (L4) catches banned patterns; verify-conformance (L5) enforces the Skill Coverage Contract + lifecycle + wiring. Used by sd5-web-orchestrator Stages 5/6/8.",
+                       "description":  "Quality inspection and conformance gate for SithasoDaisy5 web apps. Pre-scan (L4) catches banned patterns; verify-conformance (L5) enforces the Skill Coverage Contract + lifecycle + wiring. Used by sd5-web-orchestrator gates G3/G4/G5/G6/G8.",
                        "entry":  "skills/sd5-web-verify/SKILL.md",
                        "id":  "sd5-web-verify",
                        "keywords":  [
-                                        "verify app",
-                                        "conformance check",
-                                        "pre-scan",
+                                        "verify",
+                                        "scan",
                                         "gate",
-                                        "coverage contract",
-                                        "lifecycle",
-                                        "build watch",
-                                        "capture screens",
-                                        "laragon",
-                                        "localhost"
+                                        "hard gate",
+                                        "conformance",
+                                        "lint"
                                     ],
                        "name":  "sd5-web-verify",
                        "platforms":  [
@@ -249,7 +238,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    },
                    {
                        "authority":  2,
@@ -263,15 +252,13 @@
                        "keywords":  [
                                         "sithasodaisy5",
                                         "sdui5",
+                                        "sdui5 component",
                                         "b4j component",
                                         "banano",
+                                        "b4j web app",
                                         "daisyui native",
-                                        "form",
-                                        "dashboard",
-                                        "navbar",
-                                        "modal",
                                         "component recipe",
-                                        "theme",
+                                        "sd5 theme",
                                         "uses loader"
                                     ],
                        "name":  "sithasodaisy5",
@@ -283,7 +270,7 @@
                                       ],
                        "risk":  "code-generation",
                        "status":  "stable",
-                       "version":  "0.85"
+                       "version":  "0.92"
                    }
                ]
 }

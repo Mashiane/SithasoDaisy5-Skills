@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "sithaso.visual-evidence.v1",
+  "scope": "<one line: the change being verified>",
+  "platform": "web",
+  "sources": [
+    { "path": "../../pgXxx.bas", "sha256": "<64 hex chars from the real file>" }
+  ],
+  "comparison": "existing-system",
+  "requiredChecks": [
+    { "id": "desktop-primary", "kind": "visual" },
+    { "id": "phone-empty", "kind": "visual" },
+    { "id": "save-error", "kind": "interaction" }
+  ],
+  "checks": [
+    {
+      "id": "desktop-primary",
+      "status": "pass",
+      "state": "Populated list, default filters",
+      "environment": { "kind": "browser", "name": "Chromium", "width": 1280, "height": 900 },
+      "observed": "<what you actually saw in the capture>",
+      "artifacts": [
+        { "path": "screens/desktop/pgXxx.png", "kind": "image", "sha256": "<64 hex chars>" }
+      ]
+    },
+    {
+      "id": "phone-empty",
+      "status": "blocked",
+      "state": "Zero records",
+      "environment": { "kind": "browser", "name": "Chromium", "width": 390, "height": 844 },
+      "observed": "<why it could not be verified>",
+      "artifacts": []
+    },
+    {
+      "id": "save-error",
+      "status": "pass",
+      "state": "Server error on save, retry visible",
+      "environment": { "kind": "browser", "name": "Chromium", "width": 1280, "height": 900 },
+      "observed": "<what you actually observed>",
+      "steps": ["Open the edit form", "Submit with the stub failing", "Confirm retry is reachable"],
+      "artifacts": [
+        { "path": "screens/desktop/pgXxx-error.png", "kind": "image", "sha256": "<64 hex chars>" }
+      ]
+    }
+  ],
+  "unresolved": [
+    { "id": "phone-empty", "reason": "<missing fixture or capture environment>" }
+  ]
+}
