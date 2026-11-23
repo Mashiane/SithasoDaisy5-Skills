@@ -9,6 +9,9 @@
     "homepage":  "https://github.com/Mashiane/SithasoDaisy5-Skills",
     "repository":  "https://github.com/Mashiane/SithasoDaisy5-Skills",
     "license":  "MIT",
+    "dependencies":  [
+                         "b4x"
+                     ],
     "keywords":  [
                      "b4j",
                      "banano",

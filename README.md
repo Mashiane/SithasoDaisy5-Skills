@@ -79,6 +79,18 @@ Because **SithasoDaisy5-Skills** is designed to scaffold and build **entire mult
 
 ---
 
+### Foundational Skill Requirement: Jerryk133/b4x-skill
+
+> [!IMPORTANT]
+> **Required Prerequisite Skill: [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)**
+>
+> **SithasoDaisy5-Skills** requires that the foundational **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** is installed.
+>
+> - **Why?** SithasoDaisy5-Skills specialises in the daisyUI v5 web component suite, BANano transpiler lifecycle, and web page architectures in B4J. The [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) provides the core B4X language rules (variable scoping, resumable subs, `Wait For` semantics, `HttpJob`, SQLite queries, and compiler directives).
+> - **Automatic Dependency Resolution:** For **Claude Code**, `b4x` is declared as a package dependency in `plugin.json` and registered in the marketplace. When a user installs `sithasodaisy5-skills`, Claude Code resolves and installs `b4x` from `Jerryk133/b4x-skill` automatically.
+
+---
+
 ### Compatibility Matrix
 
 #### Recommended: Desktop-Based AI Agents (Full Project Automation)
@@ -94,6 +106,15 @@ Because **SithasoDaisy5-Skills** is designed to scaffold and build **entire mult
 | **Aider** | CLI Terminal Pair Programmer | Start with `aider --read .github/copilot-instructions.md` |
 | **Cline & Roo Code** | Autonomous VS Code Agent Extension | Create `.clinerules` with contents of `.github/copilot-instructions.md` |
 | **Continue.dev** | Open-Source IDE Extension | Add instructions to `systemMessage` in Continue Settings |
+| **Claude Code** | Official CLI Plugin Marketplace | Run `/plugin marketplace add Mashiane/SithasoDaisy5-Skills` -> `/plugin install sithasodaisy5-skills` (auto-resolves `b4x`) |
+| **GitHub Copilot** | VS Code / JetBrains / Visual Studio | Copy `.github/copilot-instructions.md`, `skills/`, and `b4x` from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into project |
+| **OpenCode** | Local Terminal Agent (`opencode`) | Copy `skills/` and `b4x` from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into project root; OpenCode auto-detects |
+| **Google Antigravity IDE** | AI Pair Programming IDE | Copy `skills/` and `b4x` from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into `.agents/skills/` |
+| **Cursor** | AI Code Editor | Add `.cursorrules` pointing to `.github/copilot-instructions.md`; copy `skills/` and `b4x` |
+| **Windsurf** | Codeium Cascade Agent | Add `.windsurfrules` pointing to `.github/copilot-instructions.md`; copy `skills/` and `b4x` |
+| **Aider** | CLI Terminal Pair Programmer | Start with `aider --read .github/copilot-instructions.md` (and reference `b4x`) |
+| **Cline & Roo Code** | Autonomous VS Code Agent Extension | Create `.clinerules` with contents of `.github/copilot-instructions.md`; include `b4x` |
+| **Continue.dev** | Open-Source IDE Extension | Add instructions to `systemMessage` in Continue Settings; include `b4x` |
 
 #### Alternative: Web-Based AI Assistants (Snippet & Reference Mode)
 
@@ -111,10 +132,12 @@ Because **SithasoDaisy5-Skills** is designed to scaffold and build **entire mult
    ```bash
    /plugin marketplace add Mashiane/SithasoDaisy5-Skills
    ```
+   *(Optionally, you can also add the upstream B4X marketplace directly: `/plugin marketplace add Jerryk133/b4x-skill`)*
 3. Install the skill suite:
    ```bash
    /plugin install sithasodaisy5-skills@sithasodaisy5-skills
    ```
+   > **Note:** Because `b4x` is declared as a package dependency, installing `sithasodaisy5-skills` automatically resolves and installs the required [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill).
 4. **Test it**: Ask Claude: *"Plan and create a landing page with a hero banner using SithasoDaisy5"*. Claude Code will create the files directly in your folder.
 
 #### 2. GitHub Copilot (VS Code, JetBrains, Visual Studio) — Recommended
@@ -122,16 +145,19 @@ Because **SithasoDaisy5-Skills** is designed to scaffold and build **entire mult
 2. Copy [`.github/copilot-instructions.md`](.github/copilot-instructions.md) into that `.github/` folder.
    > **Why?** Copilot reads this file automatically on every question. It instructs Copilot never to invent HTML tags, always use native `SDUI5*` components, and use semantic daisyUI colors.
 3. Copy the `skills/` folder into your project folder.
+3. Copy the `skills/` folder and the required `b4x` skill from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into your project folder.
 4. **Test it**: Open Copilot Chat in your editor and type:
    > *"@copilot Create an SDUI5Card with an email text box and a primary submit button"*
 
 #### 3. OpenCode (`opencode` CLI & TUI) — Recommended
 1. Copy the `skills/` folder into your project root (or inside `.opencode/skills/`).
+1. Copy the `skills/` folder and the `b4x` skill from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into your project root (or inside `.opencode/skills/`).
 2. Run `opencode` in your terminal. OpenCode discovers the skill files automatically and operates directly on your local project files.
 
 #### 4. Google Antigravity IDE — Recommended
 1. In your project workspace root, create an `.agents/skills` folder if it doesn't already exist.
 2. Copy the folders from `skills/` into `.agents/skills/`.
+2. Copy the folders from `skills/` and `b4x` from [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) into `.agents/skills/`.
 3. Antigravity will index the skills immediately and build components directly into your workspace.
 
 #### 5. Cursor — Recommended
@@ -341,6 +367,7 @@ SithasoDaisy5-Skills/
 
 ## System Requirements & Resources
 
+- **Foundational Agent Skill (Required)**: [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) — Core B4X language standards, resumable subs, variable scope, and async/database handling. Must be installed alongside SithasoDaisy5-Skills.
 - **Host Environment**: Windows 10/11 with B4J v9.x+ (<https://www.b4x.com/b4j.html>).
 - **BANano Transpiler**: Available on the [B4X Forum](https://www.b4x.com/android/forum/threads/web-banano-website-app-pwa-library-with-abstract-designer-support.99740/).
 - **SithasoDaisy5 Library**: `SithasoDaisy5.b4xlib` placed in your B4J Additional Libraries folder.
@@ -351,6 +378,7 @@ SithasoDaisy5-Skills/
 - **Framework Source Code**: [https://github.com/Mashiane/SithasoDaisy5](https://github.com/Mashiane/SithasoDaisy5)
 - **Live Showcase Demo**: [https://sithaso-daisy5.vercel.app](https://sithaso-daisy5.vercel.app)
 - **B4X Community Thread**: [SithasoDaisy5 on B4X Forum](https://www.b4x.com/android/forum/threads/web-sithasodaisy5-create-websites-webapps-with-the-power-of-the-abstract-designer-opensource.165095/#content)
+- **Foundational B4X Skill**: [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)
 - **Native Mobile/Desktop Sibling**: [b4xdaisyuikit-skills](https://github.com/Mashiane/B4XDaisyUIKit-Skills) (for native B4A/B4i/B4J UI, not web)
 
 ---

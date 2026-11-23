@@ -13,6 +13,16 @@
                         "version":  "0.92",
                         "source":  "./",
                         "category":  "developer-tools"
+                    },
+                    {
+                        "name":  "b4x",
+                        "description":  "B4X (B4A/B4J/B4i) development patterns: B4XPages, XUI, SQLite, JSON, resumable subs, runtime permissions, custom views and b4xlib.",
+                        "version":  "1.7.0",
+                        "source":  {
+                                       "source":  "github",
+                                       "repo":  "Jerryk133/b4x-skill"
+                                   },
+                        "category":  "developer-tools"
                     }
                 ]
 }
