@@ -6,7 +6,7 @@ const os = require('os');
 
 const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 
-async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { width: 1440, height: 900 }) {
+async function testApp(url, screenshotPath, timeoutMs = 120000, viewport = { width: 1440, height: 900 }) {
     const port = 9222 + Math.floor(Math.random() * 500);
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-cdp-'));
     
@@ -99,6 +99,9 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
         await send('Page.enable');
         await send('Runtime.enable');
         await send('Console.enable');
+        await send('Page.addScriptToEvaluateOnNewDocument', {
+            source: "window.__ccUnhandledRejections=[];window.addEventListener('unhandledrejection',function(e){var r=e.reason;var t=(r&&(r.stack||r.message))||r;window.__ccUnhandledRejections.push(String(t));});"
+        });
         await send('Emulation.setDeviceMetricsOverride', {
             width: viewport.width,
             height: viewport.height,
@@ -107,11 +110,22 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
         });
         await send('Page.navigate', { url });
 
-        const startTime = Date.now();
         let ready = false;
         let domSummary = null;
+        for (let attempt = 0; attempt < 3; attempt++) {
+            if (attempt > 0) {
+                uncaughtExceptions.length = 0;
+                consoleMessages.length = 0;
+                ready = false;
+                domSummary = null;
+                // A build can still be flushing app.js when the first navigation
+                // starts; bypass the cache so a partial response is not reused.
+                await send('Page.reload', { ignoreCache: true });
+            }
+            const attemptTimeout = attempt === 0 ? Math.min(timeoutMs, 60000) : timeoutMs;
+            const startTime = Date.now();
 
-        while (Date.now() - startTime < timeoutMs) {
+            while (Date.now() - startTime < attemptTimeout) {
             await new Promise(r => setTimeout(r, 400));
             const evalRes = await send('Runtime.evaluate', {
                 expression: `(() => {
@@ -126,7 +140,10 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
                         bodyLength: bodyText.length,
                         bodyText: bodyText.substring(0, 150),
                         elementsCount,
-                        hasHtml
+                        hasHtml,
+                        title: document.title || '',
+                        theme: document.documentElement.getAttribute('data-theme') || '',
+                        pageView: !!(document.getElementById('pageview') || document.getElementById('pageView'))
                     };
                 })()`,
                 returnByValue: true
@@ -135,13 +152,15 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
             const resVal = evalRes?.result?.result?.value || evalRes?.result?.value;
             if (resVal) {
                 domSummary = resVal;
-                if (domSummary.loaderHidden && (domSummary.bodyLength > 0 || domSummary.elementsCount > 20)) {
+                if (domSummary.loaderHidden && domSummary.pageView && (domSummary.bodyLength > 0 || domSummary.elementsCount > 20)) {
                     ready = true;
                     // give it an extra 500ms for images/fonts to paint
                     await new Promise(r => setTimeout(r, 500));
                     break;
                 }
             }
+            }
+            if (domSummary && domSummary.pageView && domSummary.bodyLength > 0) break;
         }
 
         // A fresh BANano page can report its DOM ready before remote CSS
@@ -217,14 +236,28 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
         });
         const controlMetrics = controlsRes?.result?.result?.value || controlsRes?.result?.value || [];
 
-        // Capture screenshot
+        // Capture screenshot. A freshly navigated page can return a blank
+        // compositor frame even after the DOM is ready; take two frames and
+        // keep the larger buffer so visual reviews never record an empty page.
         if (screenshotPath) {
-            const dir = path.dirname(screenshotPath);
-            const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
-            if (shot && shot.result && shot.result.data) {
-                fs.writeFileSync(screenshotPath, Buffer.from(shot.result.data, 'base64'));
+            let best = null;
+            for (let attempt = 0; attempt < 2; attempt++) {
+                const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+                if (shot && shot.result && shot.result.data) {
+                    const buf = Buffer.from(shot.result.data, 'base64');
+                    if (!best || buf.length > best.length) best = buf;
+                }
+                if (attempt === 0) await new Promise(r => setTimeout(r, 700));
             }
+            if (best) fs.writeFileSync(screenshotPath, best);
         }
+
+        let unhandledRejections = [];
+        try {
+            const rejRes = await send('Runtime.evaluate', { expression: 'window.__ccUnhandledRejections || []', returnByValue: true });
+            const rejVal = rejRes?.result?.result?.value || rejRes?.result?.value;
+            if (Array.isArray(rejVal)) unhandledRejections = rejVal;
+        } catch (e) { }
 
         ws.close();
         cleanup();
@@ -238,6 +271,7 @@ async function testApp(url, screenshotPath, timeoutMs = 12000, viewport = { widt
             controlMetrics,
             consoleMessages,
             uncaughtExceptions,
+            unhandledRejections,
             screenshotPath: fs.existsSync(screenshotPath) ? screenshotPath : null
         };
     } catch (e) {
@@ -255,7 +289,7 @@ if (require.main === module) {
     const shot = process.argv[3] || 'screen_test.png';
     const width = Number(process.argv[4] || 1440);
     const height = Number(process.argv[5] || 900);
-    testApp(url, shot, 20000, { width, height }).then(r => console.log(JSON.stringify(r, null, 2)));
+    testApp(url, shot, 120000, { width, height }).then(r => console.log(JSON.stringify(r, null, 2)));
 }
 
 module.exports = { testApp };

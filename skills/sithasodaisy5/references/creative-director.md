@@ -81,22 +81,15 @@ Default to **light** unless the user explicitly wants dark. Use `THEME_CORPORATE
 
 DaisyUI's default primary works for most themes. Override only if:
 
-- The brand has a specific color identity → **author a custom theme**: define the palette with daisyUI CSS vars in the app stylesheet and activate with `app.SetTheme("<custom>")` (see `design-tokens.md` §6). Do NOT inject the brand hex onto each component.
+- The brand has a specific color identity → express it with semantic tokens and accent classes; do **not** author or activate an app theme (RULE-THEME-001). The host owns the theme.
 - Hex for accents/decorative elements only → `.Classes`/`.Styles`/component color props (never `.Color`).
 - You want to use a non-default accent (e.g., emerald in healthcare UI).
 
 **Verify with the theme first**. Most themes are designed with their own color palette; overriding `primary` fights the theme.
 
-### Step C: Apply the theme
+### Step C: Do not apply a theme
 
-```b4j
-Sub BANano_Ready
-    app.Initialize(Me)
-    app.SetTheme(app.THEME_NORD)   ' one line, applies everywhere
-End Sub
-```
-
-Provide a theme-switcher in settings if you want to demonstrate multi-theme support.
+The host page/user supplies `html data-theme=`. Do not call `app.SetTheme` (RULE-THEME-001); verify the app under the host theme instead. Provide a switcher only if the user asks for one.
 
 ---
 

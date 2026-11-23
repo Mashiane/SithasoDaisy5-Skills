@@ -21,7 +21,7 @@ When a web mockup needs expressiveness beyond tokens, use these framework channe
 | Tailwind arbitrary values | `.Classes = "bg-[#FF6B35] text-[12px] shadow-[0_0_20px_rgba(0,0,0,.3)]"` |
 | Gradient surface | `GradientActive` + `Gradient` (8 orientations) + `GradientColor1/2` on `SDUI5BankCard`, `SDUI5BasicLabel`, `SDUI5Container`, `SDUI5NavBar`, `SDUI5Page` |
 | Chart colors / decorative fills | Component CSS-string color props: `SDUI5TrendChart.ShapeColor`, `.AreaColor`, `.ShapeColorX`, etc. |
-| Custom brand theme | daisyUI CSS vars in app stylesheet + `app.SetTheme("<custom>")`; class-based theming via `app.AddTheme` / `app.ApplyTheme` |
+| Brand color identity | Semantic tokens + accent classes; the theme is host-owned and never activated from app code (RULE-THEME-001) |
 | Fonts / global CSS | App stylesheet, or `UI.LoadAssetsOnDemand(key, items)` at app start |
 | Frosted glass | `.Style = "glass"` on `SDUI5Card`, or component-agnostic `glass` modifier |
 
@@ -264,18 +264,15 @@ Add rows as new intents appear; a row here plus a demo beats an invented API (RU
 | `SDUI5Toast` / `SDUI5MDToast` | Toast notification |
 | `SDUI5Swal` | SweetAlert wrapper |
 | `SDUI5FullCalendar` | Calendar with events |
-| `SDUI5Pagination` | Pagination control |
+| `SDUI5AOS` | Animate On Scroll (AOS) controller |
 | `SDUI5OTP` | OTP input |
-| `SDUI5EmojiMart` / `SDUI5EmojiMart1` | Emoji picker |
+| `SDUI5EmojiMart` | Emoji picker |
 | `SDUI5FAIconPicker` | FontAwesome icon picker |
 | `SDUI5Link` | Link button |
 | `SDUI5SVG` | SVG renderer |
 | `SDUI5TextRotate` | Text rotation |
 | `SDUI5Indicator` | Indicator overlay |
-| `SDUI5DockColor` / `SDUI5DockXS` | Dock variants |
 | `SDUI5ExcelReport` | Excel report generator |
-| `SDUI5Pagination` | Pagination |
-| `SDUI5SDUI5RDG` / `SDUI5RDG` | (if exists) Data grid variants |
 | `SDUI5DrawerUser` | Drawer user row |
 | `SDUI5Pivot` | Pivot tab |
 
@@ -345,11 +342,14 @@ Cross-reference of daisyUI 5.7 against the registered SithasoDaisy5 UI surface (
 
 | DaisyUI concept | What it does | Why no SDUI5* equivalent | Workaround |
 |---|---|---|---|
-| **mockup-code** | Box styled like a code editor (terminal chrome) | `SDUI5Code` is for displaying code blocks; it doesn't ship the mockup window chrome (terminal prompt, line numbers). | Build with `SDUI5Window` (mockup-window equivalent) + a `SDUI5Text` inside. |
-| **calendar** | Calendar-style date selection surface | `SDUI5Calendar` source exists but is not registered in `SithasoDaisy5.b4j`; no buildable direct calendar widget is documented. `SDUI5FullCalendar` is a separate event calendar. | Use a registered date component when its interaction matches the request; if a month-grid picker is required, state that no registered direct equivalent is verified. |
-| **pagination** | Page navigation control for a list of results | No standalone pagination component is registered. `SDUI5Table` has table-specific paging behavior, not a generic pagination widget. | Use `SDUI5Table` for tabular data; for other collections, describe and verify a composition before claiming equivalence. |
-| **theme-controller** | A `<input class="theme-controller" value="dark">` that sets the page theme when checked. Pure daisyUI utility — no component behind it. | daisyUI's theme system is class-based on `<html data-theme>`. SithasoDaisy5's theme switching is `app.SetTheme(...)` (a programmatic method, not a UI control). | Build a `SDUI5Select` populated with theme names (from `SDUI5App.THEME_*` constants) and call `app.SetTheme(value)` on `Change`. |
-| **validator** | `class="validator"` on `input`/`select`/`textarea` — shows success/error color based on `pattern`/`required`/etc. | SithasoDaisy5's input validation is per-component (`.Required`, `.Validator`, `IsValid()` methods on `SDUI5TextBox`/etc.) — not a CSS class. | Use the per-component `.Validator` property and show errors via `SDUI5Alert(.Color="error")` or `app.ShowSwalError(...)`. See `component-manifest.md` for the per-component validator methods. |
+| **mockup-code** | Box styled like a code editor (terminal chrome) | `SDUI5Code` displays code blocks; it does not ship mockup terminal window chrome. | Build with `SDUI5Window` (mockup-window equivalent) + `SDUI5Code` or `SDUI5Text` inside. |
+| **calendar** | Calendar-style date selection surface | `SDUI5Calendar` source was experimental and is not registered in `SithasoDaisy5.b4j`. `SDUI5FullCalendar` is the production event calendar. | Use `SDUI5FullCalendar` for events, or `SDUI5DatePickerTimeLine` for date selection. |
+| **pagination** | Page navigation control for a list of results | No standalone standalone pagination component is registered. | `SDUI5Table` and `SDUI5Swiper` have native pagination built-in; for custom join pagination, compose `SDUI5Join` with `SDUI5Button`s. |
+
+> **Note on daisyUI 5 modifiers**:
+> - **`theme-controller`**: Supported directly via `.ThemeController = True` on `SDUI5Toggle`, `SDUI5Radio`, and `SDUI5CheckBox`, emitting daisyUI's native `theme-controller` class.
+> - **`validator`**: Supported directly via `.Validator = True` and `.ValidatorHint = "..."` on `SDUI5TextBox`, `SDUI5TextArea`, `SDUI5Select`, and `SDUI5FileInput`, emitting daisyUI's native `validator` class and attribute.
+> - **`mask`**: Supported directly via `.Mask = "squircle|hexagon|star|circle|heart|..."` on `SDUI5Avatar`, `SDUI5Image`, `SDUI5Rating`, and `UIShared`.
 
 ### Honest reporting rule
 

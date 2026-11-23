@@ -37,29 +37,24 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 _(none declared)_
 
 Wire in parent: `Sub toast_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (4)
-- `setHorizontalPosition(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (3)
+- `setParentID(s As String)` _(public)_
+- `setHorizontalPosition(s As String)` _(public)_
 - `setVerticalPosition(s As String)` _(public)_
-
-## Getters (6)
-- `getHere()` As String _(public)_
-- `getHorizontalPosition()` _(public)_
+## Getters (4)
 - `getID()` As String _(public)_
-- `getParentID()` As String _(public)_
-- `GetProperties()` _(public)_
-- `getVerticalPosition()` _(public)_
-
+- `getHere()` As String _(public)_
+- `getHorizontalPosition()` As String _(public)_
+- `getVerticalPosition()` As String _(public)_
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgToast.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToast.bas) (verified demo):
@@ -72,7 +67,6 @@ SDUI5Toast2.HorizontalPosition = "start"
 SDUI5Toast2.VerticalPosition = "bottom"
 BANano.Await(SDUI5Toast2.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `toast`
 ## Code Example

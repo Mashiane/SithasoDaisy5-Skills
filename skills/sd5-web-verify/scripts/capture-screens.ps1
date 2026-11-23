@@ -97,6 +97,37 @@ function Resolve-HeadlessBrowser {
     return $null
 }
 
+# --- determine capture targets ---
+$pages = @()
+foreach ($p in $Page) {
+    $pages += $p -split ","
+}
+$pages = @($pages | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+if ($pages.Count -eq 0) { $pages = @("") }
+
+# --- Try Playwright First (Multi-Viewport Responsive + A11y + Console Audit) ---
+$pwScript = Join-Path $PSScriptRoot "playwright_test.js"
+$nodeCmd = Get-Command node.exe -ErrorAction SilentlyContinue
+$playwrightAvailable = $false
+if ($nodeCmd) {
+    & node -e "try{require.resolve('playwright');process.exit(0)}catch(e){process.exit(1)}" 2>$null
+    $playwrightAvailable = ($LASTEXITCODE -eq 0)
+}
+if ($nodeCmd -and (Test-Path $pwScript) -and $playwrightAvailable) {
+    Write-Host "Playwright module detected: running responsive multi-viewport UX/UI verification..." -ForegroundColor Cyan
+    $pageArg = ($pages -join ",")
+    $pwArgs = @("`"$pwScript`"", "--url", "`"$BaseUrl`"", "--out", "`"$Out`"")
+    if ($pageArg) { $pwArgs += @("--pages", "`"$pageArg`"") }
+    if ($Label) { $pwArgs += @("--label", "`"$Label`"") }
+
+    $proc = Start-Process -FilePath "node.exe" -ArgumentList $pwArgs -NoNewWindow -PassThru -Wait
+    if ($proc.ExitCode -eq 0 -or (Test-Path (Join-Path $Out "ux-report.json"))) {
+        Write-Host "Playwright UX/UI verification completed successfully." -ForegroundColor Green
+        exit 0
+    }
+    Write-Host "Playwright run returned non-zero. Falling back to direct browser capture..." -ForegroundColor Yellow
+}
+
 $browser = Resolve-HeadlessBrowser
 if (-not $browser) {
     Write-Host ""
@@ -106,14 +137,6 @@ if (-not $browser) {
     Write-Host "Then run the visual UX review pass (references/ux-review.md)." -ForegroundColor Yellow
     exit 0
 }
-
-# --- determine capture targets ---
-$pages = @()
-foreach ($p in $Page) {
-    $pages += $p -split ","
-}
-$pages = @($pages | ForEach-Object { $_.Trim() } | Where-Object { $_ })
-if ($pages.Count -eq 0) { $pages = @("") }
 
 # --- profile dir (separate from a running browser profile) ---
 $profileDir = Join-Path $env:TEMP ("sd5-capture-" + [System.Guid]::NewGuid().ToString("N").Substring(0, 8))
@@ -133,10 +156,10 @@ foreach ($pg in $pages) {
         $errLog = Join-Path $env:TEMP ("sd5-cap-err-" + [System.Guid]::NewGuid().ToString("N") + ".log")
         $args = @(
             "--headless=new", "--disable-gpu", "--force-device-scale-factor=1", "--no-first-run", "--no-default-browser-check",
-            "--user-data-dir=$profileDir",
+            "--user-data-dir=`"$profileDir`"",
             "--window-size=$Width,$Height",
             "--virtual-time-budget=$SettleMs",
-            "--screenshot=$png", $url
+            "--screenshot=`"$png`"", "`"$url`""
         )
         # Start-Process -Wait is required: a GUI subsystem exe returns
         # immediately with `&`, racing the PNG write. -RedirectStandardError

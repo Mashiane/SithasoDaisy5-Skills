@@ -59,76 +59,71 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub steps_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `AddComponent()` _(public)_
-- `AddStep(stepName As String)` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (8)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (26)
-- `setActiveStep(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setDirection(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setLGDirection(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMDDirection(s As String)` _(public)_
-- `setOverflowXAuto(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Clear()` _(public)_
+- `AddStep(stepName As String)` _(public)_
+## Key Setters (25)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setSteps(s As String)` As 'ignoredeadcode _(public)_
+- `setActiveStep(s As String)` As 'ignoredeadcode _(public)_
+- `setTextSize(s As String)` _(public)_
+- `setDirection(s As String)` _(public)_
+- `setLGDirection(s As String)` _(public)_
+- `setMDDirection(s As String)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setRoundedBox(b As Boolean)` _(public)_
-- `setShadow(s As String)` _(public)_
 - `setSMDirection(s As String)` _(public)_
-- `setSteps(s As String)` _(public)_
-- `setStepsColor(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setTextSize(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
 - `setXLDirection(s As String)` _(public)_
-
-## Getters (28)
-- `getActiveStep()` _(public)_
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getDirection()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+- `setStepsColor(s As String)` _(public)_
+- `setOverflowXAuto(b As Boolean)` _(public)_
+## Getters (27)
 - `getID()` As String _(public)_
-- `getLGDirection()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMDDirection()` _(public)_
-- `getOverflowXAuto()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getRoundedBox()` _(public)_
-- `getShadow()` _(public)_
-- `getSMDirection()` _(public)_
-- `getSteps()` _(public)_
-- `getStepsColor()` _(public)_
-- `getStyles()` _(public)_
-- `getTextSize()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-- `getXLDirection()` _(public)_
-
-## Private Methods (2)
-- `ChangeStep(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getSteps()` As String _(public)_
+- `getActiveStep()` As String _(public)_
+- `getTextSize()` As String _(public)_
+- `getDirection()` As String _(public)_
+- `getLGDirection()` As String _(public)_
+- `getMDDirection()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getRoundedBox()` As Boolean _(public)_
+- `getSMDirection()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getXLDirection()` As String _(public)_
+- `getStepsColor()` As String _(public)_
+- `getOverflowXAuto()` As Boolean _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgSteps.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSteps.bas) (verified demo):
@@ -137,7 +132,6 @@ Real syntax from [`pgSteps.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/
 Private SDUI5Steps6 As SDUI5Steps		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `rounded-box`
 ## Code Example

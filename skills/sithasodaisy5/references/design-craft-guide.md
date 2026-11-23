@@ -22,7 +22,7 @@ An amateur screen and an award-winning screen use the same underlying framework 
 | **Background** | Harsh stark white or flat pitch black canvas. | Subtle ambient canvas tones (`bg-base-200/30`); soft radial background glows or delicate mesh gradient accents. |
 | **Color Discipline** | Primary color applied to cards, headings, stats, buttons, badges, and icons simultaneously. | **Accent Rarity & Palette Harmony**: The dominant accent is reserved **strictly once per viewport** for the primary call-to-action. Secondary elements use `"ghost"`, `"outline"`, or `"neutral"`. Semantic tokens are preferred for theme switching, but **hex colors (`#hex`) are fully supported and allowed** for brand-specific styling, custom cards, and data visualization. |
 | **Composition** | Formulaic: Banner -> 3 equal cards in a row -> 4 stats -> giant button. | Asymmetric Bento grids; interactive split-screen heroes; rich KPI cards with trend delta pills (`+14.2%`); interactive simulated product widgets. |
-| **Micro-Interactions** | Static, lifeless elements with zero hover response. | Subtle elevation transitions (`transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/40`); active focus rings; pulsing status dots. |
+| **Micro-Interactions** | Static, lifeless elements with zero hover response. | Subtle elevation transitions (`transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl hover:border-primary/40`); active focus rings; pulsing status dots. |
 | **Assets & Content** | Generic Unsplash cityscape photos; default `"Card Title"` / `"Card Content"` placeholder strings left visible. | Highly relevant, domain-specific imagery; crisp SVG icons; realistic, human-crafted copy and data that tells a believable product story. |
 
 ---
@@ -65,10 +65,10 @@ Controls the dynamic physicality, hover responsiveness, and micro-animation of t
   - *Behaviors*: Instant transitions or subtle opacity fades (`transition-colors duration-150`). No physical translation or movement.
 - **4 - 7 (Tactile / Physical)**:
   - *Context*: Standard web apps, dashboards, interactive admin consoles.
-  - *Behaviors*: Smooth card hover elevation (`hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200`), button click depression (`active:scale-95 transition-transform duration-100`), smooth color transitions on hover.
+  - *Behaviors*: Smooth card hover elevation (`motion-safe:hover:-translate-y-0.5 hover:shadow-lg transition-[transform,box-shadow] duration-200`), button click depression (`motion-safe:active:scale-95 transition-transform duration-100`), smooth color transitions on hover.
 - **8 - 10 (Lively / Animated)**:
   - *Context*: Consumer showcases, onboarding flows, interactive games, live status monitors.
-  - *Behaviors*: Pulsing live operational dots (`animate-ping`), skeleton shimmers (`skeleton` loading states), sliding drawer transitions, floating badges, animated progress rings.
+  - *Behaviors*: Pulsing live operational dots (`motion-safe:animate-ping`), skeleton shimmers (`skeleton` loading states), sliding drawer transitions, floating badges, animated progress rings.
 
 ---
 
@@ -85,7 +85,7 @@ When engineering screens, prioritize design decisions through this strict 10-tie
    - Minimum 8px spacing between adjacent interactive elements to prevent accidental mis-taps.
 3. **Tier 3: Perceived Performance & Loading States**
    - Provide skeleton screens (`SDUI5Skeleton` or `skeleton` class) for initial data fetching instead of empty white containers.
-   - Buttons show immediate active state feedback upon click (`active:scale-95`). Zero cumulative layout shifts (CLS) when data loads.
+   - Buttons show immediate active state feedback upon click (`motion-safe:active:scale-95`). Zero cumulative layout shifts (CLS) when data loads.
 4. **Tier 4: Style Uniformity & Accent Rarity**
    - Enforce Accent Rarity: exactly **one** primary call-to-action per viewport. Secondary actions must be `neutral`, `ghost`, or `outline`.
    - Maintain a uniform corner radius hierarchy throughout the entire application (e.g. `rounded-2xl` for cards, `rounded-xl` for buttons/inputs, `rounded-full` for badges).
@@ -131,7 +131,7 @@ When designing a SithasoDaisy5 web application, align with one of these 6 indust
 - **Signature Elements**:
   - Asymmetric Bento grid layout (8-column primary card + 4-column metric stack).
   - Sticky frosted header with global search shortcut and profile avatar.
-  - Pulsing live operational status indicators (`animate-ping bg-success`).
+  - Pulsing live operational status indicators (`motion-safe:animate-ping bg-success`).
   - Code snippet blocks with copy-to-clipboard buttons and hairline borders.
 - **Anti-Patterns to Avoid**: Giant decorative banners that push data offscreen, center-aligned walls of body text.
 
@@ -150,7 +150,7 @@ When designing a SithasoDaisy5 web application, align with one of these 6 indust
 - **Typography**: Headings: `Outfit` (700) | Body: `Outfit` or `Plus Jakarta Sans` (400/500)
 - **Dial Settings**: Density: 4-5 (Spacious) | Variance: 7-8 (Visual Showcase) | Motion: 6-8 (Engaging)
 - **Signature Elements**:
-  - Product cards with smooth hover lift (`hover:-translate-y-1 hover:shadow-xl`), discount badge overlays, and rating stars.
+  - Product cards with smooth hover lift (`motion-safe:hover:-translate-y-1 hover:shadow-xl`), discount badge overlays, and rating stars.
   - Floating or sticky checkout cart summary bar.
   - High-resolution product showcase with gallery thumbnails and instant size/color selector chips.
 - **Anti-Patterns to Avoid**: Dense tabular layouts resembling Excel spreadsheets, missing product imagery, tiny buy buttons.
@@ -181,7 +181,11 @@ When designing a SithasoDaisy5 web application, align with one of these 6 indust
 
 Web typography establishes 90% of visual character. Never let an app render in the browser's raw system font.
 
+**Local-first.** Ship the font files under `Files/` and reference them as `./assets/<font>.woff2` (or a local `@font-face` stylesheet). A Google Fonts URL is a runtime dependency: use it only when the contract declares that dependency and G5 can reach it. A local font is deterministic and survives offline.
+
 ### A. Recommended Font Pairings
+
+The links below identify the family; do not hotlink them by default.
 
 | Aesthetic Mood | Primary / Headings | Body / UI Elements | Google Fonts Link | Best For |
 | :--- | :--- | :--- | :--- | :--- |
@@ -191,19 +195,19 @@ Web typography establishes 90% of visual character. Never let an app render in t
 
 ### B. How to Wire Custom Fonts in SithasoDaisy5
 
-In `pgIndex.bas` (or app startup), inject the Google Font stylesheet using the framework's asset loader, then declare the font family on the page root:
+Preferred: put the WOFF2 files in `Files/` and load a local stylesheet. BANano publishes `Files/` to `assets/` at build time.
 
 ```b4j
-' In pgIndex.bas: Initialize
-Sub Initialize
-    App.Initialize(Me)
-    ' Load curated modern typography once at app start
-    App.LoadAssetsOnDemand("google-font-jakarta", Array("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"))
-    
-    ' Set pageview with default font and ambient surface
-    App.AddClass("font-['Plus_Jakarta_Sans',sans-serif] bg-base-200/30 text-base-content antialiased min-h-screen")
-    ...
-End Sub
+' pgIndex.bas - local font, no runtime network dependency
+App.LoadAssetsOnDemand("app-font", Array("./assets/app-font.css"))
+App.AddClass("font-['Plus_Jakarta_Sans',sans-serif] bg-base-200/30 text-base-content antialiased min-h-screen")
+```
+
+If the contract explicitly permits a remote font, declare it in the contract and verify it in G5:
+
+```b4j
+' Remote dependency - declare in contract and verify at runtime
+App.LoadAssetsOnDemand("google-font-jakarta", Array("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"))
 ```
 
 ### C. Typographic Ranks & Tracking Classes
@@ -227,6 +231,28 @@ statVal.Classes = "text-3xl md:text-4xl font-extrabold tracking-tight text-base-
 statLabel.Classes = "text-xs font-medium text-base-content/60"
 ```
 
+### D. Fluid Heading Scale (clamp)
+
+Breakpoint steps are fine for body copy but coarse for hero titles: the heading jumps
+between 390px and 1280px. One fluid value removes the jump. Arbitrary values in
+`.Classes` are allowed (pre-scan reports them as advisory only).
+
+```b4j
+' Page / hero title: ~2rem on a phone, ~4rem at 1280px
+title.Classes = "text-[clamp(2rem,5vw,4rem)] font-extrabold tracking-tight leading-[1.05] text-base-content"
+
+' Section heading
+sectionTitle.Classes = "text-[clamp(1.25rem,2.2vw,1.75rem)] font-bold tracking-tight text-base-content"
+```
+
+Rules:
+
+- Use `clamp()` for display and page titles only. Keep body copy, labels, and dense dashboard values on fixed steps so they stay legible and do not resize under the reader.
+- Cap the maximum at or below `4rem` for a 1280px target. Larger values fight the boundary container (`max-w-7xl`) and the zero-horizontal-scroll gate.
+- Do not use fluid type inside a `SDUI5Stat` row. Scaling numbers break column alignment; use fixed steps and tabular figures there.
+- A web reading column wants roughly **65-75ch** for sustained reading. That is a starting point for prose, not a minimum for mobile or for tables.
+- Unconstrained display text has a default ceiling of about **6rem** with tracking no tighter than **-0.04em**. Exceed either only with a stated reason; they are guardrails against a runaway hero, not ceilings on an approved composition.
+
 ---
 
 ## 6. Surface Craft, Elevation & Glassmorphism
@@ -237,7 +263,7 @@ Never emit naked, plain cards. A card should feel like a polished, tactile physi
 
 1. **Tier 1: Subtle Flat Surface with Hairline Border** (Best for High-Density Dashboards)
    ```b4j
-   card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 p-6"
+   card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl shadow-sm hover:shadow-md transition-[transform,box-shadow] duration-200 p-6"
    card.Border = False  ' Disable daisyUI default heavy border
    card.Shadow = "none" ' Let Tailwind classes handle the shadow
    ```
@@ -252,7 +278,17 @@ Never emit naked, plain cards. A card should feel like a polished, tactile physi
    card.Classes = "relative bg-gradient-to-b from-base-100 to-base-200/60 border-2 border-primary/40 rounded-3xl shadow-2xl shadow-primary/10 p-8 overflow-hidden"
    ```
 
-### B. Ambient Canvas Background
+### B. Surface Selection Rule
+
+Materials are not the default. Tier 2 (glass) belongs over content that must remain
+visible, not on every card. Tier 3 (gradient glow) marks one spotlight surface, not each
+section. If removing the material does not remove meaning, remove the material.
+
+**Shadow rule.** Elevation shadows have an offset and a soft blur. A zero-offset colored
+halo is decoration, not depth. A hard offset shadow belongs only to a direction that
+deliberately chose it.
+
+### C. Ambient Canvas Background
 
 Avoid rendering content on pure `#FFFFFF` or `#000000`. Use subtle ambient canvas contrast:
 ```b4j
@@ -275,7 +311,7 @@ The most common mark of an amateur AI app is **color soup**: pink cards next to 
 ' PRIMARY ACTION (One per screen - lg, high contrast, subtle glow)
 btnPrimary.Color = "primary"
 btnPrimary.Size = "lg"
-btnPrimary.Classes = "shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200 rounded-xl font-bold"
+btnPrimary.Classes = "shadow-lg shadow-primary/25 hover:shadow-primary/40 motion-safe:hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 rounded-xl font-bold"
 
 ' SECONDARY ACTION (Subordinated, ghost or outline)
 btnSecondary.Color = "neutral"
@@ -336,7 +372,7 @@ Static components feel like dead wireframes. Add purposeful micro-interactions t
 
 ### A. Card Hover Lift:
 ```b4j
-card.Classes = "transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 cursor-pointer"
+card.Classes = "transition-[transform,box-shadow] duration-300 ease-out motion-safe:hover:-translate-y-1 hover:shadow-xl hover:border-primary/40 cursor-pointer"
 ```
 
 ### B. Pulsing Live Status Dot:
@@ -344,7 +380,7 @@ card.Classes = "transition-all duration-300 ease-out hover:-translate-y-1 hover:
 ' Create a status badge with an active breathing pulse
 statusBadge.Classes = "inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-success/10 text-success border border-success/20"
 ' Prefix with animated dot:
-statusBadge.Text = "<span class='relative flex h-2 w-2'><span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75'></span><span class='relative inline-flex rounded-full h-2 w-2 bg-success'></span></span> Live Operational"
+statusBadge.Text = "<span class='relative flex h-2 w-2'><span class='motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75'></span><span class='relative inline-flex rounded-full h-2 w-2 bg-success'></span></span> Live Operational"
 ```
 
 ### C. Trend Delta Pills for KPI Metrics:
@@ -357,8 +393,44 @@ badgeTrend.Text = "&uarr; 14.8% vs last mo"
 
 ### D. Button Active Depression:
 ```b4j
-btn.Classes = "active:scale-95 transition-transform duration-100"
+btn.Classes = "motion-safe:active:scale-95 transition-transform duration-100"
 ```
+
+### E. Motion Performance and Accessibility
+
+A beautiful screen that stutters is a failed screen, and motion the user did not ask
+for is an accessibility defect.
+
+- **Composite only.** Animate `transform` and `opacity`. `transition-all` also animates
+  `width`, `height`, `margin`, and `top`, which forces layout on every frame. Use
+  `transition-transform` or `transition-[transform,box-shadow]`.
+- **Respect reduced motion.** Prefix every movement with `motion-safe:`
+  (`motion-safe:hover:-translate-y-1`, `motion-safe:active:scale-95`,
+  `motion-safe:animate-ping`). WCAG 2.3.3 applies to animation triggered by interaction.
+- **Never transition layout properties.** If a panel must appear to grow, use transform
+  scale plus opacity rather than animating `width` or `height`.
+- **Shadow and border color are cheap.** Pair them with transform in one transition list
+  instead of reaching for `transition-all`.
+- **Do not hand-add pointer guards.** Tailwind v4 already scopes `hover:` to
+  `@media (hover: hover)`. Reserve `pointer-fine:` for effects that only make sense with
+  a precise pointer (custom cursor, canvas tracking), which a SithasoDaisy5 business app
+  should rarely have. Never build a custom cursor for a form, table, or dashboard.
+- **Verify with the machine gate.** `pre-scan.ps1` reports `SLOP-001` for
+  `transition-all` and `SLOP-002` for unguarded motion.
+- **Frequency gate first.** Met 100+ times a day (tab switch, navigation, scroll) - no
+  custom motion, use the platform default. Tens a day (press, row select) - under
+  150 ms and near-imperceptible. Occasional (dialog, toast) - standard motion. Delight
+  only on a rare first-time moment, never on a repeated task. When unsure, delete the
+  animation.
+- **Data the reader is using never moves for style.** Transitions explain a state
+  change; they do not decorate a table or a metric.
+- **Timing.** Everything that is not gesture-driven stays under 300 ms with a strong
+  ease-out. Never ease-in on an entrance. Exits are faster than entrances and leave the
+  way they came in. Press feedback lands on press-in at 100-150 ms
+  (`motion-safe:active:scale-[0.97]`; `scale-95` is also acceptable).
+- **Reduced motion keeps meaning.** Collapse spatial movement to a cross-fade rather
+  than forcing every animation to near-zero duration; an indiscriminate override can
+  delete state feedback the user needs.
 
 ---
 
@@ -376,7 +448,7 @@ card.Initialize(Me, "cardMetric1", "cardMetric1")
 card.ParentID = col.ID
 card.Border = False
 card.Shadow = "none"
-card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl p-5 hover:shadow-md hover:border-base-300 transition-all duration-200"
+card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl p-5 hover:shadow-md hover:border-base-300 transition-[transform,box-shadow] duration-200"
 BANano.Await(card.AddComponent)
 
 ' 3. Eyebrow Title + Icon
@@ -458,9 +530,9 @@ Before any screen is approved for release (Gate G6), verify every item across th
 - [ ] **12. Spacing Rhythm**: Are grid gaps and card padding calibrated to the declared Visual Density Dial (1-10)?
 
 ### Pillar D: Micro-Interactions & Physicality
-- [ ] **13. Card Elevation Lift**: Do interactive cards lift smoothly on hover (`hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200`)?
-- [ ] **14. Button Click Feedback**: Do action buttons scale down on click (`active:scale-95 transition-transform duration-100`)?
-- [ ] **15. Live Status Indicators**: Do live operational metrics feature an active breathing pulse dot (`animate-ping`)?
+- [ ] **13. Card Elevation Lift**: Do interactive cards lift smoothly on hover (`motion-safe:hover:-translate-y-0.5 hover:shadow-lg transition-[transform,box-shadow] duration-200`)?
+- [ ] **14. Button Click Feedback**: Do action buttons scale down on click (`motion-safe:active:scale-95 transition-transform duration-100`)?
+- [ ] **15. Live Status Indicators**: Do live operational metrics feature an active breathing pulse dot (`motion-safe:animate-ping`)?
 - [ ] **16. Hit Target Safety**: Are all buttons, inputs, and touch targets at least 44x44px with >= 8px separation?
 
 ### Pillar E: Component & Code Discipline

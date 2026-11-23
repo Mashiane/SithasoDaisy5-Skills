@@ -11,6 +11,9 @@ description: SithasoDaisy5 SDUI5Label component reference — designer propertie
 - **Framework Source** *(read-only reference; do not add this `.bas` file to an app that uses the SithasoDaisy5 `.b4xlib`)*: [`SDUI5Label.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5/SDUI5Label.bas)
 - **Demo References** *(a type reference was detected; inspect the page to confirm the component is actually instantiated before treating it as usage evidence)*:
   - [`pgLabel.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgLabel.bas)
+  - [`pgSDUI5RibbonMVVM.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonMVVM.bas)
+  - [`pgSDUI5RibbonWorkspace.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonWorkspace.bas)
+  - [`pgSDUI5RibbonX.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonX.bas)
 <!-- GENERATED_SOURCE_REFERENCES_END -->
 
 ## Core Idea
@@ -63,85 +66,81 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub label_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `AddComponent()` _(public)_
-- `AddOption(iKey As String, iValue As String)` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (10)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (32)
-- `setAttributes(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setColor(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `SetOptionsFromMap(m As Map)` As 'ignoredeadcode _(public)_
+- `SetOptionsFromList(m As List)` _(public)_
+- `Clear()` As 'ignoredeadcode _(public)_
+- `AddOption(iKey As String, iValue As String)` _(public)_
+## Key Setters (29)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setLabelWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setMaxLength(s As String)` As 'ignoredeadcode _(public)_
+- `setMaxValue(s As String)` As 'ignoredeadcode _(public)_
+- `setMinLength(s As String)` As 'ignoredeadcode _(public)_
+- `setMinValue(s As String)` As 'ignoredeadcode _(public)_
+- `setRequired(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setStepValue(s As String)` As 'ignoredeadcode _(public)_
+- `setLabel(s As String)` As 'ignoredeadcode _(public)_
+- `setColor(s As String)` As 'ignoredeadcode _(public)_
 - `setFloatingLabel(b As Boolean)` _(public)_
 - `setInputType(s As String)` _(public)_
-- `setLabel(s As String)` _(public)_
-- `setLabelWidth(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMaxLength(s As String)` _(public)_
-- `setMaxValue(s As String)` _(public)_
-- `setMinLength(s As String)` _(public)_
-- `setMinValue(s As String)` _(public)_
-- `setOptions(s As String)` _(public)_
-- `SetOptionsFromList(m As List)` _(public)_
-- `SetOptionsFromMap(m As Map)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPlaceholder(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setRequired(b As Boolean)` _(public)_
-- `setSize(s As String)` _(public)_
-- `setStepValue(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setSuffix(s As String)` _(public)_
-- `setValidator(b As Boolean)` _(public)_
-- `setValidatorHint(s As String)` _(public)_
+- `setPlaceholder(s As String)` As 'ignoredeadcode _(public)_
+- `setOptions(s As String)` As 'ignoredeadcode _(public)_
+- `setSize(s As String)` As 'ignoredeadcode _(public)_
+- `setSuffix(s As String)` As 'ignoredeadcode _(public)_
+- `setValidator(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setValidatorHint(s As String)` As 'ignoredeadcode _(public)_
 - `setValue(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (32)
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getColor()` _(public)_
-- `getEnabled()` _(public)_
-- `getFloatingLabel()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (31)
 - `getID()` As String _(public)_
-- `getInputType()` _(public)_
-- `getLabel()` _(public)_
-- `getLabelWidth()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMaxLength()` _(public)_
-- `getMaxValue()` _(public)_
-- `getMinLength()` _(public)_
-- `getMinValue()` _(public)_
-- `getOptions()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPlaceholder()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRequired()` _(public)_
-- `getSize()` _(public)_
-- `getStepValue()` _(public)_
-- `getStyles()` _(public)_
-- `getSuffix()` _(public)_
-- `getValidator()` _(public)_
-- `getValidatorHint()` _(public)_
-- `getValue()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getLabelWidth()` As String _(public)_
+- `getMaxLength()` As String _(public)_
+- `getMaxValue()` As String _(public)_
+- `getMinLength()` As String _(public)_
+- `getMinValue()` As String _(public)_
+- `getRequired()` As Boolean _(public)_
+- `getStepValue()` As String _(public)_
+- `getOptions()` As String _(public)_
+- `getLabel()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getFloatingLabel()` As Boolean _(public)_
+- `getInputType()` As String _(public)_
+- `getPlaceholder()` As String _(public)_
+- `getSize()` As String _(public)_
+- `getSuffix()` As String _(public)_
+- `getValidator()` As Boolean _(public)_
+- `getValidatorHint()` As String _(public)_
+- `getValue()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgLabel.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgLabel.bas) (verified demo):
@@ -153,7 +152,6 @@ Private SDUI5Label12 As SDUI5Label		'ignore
 Private SDUI5Label15 As SDUI5Label		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `floating-label`
 ## Code Example

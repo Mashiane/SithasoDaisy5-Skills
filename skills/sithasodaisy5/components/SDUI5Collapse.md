@@ -69,94 +69,89 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub collapse_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (8)
-- `AddComponent()` _(public)_
-- `ClearContent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `HideContent(skey As String)` _(public)_
+## Public Methods (10)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `LinkExisting()` _(public)_
-- `Remove()` _(public)_
-- `ShowContent(skey As String)` _(public)_
-
-## Key Setters (34)
-- `setActive(b As Boolean)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setBorder(b As Boolean)` _(public)_
-- `setBorderColor(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setContent(s As String)` _(public)_
-- `setContentBackgroundColor(s As String)` _(public)_
-- `setContentClass(s As String)` _(public)_
-- `setContentTextColor(s As String)` _(public)_
-- `setContentTextSize(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setGroupName(s As String)` _(public)_
-- `setIcon(s As String)` _(public)_
-- `setIconColor(s As String)` _(public)_
-- `setIconSize(s As String)` _(public)_
-- `setJoinItem(b As Boolean)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setOpenClose(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `LinkExisting()` _(public)_
+- `ClearContent()` _(public)_
+- `HideContent(skey As String)` _(public)_
+- `ShowContent(skey As String)` _(public)_
+## Key Setters (33)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setTitleClass(s As String)` As 'ignoredeadcode _(public)_
+- `setContentClass(s As String)` As 'ignoredeadcode _(public)_
+- `setIcon(s As String)` As 'ignoredeadcode _(public)_
+- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
+- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
+- `setGroupName(s As String)` As 'ignoredeadcode _(public)_
+- `setActive(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setBorderColor(s As String)` _(public)_
+- `setContentBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setContentTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setContentTextSize(s As String)` As 'ignoredeadcode _(public)_
+- `setJoinItem(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setOpenClose(s As String)` _(public)_
+- `setContent(s As String)` As 'ignoredeadcode _(public)_
 - `setRightIcon(s As String)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
 - `setTitle(s As String)` _(public)_
-- `setTitleBackgroundColor(s As String)` _(public)_
-- `setTitleClass(s As String)` _(public)_
-- `setTitleTextColor(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (36)
-- `getActive()` _(public)_
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBorder()` _(public)_
-- `getBorderColor()` _(public)_
-- `getClasses()` _(public)_
-- `getContent()` _(public)_
-- `getContentBackgroundColor()` _(public)_
-- `getContentClass()` _(public)_
-- `getContentTextColor()` _(public)_
-- `getContentTextSize()` _(public)_
-- `getEnabled()` _(public)_
-- `getGroupName()` _(public)_
-- `getHere()` As String _(public)_
-- `getIcon()` _(public)_
-- `getIconColor()` _(public)_
-- `getIconSize()` _(public)_
+- `setTitleBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setTitleTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setBorder(b As Boolean)` _(public)_
+## Getters (35)
 - `getID()` As String _(public)_
-- `getJoinItem()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getOpenClose()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRightIcon()` _(public)_
-- `getRounded()` _(public)_
-- `getShadow()` _(public)_
-- `getStyles()` _(public)_
-- `getTextColor()` _(public)_
-- `getTitle()` _(public)_
-- `getTitleBackgroundColor()` _(public)_
-- `getTitleClass()` _(public)_
-- `getTitleTextColor()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (2)
-- `itemchange(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getTitleClass()` As String _(public)_
+- `getContentClass()` As String _(public)_
+- `getIcon()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getIconSize()` As String _(public)_
+- `getGroupName()` As String _(public)_
+- `getActive()` As Boolean _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getBorderColor()` As String _(public)_
+- `getContentBackgroundColor()` As String _(public)_
+- `getContentTextColor()` As String _(public)_
+- `getContentTextSize()` As String _(public)_
+- `getJoinItem()` As Boolean _(public)_
+- `getOpenClose()` As String _(public)_
+- `getContent()` As String _(public)_
+- `getRightIcon()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getTextColor()` As String _(public)_
+- `getTitle()` As String _(public)_
+- `getTitleBackgroundColor()` As String _(public)_
+- `getTitleTextColor()` As String _(public)_
+- `getBorder()` As Boolean _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgCollapse.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCollapse.bas) (verified demo):
@@ -165,7 +160,6 @@ Real syntax from [`pgCollapse.bas`](https://github.com/Mashiane/SithasoDaisy5/bl
 Private SDUI5Collapse1 As SDUI5Collapse		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `collapse`, `border`, `join-item`
 ## Code Example

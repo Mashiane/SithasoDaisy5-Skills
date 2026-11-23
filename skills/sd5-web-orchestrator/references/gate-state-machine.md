@@ -5,7 +5,7 @@ This is the delivery contract for prompt-to-app work. It adapts the B4XDaisyUIKi
 | State transition | Gate | Owner | Evidence to close |
 |---|---|---|---|
 | `REQUESTED → PLANNED` | plan | `sd5-application-planner` | `.agent/PLAN.md` and classified prompt requirements |
-| `PLANNED → CONTRACTED` | G0 requirements | planner + validator | contracts pass `validate-contracts.py --write-index`; `contract.index.json` written; critical REQ IDs have TEST IDs |
+| `PLANNED → CONTRACTED` | G0 requirements | planner + validator | contracts pass `validate-contracts.py --app-folder <AppFolder> --write-index`; `contract.index.json` written; critical REQ IDs have TEST IDs |
 | `CONTRACTED → BOOTSTRAPPED` | G1 architecture | `sd5-project-bootstrap` | `.b4j` module/file counts, registered page files, startup reaches `pgIndex` and requested page |
 | `BOOTSTRAPPED → IMPLEMENTED` | G2 feature slice | `sd5-feature-engineer` + `sithasodaisy5` | each requested requirement traces through screen/component/code; APIs verified against source/reference/demo; every inventory row provenance-checked (manifest + provenance lists + date) |
 | `IMPLEMENTED → STATIC_VERIFIED` | G3 source integrity | `sd5-web-verify` | pre-scan, registry coverage, lifecycle and conformance logs pass |
@@ -14,7 +14,7 @@ This is the delivery contract for prompt-to-app work. It adapts the B4XDaisyUIKi
 | `RUNTIME_VERIFIED → UX_VERIFIED` | G6 UX/design quality/accessibility | desktop + phone captures + UX review | every contracted screen has desktop and phone renders; each viewport passes the scored design gate, accessibility review, and has no release-blocking findings |
 | `UX_VERIFIED → REGRESSION_VERIFIED` | G7 regression | `sd5-web-regression` | changed and impacted checks pass; baseline failures are separately listed |
 | `REGRESSION_VERIFIED → RELEASE_CANDIDATE` | — (bundling) | orchestrator | G0–G7 evidence collected into the app folder |
-| `RELEASE_CANDIDATE → DELIVERED` | G8 evidence | orchestrator + `verify-production-hardening.ps1` | hardening PASS on published output + all gate evidence and run instructions bundled |
+| `RELEASE_CANDIDATE → DELIVERED` | G8 evidence | orchestrator + `verify-production-hardening.ps1` | hardening PASS on published output + `check-delivery.ps1` exits 0 against `.agent/DELIVERY.json` (G0-G8 all PASS, digest matches current source) |
 
 ## Gate status vocabulary
 
@@ -23,6 +23,11 @@ This is the delivery contract for prompt-to-app work. It adapts the B4XDaisyUIKi
 - `BLOCKED`: required environment, dependency, or prerequisite was unavailable. Name it.
 - `NOT RUN`: a gate was intentionally omitted or not yet attempted. It is not pass.
 - `NOT APPLICABLE`: the contract explains why that gate does not apply; it is not a substitute for G4/G5 on a requested working app.
+
+`WARN` is not a gate state. A runner may print advisory warnings, but the gate row
+records one of the five states above. An intentionally skipped gate is `NOT RUN`; a
+missing prerequisite is `BLOCKED`. Neither counts as pass, and neither can be closed by
+narration.
 
 ## Gate scope and retries
 
@@ -52,9 +57,13 @@ build log / output location
 ux-review/BUILD-WATCH-*.md
 ux-review/screens/*.png
 ux-review/UX-REVIEW-*.md
+.agent/DELIVERY.json
 ```
 
-Only files that apply to the request need content, but their status and reason belong in `.agent/STATE.md`. Build/runtime evidence cannot be synthesized from source.
+`.agent/DELIVERY.json` is machine evidence written only by `run-pipeline.ps1`; it is the
+input to `check-delivery.ps1`, which is the only authority over "delivered". Only files
+that apply to the request need content, but their status and reason belong in
+`.agent/STATE.md`. Build/runtime evidence cannot be synthesized from source.
 
 ## Remediation loop — precise mechanics
 
@@ -86,7 +95,7 @@ judgment.
 
 | Orchestrator step | Gate |
 |---|---|
-| 1. Plan + 2. G0 Contract (`validate-contracts.py --write-index`) | G0 (contracts validate + `contract.index.json` written; critical REQ → TEST) |
+| 1. Plan + 2. G0 Contract (`validate-contracts.py --app-folder <AppFolder> --write-index`) | G0 (contracts validate + `contract.index.json` written; critical REQ → TEST) |
 | 3. G1 Bootstrap (`.b4j` + `pgIndex` + pages) | G1 (module/file counts, routes resolve) |
 | 4. G2 Implement (feature-engineer + sithasodaisy5) | G2 (provenance-checked components, trace REQ→CODE) |
 | 5. G3 Static integrity (pre-scan + contract + conformance) | G3 |
@@ -103,8 +112,7 @@ PASS). Bootstrap writes `FinanceDashboard.b4j` + `pgIndex` + page → G1.
 Feature-engineer composes Container/Text/Progress per contract → G2. Pre-scan
 CLEAN + conformance PASS → STATIC-VERIFIED (G3). B4J compile exit 0 + BANano
 transpile → BUILT (G4, `.agent/build/BUILD-20261010-030936.md`). BUILD-WATCH:
-no JS errors, no failed loads, title OK (2 warnings: no data-theme,
-`#financePage` id) → RUNTIME-VERIFIED (G5). Mobile screenshot captured;
+no JS errors, no failed loads, title OK (warning: no data-theme is expected — the theme is host-supplied; `#financePage` id) → RUNTIME-VERIFIED (G5). Mobile screenshot captured;
 human UX pass open → G6 pending. Regression: greenfield smoke path → G7.
 Bundle + per-gate status → DELIVERED (G8) once G6 closes.
 

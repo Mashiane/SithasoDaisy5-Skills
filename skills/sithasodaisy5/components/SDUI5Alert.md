@@ -11,6 +11,9 @@ description: SithasoDaisy5 SDUI5Alert component reference — designer propertie
 - **Framework Source** *(read-only reference; do not add this `.bas` file to an app that uses the SithasoDaisy5 `.b4xlib`)*: [`SDUI5Alert.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5/SDUI5Alert.bas)
 - **Demo References** *(a type reference was detected; inspect the page to confirm the component is actually instantiated before treating it as usage evidence)*:
   - [`pgAlert.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAlert.bas)
+  - [`pgEvoCalendar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgEvoCalendar.bas)
+  - [`pgFrappeGantt.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFrappeGantt.bas)
+  - [`pgFullCalendar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFullCalendar.bas)
 <!-- GENERATED_SOURCE_REFERENCES_END -->
 
 ## Core Idea
@@ -60,75 +63,70 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub alert_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (27)
-- `setAlignment(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (26)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setText(text As String)` As 'ignoredeadcode _(public)_
+- `setHeight(s As String)` _(public)_
+- `setWidth(s As String)` _(public)_
+- `setHasActions(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
+- `setTitle(text As String)` As 'ignoredeadcode _(public)_
+- `setAlignment(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setDash(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setHasActions(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setIcon(s As String)` _(public)_
-- `setIconColor(s As String)` _(public)_
-- `setIconSize(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `setIcon(s As String)` As 'ignoredeadcode _(public)_
+- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
 - `setOutline(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
 - `setSize(s As String)` _(public)_
 - `setSoft(b As Boolean)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setText(text As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
-- `setTitle(text As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (29)
-- `getAlignment()` _(public)_
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getClasses()` _(public)_
-- `getColor()` _(public)_
-- `getDash()` _(public)_
-- `getEnabled()` _(public)_
-- `getHasActions()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
-- `getIcon()` _(public)_
-- `getIconColor()` _(public)_
-- `getIconSize()` _(public)_
+## Getters (27)
 - `getID()` As String _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getOutline()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` As String _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getSize()` _(public)_
-- `getSoft()` _(public)_
-- `getStyles()` _(public)_
-- `getText()` _(public)_
-- `getTextColor()` _(public)_
-- `getTitle()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getText()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getHasActions()` As Boolean _(public)_
+- `getIconSize()` As String _(public)_
+- `getTitle()` As String _(public)_
+- `getAlignment()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getDash()` As Boolean _(public)_
+- `getIcon()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getOutline()` As Boolean _(public)_
+- `getSize()` As String _(public)_
+- `getSoft()` As Boolean _(public)_
+- `getTextColor()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgAlert.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAlert.bas) (verified demo):
@@ -137,7 +135,6 @@ Real syntax from [`pgAlert.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/
 Private SDUI5Alert5 As SDUI5Alert		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `alert`, `alert-dash`, `alert-outline`, `alert-soft`
 **Colors**: `alert:sColor`

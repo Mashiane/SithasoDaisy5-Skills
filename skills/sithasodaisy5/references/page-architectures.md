@@ -1,6 +1,6 @@
 ---
 name: page-architectures
-description: Conceptual page composition patterns for SithasoDaisy5 web apps. ARCH-01 through ARCH-10 define layout choices; source usage is linked from component skills.
+description: Conceptual page composition patterns for SithasoDaisy5 web apps. ARCH-01 through ARCH-17 define layout choices; recipe-derived rules and the full crosswalk live in chapters/ch07-recipes.md.
 ---
 
 # SithasoDaisy5 — Page Architectures
@@ -8,6 +8,27 @@ description: Conceptual page composition patterns for SithasoDaisy5 web apps. AR
 Conceptual page models for design selection. They are not copies of source demo pages. Pick one before generating; if your screen does not fit, propose a new ARCH-N in the reasoning trace. For source evidence, use verified excerpts and demo-source links in the relevant component skills.
 
 The indented trees below describe layout intent; they are not copy-ready B4J code and do not certify every shown property. For generated code, verify each component member against its component skill and follow the app/page scaffolds.
+
+## Recipe-derived rules
+
+The DaisyUI MCP recipe corpus adds concrete decision and accessibility rules. The full crosswalk,
+component maps, and provenance are in [ch07-recipes.md](../chapters/ch07-recipes.md).
+
+| Rule | Applies to |
+|---|---|
+| Dashboard: prioritize a few decision metrics; do not give every number equal prominence. | ARCH-03, ARCH-13 |
+| Dialog: modal only when a decision is required; prefer inline confirmation for low-risk actions. | P6 |
+| Empty state: distinguish first use, empty search, and permissions; one primary recovery action. | ARCH-10 |
+| Filterable table: preserve scanning/comparison; mobile scroll or card view; announce result counts. | ARCH-13, P9 |
+| Notification center: navbar preview, dedicated history, critical alerts not dropdown-only. | ARCH-16 |
+| Responsive navigation: consistent names/destinations; `aria-current`; label the drawer trigger. | P5, ch03 |
+| Search/profile navbar: keep global search and account actions available on narrow screens. | P5, ch03 |
+| Landing hero: one `h1`; specific CTA labels; meaningful image alt; reduced motion. | ARCH-01, ARCH-12 |
+| Accessible form: visible labels, fieldset/legend, focused error summary, `aria-invalid` after failure, submit enabled. | ARCH-04 |
+| Team directory: decorative headshots, initials contrast, list semantics, unique link names. | ARCH-17 |
+
+Recipe HTML is reference material, not code. Re-express it with SDUI5 components and the property-first rules in
+[ch07-recipes.md](../chapters/ch07-recipes.md).
 
 ---
 
@@ -302,7 +323,7 @@ SDUI5Container1 (max-w-7xl, px-4, py-12)
 
 **Components used**: `SDUI5Card`, `SDUI5RadialProgress`, `SDUI5Badge`, `SDUI5Text`, `SDUI5Button`  
 **Density**: Comfortable / Hero  
-**Craft Guidance**: Apply `design-craft-guide.md` surface rules: `Classes = "bg-base-100/80 backdrop-blur-md border border-base-200/80 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"`.
+**Craft Guidance**: Apply `design-craft-guide.md` surface rules: `Classes = "bg-base-100/80 backdrop-blur-md border border-base-200/80 rounded-3xl shadow-sm hover:shadow-xl motion-safe:hover:-translate-y-1 transition-[transform,box-shadow] duration-300"`.
 
 ---
 
@@ -417,6 +438,52 @@ SDUI5Container1 (max-w-6xl, px-4, py-10)
 
 **Components used**: `SDUI5Carousel`, `SDUI5Card`, `SDUI5Badge`, `SDUI5Text`, `SDUI5Rating`, `SDUI5RadioGroup`, `SDUI5Select`, `SDUI5Button`  
 **Density**: Comfortable  
+
+---
+
+## ARCH-16 — Notification Center
+
+**Purpose**: recent notification preview with a dedicated history destination  
+**Layout**: Navbar trigger with unread badge -> dropdown/menu preview -> "View all" link to a full-page list  
+**Responsive**: compact dropdown on desktop -> full-width list on mobile; critical alerts are not dropdown-only
+
+```
+SDUI5NavBar
+  +-- SDUI5DropDown (bell trigger; unread badge in the accessible name)
+        +-- SDUI5Menu (recent preview)
+              +-- SDUI5MenuItem (avatar + text + status)
+              +-- SDUI5MenuItem ("View all" -> history page)
+SDUI5Page (history)
+  +-- SDUI5List / SDUI5ListItem (unread state + timestamp)
+```
+
+**Components used**: `SDUI5NavBar`, `SDUI5DropDown`, `SDUI5Menu`, `SDUI5MenuItem`, `SDUI5Avatar`, `SDUI5Badge`, `SDUI5List`, `SDUI5ListItem`  
+**Density**: Comfortable  
+**Accessibility**: include the unread count in the trigger name; text plus color for status; polite live region for important new items; do not mark read on open; keyboard focus moves through the list and back to the trigger.  
+**Source**: `notification-center` recipe (adapted).
+
+---
+
+## ARCH-17 — Team Directory
+
+**Purpose**: small team or working-group directory  
+**Layout**: heading -> responsive member-card grid -> search/filter for larger groups  
+**Responsive**: 1 column mobile -> 2/3/4 columns desktop
+
+```
+SDUI5Container
+  +-- SDUI5Row
+        +-- SDUI5Column (Size="12", SizeMd="6", SizeLg="4") -> SDUI5Card
+              +-- SDUI5Avatar (Mask="circle")
+              +-- SDUI5Text (name)
+              +-- SDUI5Text (role)
+              +-- SDUI5Link (profile)
+```
+
+**Components used**: `SDUI5Row`, `SDUI5Column`, `SDUI5Card`, `SDUI5Avatar`, `SDUI5Text`, `SDUI5Link`, optional `SDUI5Filter`  
+**Density**: Comfortable  
+**Accessibility**: decorative headshots when the name identifies the person; initials contrast and image fallback; expose the collection as a list; unique link names include the person's name; add search/filter for larger organizations.  
+**Source**: `team-grid` recipe (adapted).
 
 ---
 

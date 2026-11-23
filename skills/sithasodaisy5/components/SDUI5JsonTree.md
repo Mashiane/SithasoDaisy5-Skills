@@ -54,70 +54,66 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub jsontree_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `AddComponent()` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (9)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `Refresh()` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (23)
-- `setArrowColor(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Clear()` _(public)_
+- `Refresh()` _(public)_
+## Key Setters (22)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setJsonString(s As String)` _(public)_
+- `setJSON(m As Map)` _(public)_
+- `setArrowColor(s As String)` _(public)_
 - `setFontSize(i As Int)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setJSON(m As Map)` _(public)_
-- `setJsonString(s As String)` _(public)_
 - `setKeyColor(s As String)` _(public)_
 - `setLineHeight(i As Int)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setNodeBackgroundColor(s As String)` _(public)_
 - `setNodeBorderColor(s As String)` _(public)_
 - `setPadding(i As Int)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setValueColor(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
-## Getters (25)
-- `getArrowColor()` _(public)_
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getFontSize()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (24)
 - `getID()` As String _(public)_
-- `getJSON()` _(public)_
-- `getJsonString()` _(public)_
-- `getKeyColor()` _(public)_
-- `getLineHeight()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getNodeBackgroundColor()` _(public)_
-- `getNodeBorderColor()` _(public)_
-- `getPadding()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getStyles()` _(public)_
-- `getValueColor()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getJsonString()` As String _(public)_
+- `getJSON()` As Map _(public)_
+- `getArrowColor()` As String _(public)_
+- `getFontSize()` As Int _(public)_
+- `getHeight()` As String _(public)_
+- `getKeyColor()` As String _(public)_
+- `getLineHeight()` As Int _(public)_
+- `getNodeBackgroundColor()` As String _(public)_
+- `getNodeBorderColor()` As String _(public)_
+- `getPadding()` As Int _(public)_
+- `getValueColor()` As String _(public)_
+- `getWidth()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgJsonTree.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgJsonTree.bas) (verified demo):
@@ -126,7 +122,6 @@ Real syntax from [`pgJsonTree.bas`](https://github.com/Mashiane/SithasoDaisy5/bl
 Private jTree As SDUI5JsonTree		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

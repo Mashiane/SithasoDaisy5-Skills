@@ -58,71 +58,67 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub carousel_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (25)
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setDirection(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (24)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setDirection(s As String)` As 'ignoredeadcode _(public)_
+- `setHeight(s As String)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setSnapItems(s As String)` As 'ignoredeadcode _(public)_
+- `setSpaceX(s As String)` As 'ignoredeadcode _(public)_
+- `setSpaceY(s As String)` As 'ignoredeadcode _(public)_
+- `setWidth(s As String)` _(public)_
 - `setMaxHeight(s As String)` _(public)_
 - `setMaxWidth(s As String)` _(public)_
 - `setMinHeight(s As String)` _(public)_
 - `setMinWidth(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setRoundedBox(b As Boolean)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setSnapItems(s As String)` _(public)_
-- `setSpaceX(s As String)` _(public)_
-- `setSpaceY(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (27)
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getClasses()` _(public)_
-- `getDirection()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (26)
 - `getID()` As String _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMaxHeight()` _(public)_
-- `getMaxWidth()` _(public)_
-- `getMinHeight()` _(public)_
-- `getMinWidth()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getRoundedBox()` _(public)_
-- `getShadow()` _(public)_
-- `getSnapItems()` _(public)_
-- `getSpaceX()` _(public)_
-- `getSpaceY()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getDirection()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getRoundedBox()` As Boolean _(public)_
+- `getShadow()` As String _(public)_
+- `getSnapItems()` As String _(public)_
+- `getSpaceX()` As String _(public)_
+- `getSpaceY()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getMaxHeight()` As String _(public)_
+- `getMaxWidth()` As String _(public)_
+- `getMinHeight()` As String _(public)_
+- `getMinWidth()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgCarousel.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgCarousel.bas) (verified demo):
@@ -132,7 +128,6 @@ Private carousel1 As SDUI5Carousel		'ignore
 Private SDUI5Carousel1 As SDUI5Carousel		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `carousel`, `rounded-box`
 ## Code Example

@@ -71,137 +71,133 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub toastchart_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (16)
-- `AddCategories(cats As List)` _(public)_
-- `AddCategory(catName As String)` _(public)_
-- `AddColors(cats As List)` _(public)_
-- `AddComponent()` _(public)_
-- `AddPlotBandRange(iStart As Object, iEnd As String, sColor As String)` _(public)_
-- `AddSeries(SeriesName As String, values As List)` _(public)_
-- `AddSeriesCategoryValue(seriesName As String, catName As String, value As Object)` _(public)_
-- `AddSeriesValue(SeriesName As String, value As Object)` _(public)_
-- `AddXY(X As String, y As Object)` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (18)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `PlotBandInitialize()` _(public)_
-- `Refresh()` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (52)
-- `setAttributes(s As String)` _(public)_
-- `setChartType(s As String)` _(public)_
-- `setCircularAxisScaleMax(i As Int)` _(public)_
-- `setCircularAxisScaleMin(i As Int)` _(public)_
-- `setCircularAxisTitleText(s As String)` _(public)_
-- `setCircularLabelMargin(i As Int)` _(public)_
-- `setClasses(s As String)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Clear()` _(public)_
+- `AddSeriesCategoryValue(seriesName As String, catName As String, value As Object)` _(public)_
+- `AddCategory(catName As String)` _(public)_
+- `AddCategories(cats As List)` _(public)_
+- `AddColors(cats As List)` _(public)_
+- `AddSeries(SeriesName As String, values As List)` _(public)_
+- `AddXY(X As String, y As Object)` _(public)_
+- `AddSeriesValue(SeriesName As String, value As Object)` _(public)_
+- `Refresh()` _(public)_
+- `PlotBandInitialize()` _(public)_
+- `AddPlotBandRange(iStart As Object, iEnd As String, sColor As String)` _(public)_
+## Key Setters (51)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setSeriesShift(b As Boolean)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setRoundedBox(b As Boolean)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setChartType(s As String)` _(public)_
 - `setExportMenuFileName(s As String)` _(public)_
 - `setExportMenuVisible(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setLegendPosition(s As String)` _(public)_
 - `setLegendShowCheckbox(b As Boolean)` _(public)_
 - `setLegendVisible(b As Boolean)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setRoundedBox(b As Boolean)` _(public)_
-- `setSeriesAngleRangeEnd(i As Int)` _(public)_
-- `setSeriesAngleRangeStart(i As Int)` _(public)_
-- `setSeriesClockWise(b As Boolean)` _(public)_
-- `setSeriesDataLabelsAnchor(s As String)` _(public)_
 - `setSeriesDataLabelsOffsetX(s As String)` _(public)_
 - `setSeriesDataLabelsOffsetY(s As String)` _(public)_
-- `setSeriesDataLabelsPieSeriesNameAnchorOuter(b As Boolean)` _(public)_
 - `setSeriesDataLabelsPieSeriesNameVisible(b As Boolean)` _(public)_
+- `setSeriesDataLabelsPieSeriesNameAnchorOuter(b As Boolean)` _(public)_
+- `setSeriesDataLabelsAnchor(s As String)` _(public)_
+- `setSeriesAngleRangeStart(i As Int)` _(public)_
+- `setSeriesAngleRangeEnd(i As Int)` _(public)_
+- `setSeriesClockWise(b As Boolean)` _(public)_
 - `setSeriesDataLabelsVisible(b As Boolean)` _(public)_
-- `setSeriesDiverging(b As Boolean)` _(public)_
 - `setSeriesSelectable(b As Boolean)` _(public)_
-- `setSeriesShift(b As Boolean)` _(public)_
 - `setSeriesShowDot(b As Boolean)` _(public)_
-- `setSeriesSolidClockHand(b As Boolean)` _(public)_
 - `setSeriesSpline(b As Boolean)` _(public)_
 - `setSeriesStacked(b As Boolean)` _(public)_
 - `setSeriesStackedPercent(b As Boolean)` _(public)_
 - `setSeriesZoomable(b As Boolean)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setThemePlotBandsBarWidth(i As Int)` _(public)_
 - `setTitleAlign(s As String)` _(public)_
 - `setTitleText(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
 - `setXAxisDateFormat(s As String)` _(public)_
 - `setXAxisPointOnColumn(b As Boolean)` _(public)_
 - `setXAxisTitle(s As String)` _(public)_
 - `setYAxisTitle(s As String)` _(public)_
+- `setSeriesDiverging(b As Boolean)` _(public)_
 - `setYAxisTitleAlign(s As String)` _(public)_
-
-## Getters (54)
-- `getAttributes()` _(public)_
-- `getChartType()` _(public)_
-- `getCircularAxisScaleMax()` _(public)_
-- `getCircularAxisScaleMin()` _(public)_
-- `getCircularAxisTitleText()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getExportMenuFileName()` _(public)_
-- `getExportMenuVisible()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
-- `getiCircularLabelMargin()` _(public)_
+- `setCircularAxisTitleText(s As String)` _(public)_
+- `setCircularAxisScaleMin(i As Int)` _(public)_
+- `setCircularAxisScaleMax(i As Int)` _(public)_
+- `setCircularLabelMargin(i As Int)` _(public)_
+- `setThemePlotBandsBarWidth(i As Int)` _(public)_
+- `setSeriesSolidClockHand(b As Boolean)` _(public)_
+## Getters (53)
 - `getID()` As String _(public)_
-- `getLegendPosition()` _(public)_
-- `getLegendShowCheckbox()` _(public)_
-- `getLegendVisible()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getRoundedBox()` _(public)_
-- `getSeriesAngleRangeEnd()` _(public)_
-- `getSeriesAngleRangeStart()` _(public)_
-- `getSeriesClockWise()` _(public)_
-- `getSeriesDataLabelsAnchor()` _(public)_
-- `getSeriesDataLabelsOffsetX()` _(public)_
-- `getSeriesDataLabelsOffsetY()` _(public)_
-- `getSeriesDataLabelsPieSeriesNameAnchorOuter()` _(public)_
-- `getSeriesDataLabelsPieSeriesNameVisible()` _(public)_
-- `getSeriesDataLabelsVisible()` _(public)_
-- `getSeriesDiverging()` _(public)_
-- `getSeriesSelectable()` _(public)_
-- `getSeriesShift()` _(public)_
-- `getSeriesShowDot()` _(public)_
-- `getSeriesSolidClockHand()` _(public)_
-- `getSeriesSpline()` _(public)_
-- `getSeriesStacked()` _(public)_
-- `getSeriesStackedPercent()` _(public)_
-- `getSeriesZoomable()` _(public)_
-- `getShadow()` _(public)_
-- `getStyles()` _(public)_
-- `getThemePlotBandsBarWidth()` _(public)_
-- `getTitleAlign()` _(public)_
-- `getTitleText()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-- `getXAxisDateFormat()` _(public)_
-- `getXAxisPointOnColumn()` _(public)_
-- `getXAxisTitle()` _(public)_
-- `getYAxisTitle()` _(public)_
-- `getYAxisTitleAlign()` _(public)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getSeriesShift()` As Boolean _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getRoundedBox()` As Boolean _(public)_
+- `getSeriesDataLabelsPieSeriesNameAnchorOuter()` As Boolean _(public)_
+- `getSeriesAngleRangeStart()` As Int _(public)_
+- `getSeriesAngleRangeEnd()` As Int _(public)_
+- `getSeriesClockWise()` As Boolean _(public)_
+- `getSeriesDataLabelsAnchor()` As String _(public)_
+- `getChartType()` As String _(public)_
+- `getExportMenuFileName()` As String _(public)_
+- `getExportMenuVisible()` As Boolean _(public)_
+- `getHeight()` As String _(public)_
+- `getLegendPosition()` As String _(public)_
+- `getLegendShowCheckbox()` As Boolean _(public)_
+- `getLegendVisible()` As Boolean _(public)_
+- `getSeriesDataLabelsOffsetX()` As String _(public)_
+- `getSeriesDataLabelsOffsetY()` As String _(public)_
+- `getSeriesDataLabelsPieSeriesNameVisible()` As Boolean _(public)_
+- `getSeriesDataLabelsVisible()` As Boolean _(public)_
+- `getSeriesSelectable()` As Boolean _(public)_
+- `getSeriesShowDot()` As Boolean _(public)_
+- `getSeriesSpline()` As Boolean _(public)_
+- `getSeriesStacked()` As Boolean _(public)_
+- `getSeriesStackedPercent()` As Boolean _(public)_
+- `getSeriesZoomable()` As Boolean _(public)_
+- `getSeriesDiverging()` As Boolean _(public)_
+- `getTitleAlign()` As String _(public)_
+- `getTitleText()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getXAxisDateFormat()` As String _(public)_
+- `getXAxisPointOnColumn()` As Boolean _(public)_
+- `getXAxisTitle()` As String _(public)_
+- `getYAxisTitle()` As String _(public)_
+- `getYAxisTitleAlign()` As String _(public)_
+- `getCircularAxisTitleText()` As String _(public)_
+- `getiCircularLabelMargin()` As Int _(public)_
+- `getCircularAxisScaleMax()` As Int _(public)_
+- `getCircularAxisScaleMin()` As Int _(public)_
+- `getThemePlotBandsBarWidth()` As Int _(public)_
+- `getSeriesSolidClockHand()` As Boolean _(public)_
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgToastCharts.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToastCharts.bas) (verified demo):
@@ -220,7 +216,6 @@ Private chart18 As SDUI5ToastChart		'ignore
 Private chart19 As SDUI5ToastChart		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `rounded-box`
 ## Code Example

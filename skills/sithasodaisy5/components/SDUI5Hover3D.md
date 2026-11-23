@@ -49,53 +49,49 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub hover3d_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (16)
-- `setAttributes(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setImage(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (15)
+- `setParentID(s As String)` _(public)_
 - `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (18)
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setImage(s As String)` _(public)_
+- `setWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setHeight(s As String)` As 'ignoredeadcode _(public)_
+- `setRounded(s As String)` As 'ignoredeadcode _(public)_
+- `setShadow(s As String)` As 'ignoredeadcode _(public)_
+## Getters (17)
 - `getID()` As String _(public)_
-- `getImage()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getShadow()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getImage()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getShadow()` As String _(public)_
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgBankCard.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBankCard.bas) (verified demo):
@@ -104,7 +100,6 @@ Real syntax from [`pgBankCard.bas`](https://github.com/Mashiane/SithasoDaisy5/bl
 Private SDUI5Hover3D1 As SDUI5Hover3D		'ignore
 BANano.Await(bankcontainer.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

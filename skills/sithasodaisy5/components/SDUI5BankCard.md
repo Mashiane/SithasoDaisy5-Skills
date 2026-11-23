@@ -37,8 +37,9 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `TextColor` | Color | #FFFFFFFF | — | `setTextColor` | `getTextColor` |
 | `GradientActive` | Boolean | True | — | `setGradientActive` | `getGradientActive` |
 | `Gradient` | String | bl_tr | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | `setGradient` | `getGradient` |
-| `GradientColor1` | Color | #f86194, Gradient Color 1. | — | — | — |
-| `GradientColor2` | Color | #968918, Gradient Color 2. | — | — | — |
+| `GradientColor1` | Color | #f86194 | — | `setGradientColor1` | `getGradientColor1` |
+| `GradientColor2` | Color | #968918 | — | `setGradientColor2` | `getGradientColor2` |
+| `BackgroundColor` | String | neutral | — | `setBackgroundColor` | `getBackgroundColor` |
 | `Width` | String | 100 | — | `setWidth` | `getWidth` |
 | `Height` | String | — | — | `setHeight` | `getHeight` |
 | `Rounded` | String | 2xl | 0, 2xl, 3xl, full, lg, md, none, rounded, sm, xl | `setRounded` | `getRounded` |
@@ -59,69 +60,71 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub bankcard_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (24)
-- `setAttributes(s As String)` _(public)_
-- `setBankName(s As String)` _(public)_
-- `setCardBrand(s As String)` _(public)_
-- `setCardHolder(s As String)` _(public)_
-- `setCardNumber(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (26)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setBankName(s As String)` _(public)_
+- `setCardNumber(s As String)` _(public)_
+- `setCardHolder(s As String)` _(public)_
 - `setExpiresMonth(s As String)` _(public)_
 - `setExpiresYear(s As String)` _(public)_
-- `setGradient(s As String)` _(public)_
-- `setGradientActive(b As Boolean)` _(public)_
+- `setCardBrand(s As String)` _(public)_
+- `setTextColor(s As String)` _(public)_
+- `setWidth(s As String)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
 - `setRounded(s As String)` _(public)_
 - `setShadow(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (26)
-- `getAttributes()` _(public)_
-- `getBankName()` _(public)_
-- `getCardBrand()` _(public)_
-- `getCardHolder()` _(public)_
-- `getCardNumber()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getExpiresMonth()` _(public)_
-- `getExpiresYear()` _(public)_
-- `getGradient()` _(public)_
-- `getGradientActive()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setGradientActive(b As Boolean)` _(public)_
+- `setGradient(s As String)` _(public)_
+- `setGradientColor1(s As String)` _(public)_
+- `setGradientColor2(s As String)` _(public)_
+## Getters (28)
 - `getID()` As String _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getShadow()` _(public)_
-- `getStyles()` _(public)_
-- `getTextColor()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getBankName()` As String _(public)_
+- `getCardNumber()` As String _(public)_
+- `getCardHolder()` As String _(public)_
+- `getExpiresMonth()` As String _(public)_
+- `getExpiresYear()` As String _(public)_
+- `getCardBrand()` As String _(public)_
+- `getTextColor()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getGradientActive()` As Boolean _(public)_
+- `getGradient()` As String _(public)_
+- `getGradientColor1()` As String _(public)_
+- `getGradientColor2()` As String _(public)_
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgBankCard.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBankCard.bas) (verified demo):
@@ -130,7 +133,6 @@ Real syntax from [`pgBankCard.bas`](https://github.com/Mashiane/SithasoDaisy5/bl
 Private SDUI5BankCard1 As SDUI5BankCard			'ignore
 BANano.Await(bankcontainer.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `card`
 ## Code Example

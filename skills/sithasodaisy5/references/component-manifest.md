@@ -8,9 +8,9 @@ description: Live registry inventory of SithasoDaisy5 UI components and support 
 Generated from the framework project's `ModuleN=` registry and the demo app's `pg*.bas` type usage.
 A path-qualified module entry is normalized to its final module name. Only registered modules are active.
 
-**Registered modules**: 160 | **UI components**: 140 | **Support modules**: 20 | **UI demo-backed**: 121 | **UI without a detected demo type declaration**: 19 | **Unregistered reference docs**: 1
+**Registered modules**: 162 | **UI components**: 142 | **Support modules**: 20 | **UI demo-backed**: 125 | **UI without a detected demo type declaration**: 17 | **Unregistered reference docs**: 2
 
-## UI Components with Demo Type Usage (121)
+## UI Components with Demo Type Usage (125)
 
 A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is evidence of demo usage, not a substitute for checking the component API documentation.
 
@@ -19,12 +19,13 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5Accordion | 17 | 1 | join join-vertical |
 | SDUI5AdvancedCheckGroup | 26 | 1 | — |
 | SDUI5Alert | 27 | 1 | alert, alert-dash, alert-outline, alert-soft |
+| SDUI5AOS | 13 | 0 | — |
 | SDUI5App | 0 | 8 | — |
 | SDUI5Aura | 14 | 1 | aura |
 | SDUI5Avatar | 37 | 1 | avatar, chat-image, rounded-field, avatar-placeholder |
 | SDUI5AvatarGroup | 14 | 0 | — |
 | SDUI5Badge | 41 | 3 | badge flex-nowrap inline-flex items-center, badge-dash, badge-ghost, badge-outline |
-| SDUI5BankCard | 25 | 1 | card |
+| SDUI5BankCard | 26 | 1 | card |
 | SDUI5BarCode | 31 | 1 | — |
 | SDUI5BarcodeReader | 21 | 3 | — |
 | SDUI5BottomDrawer | 14 | 0 | z-99 |
@@ -55,12 +56,15 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5DropDown | 13 | 0 | dropdown, dropdown-hover, dropdown-open |
 | SDUI5DropZone | 24 | 1 | rounded-box, dropzone flex flex-wrap justify-center items-center |
 | SDUI5EasyMDE | 12 | 0 | — |
+| SDUI5EnjoyHint | 0 | 4 | — |
+| SDUI5EvoCalendar | 23 | 7 | — |
 | SDUI5FieldSet | 24 | 0 | fieldset, border, rounded-box |
 | SDUI5FileInput | 35 | 1 | — |
 | SDUI5Filter | 25 | 1 | w-full |
 | SDUI5Footer | 17 | 0 | footer, footer-center |
 | SDUI5FooterTitle | 12 | 0 | footer-title |
-| SDUI5FullCalendar | 43 | 11 | — |
+| SDUI5FrappeGantt | 50 | 7 | — |
+| SDUI5FullCalendar | 47 | 11 | — |
 | SDUI5GenderChart | 25 | 0 | — |
 | SDUI5GroupSelect | 28 | 1 | fieldset, border, rounded-box |
 | SDUI5Hero | 31 | 0 | hero |
@@ -74,33 +78,33 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5JsonTree | 20 | 0 | — |
 | SDUI5Kbd | 12 | 0 | kbd |
 | SDUI5Label | 29 | 0 | floating-label |
-| SDUI5Leaflet | 30 | 50 | — |
+| SDUI5Leaflet | 32 | 50 | — |
 | SDUI5Link | 22 | 1 | link, link-hover |
 | SDUI5List | 16 | 0 | list, rounded-box |
-| SDUI5ListItem | 18 | 0 | cursor-pointer, list-row |
+| SDUI5ListItem | 17 | 0 | cursor-pointer, list-row |
 | SDUI5Loading | 13 | 0 | loading |
 | SDUI5LottiePlayer | 21 | 0 | — |
 | SDUI5Menu | 52 | 2 | menu, flex-nowrap, overflow-y-auto, dropdown |
 | SDUI5MenuItem | 45 | 0 | menu-active, menu-focus |
 | SDUI5Modal | 59 | 7 | card, card-border, card-dash, rounded-box |
 | SDUI5NavBar | 50 | 9 | navbar justify-center, glass, sticky |
-| SDUI5NoUISlider | 50 | 3 | — |
+| SDUI5NoUISlider | 49 | 3 | — |
 | SDUI5OfficeRibbon | 19 | 8 | — |
-| SDUI5OTP | 13 | 1 | — |
+| SDUI5OTP | 12 | 1 | — |
 | SDUI5Page | 49 | 0 | glass, container, mx-auto, flex |
 | SDUI5Panel | 59 | 0 | grow, shrink, flex, grid |
 | SDUI5PDFViewer | 15 | 1 | — |
-| SDUI5Phone | 16 | 0 | mockup-phone |
+| SDUI5Phone | 15 | 0 | mockup-phone |
 | SDUI5Pivot | 15 | 0 | — |
 | SDUI5Preferences | 63 | 22 | card, card-border, w-full bg-base-100 |
-| SDUI5Progress | 37 | 0 | — |
+| SDUI5Progress | 33 | 0 | — |
 | SDUI5QRCode | 21 | 1 | rounded-box |
 | SDUI5QuillEditor | 13 | 1 | — |
 | SDUI5RadialProgress | 17 | 0 | radial-progress |
 | SDUI5Radio | 25 | 1 | — |
 | SDUI5RadioGroup | 28 | 1 | fieldset, border, rounded-box |
 | SDUI5Range | 31 | 1 | — |
-| SDUI5Rating | 30 | 1 | — |
+| SDUI5Rating | 29 | 1 | — |
 | SDUI5Row | 38 | 0 | grid |
 | SDUI5Segment | 21 | 1 | tabs tabs-box inline-flex flex-nowrap whitespace-nowrap |
 | SDUI5Select | 42 | 3 | — |
@@ -120,9 +124,9 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5Table | 96 | 50 | card card-border w-full bg-base-100 |
 | SDUI5Tabs | 22 | 1 | tabs whitespace-nowrap |
 | SDUI5TabsItem | 23 | 0 | tab-active, tab flex items-center justify-center gap-2 relative |
-| SDUI5Text | 46 | 6 | — |
+| SDUI5Text | 45 | 6 | — |
 | SDUI5TextArea | 45 | 4 | — |
-| SDUI5TextBox | 66 | 7 | — |
+| SDUI5TextBox | 65 | 7 | — |
 | SDUI5TextRotate | 16 | 0 | text-rotate |
 | SDUI5Timeline | 17 | 0 | timeline, timeline-compact, timeline-snap-con |
 | SDUI5TimelineItem | 25 | 0 | — |
@@ -138,19 +142,17 @@ A `pg*.bas` file contains an `As SDUI5*` or `New SDUI5*` type reference. This is
 | SDUI5Window | 13 | 0 | mockup-window border-base-300 border |
 | SDUI5Wizard | 30 | 1 | card |
 
-## UI Components without Detected Demo Type Usage (19)
+## UI Components without Detected Demo Type Usage (17)
 
 The API reference exists, but no matching type declaration was detected in a `pg*.bas` demo file. Verify the source reference before relying on it.
 
 | Component | Props | Events | Key daisyUI classes emitted |
 |---|---:|---:|---|
 | SDUI5BasicLabel | 46 | 0 | — |
-| SDUI5Calendar | 15 | 1 | calendar |
 | SDUI5ChatItem | 26 | 1 | list-row flex items-center gap-3 p-2 hover:bg-base-200 cursor-pointer wa-sidebar-chat, rounded-box |
 | SDUI5Client | 0 | 0 | — |
 | SDUI5Conversation | 23 | 1 | — |
-| SDUI5EmojiMart | 21 | 2 | — |
-| SDUI5EnjoyHint | 0 | 3 | — |
+| SDUI5EmojiMart | 20 | 2 | — |
 | SDUI5ExcelReport | 0 | 0 | — |
 | SDUI5Fab | 19 | 0 | — |
 | SDUI5FAIconPicker | 18 | 2 | — |
@@ -159,7 +161,7 @@ The API reference exists, but no matching type declaration was detected in a `pg
 | SDUI5KanBan | 21 | 13 | — |
 | SDUI5MDToast | 0 | 0 | — |
 | SDUI5MegaMenu | 15 | 1 | megamenu |
-| SDUI5MultiSelect | 56 | 4 | — |
+| SDUI5MultiSelect | 55 | 4 | — |
 | SDUI5Slider | 23 | 2 | — |
 | SDUI5SliderItem | 15 | 0 | jcarousel-item |
 | SDUI5Swal | 0 | 0 | — |
@@ -191,13 +193,14 @@ These modules are registered in the framework project but are not `SDUI5*` visua
 | SithasoDaisy5 | [`components/SithasoDaisy5.md`](../components/SithasoDaisy5.md) |
 | UIShared | [`components/UIShared.md`](../components/UIShared.md) |
 
-## Unregistered Reference Docs (1)
+## Unregistered Reference Docs (2)
 
 These notes are retained for source archaeology. Do not generate app code from them: their classes are not in the framework `ModuleN=` registry.
 
 | Name | Reference |
 |---|---|
 | SDUI5Calendar | [`components/_unused/SDUI5Calendar.md`](../components/_unused/SDUI5Calendar.md) |
+| SDUI5RibbonWeb | [`components/_unused/SDUI5RibbonWeb.md`](../components/_unused/SDUI5RibbonWeb.md) |
 
 ## Regeneration and verification
 

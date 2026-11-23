@@ -54,8 +54,8 @@ def main() -> int:
             body = demo.read_text(encoding="utf-8-sig")
         except OSError:
             continue
-        for name in set(USE_RE.findall(body)):
-            demo_use.setdefault(name, []).append(demo.name)
+        for raw_name in set(USE_RE.findall(body)):
+            demo_use.setdefault(raw_name.casefold(), []).append(demo.name)
 
     comps = json.loads(args.components_json.read_text(encoding="utf-8-sig"))
     out_comps: dict[str, dict] = {}
@@ -71,6 +71,8 @@ def main() -> int:
             reg_name = name
         elif name.lower() in reg_lower:
             reg_name = reg_lower[name.lower()]
+        else:
+            continue
         out_comps[name] = {
             "source-file": str(src),
             "sha256": sha,
@@ -97,7 +99,7 @@ def main() -> int:
             "designer-rounded": c.get("designer_rounded", []),
             "designer-shadows": c.get("designer_shadows", []),
             "doc": f"components/{name}.md",
-            "demo-pages": sorted(demo_use.get(name, [])),
+            "demo-pages": sorted(set(demo_use.get(name.casefold(), []))),
         }
 
     ui = sum(1 for n, v in out_comps.items() if v["kind"] == "ui" and v["registered"])
@@ -105,7 +107,7 @@ def main() -> int:
                       if v["kind"] == "ui" and v["registered"] and not v["demo-pages"])
     payload = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-        "method": "extraction (sd5-book-to-skill components.json) + sha256 of framework .bas + ModuleN registry + case-sensitive As|New type-reference grep over demo pg*.bas. B4J is case-insensitive: entries flagged name-case-differs are the same component as registry-name; their demo-pages may undercount when demos use registry casing. component-manifest.md remains the authority for demo-backed status; this file is the authority for source checksums and member lists.",
+        "method": "extraction (sd5-book-to-skill components.json) + sha256 of framework .bas + ModuleN registry + case-insensitive As|New type-reference grep over demo pg*.bas (demo casing normalized to registry casing). component-manifest.md remains the authority for demo-backed status; this file is the authority for source checksums and member lists.",
         "framework-project": str(args.framework_project),
         "registered-modules": len(reg_set),
         "ui-registered": ui,

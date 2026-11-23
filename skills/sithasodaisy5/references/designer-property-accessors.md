@@ -5,11 +5,11 @@ description: Source audit mapping every SithasoDaisy5 designer property to its n
 
 # Designer Property Accessor Audit
 
-Audited 134 framework components and 3636 `#DesignerProperty` declarations in the framework source on 2026-10-22.
+Audited 137 framework components and 3726 `#DesignerProperty` declarations in the framework source on 2026-10-22.
 
 The component pages now include Setter and Getter columns beside every designer property. These columns name the actual source methods. A dash means no corresponding named accessor exists in that component; a property may still be consumed during `DesignerCreateView`.
 
-Coverage: 3608 properties have a named setter; 3608 have a named getter; 3608 have both. Of the remaining 28, 28 have neither, 0 have only a setter, and 0 have only a getter. 433 properties use a documented accessor name that differs from the designer key.
+Coverage: 3691 properties have a named setter; 3689 have a named getter; 3689 have both. Of the remaining 37, 35 have neither, 2 have only a setter, and 0 have only a getter. 435 properties use a documented accessor name that differs from the designer key.
 
 Updated 0 stale Props counts across the skill index and component manifest to match the source declarations.
 
@@ -67,8 +67,6 @@ Source: `SDUI5BankCard.bas` · Skill: [`components/SDUI5BankCard.md`](../compone
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
-Properties without a complete named setter/getter pair: `GradientColor1` (setter: `—`; getter: `—`); `GradientColor2` (setter: `—`; getter: `—`).
-
 ### SDUI5BarCode
 
 Source: `SDUI5BarCode.bas` · Skill: [`components/SDUI5BarCode.md`](../components/SDUI5BarCode.md)
@@ -112,12 +110,6 @@ Accessor names that differ from their designer keys: `RawClasses` → `setClasse
 ### SDUI5Button
 
 Source: `SDUI5Button.bas` · Skill: [`components/SDUI5Button.md`](../components/SDUI5Button.md)
-
-Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
-
-### SDUI5Calendar
-
-Source: `SDUI5Calendar.bas` · Skill: [`components/SDUI5Calendar.md`](../components/SDUI5Calendar.md)
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
@@ -275,6 +267,12 @@ Source: `SDUI5EasyMDE.bas` · Skill: [`components/SDUI5EasyMDE.md`](../component
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
+### SDUI5EvoCalendar
+
+Source: `SDUI5EvoCalendar.bas` · Skill: [`components/SDUI5EvoCalendar.md`](../components/SDUI5EvoCalendar.md)
+
+Properties without a complete named setter/getter pair: `Height` (setter: `—`; getter: `—`); `Width` (setter: `—`; getter: `—`); `PositionStyle` (setter: `—`; getter: `—`); `Position` (setter: `—`; getter: `—`); `MarginAXYTBLR` (setter: `—`; getter: `—`); `PaddingAXYTBLR` (setter: `—`; getter: `—`); `RawClasses` (setter: `—`; getter: `—`); `RawStyles` (setter: `—`; getter: `—`); `RawAttributes` (setter: `—`; getter: `—`).
+
 ### SDUI5Fab
 
 Source: `SDUI5Fab.bas` · Skill: [`components/SDUI5Fab.md`](../components/SDUI5Fab.md)
@@ -324,6 +322,14 @@ Accessor names that differ from their designer keys: `RawClasses` → `setClasse
 Source: `SDUI5Form.bas` · Skill: [`components/SDUI5Form.md`](../components/SDUI5Form.md)
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
+
+### SDUI5FrappeGantt
+
+Source: `SDUI5FrappeGantt.bas` · Skill: [`components/SDUI5FrappeGantt.md`](../components/SDUI5FrappeGantt.md)
+
+Accessor names that differ from their designer keys: `ArrowColor` → `SetArrowColorWidth` / `—` (backing-field alias); `ArrowWidth` → `SetArrowColorWidth` / `—` (backing-field alias); `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
+
+Properties without a complete named setter/getter pair: `ArrowColor` (setter: `SetArrowColorWidth`; getter: `—`); `ArrowWidth` (setter: `SetArrowColorWidth`; getter: `—`).
 
 ### SDUI5FullCalendar
 
@@ -447,9 +453,9 @@ Source: `SDUI5LottiePlayer.bas` · Skill: [`components/SDUI5LottiePlayer.md`](..
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
-### SDUI5Megamenu
+### SDUI5MegaMenu
 
-Source: `SDUI5Megamenu.bas` · Skill: [`components/SDUI5Megamenu.md`](../components/SDUI5Megamenu.md)
+Source: `SDUI5MegaMenu.bas` · Skill: [`components/SDUI5MegaMenu.md`](../components/SDUI5MegaMenu.md)
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
@@ -739,9 +745,9 @@ Source: `SDUI5TextBox.bas` · Skill: [`components/SDUI5TextBox.md`](../component
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 
-### SDUI5Textrotate
+### SDUI5TextRotate
 
-Source: `SDUI5Textrotate.bas` · Skill: [`components/SDUI5Textrotate.md`](../components/SDUI5Textrotate.md)
+Source: `SDUI5TextRotate.bas` · Skill: [`components/SDUI5TextRotate.md`](../components/SDUI5TextRotate.md)
 
 Accessor names that differ from their designer keys: `RawClasses` → `setClasses` / `getClasses` (Raw prefix alias); `RawStyles` → `setStyles` / `getStyles` (Raw prefix alias); `RawAttributes` → `setAttributes` / `getAttributes` (Raw prefix alias).
 

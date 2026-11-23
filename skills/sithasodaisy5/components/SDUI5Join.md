@@ -45,13 +45,17 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 _(none declared)_
 
 Wire in parent: `Sub join_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (12)
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (11)
+- `setParentID(s As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setDirection(s As String)` _(public)_
 - `setDirectionOnLg(s As String)` _(public)_
 - `setDirectionOnMd(s As String)` _(public)_
@@ -60,30 +64,22 @@ Wire in parent: `Sub join_<eventname>(e As BANanoEvent)` — the handler name is
 - `setDirectionOnXxl(s As String)` _(public)_
 - `setGrid(b As Boolean)` _(public)_
 - `setGridCols(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-
-## Getters (14)
-- `getDirection()` _(public)_
-- `getDirectionOnLg()` _(public)_
-- `getDirectionOnMd()` _(public)_
-- `getDirectionOnSm()` _(public)_
-- `getDirectionOnXl()` _(public)_
-- `getDirectionOnXxl()` _(public)_
-- `getGrid()` _(public)_
-- `getGridCols()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (13)
 - `getID()` As String _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getDirection()` As String _(public)_
+- `getDirectionOnLg()` As String _(public)_
+- `getDirectionOnMd()` As String _(public)_
+- `getDirectionOnSm()` As String _(public)_
+- `getDirectionOnXl()` As String _(public)_
+- `getDirectionOnXxl()` As String _(public)_
+- `getGrid()` As Boolean _(public)_
+- `getGridCols()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgJoin.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgJoin.bas) (verified demo):
@@ -92,7 +88,6 @@ Real syntax from [`pgJoin.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/m
 Private SDUI5Join1 As SDUI5Join		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `join`, `grid`
 ## Code Example

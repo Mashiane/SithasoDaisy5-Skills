@@ -34,7 +34,7 @@ The common daisyUI semantic color tokens are:
 
 Use semantic tokens for theme-aware UI. The property list in each component reference is the first authority; its setter and the rendered target determine what the value means.
 
-### 1.1 Color Channels (property-specific)
+### 1.1 Color Channels
 
 | Channel | Meaning and value rule |
 |---|---|---|
@@ -44,7 +44,7 @@ Use semantic tokens for theme-aware UI. The property list in each component refe
 | `.Classes` | Tailwind/daisyUI classes, including semantic classes and supported arbitrary values such as `bg-[#FF6B35]`. Prefer theme tokens where the color should follow theme changes. |
 | `.Styles` / `.RawStyles` | Inline CSS declarations for one-off CSS values. Use this when the target property accepts CSS syntax and a component color helper cannot express the value. |
 | `.Attributes` / `.RawAttributes` | HTML attributes, not a general-purpose CSS color channel. Use only when the target component/library reads that attribute. |
-| Theme palettes | Use `THEME_*` constants for built-in themes; define a custom palette with daisyUI CSS variables in the stylesheet and apply it with `app.SetTheme("<custom>")`. This is the preferred home for brand hex so the app can re-theme as a whole. |
+| Theme palettes | Theme selection is **host-owned**. Do not call `app.SetTheme` or write `data-theme`; use semantic tokens so any active theme applies. Brand hex belongs in accents via `.Classes`/`.Styles`, not a per-app theme (RULE-THEME-001). |
 
 `UIShared.FixColor` has specific conversion behavior: semantic values receive the requested class prefix; `#hex` is wrapped as a Tailwind arbitrary-value class; palette names may be resolved through `ColorMap`. It does not turn CSS `rgb(...)`, `rgba(...)`, or `var(...)` strings into valid Tailwind arbitrary syntax. Use a component's documented raw CSS property or `.Styles` for those CSS values. `none` is a no-color sentinel only where that component documents it; an empty value is usually the safer way to leave an optional color unset.
 
@@ -172,11 +172,7 @@ btn.Classes = "w-80 max-w-sm min-w-32"  ' 320px / max-content-24rem / min-128px
 
 ## 6. Theme Tokens (35+ available)
 
-Themes are global; switching one updates `html data-theme=` and re-themes every component.
-
-```b4j
-app.SetTheme(app.THEME_NORD)   ' apply theme
-```
+Themes are global and **host-owned**: the page or user sets `html data-theme=`. Apps must not call `app.SetTheme` (RULE-THEME-001); use semantic tokens so the app re-themes with the host. The constants below are reference-only.
 
 Available constants (from `SDUI5App`):
 
@@ -187,9 +183,9 @@ Available constants (from `SDUI5App`):
 | **Colorful** | `THEME_LUXURY`, `THEME_CMYK`, `THEME_VALENTINE`, `THEME_HALLOWEEN`, `THEME_GARDEN`, `THEME_FOREST`, `THEME_AQUA`, `THEME_LOFI`, `THEME_PASTEL`, `THEME_FANTASY`, `THEME_WIREFRAME`, `THEME_BLACK`, `THEME_BUSINESS`, `THEME_ACID`, `THEME_LEMONADE`, `THEME_RETRO`, `THEME_CYBERPUNK`, `THEME_AUTUMN`, `THEME_SUNSET`, `THEME_WINTER` |
 | **Functional** | `THEME_SILK` |
 
-Source of truth: `SDUI5App.bas` `THEME_*` constants (34 — the full daisyUI 5 built-in set). **No GHOSTWIRE/CARNIVAL in the framework** — earlier skill drafts invented them; do not use. `app.SetTheme(s)` sets `html data-theme` and accepts **any** daisyUI theme string defined in the stylesheet — including a custom one. Class-based theming also exists: `app.AddTheme(themeName, classes)` + `app.ApplyTheme(themeName, items)` add Tailwind/daisy classes to named elements.
+Source of truth: `SDUI5App.bas` `THEME_*` constants (34 — the full daisyUI 5 built-in set). **No GHOSTWIRE/CARNIVAL in the framework** — earlier skill drafts invented them; do not use. The framework setter exists, but generated apps must not call `app.SetTheme`; the host supplies the theme. Class-based theming also exists: `app.AddTheme(themeName, classes)` + `app.ApplyTheme(themeName, items)` add Tailwind/daisy classes to named elements.
 
-**Anti-pattern**: do not commit a project to one theme. Plan for **theme switching** — the entire app should re-theme cleanly when `app.SetTheme(...)` is called.
+**Anti-pattern**: an app-level theme, including `app.SetTheme(...)` or a hardcoded `data-theme`. The host owns theme switching; the app must simply work under whatever theme is active.
 
 ---
 
@@ -288,7 +284,7 @@ Families: `font-sans`, `font-serif`, `font-mono` (Tailwind defaults). For custom
 | `.Width = 320` | Numeric pixels not supported. Use `.Width = "full"` or Tailwind utility in `.Classes`. |
 | `.Size = "MD"` | Casing matters. Token is lowercase `"md"`. |
 | Hex on themed components via `.Classes` while ignoring tokens | Breaks theme switching — component stops following `data-theme`. Prefer tokens; hex for brand accents/decorative surfaces |
-| Adding a new color via Tailwind config | Not supported. Use theme CSS vars (daisyUI @plugin theme) + `app.SetTheme("<custom>")` |
+| Adding a new color via Tailwind config | Not supported. Theme palettes are host-owned; use semantic tokens or accent classes (RULE-THEME-001) |
 
 ---
 
@@ -312,8 +308,8 @@ Need a width?
   → otherwise leave at default (auto) and let flex/grid handle layout
 
 Need a theme?
-   → app.SetTheme(app.THEME_NORD)  ' pick one that matches your brand mood
-   → design for theme-switching from day 1
+   → do not set one; the host supplies data-theme
+   → use semantic tokens so it works under any theme
 ```
 
 ---

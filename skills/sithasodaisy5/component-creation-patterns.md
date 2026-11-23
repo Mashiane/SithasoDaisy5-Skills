@@ -56,7 +56,11 @@ Text.MarginAXYTBLR = "a=?; x=?; y=?; t=6; b=?; l=?; r=?" ' use root spacing prop
 Text.Opacity = 70                     ' use Opacity instead of opacity-70
 ```
 
-Use only properties listed for that exact component. `MarginAXYTBLR` and `PaddingAXYTBLR` affect the outer component element; use `BodyClasses`, `ContentClasses`, or another named inner-region property for styles on a compound component's child region. Keep breakpoint utilities (for example `md:py-8`), min/max sizing, flex/grid layout, and utilities with no equivalent component property in `.Classes`. `RawClasses` is the underlying raw-class channel; it is not a substitute for typed designer properties. Use `RawStyles` for exceptional inline CSS and `RawAttributes` for HTML attributes.
+Use only properties listed for that exact component. `MarginAXYTBLR` and `PaddingAXYTBLR` affect the outer element;
+use `BodyClasses`, `ContentClasses`, or another named inner-region property for a compound component's child region.
+Keep breakpoint utilities (`md:py-8`), min/max sizing, flex/grid layout, and utilities with no property equivalent in `.Classes`.
+`RawClasses` is the underlying raw-class channel, not a substitute for typed designer properties.
+Use `RawStyles` for exceptional inline CSS and `RawAttributes` for HTML attributes.
 
 ---
 

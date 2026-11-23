@@ -74,7 +74,7 @@ def main() -> int:
             "status": "FAIL" if errors else "PASS",
             "requirements": [{"id": r, "tested": r in tested_reqs} for r in sorted(critical_reqs)],
             "features": [{"id": f, "file": p.relative_to(root).as_posix()}
-                         for f, p in sorted(((re.findall(r"\bFEATURE-\d{3,}\b", p.read_text(encoding="utf-8-sig"))[:1] or [None])[0], p) for p in features)],
+                         for f, p in sorted(((re.findall(r"\bFEATURE-\d{3,}\b", p.read_text(encoding="utf-8-sig"))[:1] or [""])[0], p) for p in features)],
             "screens": screens_idx,
             "open-items": [{"id": o, "resolved": o in resolved} for o in sorted(open_ids)],
         }

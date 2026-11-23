@@ -30,32 +30,27 @@ _(inherits from SDUI5Component base — see base contract)_
 _(none declared)_
 
 Wire in parent: `Sub map_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (6)
-- `Clear()` _(public)_
-- `ContainsKey(Key As Object)` As Boolean _(public)_
-- `Get(Key As Object)` As Object _(public)_
+## Public Methods (9)
 - `Initialize()` _(public)_
 - `Put(Key As Object, Value As Object)` _(public)_
 - `Remove(Key As Object)` _(public)_
-
-## Key Setters (1)
-- `SetDataFromSerializator(Data As Object)` _(public)_
-
-## Getters (10)
-- `GetDataForSerializator()` _(public)_
+- `Clear()` _(public)_
+- `Get(Key As Object)` As Object _(public)_
 - `GetDefault(Key As Object, DefaultValue As Object)` As Object _(public)_
-- `getFirst()` _(public)_
-- `GetKeyAt(idx As Int)` As Object _(public)_
-- `getKeys()` _(public)_
-- `getLast()` _(public)_
+- `ContainsKey(Key As Object)` As Boolean _(public)_
+- `GetDataForSerializator()` As Object _(public)_
+- `SetDataFromSerializator(Data As Object)` _(public)_
+## Key Setters (0)
+_(none — uses base SDUI5Component setters only)_
+## Getters (6)
+- `getKeys()` As List _(public)_
+- `getSize()` As Int _(public)_
+- `getValues()` As List _(public)_
+- `getFirst()` As Object _(public)_
 - `getNth(n As Int)` As Object _(public)_
-- `getSize()` _(public)_
-- `GetValueAt(idx As Int)` As Object _(public)_
-- `getValues()` _(public)_
-
+- `getLast()` As Object _(public)_
 ## Private Methods (0)
 _(none)_
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

@@ -28,7 +28,11 @@ Terms, engine API, and framework vocabulary. `(C = component, S = shell/static)`
 
 ## UIShared API surface (the engine — most-used methods)
 
-- **Class/style/attr**: `AddClass(el,c)`, `RemoveClass(el,c)`, `SetClasses(el,s)`, `AddColorDT(prefix,color)` / `SetColor(el,kind,prefix,color)`, `AddRoundedDT(s)`, `AddShadowDT(s)`, `AddHeightDT/AddWidthDT(s)`, `AddTextSizeDT(s)`, `AddBackgroundImageDT(s)`, `SetStyle(el,k,v)`, `SetStyles(el,s)`, `AddStyleMap(el,m)`, `SetAttr(el,k,v)`, `AddAttrMap(el,m)`, `RemoveAttr(el,k)`, `SetAttributes(el,s)`, `AddDataAttr(el,k,v)`.
+- **Class/style/attr**: `AddClass(el,c)`, `RemoveClass(el,c)`, `SetClasses(el,s)`,
+  `AddColorDT(prefix,color)` / `SetColor(el,kind,prefix,color)`, `AddRoundedDT(s)`, `AddShadowDT(s)`,
+  `AddHeightDT/AddWidthDT(s)`, `AddTextSizeDT(s)`, `AddBackgroundImageDT(s)`,
+  `SetStyle(el,k,v)`, `SetStyles(el,s)`, `AddStyleMap(el,m)`, `SetAttr(el,k,v)`, `AddAttrMap(el,m)`,
+  `RemoveAttr(el,k)`, `SetAttributes(el,s)`, `AddDataAttr(el,k,v)`.
 - **ByID helpers**: `*ByID("{id}", ...)` variants — `SetVisibleByID`, `SetTextByID`, `SetColorByID`, `SetTextColorByID`, `SetSizeByID`, `SetRounded`, `SetShadow`, `SetWidthByID`, `SetHeightByID`, `SetIconNameByID`, `SetIconColorByID`, `ResizeIconByID`, `SizeIconByID`, `RemoveElementByID`, `ClearByID`, `SetCheckedByID`, `GetCheckedByID`, `UpdateClassByID`, `UpdateClass(mElement,"size","btn-md")`.
 - **Build (design-time, pushed before DCV append)**: `AddClassDT`, `AddColorDT`, `AddRoundedDT`, `AddShadowDT`, `AddHeightDT`, `AddWidthDT`, `AddTextSizeDT`, `AddBackgroundImageDT`, then `BuildExClass()` / `BuildExStyle()` / `BuildExAttributes()` → injected into the `[BANCLEAN]` template.
 - **Props**: `SetProps(PropsMap)`, `ExcludeTextColor`, `ExcludeBackgroundColor`.
@@ -48,8 +52,14 @@ Terms, engine API, and framework vocabulary. `(C = component, S = shell/static)`
 
 ## Theming & assets
 
-- **data-theme** — daisyUI theme attribute on `<html>`; set via `app.SetTheme(name)`.
-- **UsesX** — `SDUI5App` lazy-loader subs (`UsesPocketBase`, `UsesExcel`, `UsesQuill`, `UsesLeaflet`, `UsesDatePicker`, `UsesKanBan`, `UsesSignaturePad`, `UsesQRCode`, `UsesBarCodeReader`, `UsesDropZone`, `UsesVideoAudioPlayer`, `UsesOfficeRibbon`, `UsesCode`, `UsesMarkDownEditor`, `UsesLottiePlayer`, `UsesSQLiteBrowser`, `UsesHTMLParser`, `UsesDocxTemplate`, `UsesB4JConverter`, `UsesLZCompressString`, `UsesPivot`, `UsesTreeSpider`, `UsesWhatsApp`, `UsesColorWheel`, `UsesDevices`, `UsesGifPlayer`, `UsesBottomNavigation`, `UsesSlider`, `UsesNoUISlider`, `UsesJQuery`, `UsesEnjoyHint`, `UsesFontAwesome`, `UsesGenderChart`). Each calls `UI.LoadAssetsOnDemand`.
+- **data-theme** — daisyUI theme attribute on `<html>`, set by the host page/user; apps must not call `app.SetTheme` (RULE-THEME-001).
+- **UsesX** — `SDUI5App` lazy-loader subs. Core set: `UsesPocketBase`, `UsesExcel`, `UsesQuill`,
+  `UsesLeaflet`, `UsesDatePicker`, `UsesKanBan`, `UsesSignaturePad`, `UsesQRCode`, `UsesBarCodeReader`,
+  `UsesDropZone`, `UsesVideoAudioPlayer`, `UsesOfficeRibbon`, `UsesCode`, `UsesMarkDownEditor`,
+  `UsesLottiePlayer`, `UsesSQLiteBrowser`, `UsesHTMLParser`, `UsesDocxTemplate`, `UsesB4JConverter`,
+  `UsesLZCompressString`, `UsesPivot`, `UsesTreeSpider`, `UsesWhatsApp`, `UsesColorWheel`, `UsesDevices`,
+  `UsesGifPlayer`, `UsesBottomNavigation`, `UsesSlider`, `UsesNoUISlider`, `UsesJQuery`, `UsesEnjoyHint`,
+  `UsesFontAwesome`, `UsesGenderChart`. Each calls `UI.LoadAssetsOnDemand`.
 - **AddJavascriptFileForLater / AddCSSFileForLater** — BANano header registration for lazy assets in `SithasoDaisy5.b4j`; counterpart to eager `AddJavascriptFile`/`AddCSSFile`.
 
 ## Validation / forms

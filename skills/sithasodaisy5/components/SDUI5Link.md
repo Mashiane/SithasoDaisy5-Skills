@@ -58,73 +58,68 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub link_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `AddAttr(k As String, v As String)` _(public)_
-- `AddClass(className As String)` _(public)_
-- `AddComponent()` _(public)_
-- `AddStyle(k As String, v As String)` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (12)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-- `RemoveClass(s As String)` _(public)_
 - `ResponsiveClass(className As String, xs As Boolean, sm As Boolean, md As Boolean, lg As Boolean)` _(public)_
-
-## Key Setters (23)
-- `setAttributes(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setColor(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `AddClass(className As String)` _(public)_
+- `AddAttr(k As String, v As String)` _(public)_
+- `RemoveClass(s As String)` _(public)_
+- `AddStyle(k As String, v As String)` _(public)_
+## Key Setters (22)
+- `setTextColor(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setText(text As String)` As 'ignoredeadcode _(public)_
+- `setNormalLink(b As Boolean)` _(public)_
+- `setIconPosition(s As String)` _(public)_
+- `setColor(s As String)` _(public)_
 - `setHover(b As Boolean)` _(public)_
 - `setHref(s As String)` _(public)_
-- `setIcon(s As String)` _(public)_
-- `setIconColor(s As String)` _(public)_
-- `setIconPosition(s As String)` _(public)_
-- `setIconSize(s As String)` _(public)_
-- `setListItem(b As Boolean)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setNormalLink(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setStyles(s As String)` _(public)_
+- `setIcon(s As String)` As 'ignoredeadcode _(public)_
+- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
+- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
 - `setTarget(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (25)
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getColor()` _(public)_
-- `getEnabled()` _(public)_
-- `getHere()` As String _(public)_
-- `getHover()` _(public)_
-- `getHref()` _(public)_
-- `getIcon()` _(public)_
-- `getIconColor()` _(public)_
-- `getIconPosition()` _(public)_
-- `getIconSize()` _(public)_
+- `setListItem(b As Boolean)` _(public)_
+## Getters (23)
 - `getID()` As String _(public)_
-- `getListItem()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getNormalLink()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` As String _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getStyles()` _(public)_
-- `getTarget()` _(public)_
-- `getText()` _(public)_
-- `getTextColor()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getTextColor()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getText()` As String _(public)_
+- `getNormalLink()` As Boolean _(public)_
+- `getIconPosition()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getHover()` As Boolean _(public)_
+- `getHref()` As String _(public)_
+- `getIcon()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getIconSize()` As String _(public)_
+- `getTarget()` As String _(public)_
+- `getListItem()` As Boolean _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgLink.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgLink.bas) (verified demo):
@@ -135,7 +130,6 @@ Private SDUI5Link10 As SDUI5Link		'ignore
 Private SDUI5Link11 As SDUI5Link		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `link`, `link-hover`
 **Colors**: `link:sColor`

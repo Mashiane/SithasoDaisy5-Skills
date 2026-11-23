@@ -29,33 +29,29 @@ _(inherits from SDUI5Component base — see base contract)_
 _(none declared)_
 
 Wire in parent: `Sub excelreport_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (7)
-- `AddColumn(colPosition As String, colName As String)` _(public)_
-- `AlphaNumeric(value As String)` As String _(public)_
-- `ClearColumns()` _(public)_
-- `ClearRows()` _(public)_
-- `Execute()` _(public)_
+## Public Methods (10)
 - `Initialize()` _(public)_
 - `InStr(sText As String, sFind As String)` As Int _(public)_
-
-## Key Setters (6)
+- `AlphaNumeric(value As String)` As String _(public)_
+- `GetListFromMapKeys(m As Map, keys As List)` As List _(public)_
+- `AddColumn(colPosition As String, colName As String)` _(public)_
 - `SetColumn(ColName As String,fldValue As String)` _(public)_
-- `setReportFileName(s As String)` _(public)_
+- `ClearColumns()` _(public)_
+- `ClearRows()` _(public)_
 - `SetRows(r As List)` _(public)_
-- `setSheetName(s As String)` _(public)_
+- `Execute()` _(public)_
+## Key Setters (4)
 - `setStartRow(i As Int)` _(public)_
 - `setTemplateFile(s As String)` _(public)_
-
-## Getters (5)
-- `GetListFromMapKeys(m As Map, keys As List)` As List _(public)_
-- `getReportFileName()` _(public)_
-- `getSheetName()` _(public)_
-- `getStartRow()` _(public)_
-- `getTemplateFile()` _(public)_
-
-## Private Methods (1)
-- `CStr(o As Object)` As String _(private)_
-
+- `setSheetName(s As String)` _(public)_
+- `setReportFileName(s As String)` _(public)_
+## Getters (4)
+- `getStartRow()` As Int _(public)_
+- `getTemplateFile()` As String _(public)_
+- `getSheetName()` As String _(public)_
+- `getReportFileName()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

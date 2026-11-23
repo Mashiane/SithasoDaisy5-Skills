@@ -28,6 +28,10 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | Key | Type | Default | List | Setter | Getter |
 |---|---|---|---|---|---|
 | `ParentID` | String | — | — | `setParentID` | `getParentID` |
+| `ThemeName` | String | classic | classic, material, monarch, breezy, forma, pulse | `setThemeName` | `getThemeName` |
+| `Palette` | String | default | default, purple, blue, green, red, yellow, amber, emerald, indigo, rose | `setPalette` | `getPalette` |
+| `DaisyUITheming` | Boolean | False | — | `setDaisyUITheming` | `getDaisyUITheming` |
+| `ColorScheme` | String | auto | auto, dark, light, none | `setColorScheme` | `getColorScheme` |
 | `InitialDate` | String | now | — | `setInitialDate` | `getInitialDate` |
 | `InitialView` | String | dayGridMonth | dayGridMonth, dayGridWeek, listMonth, listWeek, timeGridDay, timeGridWeek, multiMonthYear | `setInitialView` | `getInitialView` |
 | `Height` | String | auto | — | `setHeight` | `getHeight` |
@@ -77,9 +81,22 @@ Where a designer key and method name differ, the method names shown are the sour
 `EventClick`, `EventDrop`, `EventResize`, `Drop`, `DateClick`, `Select`, `NextMonth`, `PrevMonth`, `NextYear`, `PrevYear`, `DateRangeChange`
 
 Wire in parent: `Sub fullcalendar_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (23)
+## Public Methods (27)
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
 - `AddComponent()` _(public)_
-- `AddEvent(eID As String, egroupId As String, eTitle As String, eStart As String, eEnd As String, eAllDay As Boolean, eurl As String, eColor As String, eConstraint As String, eBackground As Boolean, eOverlap As Boolean)` _(public)_
+- `Remove()` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Refresh()` As 'ignoredeadcode _(public)_
+- `ChangeTheme(sTheme As String)` _(public)_
+- `ChangePalette(sPal As String)` _(public)_
+- `UpdateLocale(s As String)` _(public)_
+- `gotoDate(s As String)` _(public)_
+- `gotoToday()` _(public)_
+- `gotoPrevMonth()` _(public)_
+- `gotoNextMonth()` _(public)_
 - `changeView(vName As String)` _(public)_
 - `ChangeViewDayGridMonth()` _(public)_
 - `ChangeViewDayGridWeek()` _(public)_
@@ -87,33 +104,35 @@ Wire in parent: `Sub fullcalendar_<eventname>(e As BANanoEvent)` — the handler
 - `ChangeViewListWeek()` _(public)_
 - `ChangeViewTimeGridDay(day As String)` _(public)_
 - `ChangeViewTimeGridWeek()` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `gotoDate(s As String)` _(public)_
-- `gotoNextMonth()` _(public)_
-- `gotoNextYear()` _(public)_
-- `gotoPrevMonth()` _(public)_
 - `gotoPrevYear()` _(public)_
-- `gotoToday()` _(public)_
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `Refresh()` _(public)_
-- `Remove()` _(public)_
+- `gotoNextYear()` _(public)_
+- `Clear()` _(public)_
+- `AddEvent(eID As String, egroupId As String, eTitle As String, eStart As String, eEnd As String, eAllDay As Boolean, eurl As String, eColor As String, eConstraint As String, eBackground As Boolean, eOverlap As Boolean)` _(public)_
 - `UnSelect()` _(public)_
-- `UpdateLocale(s As String)` _(public)_
-
-## Key Setters (45)
-- `setAspectRatio(s As String)` _(public)_
+## Key Setters (49)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setThemeName(s As String)` _(public)_
+- `setTheme(s As String)` _(public)_
+- `setPalette(s As String)` _(public)_
+- `setDaisyUITheming(b As Boolean)` _(public)_
+- `setColorScheme(s As String)` _(public)_
+- `setAspectRatio(s As String)` _(public)_
 - `setBusinessHours(b As Boolean)` _(public)_
 - `setButtonIcons(b As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
 - `setContentHeight(s As String)` _(public)_
 - `setDayMaxEvents(b As Boolean)` _(public)_
 - `setDayText(s As String)` _(public)_
 - `setDroppable(b As Boolean)` _(public)_
 - `setEditable(b As Boolean)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
 - `setExpandRows(b As Boolean)` _(public)_
 - `setHeaderToolbarCenter(s As String)` _(public)_
 - `setHeaderToolbarLeft(s As String)` _(public)_
@@ -121,95 +140,81 @@ Wire in parent: `Sub fullcalendar_<eventname>(e As BANanoEvent)` — the handler
 - `setHeaderToolbarVisible(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setInitialDate(s As String)` _(public)_
+- `setNow(s As String)` _(public)_
 - `setInitialView(s As String)` _(public)_
 - `setListText(s As String)` _(public)_
 - `setLocale(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMonthText(s As String)` _(public)_
 - `setNavLinks(b As Boolean)` _(public)_
 - `setNextClickOn(b As Boolean)` _(public)_
-- `setNow(s As String)` _(public)_
 - `setNowIndicator(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
 - `setPrevClickOn(b As Boolean)` _(public)_
-- `SetProperties(props As Map)` _(public)_
 - `setScrollTime(s As String)` _(public)_
 - `setScrollTimeReset(b As Boolean)` _(public)_
-- `setSelectable(b As Boolean)` _(public)_
 - `setSelectMirror(b As Boolean)` _(public)_
+- `setSelectable(b As Boolean)` _(public)_
 - `setSlotDuration(s As String)` _(public)_
 - `setSlotMaxTime(s As String)` _(public)_
 - `setSlotMinTime(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setToDayText(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWeekNumbers(b As Boolean)` _(public)_
 - `setWeekText(s As String)` _(public)_
-
-## Getters (49)
-- `getAspectRatio()` _(public)_
-- `getAttributes()` _(public)_
-- `getBusinessHours()` _(public)_
-- `getButtonIcons()` _(public)_
-- `getClasses()` _(public)_
-- `getContentHeight()` _(public)_
-- `getCurrentDate()` _(public)_
-- `getCurrentEndDate()` _(public)_
-- `getCurrentStartDate()` _(public)_
-- `getDayMaxEvents()` _(public)_
-- `getDayText()` _(public)_
-- `getDroppable()` _(public)_
-- `getEditable()` _(public)_
-- `getEnabled()` _(public)_
-- `getExpandRows()` _(public)_
-- `getHeaderToolbarCenter()` _(public)_
-- `getHeaderToolbarLeft()` _(public)_
-- `getHeaderToolbarRight()` _(public)_
-- `getHeaderToolbarVisible()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (53)
 - `getID()` As String _(public)_
-- `getInitialDate()` _(public)_
-- `getInitialView()` _(public)_
-- `getListText()` _(public)_
-- `getLocale()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMonthText()` _(public)_
-- `getNavLinks()` _(public)_
-- `getNextClickOn()` _(public)_
-- `getNowIndicator()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `getPrevClickOn()` _(public)_
-- `GetProperties()` _(public)_
-- `getScrollTime()` _(public)_
-- `getScrollTimeReset()` _(public)_
-- `getSelectable()` _(public)_
-- `getSelectMirror()` _(public)_
-- `getSlotDuration()` _(public)_
-- `getSlotMaxTime()` _(public)_
-- `getSlotMinTime()` _(public)_
-- `getStyles()` _(public)_
-- `getToDayText()` _(public)_
-- `getVisible()` _(public)_
-- `getWeekNumbers()` _(public)_
-- `getWeekText()` _(public)_
-
-## Private Methods (8)
-- `DateRangeChange(dateInfo As Map)` _(private)_
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getThemeName()` As String _(public)_
+- `getTheme()` As String _(public)_
+- `getPalette()` As String _(public)_
+- `getDaisyUITheming()` As Boolean _(public)_
+- `getColorScheme()` As String _(public)_
+- `getAspectRatio()` As String _(public)_
+- `getBusinessHours()` As Boolean _(public)_
+- `getButtonIcons()` As Boolean _(public)_
+- `getContentHeight()` As String _(public)_
+- `getDayMaxEvents()` As Boolean _(public)_
+- `getDayText()` As String _(public)_
+- `getDroppable()` As Boolean _(public)_
+- `getEditable()` As Boolean _(public)_
+- `getExpandRows()` As Boolean _(public)_
+- `getHeaderToolbarCenter()` As String _(public)_
+- `getHeaderToolbarLeft()` As String _(public)_
+- `getHeaderToolbarRight()` As String _(public)_
+- `getHeaderToolbarVisible()` As Boolean _(public)_
+- `getHeight()` As String _(public)_
+- `getInitialDate()` As String _(public)_
+- `getInitialView()` As String _(public)_
+- `getListText()` As String _(public)_
+- `getLocale()` As String _(public)_
+- `getMonthText()` As String _(public)_
+- `getNavLinks()` As Boolean _(public)_
+- `getNextClickOn()` As Boolean _(public)_
+- `getNowIndicator()` As Boolean _(public)_
+- `getPrevClickOn()` As Boolean _(public)_
+- `getScrollTime()` As String _(public)_
+- `getScrollTimeReset()` As Boolean _(public)_
+- `getSelectMirror()` As Boolean _(public)_
+- `getSelectable()` As Boolean _(public)_
+- `getSlotDuration()` As String _(public)_
+- `getSlotMaxTime()` As String _(public)_
+- `getSlotMinTime()` As String _(public)_
+- `getToDayText()` As String _(public)_
+- `getWeekNumbers()` As Boolean _(public)_
+- `getWeekText()` As String _(public)_
+- `getCurrentDate()` As String _(public)_
+- `getCurrentStartDate()` As String _(public)_
+- `getCurrentEndDate()` As String _(public)_
+## Private Methods (1)
 - `EventClick(e As Map)` _(private)_
-- `GetDateRange(dateInfo As Map)` As Map _(private)_
-- `nextmonth(e As BANanoEvent)` _(private)_
-- `nextyear(e As BANanoEvent)` _(private)_
-- `prevmonth(e As BANanoEvent)` _(private)_
-- `prevyear(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgFullCalendar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFullCalendar.bas) (verified demo):
@@ -218,7 +223,6 @@ Real syntax from [`pgFullCalendar.bas`](https://github.com/Mashiane/SithasoDaisy
 Private fc As SDUI5FullCalendar		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

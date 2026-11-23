@@ -14,7 +14,7 @@ Use this to decompose any design prompt before writing a contract:
 3. **Required structure** — sections, states, and content the screen must include.
 4. **Named visual style** — one visual language + traits to carry over.
 5. **Interaction constraints** — responsive behavior, accessibility, density, motion.
-6. **Implementation context** — daisyUI/SithasoDaisy5 framework + Blueprint MCP if available.
+6. **Implementation context** — daisyUI/SithasoDaisy5 framework.
 
 Reusable prompt structure:
 `Build a [page type] for [product and audience]. The page must help users [primary goal] and include [required sections and states]. Use [named UI design style] for the visual direction, especially its [typography, color, shape, imagery, and layout traits]. Keep the interface responsive and accessible. Build it with daisyUI/SithasoDaisy5.`

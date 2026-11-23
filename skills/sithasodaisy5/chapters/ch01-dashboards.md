@@ -38,7 +38,7 @@ Sub CreateKpiCard(ParentRowID As String, ColID As String, CardID As String, Titl
     card.ParentID = col.ID
     card.Border = False
     card.Shadow = "none"
-    card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl p-5 hover:shadow-md hover:border-base-300 transition-all duration-200"
+    card.Classes = "bg-base-100 border border-base-200/80 rounded-2xl p-5 hover:shadow-md hover:border-base-300 transition-[transform,box-shadow] duration-200"
     ' Clear framework defaults so no "Card Title" / "Card Content" renders
     card.Title = ""
     card.Content = ""

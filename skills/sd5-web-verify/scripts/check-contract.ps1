@@ -28,7 +28,8 @@
 
 param(
     [string]$FrameworkFolder = "C:\b4j\workspace\0SithasoDaisy5",
-    [string]$SkillFolder = ""
+    [string]$SkillFolder = "",
+    [string[]]$IgnoreModules = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -69,6 +70,12 @@ $moduleSet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.St
 foreach ($module in $modules) { [void]$moduleSet.Add($module) }
 $modules = @($moduleSet)
 
+# Explicit known-gap waiver: ignore modules whose doc refresh is pending.
+$ignoreSet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+foreach ($m in $IgnoreModules) { [void]$ignoreSet.Add($m) }
+$ignored = @($modules | Where-Object { $ignoreSet.Contains($_) } | Sort-Object)
+$modules = @($modules | Where-Object { -not $ignoreSet.Contains($_) })
+
 # --- collect components/*.md files ---
 $compDir = Join-Path $SkillFolder "components"
 $comp = @()
@@ -82,6 +89,7 @@ $missing = @($modules | Where-Object { -not $compSet.Contains($_) } | Sort-Objec
 $extra = @($compSet | Where-Object { -not $moduleSet.Contains($_) } | Sort-Object)
 
 Write-Host "Registered module names:      $($modules.Count)" -ForegroundColor Gray
+if ($ignored.Count -gt 0) { Write-Host "Ignored by waiver:            $($ignored -join ', ')" -ForegroundColor Yellow }
 Write-Host "Registered SDUI5* classes:    $(@($modules | Where-Object { $_ -like 'SDUI5*' }).Count)" -ForegroundColor Gray
 Write-Host "Registered support modules:   $(@($modules | Where-Object { $_ -notlike 'SDUI5*' }).Count)" -ForegroundColor Gray
 Write-Host ".md files in components/:    $($comp.Count)" -ForegroundColor Gray

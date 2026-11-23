@@ -34,18 +34,28 @@ Explicit exclusions: visual tropes or components that would make this feel wrong
 
 The thesis and signature move are required for new screens. “Modern dashboard”, “clean”, “use theme X”, or a DaisyUI component name is not an art direction. Name the actual product context and turn the direction into visible decisions. Inherit a proven direction for a bounded edit; do not invent a new style per screen.
 
-If the user supplied an image, brand guide, or URL, use it as design evidence and preserve its intent. Otherwise choose a specific direction from the product and audience, or state a reversible assumption. Do not browse for inspiration by default or copy a recognizable product screen wholesale. The reference UIKit skill's scenario chapters can inform interaction recipes, but they are not evidence that a particular visual treatment is right for this web app.
+If the user supplied an image, brand guide, or URL, use it as design evidence and preserve its intent.
+Otherwise choose a specific direction from the product and audience, or state a reversible assumption.
+Do not browse for inspiration by default or copy a recognizable product screen wholesale.
+The reference UIKit skill's scenario chapters can inform interaction recipes, but they are not evidence
+that a particular visual treatment is right for this web app.
 
 ## 2. Translate direction into a small system
 
 Choose tokens once and assign each a role. Use the selected daisyUI theme as a palette foundation, not as a complete design. Define and verify the actual screen's:
 
-- **Type**: a small hierarchy with a clear display/page heading, section heading, body, label, and metadata role. Verify the font is loaded and that labels remain readable at the contracted viewport and zoom.
+- **Type**: a small hierarchy with a clear display/page heading, section heading, body, label, and metadata role. Verify the font is loaded and that labels remain readable at the contracted viewport and zoom. Use one `clamp()` value for the page/hero title so it does not jump between phone and desktop; keep body copy, labels, and stat values on fixed steps.
 - **Color**: page canvas, raised surface, primary text, muted text, primary action, and semantic success/warning/error roles. Use one dominant accent; don't color unrelated cards just to make them “pop.” Semantic tokens (`primary`, `base-100`, etc.) ensure theme adaptivity, but **hex colors (`#hex`) are fully supported and never banned** for brand palettes, charts, and precision styling.
 - **Space and grid**: one spacing rhythm, shared alignment edges, intentional content width, and different density only where the task requires it.
 - **Surfaces**: decide where a border, background, divider, or card communicates a real grouping. Prefer open layout and whitespace for incidental grouping; do not box every section.
 - **Shape and depth**: a consistent radius and shadow policy. Use elevation only when it explains hierarchy or interaction.
-- **Assets**: meaningful, cohesive imagery and icons. Each image must have a purpose, correct crop, and a verified local path. No unrelated stock hero, emoji stand-in, broken SVG, or placeholder avatar in a finished screen.
+- **Assets**: meaningful, cohesive imagery and icons.
+  - Each image has a purpose, correct crop, and a verified local path.
+  - No unrelated stock hero, emoji stand-in, broken SVG, or placeholder avatar in a finished screen.
+  - Size raster assets from the rendered logical size times device scale (200px at 3x needs 600px); never upscale.
+  - Supply alternative text when the image carries information; mark decorative imagery as such.
+  - Choose a supported format with a sensible file budget; keep source files separate from runtime files.
+  - Check the composite on every theme the app exposes.
 
 Only claim custom styles that the installed skill and component API can produce. Where the framework has a real capability gap, use the nearest source-backed treatment and record the compromise. Do not distort product hierarchy just to stay inside a familiar scaffold.
 
@@ -61,6 +71,7 @@ Apply these craft checks while composing:
 - Keep repeated items truly consistent. Break the pattern only to signal a meaningful difference.
 - Let content set the layout. Check long titles, empty/error messages, translations, and realistic row counts rather than tuning only to short demo copy.
 - Make navigation, selected state, keyboard focus, loading, empty, error, success, and disabled states visually legible wherever applicable.
+- Animate only `transform` and `opacity`, never `transition-all`, and gate movement behind `motion-safe:` so `prefers-reduced-motion` is respected.
 - For touch screens, keep frequent actions reachable and targets usable. For every viewport, avoid page-level horizontal scroll unless the user is viewing a deliberately scrollable data region.
 
 The detailed cognitive-load, content-density, scanning, and accessibility rules remain in [design-intelligence.md](design-intelligence.md) and [ux-master-doctrine.md](ux-master-doctrine.md). Use them as judgment criteria; do not mechanically insert a card, divider, wizard, dock, or five-choice limit where it harms the task.
@@ -79,9 +90,15 @@ Run the existing 2-second test and four critique lenses in [ux-review.md](../../
 | Layout and responsive craft | Clipped, overflowing, broken, or unusable | Large dead zones, awkward density, or poor mobile fit | Clear alignment and intentional desktop/phone adaptation | Every viewport feels composed for its available space and content |
 | Interaction and finish | Broken assets/states, unclear controls, or inaccessible essentials | Obvious rough edges or incomplete feedback | Controls and applicable states are clear; no visible defects | Feedback, focus, motion, and details feel complete and effortless |
 
-Score each dimension separately for every screen and viewport; cite a visible example for every score below 4. **Release quality gate:** no dimension below 3, average at least 3.5, and no severity-4/5 UX or accessibility finding. New product screens should target 4 on Product fit and distinction. Any broken/missing asset, clipped content, unexpected page-level horizontal scroll, or unresolved critical console/resource error is an automatic fail regardless of average.
+Score each dimension separately for every screen and viewport; cite a visible example for every score below 4.
+**Release quality gate:** no dimension below 3, average at least 3.5, and no severity-4/5 UX or accessibility finding.
+New product screens should target 4 on Product fit and distinction.
+Any broken/missing asset, clipped content, unexpected page-level horizontal scroll, or unresolved critical
+console/resource error is an automatic fail regardless of average.
 
-For every 0–2 score, write a specific fix with the screenshot region, expected change, and a fresh capture to verify it. Revise and re-score the affected screen, up to the orchestrator's remediation cap. Report `NOT RUN` when screenshots, a browser, or required viewports are unavailable; a skipped visual gate is not a pass.
+For every 0-2 score, write a specific fix with the screenshot region, expected change, and a fresh capture.
+Revise and re-score the affected screen, up to the orchestration remediation cap.
+Report `NOT RUN` when screenshots, a browser, or required viewports are unavailable; a skipped visual gate is not a pass.
 
 ## 5. Common ways a screen can look bad while code passes
 
@@ -117,7 +134,7 @@ To eliminate formulaic "AI card-slop", study and replicate these six proven arch
 - **Composition**: 4-card metric KPI row with mini sparklines or trend pills (`+14.2%`), followed by an asymmetric 8/4 split with a real-time activity table.
 - **Typography**: Tabular numbers (`font-mono`), tight tracking (`tracking-tight`), uppercase kicker labels (`text-xs font-semibold uppercase tracking-widest text-base-content/60`).
 - **Density**: Dial 8-10 (`p-3 sm:p-4`, `gap-3 sm:gap-4`, `table-xs` or `table-sm`).
-- **Live Indicator**: Breathing pulse dot (`animate-ping`) on live system status.
+- **Live Indicator**: Breathing pulse dot (`motion-safe:animate-ping`) on live system status.
 
 ### Exemplar 3: Editorial Split-Screen (Authentication / Onboarding)
 - **Composition**: 50/50 split on desktop (`col-12 lg:col-6`): Left side is a rich ambient showcase with brand thesis, subtle mesh background, and customer quote; right side is a clean, focused form.
@@ -127,7 +144,7 @@ To eliminate formulaic "AI card-slop", study and replicate these six proven arch
 ### Exemplar 4: Immersive Media Player & Studio
 - **Composition**: Dark canvas with subtle ambient backdrops (`bg-base-300`), floating glassmorphic playback controls, and crisp high-res album/media art.
 - **Surface**: Translucent controls with `backdrop-blur-lg bg-black/40 border border-white/10`.
-- **Micro-Interactions**: Smooth slider response, active track highlight, and tactile button feedback (`active:scale-95`).
+- **Micro-Interactions**: Smooth slider response, active track highlight, and tactile button feedback (`motion-safe:active:scale-95`).
 
 ### Exemplar 5: E-Commerce Product Studio
 - **Composition**: Sticky left gallery with thumbnail carousel and full-bleed hero photo; right column holds product title (`text-3xl font-extrabold tracking-tight`), star rating badge, size/variant selector chips, and stock status pill.

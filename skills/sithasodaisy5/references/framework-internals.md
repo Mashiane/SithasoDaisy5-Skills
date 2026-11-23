@@ -12,8 +12,8 @@ were read 2026-10-11; re-verify against source if the library bumps.
 
 ## 1. Library build: project run produces the .b4xlib
 
-- `SithasoDaisy5.b4j` is a B4J library project: ~160 top-level `.bas` files,
-  `ModuleN=` registry (159 entries), `FileN=` third-party assets.
+- `SithasoDaisy5.b4j` is a B4J library project: 163 top-level `.bas` files,
+  `ModuleN=` registry (162 entries), `FileN=` third-party assets.
 - Running it (B4J IDE or B4JBuilder) executes the embedded build module, which
   calls `BANano.BuildAsB4Xlib(LibVersion)` (`SithasoDaisy5.b4j:920`).
 - Output `SithasoDaisy5.b4xlib` is what every BANano app project references.

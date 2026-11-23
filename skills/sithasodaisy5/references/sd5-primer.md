@@ -13,7 +13,8 @@ A condensed orientation for AI agents that need to write B4J/BANano code that dr
 
 - **Type**: B4J/BANano component library, compiled into a `.b4xlib` and shipped as a single file.
 - **Output**: B4J `.bas` files that call `SDUI5*` components. BANano transpiles the `.bas` → JS → runs in the browser.
-- **Styling**: daisyUI component classes (`btn`, `card`, `modal`, `alert`, `tabs`, `menu`, `drawer`, `badge`, `avatar`, `collapse`, `join`, `dock`, `stats`, `timeline`, `hero`, `footer`, `navbar`, `carousel`, `diff`, `kbd`, `progress`, `radial-progress`, `skeleton`, `tooltip`, `swap`, `countdown`, `divider`, `indicator`, `stack`, `mockup-*`) + Tailwind utilities + responsive prefixes (`lg:`/`md:`/`sm:`/`xl:`).
+- **Styling**: daisyUI component classes (`btn`, `card`, `modal`, `alert`, `tabs`, `menu`, `drawer`, `badge`, `stats`, `timeline`, `hero`, `navbar`, `carousel`, `skeleton`, `tooltip`, ...),
+  Tailwind utilities, and responsive prefixes (`lg:`/`md:`/`sm:`/`xl:`).
 - **No HTML emitted by your code** — the framework injects `[BANCLEAN]<tag class="...">` nodes. You drive it via property setters.
 
 ---
@@ -62,7 +63,6 @@ The single root object every page holds as `app`. Initialized once in `BANano_Re
 ```b4j
 Sub BANano_Ready
     app.Initialize(Me)
-    app.SetTheme(app.THEME_NORD)
     ' lazy-load what you need
     Banano.Await(app.UsesDatePicker)
     Banano.Await(app.UsesQuill)
@@ -78,7 +78,7 @@ End Sub
 - `SDUI5MDToast` (internal)
 - `ShowSwalSuccess / ShowSwalError / ShowSwalInfo / ShowSwalConfirm / ShowSwalWarn` wrappers
 - Drawer helpers
-- Theme application (`html data-theme=`)
+- Theme application is host-owned (`html data-theme=` is set by the page/user, never by app code; RULE-THEME-001)
 - `UsesX` lazy-asset loaders
 
 **Constants** (use these instead of hardcoded strings):
@@ -160,7 +160,7 @@ B4J doesn't enforce Hungarian, but the codebase uses prefix conventions:
 | `lst` | List | `lstItems` |
 | `m` | Map | `mProps` |
 | `pg` | Page module | `pgIndex`, `pgButton` |
-| `app` | SDUI5App singleton | `app.SetTheme(...)` |
+| `app` | SDUI5App singleton | `app` (never `SetTheme`) |
 
 Follow these. Don't invent new prefixes.
 

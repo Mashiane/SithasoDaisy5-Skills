@@ -9,7 +9,7 @@
 #>
 param(
     [Parameter(Mandatory = $true)][string]$ProjectRoot,
-    [int]$TimeoutSec = 420,
+    [int]$TimeoutSec = 2400,
     [switch]$SkipCompile,
     [string]$Builder = "C:\Program Files\Anywhere Software\B4J\B4JBuilder.exe",
     [string]$Java = "C:\b4j\java\bin\java.exe",
@@ -72,7 +72,7 @@ if ($buildExit -ne 0 -or -not (Test-Path -LiteralPath $jar)) {
 
 $started = Get-Date
 $objectsDir = Join-Path $ProjectRoot "Objects"
-$proc = Start-Process -FilePath $Java -ArgumentList @("-Dfile.encoding=UTF-8", "--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $objectsDir -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
+$proc = Start-Process -FilePath $Java -ArgumentList @("-Xmx4g", "-Dfile.encoding=UTF-8", "--module-path", $JavaFxLib, "--add-modules", "ALL-MODULE-PATH", "-jar", $jar) -WorkingDirectory $objectsDir -RedirectStandardOutput $stdout -RedirectStandardError $stderr -PassThru
 $deadline = $started.AddSeconds($TimeoutSec)
 $success = $false
 $failure = ""
@@ -82,16 +82,16 @@ while ((Get-Date) -lt $deadline) {
     foreach ($path in @($stdout, $stderr) + $transpileLogs) { if (Test-Path -LiteralPath $path) { $logText += (Get-Content -LiteralPath $path -Raw) } }
     $indexPath = Join-Path $outputFolder "index.html"
     $appJsPath = Join-Path $outputFolder "scripts\app.js"
-    $freshIndex = (Test-Path -LiteralPath $indexPath) -and ((Get-Item -LiteralPath $indexPath).LastWriteTime -ge $started)
-    $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath).LastWriteTime -ge $started)
+    $freshIndex = (Test-Path -LiteralPath $indexPath) -and ((Get-Item -LiteralPath $indexPath -ErrorAction SilentlyContinue).LastWriteTime -ge $started)
+    $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath -ErrorAction SilentlyContinue).LastWriteTime -ge $started)
     if ($logText -match '(?i)something went wrong|could not set the b4jname') { $failure = "BANano reported a build error."; break }
     if ($logText -match 'BANano v[0-9.]+: conversion finished!' -and $freshIndex -and $freshJs) { $success = $true; break }
     if ($proc.HasExited) {
         Start-Sleep -Milliseconds 500
         $logText = ""
         foreach ($path in @($stdout, $stderr) + $transpileLogs) { if (Test-Path -LiteralPath $path) { $logText += (Get-Content -LiteralPath $path -Raw) } }
-        $freshIndex = (Test-Path -LiteralPath $indexPath) -and ((Get-Item -LiteralPath $indexPath).LastWriteTime -ge $started)
-        $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath).LastWriteTime -ge $started)
+        $freshIndex = (Test-Path -LiteralPath $indexPath) -and ((Get-Item -LiteralPath $indexPath -ErrorAction SilentlyContinue).LastWriteTime -ge $started)
+        $freshJs = (Test-Path -LiteralPath $appJsPath) -and ((Get-Item -LiteralPath $appJsPath -ErrorAction SilentlyContinue).LastWriteTime -ge $started)
         if ($logText -match 'BANano v[0-9.]+: conversion finished!' -and $freshIndex -and $freshJs) {
             $success = $true
             break
@@ -108,6 +108,28 @@ if (-not $proc.HasExited) {
     Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
 }
 $status = if ($success) { "PASS" } else { "FAIL" }
+
+# BANano's generated bootstrap only listens for readystatechange. Heavy apps can
+# finish loading after the document is already complete, so banano_ready never
+# runs and the page stays on the loader. Append an immediate check after the
+# generated app has registered its listener; the call is a no-op when the page
+# is still loading.
+$patched = @()
+if ($success) {
+    $utf8NoBom = New-Object System.Text.UTF8Encoding -ArgumentList $false
+    foreach ($scriptName in @("app.js", "ES5_app.js")) {
+        $scriptPath = Join-Path $outputFolder "scripts\$scriptName"
+        if (Test-Path -LiteralPath $scriptPath) {
+            $js = [System.IO.File]::ReadAllText($scriptPath)
+            if ($js -notmatch 'BANLoadChecker\(\);') {
+                $js = $js.TrimEnd() + "`r`nBANLoadChecker();`r`n"
+                [System.IO.File]::WriteAllText($scriptPath, $js, $utf8NoBom)
+                $patched += $scriptName
+            }
+        }
+    }
+}
+
 $lines = @(
     "# Build report - $stamp", "",
     "- B4J compile: $buildStatus (B4JBuilder exit $buildExit)",
@@ -119,6 +141,7 @@ $lines = @(
     "- BANano stdout/stderr: $stdout ; $stderr",
     "- Completed: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss K')"
 )
+if ($patched.Count -gt 0) { $lines += "- Bootstrap patch: BANLoadChecker() appended to $($patched -join ', ')" }
 if ($failure) { $lines += "- Failure: $failure" }
 $lines | Set-Content -LiteralPath $report -Encoding UTF8
 Write-Host (Get-Content -LiteralPath $report -Raw)

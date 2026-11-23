@@ -19,9 +19,17 @@ Protect existing app behavior with a recorded baseline, explicit impact scope, t
 5. Run checks for the changed feature and impacted pages, then project wiring, `sd5-web-verify` pre-scan/conformance, build, browser runtime, and visual capture according to what the environment supports. State `NOT RUN` or `BLOCKED` with the exact reason when unavailable.
 6. Write `.agent/REGRESSION.md` using the template. Separate newly introduced failures, fixed failures, and pre-existing failures. A critical journey, G3 static gate, build, or runtime failure blocks release. Missing environment evidence means the corresponding gate remains open, not pass.
 
+## Review discipline
+
+Before merge, run the five-axis review in [review-checklist.md](references/review-checklist.md).
+Record the verdict and findings in `.agent/REVIEW.md`. A Critical or Required finding keeps the change open.
+
 ## Risk-based scope
 
-Always run changed-feature checks, affected-page checks, project wiring checks, and conformance. Include adjacent routes for navigation changes; all pages using a changed shared component, loader, or theme; data-state journeys for data changes; and wide-app checks when impact cannot be bounded from source. For financial, authentication, permissions, persistence, or destructive behaviors, require runtime evidence beyond compilation.
+Always run changed-feature, affected-page, project-wiring, and conformance checks.
+Include adjacent routes for navigation changes, all pages using a changed shared component/loader/theme,
+data-state journeys for data changes, and wide-app checks when impact cannot be bounded from source.
+For financial, authentication, permissions, persistence, or destructive behavior, require runtime evidence beyond compilation.
 
 For a greenfield app with no prior release baseline, record `GREENFIELD` and validate the complete app smoke path. Use this skill if app structure or shared modules are changed after the first implementation.
 

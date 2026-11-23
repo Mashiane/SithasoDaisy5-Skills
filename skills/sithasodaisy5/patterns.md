@@ -14,17 +14,17 @@ Practitioner recipes for wiring components together in B4J/BANano. All code is B
 
 Leaving the default in place silently hides the label — there is no error, just a missing label. Always set the mode when a `Label` is intended.
 
-## P0 — Icon & Image asset paths (STRICT)
+## P0 — Assets and colors
 
-**Every icon/image property that points at a file under `assets/` MUST use the full relative path `./assets/<name>.svg` (extension included).** Bare names or extension-only values are forbidden — the runtime fetches the literal string as a URL, so `LeftIcon = "log-in"` or `LeftIcon = "log-in.svg"` 404s and the button renders `"Failed to load SVG Sign in"` instead of the icon. Always write `LeftIcon = "./assets/log-in.svg"`, `Image = "./assets/addfolder.svg"`. Applies to `LeftIcon`, `RightIcon`, `Image`, `RightImage`, and any asset-path property. If no matching file exists in `assets/`, choose an existing one (e.g. `"./assets/door-open-solid.svg"`) or add the file — never drop the `./assets/` prefix or the extension.
+**Icon/image paths**: use `./assets/<name>.svg`, with the prefix and extension. Bare names and
+extension-only values produce a 404. Full rule: [RULE-ASSET-001](references/rules-enforcer.md#rule-asset-001).
+Sourcing workflow: [SKILL.md](SKILL.md#sourcing-icons-iconify-mitfree-only).
 
-**Sourcing new icons**: use Iconify (prefer the `tabler` set; source repo https://github.com/tabler/tabler-icons, license MIT) or Iconstack (https://iconstack.io, aggregates 21 MIT-licensed libraries, free search API + MCP). Check the collection license is MIT or otherwise fully free before adding. Download the SVG into the app's `Files/` folder (BANano publishes `Files/` → `assets/` at build, so this alone suffices; copy to published `assets/` only to verify), then reference it locally with its extension (`LeftIcon = "mail.svg"`). Never hotlink the source URL at runtime.
-
-## P0 — Color values follow each component property contract (STRICT)
-
-Before setting any `*Color` property, inspect that exact property in the component reference (including its allowed-value list) and use the behavior it documents. A `.Color` property may select a daisyUI variant, style a nested control, set an HTML attribute, or pass a literal color into a library; the property name alone does not tell you which. For listed variant properties such as `SDUI5Button.Color`, choose a listed semantic value such as `"primary"` or `"error"`.
-
-For shared `BackgroundColor`, `TextColor`, and `BorderColor` helpers, semantic tokens and base tokens are preferred so colors follow the active daisyUI theme. The shared converter wraps `#hex` as an arbitrary Tailwind class, but it does not make `rgb(...)`/`rgba(...)` valid arbitrary class syntax. Use documented raw CSS color properties or `.Styles` when a literal CSS color is required. Do not use `none` unless that component documents it as a no-color sentinel; leave optional color properties empty when no override is intended. See [design-tokens.md](references/design-tokens.md#11-color-channels).
+**Color values**: inspect the exact `*Color` property in the component reference and use the behavior it documents.
+Prefer semantic tokens for theme switching; the shared converter wraps `#hex` but not `rgb(...)`/`rgba(...)`.
+Do not use `none` unless the component documents it as a sentinel. Channel policy:
+[design-tokens.md](references/design-tokens.md#11-color-channels). Definitions: RULE-MOUNT-001 and
+RULE-CODE-003 in [rules-enforcer.md](references/rules-enforcer.md).
 
 ## P1 — Mount a single component
 
@@ -129,19 +129,46 @@ Do not apply this trio automatically to `SDUI5CheckBox`, `SDUI5Toggle`, `SDUI5Ra
 
 For sizing, use a component's `Width` or `Height` property when that component exposes the property and matching setter/getter. These dimension APIs are component-specific; do not assume they are inherited by every control. Use `Classes` utilities such as `w-full` or `h-full` when the corresponding dimension property is absent, or when responsive/min/max sizing is needed, and verify which rendered element receives those classes.
 
-### P4b — Shared layout and raw styling properties
+### P4b — Shared layout and raw styling properties (The Property-First Rule)
+
+`.Classes` is strictly an auxiliary fallback. If a component exposes a designer property for layout, spacing, dimension, elevation, or positioning, you **MUST** assign it via that property and never leak it into `.Classes`. See [Base Designer Properties & DSL Guide](references/base-properties-dsl.md).
 
 When a component exposes these shared designer properties, use them for their intended root-element concerns:
 
-- `PaddingAXYTBLR` / `MarginAXYTBLR` generate Tailwind spacing classes from `a` (all), `x` (left/right), `y` (top/bottom), `t`, `b`, `l`, and `r` values. Use `?` for an unchanged side; e.g. `"a=?; x=4; y=6; t=?; b=?; l=?; r=?"` generates horizontal `px-4` and vertical `py-6` spacing.
-- Assigning a spacing property replaces the component's previous spacing value as a whole. Preserve any useful component default explicitly; for example, `SDUI5Column` defaults to `p-2`, so a custom value that should retain its horizontal padding must include `x=2`.
-- These properties express one non-responsive value per side. Keep breakpoint-specific spacing such as `sm:px-8` or `md:py-8` in `Classes`; remove the matching base utility from `Classes` when moving it to a spacing property, and do not define the same side at the same breakpoint in both places.
-- They style the component's outer rendered element. For compound components, use the component's named inner-region API (for example, `SDUI5Card.BodyClasses` for the `.card-body`) when the padding belongs inside that region. `PaddingAXYTBLR` on a card pads its outer root, not its card body.
-- Use `PositionStyle` for CSS positioning mode and `Position` for top/bottom/right/left offsets; offsets only have positioning effect when an appropriate position mode is active. Use `RawStyles` for exceptional inline CSS and `RawAttributes` for HTML attributes, not as substitutes for spacing properties or layout classes.
-
-Before writing a utility in `Classes`, inspect the component's exact designer-property contract and prefer a matching typed property for the same intent. Examples include `SDUI5Text.FontWeight` for `font-bold`/`font-semibold`, `SDUI5Text.Opacity` for `opacity-*`, `SDUI5Text.TextAlign` for `text-center`, `SDUI5Button.Shadow` or `SDUI5Avatar.Shadow` for supported shadows, `Width`/`Height` for dimensions, and `SDUI5Row.AlignItems` for `items-center`. Use only properties actually exposed by that component; do not infer support from another component or from a similar property name.
-
-`RawClasses`/`Classes` remain appropriate for responsive variants, flex/grid layout, typography or visual utilities without a matching component property, and values such as max/min sizing, tracking, leading, overflow, or partial borders. A responsive utility such as `sm:text-5xl` stays in `Classes` even if the component has a non-responsive `TextSize` property. Split out only the matching base utility and preserve all responsive behavior.
+- **The `Raw*` Code Property Mapping (CRITICAL)**:
+  In `#DesignerProperty` headers, keys are named `RawClasses`, `RawStyles`, and `RawAttributes`. But framework setters are `setClasses`, `setStyles`, `setAttributes`.
+  In B4J code, always assign `.Classes`, `.Styles`, and `.Attributes`.
+  Never write `.RawClasses`, `.RawStyles`, or `.RawAttributes` in B4J code (causes compilation error: `Field not found`).
+- **Property Assignment Syntax Only (No Capital `Set*` Methods)**:
+  Designer properties have lowercase setters in framework classes (`setPosition`, `setMarginAXYTBLR`). In B4X code, always invoke them as property assignments: `comp.Position = ...`, `comp.MarginAXYTBLR = ...`.
+  * **Forbidden**: Never call or invent capitalized methods like `comp.SetPositionStyle(...)`, `comp.SetPosition(...)`, `comp.SetMarginAXYTBLR(...)`, or granular sub-setters (`SetTop`, `SetMarginT`).
+- **Clean Compact Spacing DSL (`MarginAXYTBLR` / `PaddingAXYTBLR`)**:
+  Generates Tailwind spacing classes from keys `a` (all), `x` (horizontal/auto), `y` (vertical), `t`, `b`, `l`, `r`, and `n` prefix for negative (`t=n4` → `-mt-4`).
+  The designer default `a=?; x=?; ...` has `?` placeholders, but app code should write only active sides:
+  e.g. `comp.MarginAXYTBLR = "b=4"` (`mb-4`), `comp.MarginAXYTBLR = "x=auto; b=6"` (`mx-auto mb-6`), `comp.PaddingAXYTBLR = "x=4; y=6"` (`px-4 py-6`).
+  * Assigning replaces previous spacing as a whole. Preserve useful component defaults explicitly (e.g. `SDUI5Column` defaults to `p-2`).
+  * Outer element only: compound components pad inner regions via named APIs (e.g. `SDUI5Card.BodyClasses` for `.card-body`).
+- **Positioning DSL (`PositionStyle` & `Position`)**:
+  * `PositionStyle`: `"relative"`, `"absolute"`, `"fixed"`, `"sticky"`, `"static"`. Emits inline CSS `style="position: ...;"`.
+  * `Position`: `"t=0; r=0"`, `"t=50%; l=50%"`. Uses CSS length/percentage units (`0`, `10px`, `1rem`, `50%`), NOT Tailwind tokens. Emits inline CSS `top`, `bottom`, `left`, `right`.
+  * Position properties do NOT output Tailwind classes.
+- **UIShared Engine Contract**:
+  * `UI.BuildExClass`: Only outputs Tailwind classes for `MarginAXYTBLR`, `PaddingAXYTBLR`, and auxiliary `Classes`.
+  * `UI.BuildExStyle`: Handles `PositionStyle`, `Position`, and custom `Styles`.
+  * `UI.BuildExAttributes`: Handles custom `Attributes`.
+- **Exact Token Syntax for String Properties**:
+  * Suffix only; framework prepends prefix (`FixSize` → `w-`/`h-`, `FixShadow` → `shadow-`, `FixRounded` → `rounded-`). A full utility doubles it (`"w-full"` → `w-w-full`).
+  * `Width`: `comp.Width = "full"`, `comp.Width = "64"`, `comp.Width = "screen"` (never `"w-full"`).
+  * `Height`: `comp.Height = "64"`, `comp.Height = "full"`, `comp.Height = "screen"` (never `"h-64"`).
+  * `Shadow`: `comp.Shadow = "md"` or `"shadow"` (never `"shadow-md"`).
+  * `Rounded`: `comp.Rounded = "box"` or `"rounded"` / `"rounded-full"` (never `"rounded-box"`).
+- **Strict `.Classes` Reservation (Responsive & Unmanaged Only)**:
+  `Classes` remains strictly reserved for:
+  1. Breakpoint-specific / responsive variants (`sm:px-8`, `md:w-1/2`, `lg:h-96`, `hidden md:flex`).
+  2. Transitions and hover animations (`transition-transform`, `duration-200`, `motion-safe:hover:-translate-y-1`, `hover:shadow-xl`).
+  3. Flex/Grid child layout tokens (`flex-1`, `grow`, `shrink-0`, `col-span-2`).
+  4. Utilities without a matching component property (`overflow-hidden`, `backdrop-blur-sm`, `divide-y`).
+  Never place static, base (unprefixed) `m-*`, `p-*`, `w-*`, `h-*`, `shadow-*`, `rounded-*`, `relative`, or `absolute` into `.Classes`. Split out base values into dedicated properties and retain only responsive/unmanaged utilities in `.Classes`.
 
 ## P5 — Drawer + navbar shell
 
@@ -181,7 +208,8 @@ For async confirm use `app.ShowSwalConfirmWait(title, msg, okText, cancelText)` 
 ## P9 — Data display
 
 - **Table** (`SDUI5Table`, 95 props, `card card-border`) — fires `AlphaClick, RowClick, HeaderClick`.
-- **Stats** — `SDUI5Stat` (`stats` container) + `SDUI5StatItem` (`stat` child item). **RULE-LAYOUT-005**: `SDUI5StatItem` MUST mount inside an `SDUI5Stat` parent (`ParentID = "statContainer"`), never directly to a Row, Column, Container, or PageView. Similarly, companion child items (`SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5AccordionItem`, `SDUI5BreadcrumbItem`, `SDUI5CarouselItem`) MUST mount into their designated parent containers.
+- **Stats** — `SDUI5Stat` (`stats`) + `SDUI5StatItem` (`stat`). RULE-LAYOUT-005: the item mounts inside the stat parent, never directly to a Row, Column, Container, or PageView.
+- **Other companions** — `SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, and `SDUI5CarouselItem` each mount into their designated parent.
 - **Charts** — `SDUI5ToastChart` (`toastui-chart`), `SDUI5TrendChart`, `SDUI5GenderChart`.
 - **Pivot** — `SDUI5Pivot` (`webdatarocks`).
 - **JSON** — `SDUI5JsonEditor`, `SDUI5JsonTree`.

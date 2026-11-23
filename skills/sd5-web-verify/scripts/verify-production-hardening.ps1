@@ -28,7 +28,6 @@ $served = Get-ChildItem -LiteralPath $OutputFolder -Recurse -File -ErrorAction S
     Where-Object { $textExt -contains $_.Extension.ToLower() }
 $secretRe = '(AIza[0-9A-Za-z_-]{10,}|sk-(live|test)-[0-9A-Za-z]{8,}|xox[bap]-|-----BEGIN [A-Z ]*PRIVATE KEY-----|ghp_[0-9A-Za-z]{20,}|AKIA[0-9A-Z]{16})'
 $absPathRe = '[A-Za-z]:\\[^\\\s"''<>]{2,}'
-$urlRe = 'http://(?!localhost|127\.0\.0\.1)'
 $firstPartyRe = '^(app|ES5_app|sithasodaisy5)\.js$'
 $buildArtifactRe = '^(app|ES5_app)\.js$'
 $servedCount = @($served).Count
@@ -55,8 +54,13 @@ foreach ($f in $served) {
             if ($f.Name -match $buildArtifactRe) { $warn += "$($f.Name): build-time Publish path embedded (accepted local-publish mechanism; confirm no sensitive segments)" }
             else { $fail += "$($f.Name): absolute Windows path in served file (workstation leak)" }
         }
-        if ($text -match $urlRe) {
-            $warn += "$($f.Name): non-localhost http:// URL (mixed-content risk)"
+        foreach ($m in [regex]::Matches($text, 'http://[^\s"''<>]+')) {
+            $u = $m.Value
+            if ($u -match '^(https?://)?(localhost|127\.0\.0\.1)') { continue }
+            # XML/SVG namespaces are identifiers, not network requests.
+            if ($u -match 'w3\.org|purl\.org|ns\.adobe\.com|schemas\.') { continue }
+            $warn += "$($f.Name): non-localhost http:// URL ($u) (mixed-content risk)"
+            break
         }
     }
 }

@@ -48,17 +48,19 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 _(none declared)_
 
 Wire in parent: `Sub bottomdrawer_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (8)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Hide()` _(public)_
+## Public Methods (10)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `Show()` _(public)_
 - `ShowOnBreakPoint(bp As Double)` _(public)_
-
-## Key Setters (15)
+- `Hide()` _(public)_
+## Key Setters (14)
+- `setParentID(s As String)` _(public)_
 - `setBackdropColor(s As String)` _(public)_
 - `setBackdropdismiss(b As Boolean)` _(public)_
 - `setBackgroundColor(s As String)` _(public)_
@@ -69,34 +71,28 @@ Wire in parent: `Sub bottomdrawer_<eventname>(e As BANanoEvent)` — the handler
 - `setInitialBreakpoint(s As String)` _(public)_
 - `setMaxWidth(s As String)` _(public)_
 - `setOpen(b As Boolean)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setShowbackdrop(b As Boolean)` _(public)_
 - `setShowHandle(b As Boolean)` _(public)_
+- `setShowbackdrop(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
-## Getters (17)
-- `getBackdropColor()` _(public)_
-- `getBackdropdismiss()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBreakpoints()` _(public)_
-- `getDuration()` _(public)_
-- `getHandleBg()` _(public)_
-- `getHandleShadow()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (16)
 - `getID()` As String _(public)_
-- `getInitialBreakpoint()` _(public)_
-- `getMaxWidth()` _(public)_
-- `getOpen()` _(public)_
-- `getParentID()` _(public)_
-- `GetProperties()` _(public)_
-- `getShowbackdrop()` _(public)_
-- `getShowHandle()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getBackdropColor()` As String _(public)_
+- `getBackdropdismiss()` As Boolean _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getBreakpoints()` As String _(public)_
+- `getDuration()` As Int _(public)_
+- `getHandleBg()` As String _(public)_
+- `getHandleShadow()` As String _(public)_
+- `getInitialBreakpoint()` As String _(public)_
+- `getMaxWidth()` As String _(public)_
+- `getOpen()` As Boolean _(public)_
+- `getShowHandle()` As Boolean _(public)_
+- `getShowbackdrop()` As Boolean _(public)_
+- `getWidth()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgBottomDrawer.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBottomDrawer.bas) (verified demo):
@@ -112,7 +108,6 @@ bdrawer1.MaxWidth = "90%"
 bdrawer1.Showbackdrop = False
 BANano.Await(bdrawer1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `z-99`
 ## Code Example

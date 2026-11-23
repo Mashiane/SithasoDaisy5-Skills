@@ -50,69 +50,64 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub bottomnavigation_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (11)
+## Public Methods (19)
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `SetOptions(OptionsList As List)` _(public)_
 - `AddButton(id As String, icon As String, title As String, badge As String)` _(public)_
 - `AddButtonItem(parentId As String, id As String, icon As String, title As String, badge As String)` _(public)_
-- `AddComponent()` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Refresh()` _(public)_
-- `Remove()` _(public)_
 - `RemoveButton(buttonId As String)` As Boolean _(public)_
 - `RemoveButtonItem(parentId As String, childId As String)` As Boolean _(public)_
 - `UpdateBadge(id As String, badgeValue As Object)` As Boolean _(public)_
-
-## Key Setters (21)
+- `GetActive()` As String _(public)_
 - `SetActive(id As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(c As String)` _(public)_
-- `setBadgeColor(c As String)` _(public)_
+- `Clear()` _(public)_
+- `Refresh()` _(public)_
 - `SetButtonDisabled(id As String, disabled As Boolean)` _(public)_
 - `SetButtonHidden(id As String, hidden As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
+- `GetHeight()` As Int _(public)_
+## Key Setters (16)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
-- `setForegroundColor(c As String)` _(public)_
-- `setIconColor(c As String)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
 - `setMarginAXYTBLR(s As String)` _(public)_
 - `setModelValue(v As String)` _(public)_
-- `SetOptions(OptionsList As List)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
+- `setForegroundColor(c As String)` _(public)_
+- `setBackgroundColor(c As String)` _(public)_
+- `setBadgeColor(c As String)` _(public)_
+- `setIconColor(c As String)` _(public)_
 - `setReplaceRoute(b As Boolean)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (21)
-- `GetActive()` As String _(public)_
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBadgeColor()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getForegroundColor()` _(public)_
-- `GetHeight()` _(public)_
-- `getHere()` As String _(public)_
-- `getIconColor()` _(public)_
+## Getters (18)
 - `getID()` As String _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getModelValue()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
 - `getParentID()` As String _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getReplaceRoute()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (2)
-- `InternalChange(e As BANanoEvent)` _(private)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getModelValue()` As String _(public)_
+- `getForegroundColor()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getBadgeColor()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getReplaceRoute()` As Boolean _(public)_
+## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgBottomNav.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBottomNav.bas) (verified demo):
@@ -123,7 +118,6 @@ botNav.Initialize(Me, "botNav", "botNav")
 botNav.ParentID = app.PageView
 BANano.Await(botNav.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

@@ -12,7 +12,10 @@ This reference records the project conventions used by the starter workflow and 
 | Entry point and BANano startup | BANano project entry in `.b4j`; framework library build in the framework project's embedded build module | Embedded `AppStart` and `BANano_Ready` in `SithasoDaisy5DemoCode.b4j` |
 | Full copyable skeleton | Skills repo scaffold reference | `C:\b4j\workspace\0SithasoDaisy5Skills\skills\sithasodaisy5\references\app-scaffolds.md` |
 
-The skills project's app scaffold is the starting template. When it differs from a user's existing project, inspect both sources and preserve the user's project structure while keeping generated calls source-backed. Do not assume a newer or larger demo page is a canonical template without checking it. The current reference demo calls `BANano.Initialize("BANano", AppName, DateTime.Now, AppName)`; use the installed toolchain's demonstrated signature.
+The skills project's app scaffold is the starting template. When it differs from a user's existing project,
+inspect both sources and preserve the user's structure while keeping generated calls source-backed.
+Do not assume a newer or larger demo page is canonical without checking it.
+The reference demo calls `BANano.Initialize("BANano", AppName, DateTime.Now, AppName)`; use the installed toolchain's demonstrated signature.
 
 ## Project file and entry point
 

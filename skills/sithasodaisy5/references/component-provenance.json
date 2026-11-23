@@ -1,17 +1,15 @@
 {
-  "generated": "2026-10-23 13:51 UTC",
-  "method": "extraction (sd5-book-to-skill components.json) + sha256 of framework .bas + ModuleN registry + case-sensitive As|New type-reference grep over demo pg*.bas. B4J is case-insensitive: entries flagged name-case-differs are the same component as registry-name; their demo-pages may undercount when demos use registry casing. component-manifest.md remains the authority for demo-backed status; this file is the authority for source checksums and member lists.",
+  "generated": "2026-11-10 18:55 UTC",
+  "method": "extraction (sd5-book-to-skill components.json) + sha256 of framework .bas + ModuleN registry + case-insensitive As|New type-reference grep over demo pg*.bas (demo casing normalized to registry casing). component-manifest.md remains the authority for demo-backed status; this file is the authority for source checksums and member lists.",
   "framework-project": "C:\\b4j\\workspace\\0SithasoDaisy5\\SithasoDaisy5.b4j",
-  "registered-modules": 160,
-  "ui-registered": 140,
+  "registered-modules": 162,
+  "ui-registered": 142,
   "documented-only-ui": [
     "SDUI5BasicLabel",
-    "SDUI5Calendar",
     "SDUI5ChatItem",
     "SDUI5Client",
     "SDUI5Conversation",
     "SDUI5EmojiMart",
-    "SDUI5EnjoyHint",
     "SDUI5ExcelReport",
     "SDUI5FAIconPicker",
     "SDUI5Fab",
@@ -19,7 +17,7 @@
     "SDUI5GoogleAdSense",
     "SDUI5KanBan",
     "SDUI5MDToast",
-    "SDUI5Megamenu",
+    "SDUI5MegaMenu",
     "SDUI5MultiSelect",
     "SDUI5Slider",
     "SDUI5SliderItem",
@@ -28,8 +26,8 @@
   "components": {
     "BANanoAnimeJS": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\BANanoAnimeJS.bas",
-      "sha256": "f3998e98d609b2197f17c331a2610b3c9637b206e5dd98333bc711840a8492ff",
-      "source-lines": 180,
+      "sha256": "e2d342dbfe1528a582dc5de971f4feec674fd05bcc2f9a6ca405ee8193fd912e",
+      "source-lines": 185,
       "registered": true,
       "registry-name": "BANanoAnimeJS",
       "kind": "support",
@@ -318,7 +316,7 @@
     "SDUI5AdvancedCheckGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5AdvancedCheckGroup.bas",
       "sha256": "a5eb8721acfeaf3198cc95dd6df6bfed13a01d25ac0ec6f141d807aa6f823a36",
-      "source-lines": 580,
+      "source-lines": 586,
       "registered": true,
       "registry-name": "SDUI5AdvancedCheckGroup",
       "kind": "ui",
@@ -329,8 +327,8 @@
         "props": 26,
         "events": 1,
         "setters": 28,
-        "getters": 30,
-        "methods": 72
+        "getters": 31,
+        "methods": 73
       },
       "props": [
         "ParentID",
@@ -406,6 +404,7 @@
         "getClasses",
         "getPaddingAXYTBLR",
         "getMarginAXYTBLR",
+        "getOptions",
         "getActiveBorderColor",
         "getActiveColor",
         "getBackgroundColor",
@@ -553,13 +552,90 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Alert.md",
       "demo-pages": [
-        "pgAlert.bas"
+        "pgAlert.bas",
+        "pgEvoCalendar.bas",
+        "pgFrappeGantt.bas",
+        "pgFullCalendar.bas"
+      ]
+    },
+    "SDUI5AOS": {
+      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5AOS.bas",
+      "sha256": "f376c65fe8706451b338608864638ad50f1132d08274be1c9a74a400cd3cfc79",
+      "source-lines": 466,
+      "registered": true,
+      "registry-name": "SDUI5AOS",
+      "kind": "ui",
+      "name-case-differs": false,
+      "has-designer-create-view": true,
+      "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
+      "counts": {
+        "props": 13,
+        "events": 0,
+        "setters": 13,
+        "getters": 15,
+        "methods": 50
+      },
+      "props": [
+        "ParentID",
+        "Duration",
+        "Delay",
+        "Offset",
+        "Easing",
+        "Once",
+        "Mirror",
+        "AnchorPlacement",
+        "Disable",
+        "StartEvent",
+        "ThrottleDelay",
+        "DebounceDelay",
+        "DisableMutationObserver"
+      ],
+      "events": [],
+      "setters": [
+        "setParentID",
+        "setDuration",
+        "setDelay",
+        "setOffset",
+        "setEasing",
+        "setOnce",
+        "setMirror",
+        "setAnchorPlacement",
+        "setDisable",
+        "setStartEvent",
+        "setThrottleDelay",
+        "setDebounceDelay",
+        "setDisableMutationObserver"
+      ],
+      "getters": [
+        "getID",
+        "getParentID",
+        "getHere",
+        "getDuration",
+        "getDelay",
+        "getOffset",
+        "getEasing",
+        "getOnce",
+        "getMirror",
+        "getAnchorPlacement",
+        "getDisable",
+        "getStartEvent",
+        "getThrottleDelay",
+        "getDebounceDelay",
+        "getDisableMutationObserver"
+      ],
+      "designer-classes": [],
+      "designer-colors": [],
+      "designer-rounded": [],
+      "designer-shadows": [],
+      "doc": "components/SDUI5AOS.md",
+      "demo-pages": [
+        "pgAOS.bas"
       ]
     },
     "SDUI5App": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5App.bas",
-      "sha256": "b1d06df86b3da267ae98c93959312d0edb326342dbcd5fc65b6944a5e3adcd5b",
-      "source-lines": 4125,
+      "sha256": "b9d5b3b019ad6d33b2d63ae80d25b0353e8f2618df5e3c940663ee32a6fe2f00",
+      "source-lines": 4181,
       "registered": true,
       "registry-name": "SDUI5App",
       "kind": "ui",
@@ -571,7 +647,7 @@
         "events": 8,
         "setters": 0,
         "getters": 2,
-        "methods": 233
+        "methods": 239
       },
       "props": [],
       "events": [
@@ -596,6 +672,7 @@
       "doc": "components/SDUI5App.md",
       "demo-pages": [
         "BlankPage.bas",
+        "pgAOS.bas",
         "pgAccordion.bas",
         "pgAdvancedCheckGroup.bas",
         "pgAlert.bas",
@@ -629,12 +706,15 @@
         "pgDropDown.bas",
         "pgDropZone.bas",
         "pgEasyMDE.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgExcelToApp.bas",
         "pgFAB.bas",
         "pgFieldSet.bas",
         "pgFileInput.bas",
         "pgFilter.bas",
         "pgFooter.bas",
+        "pgFrappeGantt.bas",
         "pgFullCalendar.bas",
         "pgGenderChart.bas",
         "pgGhostLogin.bas",
@@ -684,6 +764,11 @@
         "pgRadio.bas",
         "pgRange.bas",
         "pgRating.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonOffice.bas",
+        "pgSDUI5RibbonWeb.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgSVG.bas",
         "pgSelect.bas",
         "pgSignaturePad.bas",
@@ -956,7 +1041,8 @@
         "pgAvatar.bas",
         "pgDropDown.bas",
         "pgIndicator.bas",
-        "pgNavBar.bas"
+        "pgNavBar.bas",
+        "pgToolTip.bas"
       ]
     },
     "SDUI5AvatarGroup": {
@@ -1203,13 +1289,15 @@
       "doc": "components/SDUI5Badge.md",
       "demo-pages": [
         "pgBadge.bas",
-        "pgCard.bas"
+        "pgCard.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgToolTip.bas"
       ]
     },
     "SDUI5BankCard": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5BankCard.bas",
-      "sha256": "3c17df9d9c757c3d6e8c56c4120577c1ec102d67e7b91b47fea532212c6452a6",
-      "source-lines": 499,
+      "sha256": "c36a915dbb37463c7525e3ef4a21c05f1b293f260bb09039d243bd1553ff368f",
+      "source-lines": 590,
       "registered": true,
       "registry-name": "SDUI5BankCard",
       "kind": "ui",
@@ -1217,11 +1305,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 23,
+        "props": 26,
         "events": 1,
-        "setters": 21,
-        "getters": 23,
-        "methods": 51
+        "setters": 26,
+        "getters": 28,
+        "methods": 61
       },
       "props": [
         "ParentID",
@@ -1234,6 +1322,9 @@
         "TextColor",
         "GradientActive",
         "Gradient",
+        "GradientColor1",
+        "GradientColor2",
+        "BackgroundColor",
         "Width",
         "Height",
         "Rounded",
@@ -1272,7 +1363,12 @@
         "setWidth",
         "setHeight",
         "setRounded",
-        "setShadow"
+        "setShadow",
+        "setBackgroundColor",
+        "setGradientActive",
+        "setGradient",
+        "setGradientColor1",
+        "setGradientColor2"
       ],
       "getters": [
         "getID",
@@ -1297,7 +1393,12 @@
         "getWidth",
         "getHeight",
         "getRounded",
-        "getShadow"
+        "getShadow",
+        "getBackgroundColor",
+        "getGradientActive",
+        "getGradient",
+        "getGradientColor1",
+        "getGradientColor2"
       ],
       "designer-classes": [
         "card"
@@ -1544,8 +1645,8 @@
     },
     "SDUI5BasicLabel": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5BasicLabel.bas",
-      "sha256": "882ccae9d4b1087683658be80c25d2d1553570b5709a9baf35464d0f4cfd2a94",
-      "source-lines": 843,
+      "sha256": "95fee6c329726101c07f75314ff8b0acb193afd3d83195084166c6b7d381bbb7",
+      "source-lines": 889,
       "registered": true,
       "registry-name": "SDUI5BasicLabel",
       "kind": "ui",
@@ -1553,11 +1654,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 44,
+        "props": 46,
         "events": 0,
-        "setters": 40,
-        "getters": 42,
-        "methods": 89
+        "setters": 44,
+        "getters": 46,
+        "methods": 97
       },
       "props": [
         "ParentID",
@@ -1593,6 +1694,8 @@
         "FontItalic",
         "GradientActive",
         "Gradient",
+        "GradientColor1",
+        "GradientColor2",
         "MarginLeft",
         "MarginRight",
         "MarginTop",
@@ -1646,7 +1749,11 @@
         "setTop",
         "setVerticalAnchor",
         "setWidth",
-        "setWrapText"
+        "setWrapText",
+        "setFontAwesomeIcon",
+        "setMaterialIcon",
+        "setGradientActive",
+        "setGradient"
       ],
       "getters": [
         "getID",
@@ -1690,7 +1797,11 @@
         "getTop",
         "getVerticalAnchor",
         "getWidth",
-        "getWrapText"
+        "getWrapText",
+        "getFontAwesomeIcon",
+        "getMaterialIcon",
+        "getGradientActive",
+        "getGradient"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -1781,8 +1892,8 @@
     },
     "SDUI5BottomNavigation": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5BottomNavigation.bas",
-      "sha256": "84ccddab4ba0bd6f6effb8b3a6b2283db942b9e0f65ae7bbafad94f1801872f9",
-      "source-lines": 456,
+      "sha256": "8fe974011d75aaa6239e8eeb2f8ab6309e65cd5e561af1d4965385a42a279c4f",
+      "source-lines": 460,
       "registered": true,
       "registry-name": "SDUI5BottomNavigation",
       "kind": "ui",
@@ -2022,8 +2133,8 @@
     },
     "SDUI5Button": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Button.bas",
-      "sha256": "08ff4cc7b524dfc9b84ede33863116f97191c1451f5e7db6e74a863f22c6e104",
-      "source-lines": 1747,
+      "sha256": "e42eb6d4a68c4ee9f4564c08703f78e8b1e64410c7ef594890049d69427fd8b7",
+      "source-lines": 1751,
       "registered": true,
       "registry-name": "SDUI5Button",
       "kind": "ui",
@@ -2303,6 +2414,7 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Button.md",
       "demo-pages": [
+        "pgAOS.bas",
         "pgAlert.bas",
         "pgAura.bas",
         "pgBarcodeReader.bas",
@@ -2312,7 +2424,11 @@
         "pgDockColor.bas",
         "pgDockXS.bas",
         "pgDropDown.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgFieldSet.bas",
+        "pgFrappeGantt.bas",
+        "pgFullCalendar.bas",
         "pgHero.bas",
         "pgIndicator.bas",
         "pgJoin.bas",
@@ -2320,7 +2436,12 @@
         "pgLeafLet.bas",
         "pgModal.bas",
         "pgPagination.bas",
+        "pgPivot.bas",
         "pgProgress.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWeb.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgSelect.bas",
         "pgSpeedDial.bas",
         "pgSwiper.bas",
@@ -2329,78 +2450,10 @@
         "pgValidation.bas"
       ]
     },
-    "SDUI5Calendar": {
-      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Calendar.bas",
-      "sha256": "e646dce4f0cd795cad2bce58a97e96c010f41870f4ab9f949744423dc3833526",
-      "source-lines": 228,
-      "registered": true,
-      "registry-name": "SDUI5Calendar",
-      "kind": "ui",
-      "name-case-differs": false,
-      "has-designer-create-view": true,
-      "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
-      "counts": {
-        "props": 15,
-        "events": 1,
-        "setters": 7,
-        "getters": 9,
-        "methods": 23
-      },
-      "props": [
-        "ParentID",
-        "Text",
-        "Color",
-        "Size",
-        "Rounded",
-        "Shadow",
-        "Visible",
-        "Enabled",
-        "PositionStyle",
-        "Position",
-        "MarginAXYTBLR",
-        "PaddingAXYTBLR",
-        "RawClasses",
-        "RawStyles",
-        "RawAttributes"
-      ],
-      "events": [
-        "Click"
-      ],
-      "setters": [
-        "setParentID",
-        "setText",
-        "setColor",
-        "setSize",
-        "setVariant",
-        "setVisible",
-        "setEnabled"
-      ],
-      "getters": [
-        "getID",
-        "getParentID",
-        "getHere",
-        "getText",
-        "getColor",
-        "getSize",
-        "getVariant",
-        "getVisible",
-        "getEnabled"
-      ],
-      "designer-classes": [
-        "calendar"
-      ],
-      "designer-colors": [
-        "calendar:sColor"
-      ],
-      "designer-rounded": [],
-      "designer-shadows": [],
-      "doc": "components/SDUI5Calendar.md",
-      "demo-pages": []
-    },
     "SDUI5Card": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Card.bas",
       "sha256": "a986e6c5b8a026f7fb07fd6395a88ce1635b981d52367c5a274ec6e6e876c32e",
-      "source-lines": 1013,
+      "source-lines": 1019,
       "registered": true,
       "registry-name": "SDUI5Card",
       "kind": "ui",
@@ -2411,8 +2464,8 @@
         "props": 47,
         "events": 0,
         "setters": 46,
-        "getters": 47,
-        "methods": 101
+        "getters": 48,
+        "methods": 102
       },
       "props": [
         "ReadMe",
@@ -2529,6 +2582,7 @@
         "getImageCenter",
         "getImageNoRepeat",
         "getTitleClasses",
+        "getHoverGallery",
         "getShrink",
         "getBodyClasses",
         "getImageClasses",
@@ -2579,10 +2633,19 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Card.md",
       "demo-pages": [
+        "pgAOS.bas",
         "pgAura.bas",
         "pgCard.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgFieldSet.bas",
-        "pgHoverGallery.bas"
+        "pgFrappeGantt.bas",
+        "pgFullCalendar.bas",
+        "pgHoverGallery.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
+        "pgToolTip.bas"
       ]
     },
     "SDUI5Carousel": {
@@ -3175,7 +3238,7 @@
     "SDUI5CheckBoxGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5CheckBoxGroup.bas",
       "sha256": "67741c3debd7a11396c4d5587d24358b938966dc940608cb1004ce70c1c4cb88",
-      "source-lines": 808,
+      "source-lines": 814,
       "registered": true,
       "registry-name": "SDUI5CheckBoxGroup",
       "kind": "ui",
@@ -3186,8 +3249,8 @@
         "props": 29,
         "events": 1,
         "setters": 30,
-        "getters": 31,
-        "methods": 75
+        "getters": 32,
+        "methods": 76
       },
       "props": [
         "ParentID",
@@ -3280,6 +3343,7 @@
         "getBackgroundColor",
         "getBorder",
         "getBorderColor",
+        "getSize",
         "getCheckedColor",
         "getColor",
         "getGroupName",
@@ -3306,8 +3370,8 @@
     },
     "SDUI5Client": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Client.bas",
-      "sha256": "b96ce7eb26b1247171d6b8034cdf97d321e6bfef6442fffb2849ca7b4d572dc7",
-      "source-lines": 279,
+      "sha256": "2ceb02dd1453f6f20f82237a927318372dd34518324a2e11a1ee69f7360b536c",
+      "source-lines": 280,
       "registered": true,
       "registry-name": "SDUI5Client",
       "kind": "ui",
@@ -3358,8 +3422,8 @@
     },
     "SDUI5Code": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Code.bas",
-      "sha256": "0d37c3ca523ea602bb9c6c6335ddd6a20df2b55392b2376dd37c2c5fe86d7bed",
-      "source-lines": 876,
+      "sha256": "10d1ca26b93be201f75196313a5d7deb11b4d1661fa683e58303dfd768961bef",
+      "source-lines": 889,
       "registered": true,
       "registry-name": "SDUI5Code",
       "kind": "ui",
@@ -3482,7 +3546,7 @@
     "SDUI5Collapse": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Collapse.bas",
       "sha256": "ef14405fbbb75af9da34ff3cef00ae86fdc81b02b836c158a393f53ba082a9be",
-      "source-lines": 678,
+      "source-lines": 697,
       "registered": true,
       "registry-name": "SDUI5Collapse",
       "kind": "ui",
@@ -3492,9 +3556,9 @@
       "counts": {
         "props": 34,
         "events": 0,
-        "setters": 32,
-        "getters": 34,
-        "methods": 76
+        "setters": 33,
+        "getters": 35,
+        "methods": 78
       },
       "props": [
         "ReadMe",
@@ -3565,7 +3629,8 @@
         "setTextColor",
         "setTitle",
         "setTitleBackgroundColor",
-        "setTitleTextColor"
+        "setTitleTextColor",
+        "setBorder"
       ],
       "getters": [
         "getID",
@@ -3601,7 +3666,8 @@
         "getTextColor",
         "getTitle",
         "getTitleBackgroundColor",
-        "getTitleTextColor"
+        "getTitleTextColor",
+        "getBorder"
       ],
       "designer-classes": [
         "collapse",
@@ -3783,6 +3849,7 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Column.md",
       "demo-pages": [
+        "pgAOS.bas",
         "pgAdvancedCheckGroup.bas",
         "pgAvatar.bas",
         "pgBankCard.bas",
@@ -3801,10 +3868,13 @@
         "pgDropDown.bas",
         "pgDropZone.bas",
         "pgEasyMDE.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgExcelToApp.bas",
         "pgFieldSet.bas",
         "pgFileInput.bas",
         "pgFilter.bas",
+        "pgFrappeGantt.bas",
         "pgFullCalendar.bas",
         "pgGenderChart.bas",
         "pgGhostLogin.bas",
@@ -3841,6 +3911,9 @@
         "pgRadio.bas",
         "pgRange.bas",
         "pgRating.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgSVG.bas",
         "pgSelect.bas",
         "pgSignaturePad.bas",
@@ -3873,7 +3946,7 @@
     "SDUI5Component": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Component.bas",
       "sha256": "8bdf0d909a5cb303e0b75f7c87e9c88f3d24bd81e8d743ba3bb0ac2d28a6169c",
-      "source-lines": 412,
+      "source-lines": 427,
       "registered": true,
       "registry-name": "SDUI5Component",
       "kind": "ui",
@@ -3883,9 +3956,9 @@
       "counts": {
         "props": 18,
         "events": 0,
-        "setters": 17,
-        "getters": 18,
-        "methods": 57
+        "setters": 18,
+        "getters": 19,
+        "methods": 59
       },
       "props": [
         "ParentID",
@@ -3925,7 +3998,8 @@
         "setBackgroundColor",
         "setHeight",
         "setTextColor",
-        "setWidth"
+        "setWidth",
+        "setText"
       ],
       "getters": [
         "getID",
@@ -3945,7 +4019,8 @@
         "getBackgroundColor",
         "getHeight",
         "getTextColor",
-        "getWidth"
+        "getWidth",
+        "getText"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -3958,8 +4033,8 @@
     },
     "SDUI5Container": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Container.bas",
-      "sha256": "14b905fea52cfa18d0b240a9d53469941c4512aa492962295986aac071bfc2f0",
-      "source-lines": 1498,
+      "sha256": "34ee71f222d50522067e9ca45e715e33580c71d4b110e59cc8747493c95f04f0",
+      "source-lines": 1522,
       "registered": true,
       "registry-name": "SDUI5Container",
       "kind": "ui",
@@ -3967,11 +4042,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 38,
+        "props": 40,
         "events": 0,
-        "setters": 36,
-        "getters": 38,
-        "methods": 156
+        "setters": 38,
+        "getters": 40,
+        "methods": 160
       },
       "props": [
         "ParentID",
@@ -4000,6 +4075,8 @@
         "Visible",
         "GradientActive",
         "Gradient",
+        "GradientColor1",
+        "GradientColor2",
         "Enabled",
         "PositionStyle",
         "Position",
@@ -4050,7 +4127,9 @@
         "setMaxWidth",
         "setMinHeight",
         "setMinWidth",
-        "setContainer"
+        "setContainer",
+        "setGradientActive",
+        "setGradient"
       ],
       "getters": [
         "getID",
@@ -4090,7 +4169,9 @@
         "getMaxWidth",
         "getMinHeight",
         "getMinWidth",
-        "getContainer"
+        "getContainer",
+        "getGradientActive",
+        "getGradient"
       ],
       "designer-classes": [
         "max-w-[100vw] px-6 pb-16 xl:pe-2 relative",
@@ -4107,6 +4188,7 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Container.md",
       "demo-pages": [
+        "pgAOS.bas",
         "pgAccordion.bas",
         "pgAdvancedCheckGroup.bas",
         "pgAlert.bas",
@@ -4133,11 +4215,14 @@
         "pgDropDown.bas",
         "pgDropZone.bas",
         "pgEasyMDE.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgExcelToApp.bas",
         "pgFieldSet.bas",
         "pgFileInput.bas",
         "pgFilter.bas",
         "pgFooter.bas",
+        "pgFrappeGantt.bas",
         "pgFullCalendar.bas",
         "pgGenderChart.bas",
         "pgGifPlayer.bas",
@@ -4183,6 +4268,11 @@
         "pgRadio.bas",
         "pgRange.bas",
         "pgRating.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonOffice.bas",
+        "pgSDUI5RibbonWeb.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgSVG.bas",
         "pgSelect.bas",
         "pgSignaturePad.bas",
@@ -4727,7 +4817,7 @@
     "SDUI5Diff": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Diff.bas",
       "sha256": "bb78e30a2bf3fc3d66c41074b403521368f08d5ce7340fba728428c7f67a24c3",
-      "source-lines": 501,
+      "source-lines": 546,
       "registered": true,
       "registry-name": "SDUI5Diff",
       "kind": "ui",
@@ -4737,9 +4827,9 @@
       "counts": {
         "props": 25,
         "events": 0,
-        "setters": 22,
-        "getters": 24,
-        "methods": 52
+        "setters": 25,
+        "getters": 27,
+        "methods": 58
       },
       "props": [
         "ParentID",
@@ -4791,7 +4881,10 @@
         "setText1TextColor",
         "setText2",
         "setText2BackgroundColor",
-        "setText2TextColor"
+        "setText2TextColor",
+        "setRounded",
+        "setRoundedBox",
+        "setShadow"
       ],
       "getters": [
         "getID",
@@ -4817,7 +4910,10 @@
         "getText2",
         "getText2BackgroundColor",
         "getText2TextColor",
-        "getWidth"
+        "getWidth",
+        "getRounded",
+        "getRoundedBox",
+        "getShadow"
       ],
       "designer-classes": [
         "diff aspect-16/9",
@@ -4919,7 +5015,7 @@
     },
     "SDUI5Dock": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Dock.bas",
-      "sha256": "37b4690e55c197d5531f42849d1b659f69e8b3114f6b4445ffad8e0ce5ccca90",
+      "sha256": "98972f09244bde7744e1a16973a720005d4864abb63cdbdd5c3ce70f98e1a3d2",
       "source-lines": 293,
       "registered": true,
       "registry-name": "SDUI5Dock",
@@ -5573,8 +5669,8 @@
     },
     "SDUI5EnjoyHint": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5EnjoyHint.bas",
-      "sha256": "1c3b45cbb7c7be0d23e3cdbbfc5431e152f2297177f09caeb6d22de97e6b0b0c",
-      "source-lines": 415,
+      "sha256": "1db83992a8b00e4de4d48a7921adbc583a1be0d657d4518be2bb5b6289472385",
+      "source-lines": 496,
       "registered": true,
       "registry-name": "SDUI5EnjoyHint",
       "kind": "ui",
@@ -5583,25 +5679,129 @@
       "init-sig": "Initialize(Module As Object, EventName As String, bUnique As Boolean)",
       "counts": {
         "props": 0,
-        "events": 3,
+        "events": 4,
         "setters": 0,
-        "getters": 0,
-        "methods": 22
+        "getters": 2,
+        "methods": 32
       },
       "props": [],
       "events": [
         "EnjoyStarted",
         "EnjoyEnded",
-        "EnjoySkip"
+        "EnjoySkip",
+        "EnjoyNext"
       ],
       "setters": [],
-      "getters": [],
+      "getters": [
+        "getCurrentStep",
+        "getInstance"
+      ],
       "designer-classes": [],
       "designer-colors": [],
       "designer-rounded": [],
       "designer-shadows": [],
       "doc": "components/SDUI5EnjoyHint.md",
-      "demo-pages": []
+      "demo-pages": [
+        "pgEnjoyHint.bas"
+      ]
+    },
+    "SDUI5EvoCalendar": {
+      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5EvoCalendar.bas",
+      "sha256": "6e9ed80bfe24226bc8f6b0d908f22033767d5f429928b4078223e993e758d5c4",
+      "source-lines": 540,
+      "registered": true,
+      "registry-name": "SDUI5EvoCalendar",
+      "kind": "ui",
+      "name-case-differs": false,
+      "has-designer-create-view": true,
+      "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
+      "counts": {
+        "props": 23,
+        "events": 7,
+        "setters": 15,
+        "getters": 19,
+        "methods": 54
+      },
+      "props": [
+        "ParentID",
+        "Theme",
+        "Language",
+        "Format",
+        "TitleFormat",
+        "CanAddEvent",
+        "FirstDayOfWeek",
+        "EventDisplayDefault",
+        "EventListToggler",
+        "SidebarDisplayDefault",
+        "SidebarToggler",
+        "TodayHighlight",
+        "Height",
+        "Width",
+        "Visible",
+        "Enabled",
+        "PositionStyle",
+        "Position",
+        "MarginAXYTBLR",
+        "PaddingAXYTBLR",
+        "RawClasses",
+        "RawStyles",
+        "RawAttributes"
+      ],
+      "events": [
+        "selectDate",
+        "selectEvent",
+        "selectMonth",
+        "selectYear",
+        "destroy",
+        "toggleSidebar",
+        "toggleEventList"
+      ],
+      "setters": [
+        "setParentID",
+        "setVisible",
+        "setEnabled",
+        "setTheme",
+        "setLanguage",
+        "setFormat",
+        "setTitleFormat",
+        "setEventHeaderFormat",
+        "setFirstDayOfWeek",
+        "setEventDisplayDefault",
+        "setEventListToggler",
+        "setSidebarDisplayDefault",
+        "setSidebarToggler",
+        "setTodayHighlight",
+        "setCanAddEvent"
+      ],
+      "getters": [
+        "getID",
+        "getHere",
+        "getParentID",
+        "getVisible",
+        "getEnabled",
+        "getActiveDate",
+        "getActiveEvents",
+        "getTheme",
+        "getLanguage",
+        "getFormat",
+        "getTitleFormat",
+        "getEventHeaderFormat",
+        "getFirstDayOfWeek",
+        "getEventDisplayDefault",
+        "getEventListToggler",
+        "getSidebarDisplayDefault",
+        "getSidebarToggler",
+        "getTodayHighlight",
+        "getCanAddEvent"
+      ],
+      "designer-classes": [],
+      "designer-colors": [],
+      "designer-rounded": [],
+      "designer-shadows": [],
+      "doc": "components/SDUI5EvoCalendar.md",
+      "demo-pages": [
+        "pgEvoCalendar.bas"
+      ]
     },
     "SDUI5ExcelReport": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5ExcelReport.bas",
@@ -5733,8 +5933,8 @@
     },
     "SDUI5FAIconPicker": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5FAIconPicker.bas",
-      "sha256": "1acca565fbf1109ce2f4d5fbb5f698faca272329d11dcf78d7d955cdc73d2a72",
-      "source-lines": 411,
+      "sha256": "164ffd06e56f928a7caa6f6cb7c6cf55057a8b34613431ce2c87ef4ed9b692c7",
+      "source-lines": 427,
       "registered": true,
       "registry-name": "SDUI5FAIconPicker",
       "kind": "ui",
@@ -5744,9 +5944,9 @@
       "counts": {
         "props": 18,
         "events": 2,
-        "setters": 17,
-        "getters": 22,
-        "methods": 48
+        "setters": 18,
+        "getters": 23,
+        "methods": 50
       },
       "props": [
         "ParentID",
@@ -5789,7 +5989,8 @@
         "setIconsPerPage",
         "setRounded",
         "setShadow",
-        "setWidth"
+        "setWidth",
+        "setBackgroundColor"
       ],
       "getters": [
         "getID",
@@ -5813,7 +6014,8 @@
         "getIconsPerPage",
         "getRounded",
         "getShadow",
-        "getWidth"
+        "getWidth",
+        "getBackgroundColor"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -6079,7 +6281,7 @@
     },
     "SDUI5Filter": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Filter.bas",
-      "sha256": "1292d3b8df35de72767ea045b5f34d76db48c9329609f0cf41c73618c9101265",
+      "sha256": "425fd6fdd498d412d2aa36f8e6ade9cde9dccbebb90d0aab9bc674e2161caca0",
       "source-lines": 622,
       "registered": true,
       "registry-name": "SDUI5Filter",
@@ -6443,10 +6645,208 @@
       "doc": "components/SDUI5Form.md",
       "demo-pages": []
     },
+    "SDUI5FrappeGantt": {
+      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5FrappeGantt.bas",
+      "sha256": "dce3ed2b5ef4d4a4d9c8317cc1ff0aa578107a22a3b39053b4c319d4061ca83a",
+      "source-lines": 1758,
+      "registered": true,
+      "registry-name": "SDUI5FrappeGantt",
+      "kind": "ui",
+      "name-case-differs": false,
+      "has-designer-create-view": true,
+      "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
+      "counts": {
+        "props": 50,
+        "events": 7,
+        "setters": 53,
+        "getters": 54,
+        "methods": 190
+      },
+      "props": [
+        "ParentID",
+        "ViewMode",
+        "ViewModes",
+        "DateFormat",
+        "Language",
+        "BarHeight",
+        "BarCornerRadius",
+        "ArrowCurve",
+        "Padding",
+        "UpperHeaderHeight",
+        "LowerHeaderHeight",
+        "ColumnWidth",
+        "Lines",
+        "Popup",
+        "PopupOn",
+        "ScrollTo",
+        "TodayButton",
+        "ViewModeSelect",
+        "AutoMoveLabel",
+        "MoveDependencies",
+        "ShowExpectedProgress",
+        "IgnoreWeekends",
+        "Readonly",
+        "ReadonlyDates",
+        "ReadonlyProgress",
+        "FixedDuration",
+        "HoverOnDate",
+        "SnapAt",
+        "InfinitePadding",
+        "ContainerHeight",
+        "BarColor",
+        "BarLabelColor",
+        "BarProgressColor",
+        "ArrowColor",
+        "ArrowWidth",
+        "TickColor",
+        "ExpectedProgressColor",
+        "TodayHighlightColor",
+        "WeekendHighlightColor",
+        "Height",
+        "Width",
+        "Visible",
+        "Enabled",
+        "PositionStyle",
+        "Position",
+        "MarginAXYTBLR",
+        "PaddingAXYTBLR",
+        "RawClasses",
+        "RawStyles",
+        "RawAttributes"
+      ],
+      "events": [
+        "Click",
+        "DoubleClick",
+        "DateChange",
+        "ProgressChange",
+        "ViewChange",
+        "Hover",
+        "DateClick"
+      ],
+      "setters": [
+        "setParentID",
+        "setVisible",
+        "setEnabled",
+        "setPositionStyle",
+        "setPosition",
+        "setAttributes",
+        "setStyles",
+        "setClasses",
+        "setPaddingAXYTBLR",
+        "setMarginAXYTBLR",
+        "setWidth",
+        "setHeight",
+        "setBarColor",
+        "setBarLabelColor",
+        "setBarProgressColor",
+        "setTickColor",
+        "setTodayHighlightColor",
+        "setWeekendHighlightColor",
+        "setExpectedProgressColor",
+        "setIgnoreWeekends",
+        "setViewMode",
+        "setViewModes",
+        "setDateFormat",
+        "setLanguage",
+        "setBarHeight",
+        "setBarCornerRadius",
+        "setArrowCurve",
+        "setPadding",
+        "setUpperHeaderHeight",
+        "setLowerHeaderHeight",
+        "setHeaderHeight",
+        "setColumnWidth",
+        "setStepValue",
+        "setLines",
+        "setPopup",
+        "setPopupOn",
+        "setScrollTo",
+        "setTodayButton",
+        "setViewModeSelect",
+        "setAutoMoveLabel",
+        "setMoveDependencies",
+        "setShowExpectedProgress",
+        "setReadonly",
+        "setReadonlyDates",
+        "setReadonlyProgress",
+        "setFixedDuration",
+        "setHoverOnDate",
+        "setSnapAt",
+        "setContainerHeight",
+        "setInfinitePadding",
+        "setCustomPopupHtml",
+        "setHolidays",
+        "setIgnore"
+      ],
+      "getters": [
+        "getID",
+        "getHere",
+        "getName",
+        "getParentID",
+        "getVisible",
+        "getEnabled",
+        "getPositionStyle",
+        "getPosition",
+        "getAttributes",
+        "getStyles",
+        "getClasses",
+        "getPaddingAXYTBLR",
+        "getMarginAXYTBLR",
+        "getWidth",
+        "getHeight",
+        "getBarColor",
+        "getBarLabelColor",
+        "getBarProgressColor",
+        "getTickColor",
+        "getTodayHighlightColor",
+        "getWeekendHighlightColor",
+        "getExpectedProgressColor",
+        "getIgnoreWeekends",
+        "getViewMode",
+        "getViewModes",
+        "getDateFormat",
+        "getLanguage",
+        "getBarHeight",
+        "getBarCornerRadius",
+        "getArrowCurve",
+        "getPadding",
+        "getUpperHeaderHeight",
+        "getLowerHeaderHeight",
+        "getColumnWidth",
+        "getLines",
+        "getPopup",
+        "getPopupOn",
+        "getScrollTo",
+        "getTodayButton",
+        "getViewModeSelect",
+        "getAutoMoveLabel",
+        "getMoveDependencies",
+        "getShowExpectedProgress",
+        "getReadonly",
+        "getReadonlyDates",
+        "getReadonlyProgress",
+        "getFixedDuration",
+        "getHoverOnDate",
+        "getSnapAt",
+        "getContainerHeight",
+        "getInfinitePadding",
+        "getCustomPopupHtml",
+        "getHolidays",
+        "getIgnore"
+      ],
+      "designer-classes": [],
+      "designer-colors": [],
+      "designer-rounded": [],
+      "designer-shadows": [],
+      "doc": "components/SDUI5FrappeGantt.md",
+      "demo-pages": [
+        "pgFrappeGantt.bas"
+      ]
+    },
     "SDUI5FullCalendar": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5FullCalendar.bas",
-      "sha256": "aa2250c2823ef8a0a24071ec3e44098db3ad2c9a23b084cfe0f37bd197d54b68",
-      "source-lines": 1083,
+      "sha256": "cae1adb3ecba78510113d43306d0bc7decf7142ea242fb1e384ad0be878d2ee0",
+      "source-lines": 1279,
       "registered": true,
       "registry-name": "SDUI5FullCalendar",
       "kind": "ui",
@@ -6454,14 +6854,18 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 43,
+        "props": 47,
         "events": 11,
-        "setters": 44,
-        "getters": 48,
-        "methods": 118
+        "setters": 49,
+        "getters": 53,
+        "methods": 130
       },
       "props": [
         "ParentID",
+        "ThemeName",
+        "Palette",
+        "DaisyUITheming",
+        "ColorScheme",
         "InitialDate",
         "InitialView",
         "Height",
@@ -6529,6 +6933,11 @@
         "setClasses",
         "setPaddingAXYTBLR",
         "setMarginAXYTBLR",
+        "setThemeName",
+        "setTheme",
+        "setPalette",
+        "setDaisyUITheming",
+        "setColorScheme",
         "setAspectRatio",
         "setBusinessHours",
         "setButtonIcons",
@@ -6577,6 +6986,11 @@
         "getClasses",
         "getPaddingAXYTBLR",
         "getMarginAXYTBLR",
+        "getThemeName",
+        "getTheme",
+        "getPalette",
+        "getDaisyUITheming",
+        "getColorScheme",
         "getAspectRatio",
         "getBusinessHours",
         "getButtonIcons",
@@ -7394,7 +7808,7 @@
     "SDUI5Indicator": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Indicator.bas",
       "sha256": "98c2d541461e21f7000d713ead1adc2e1ce531a26b7b7b5584c046755586527e",
-      "source-lines": 281,
+      "source-lines": 293,
       "registered": true,
       "registry-name": "SDUI5Indicator",
       "kind": "ui",
@@ -7404,9 +7818,9 @@
       "counts": {
         "props": 9,
         "events": 0,
-        "setters": 9,
-        "getters": 11,
-        "methods": 26
+        "setters": 10,
+        "getters": 12,
+        "methods": 28
       },
       "props": [
         "ParentID",
@@ -7429,7 +7843,8 @@
         "setBackgroundColor",
         "setColor",
         "setIndicatorSize",
-        "setTypeOf"
+        "setTypeOf",
+        "setSize"
       ],
       "getters": [
         "getID",
@@ -7442,7 +7857,8 @@
         "getBackgroundColor",
         "getColor",
         "getIndicatorSize",
-        "getTypeOf"
+        "getTypeOf",
+        "getSize"
       ],
       "designer-classes": [
         "indicator"
@@ -7658,7 +8074,7 @@
     "SDUI5JsonEditor": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5JsonEditor.bas",
       "sha256": "d5ccf3a82602eb9b5ed3d9ec229428c6f4a5db74625ed3718f93c255789a54dd",
-      "source-lines": 835,
+      "source-lines": 859,
       "registered": true,
       "registry-name": "SDUI5JsonEditor",
       "kind": "ui",
@@ -7668,9 +8084,9 @@
       "counts": {
         "props": 24,
         "events": 7,
-        "setters": 25,
-        "getters": 28,
-        "methods": 83
+        "setters": 27,
+        "getters": 30,
+        "methods": 87
       },
       "props": [
         "ParentID",
@@ -7732,7 +8148,9 @@
         "setHasBack",
         "setHasDownload",
         "setHasSave",
-        "setHasUpload"
+        "setHasUpload",
+        "setButtonSize",
+        "setButtonsOutlined"
       ],
       "getters": [
         "getID",
@@ -7762,7 +8180,9 @@
         "getHasSave",
         "getHasUpload",
         "getHasDownload",
-        "getToolBarButtonID"
+        "getToolBarButtonID",
+        "getButtonSize",
+        "getButtonsOutlined"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -7874,8 +8294,8 @@
     },
     "SDUI5KanBan": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5KanBan.bas",
-      "sha256": "c00c2c69a04abf68f26e1a984fc2528b0b08cd3223928e63c945896e38421a08",
-      "source-lines": 557,
+      "sha256": "c2edb5693d07ad0aecc0b185b9f530d29526f37ca2275bd136e4a69315e273b8",
+      "source-lines": 558,
       "registered": true,
       "registry-name": "SDUI5KanBan",
       "kind": "ui",
@@ -8058,7 +8478,7 @@
     "SDUI5Label": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Label.bas",
       "sha256": "f528b0a2aaa1b2610c37f8072f88336fe8f5c5cc85716e658c8ca2e81e1107f8",
-      "source-lines": 700,
+      "source-lines": 715,
       "registered": true,
       "registry-name": "SDUI5Label",
       "kind": "ui",
@@ -8068,9 +8488,9 @@
       "counts": {
         "props": 29,
         "events": 0,
-        "setters": 28,
-        "getters": 30,
-        "methods": 68
+        "setters": 29,
+        "getters": 31,
+        "methods": 70
       },
       "props": [
         "ParentID",
@@ -8132,7 +8552,8 @@
         "setSize",
         "setSuffix",
         "setValidator",
-        "setValidatorHint"
+        "setValidatorHint",
+        "setValue"
       ],
       "getters": [
         "getID",
@@ -8164,7 +8585,8 @@
         "getSize",
         "getSuffix",
         "getValidator",
-        "getValidatorHint"
+        "getValidatorHint",
+        "getValue"
       ],
       "designer-classes": [
         "floating-label"
@@ -8174,13 +8596,16 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Label.md",
       "demo-pages": [
-        "pgLabel.bas"
+        "pgLabel.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas"
       ]
     },
     "SDUI5Leaflet": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Leaflet.bas",
-      "sha256": "dfe842656d0b34fe17e095e60c2742086c1c4809c09acc943c5e02c88d33f56d",
-      "source-lines": 1491,
+      "sha256": "f93e9afd8db4bdfba1b029760657784f4272f1d4e5fbb97261631054796212ae",
+      "source-lines": 1744,
       "registered": true,
       "registry-name": "SDUI5Leaflet",
       "kind": "ui",
@@ -8188,11 +8613,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 30,
+        "props": 32,
         "events": 50,
-        "setters": 28,
-        "getters": 31,
-        "methods": 140
+        "setters": 32,
+        "getters": 35,
+        "methods": 157
       },
       "props": [
         "ParentID",
@@ -8200,6 +8625,7 @@
         "Label",
         "LayerType",
         "Geonames",
+        "ClusterMarkers",
         "Height",
         "Width",
         "Lat",
@@ -8224,6 +8650,7 @@
         "PaddingAXYTBLR",
         "RawClasses",
         "RawStyles",
+        "ShowCoordinates",
         "RawAttributes"
       ],
       "events": [
@@ -8292,6 +8719,7 @@
         "setCurrentCaption",
         "setStartTrackingCaption",
         "setStopTrackingCaption",
+        "setShowCoordinates",
         "setCurrentColor",
         "setCurrentTextColor",
         "setStartTrackingColor",
@@ -8306,7 +8734,10 @@
         "setHeight",
         "setMaxZoom",
         "setWidth",
-        "setZoom"
+        "setZoom",
+        "setLat",
+        "setLng",
+        "setClusterMarkers"
       ],
       "getters": [
         "getID",
@@ -8324,6 +8755,7 @@
         "getCurrentCaption",
         "getStartTrackingCaption",
         "getStopTrackingCaption",
+        "getShowCoordinates",
         "getCurrentColor",
         "getCurrentTextColor",
         "getStartTrackingColor",
@@ -8339,7 +8771,10 @@
         "getHeight",
         "getMaxZoom",
         "getWidth",
-        "getZoom"
+        "getZoom",
+        "getLat",
+        "getLng",
+        "getClusterMarkers"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -8353,7 +8788,7 @@
     "SDUI5Link": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Link.bas",
       "sha256": "7ece820830b523f48805959c3d1b8ae309ee164f334886ee2e61eed755868226",
-      "source-lines": 533,
+      "source-lines": 545,
       "registered": true,
       "registry-name": "SDUI5Link",
       "kind": "ui",
@@ -8363,9 +8798,9 @@
       "counts": {
         "props": 22,
         "events": 1,
-        "setters": 21,
-        "getters": 22,
-        "methods": 55
+        "setters": 22,
+        "getters": 23,
+        "methods": 57
       },
       "props": [
         "ParentID",
@@ -8415,7 +8850,8 @@
         "setIcon",
         "setIconColor",
         "setIconSize",
-        "setTarget"
+        "setTarget",
+        "setListItem"
       ],
       "getters": [
         "getID",
@@ -8439,7 +8875,8 @@
         "getIcon",
         "getIconColor",
         "getIconSize",
-        "getTarget"
+        "getTarget",
+        "getListItem"
       ],
       "designer-classes": [
         "link",
@@ -8849,14 +9286,14 @@
       "doc": "components/SDUI5MDToast.md",
       "demo-pages": []
     },
-    "SDUI5Megamenu": {
-      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Megamenu.bas",
+    "SDUI5MegaMenu": {
+      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5MegaMenu.bas",
       "sha256": "342b1065bcdd79348d30df0e9fc262b4fdbd71bb8070b65ba3a3709bff5f9363",
       "source-lines": 340,
       "registered": true,
       "registry-name": "SDUI5MegaMenu",
       "kind": "ui",
-      "name-case-differs": true,
+      "name-case-differs": false,
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
@@ -8932,13 +9369,13 @@
       ],
       "designer-rounded": [],
       "designer-shadows": [],
-      "doc": "components/SDUI5Megamenu.md",
+      "doc": "components/SDUI5MegaMenu.md",
       "demo-pages": []
     },
     "SDUI5Menu": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Menu.bas",
       "sha256": "7e8191f925abbcf7b03239885b6a044d176322615be74610c2338261080c2e33",
-      "source-lines": 1558,
+      "source-lines": 1564,
       "registered": true,
       "registry-name": "SDUI5Menu",
       "kind": "ui",
@@ -8949,8 +9386,8 @@
         "props": 52,
         "events": 2,
         "setters": 53,
-        "getters": 54,
-        "methods": 140
+        "getters": 55,
+        "methods": 141
       },
       "props": [
         "ParentID",
@@ -9066,6 +9503,7 @@
         "setDropdownContent"
       ],
       "getters": [
+        "getNoWrap",
         "getID",
         "getParentID",
         "getHere",
@@ -9149,7 +9587,7 @@
     "SDUI5MenuItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5MenuItem.bas",
       "sha256": "cfb92dabb378519a8c095270fbf97d31e1b42028d88890819f11fd0d425f42f9",
-      "source-lines": 1244,
+      "source-lines": 1260,
       "registered": true,
       "registry-name": "SDUI5MenuItem",
       "kind": "ui",
@@ -9159,9 +9597,9 @@
       "counts": {
         "props": 45,
         "events": 0,
-        "setters": 45,
+        "setters": 47,
         "getters": 49,
-        "methods": 111
+        "methods": 113
       },
       "props": [
         "ParentID",
@@ -9256,7 +9694,9 @@
         "setTarget",
         "setIconSize",
         "setBadgeVisible",
-        "setOpen"
+        "setOpen",
+        "setTooltip",
+        "setTooltipPosition"
       ],
       "getters": [
         "getCloseDropdownOnClick",
@@ -9761,8 +10201,8 @@
     },
     "SDUI5NavBar": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5NavBar.bas",
-      "sha256": "a90763b80171a42a3c8b2f48fb0394082cf41052f2e0f1a4b892bfa3c0a5f8d8",
-      "source-lines": 1445,
+      "sha256": "e841ed261bf0bbedf494620d46b87f62e3de661bfcd443dc00437b4ff0bcf701",
+      "source-lines": 1469,
       "registered": true,
       "registry-name": "SDUI5NavBar",
       "kind": "ui",
@@ -9770,11 +10210,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 48,
+        "props": 50,
         "events": 9,
-        "setters": 46,
-        "getters": 49,
-        "methods": 130
+        "setters": 48,
+        "getters": 51,
+        "methods": 134
       },
       "props": [
         "ReadMe",
@@ -9816,6 +10256,8 @@
         "Shadow",
         "GradientActive",
         "Gradient",
+        "GradientColor1",
+        "GradientColor2",
         "Visible",
         "Enabled",
         "PositionStyle",
@@ -9883,7 +10325,9 @@
         "setRounded",
         "setShadow",
         "setButtonsOutlined",
-        "setButtonSize"
+        "setButtonSize",
+        "setGradientActive",
+        "setGradient"
       ],
       "getters": [
         "getID",
@@ -9934,7 +10378,9 @@
         "getRounded",
         "getShadow",
         "getButtonsOutlined",
-        "getButtonSize"
+        "getButtonSize",
+        "getGradientActive",
+        "getGradient"
       ],
       "designer-classes": [
         "navbar justify-center",
@@ -10140,8 +10586,8 @@
     },
     "SDUI5OfficeRibbon": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5OfficeRibbon.bas",
-      "sha256": "49fa584b43706df0a095458d2ec92eaa68eb7595bc7d559d6f8ad05156c04cb3",
-      "source-lines": 1196,
+      "sha256": "b826c8956f5a70fb8a145b8e5325e1e99db81e8eec24c434a9ba85b5893c1457",
+      "source-lines": 1214,
       "registered": true,
       "registry-name": "SDUI5OfficeRibbon",
       "kind": "ui",
@@ -10151,9 +10597,9 @@
       "counts": {
         "props": 19,
         "events": 8,
-        "setters": 23,
-        "getters": 25,
-        "methods": 94
+        "setters": 24,
+        "getters": 26,
+        "methods": 96
       },
       "props": [
         "ParentID",
@@ -10209,7 +10655,8 @@
         "setLayoutSwitcherKeyTip",
         "setLocale",
         "setSelectedTab",
-        "setWidth"
+        "setWidth",
+        "setLicenseKey"
       ],
       "getters": [
         "getID",
@@ -10236,7 +10683,8 @@
         "getLayoutSwitcherKeyTip",
         "getLocale",
         "getSelectedTab",
-        "getWidth"
+        "getWidth",
+        "getLicenseKey"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -10324,8 +10772,8 @@
     },
     "SDUI5Page": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Page.bas",
-      "sha256": "838e7a1d25fce1cb0d347c92146fe41963851f766ac10f600d10a84f9dad8a97",
-      "source-lines": 1147,
+      "sha256": "c29deb13bb53747a181a19db096cfea86a1b13451bb57f60a127103e7b2dcc43",
+      "source-lines": 1171,
       "registered": true,
       "registry-name": "SDUI5Page",
       "kind": "ui",
@@ -10333,11 +10781,11 @@
       "has-designer-create-view": true,
       "init-sig": "Initialize(CallBack As Object, Name As String, EventName As String)",
       "counts": {
-        "props": 47,
+        "props": 49,
         "events": 0,
-        "setters": 45,
-        "getters": 47,
-        "methods": 122
+        "setters": 47,
+        "getters": 49,
+        "methods": 126
       },
       "props": [
         "ParentID",
@@ -10380,6 +10828,8 @@
         "Visible",
         "GradientActive",
         "Gradient",
+        "GradientColor1",
+        "GradientColor2",
         "PositionStyle",
         "Position",
         "MarginAXYTBLR",
@@ -10434,7 +10884,9 @@
         "setMaxH",
         "setHFull",
         "setAsForm",
-        "setClearParent"
+        "setClearParent",
+        "setGradientActive",
+        "setGradient"
       ],
       "getters": [
         "getID",
@@ -10483,7 +10935,9 @@
         "getMaxH",
         "getHFull",
         "getAsForm",
-        "getClearParent"
+        "getClearParent",
+        "getGradientActive",
+        "getGradient"
       ],
       "designer-classes": [
         "glass",
@@ -10898,8 +11352,8 @@
     },
     "SDUI5Pivot": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Pivot.bas",
-      "sha256": "4e3bce8796c6ea65cb71bb4c5da02c051dc57f43d63632efee4fc771ee80d077",
-      "source-lines": 329,
+      "sha256": "9b3070cfe7ffbd65ff3865f964cdbf85aa23e15ee3abb33d5b9bca1ad80d71de",
+      "source-lines": 441,
       "registered": true,
       "registry-name": "SDUI5Pivot",
       "kind": "ui",
@@ -10910,8 +11364,8 @@
         "props": 15,
         "events": 0,
         "setters": 15,
-        "getters": 17,
-        "methods": 39
+        "getters": 18,
+        "methods": 54
       },
       "props": [
         "ParentID",
@@ -10965,7 +11419,8 @@
         "getDataSourceFileName",
         "getHeight",
         "getToolbar",
-        "getWidth"
+        "getWidth",
+        "getPivot"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -10979,7 +11434,7 @@
     "SDUI5Preferences": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Preferences.bas",
       "sha256": "0ba4e516cf6dc8370d6baa39403c2077e39c8ab5f5a1767cfe34aee14156cc66",
-      "source-lines": 6886,
+      "source-lines": 6958,
       "registered": true,
       "registry-name": "SDUI5Preferences",
       "kind": "ui",
@@ -10989,9 +11444,9 @@
       "counts": {
         "props": 63,
         "events": 22,
-        "setters": 68,
-        "getters": 64,
-        "methods": 341
+        "setters": 71,
+        "getters": 73,
+        "methods": 353
       },
       "props": [
         "ParentID",
@@ -11150,7 +11605,10 @@
         "setFooterFontSize",
         "setBodyFontFamily",
         "setHeaderFontFamily",
-        "setFooterFontFamily"
+        "setFooterFontFamily",
+        "setDownloadTooltip",
+        "setTooltipPosition",
+        "setActionType"
       ],
       "getters": [
         "getID",
@@ -11166,9 +11624,16 @@
         "getPaddingAXYTBLR",
         "getMarginAXYTBLR",
         "getHasSearch",
+        "getHasActions",
         "getHasDownload",
+        "getHasUpload",
         "getUploadTooltip",
         "getDownloadTooltip",
+        "getHasRefresh",
+        "getHasBack",
+        "getHasDelete",
+        "getHasSave",
+        "getHasAddNew",
         "getAddNewTooltip",
         "getBackTooltip",
         "getDeleteTooltip",
@@ -11216,7 +11681,9 @@
         "getSearchID",
         "getToolBarButtonID",
         "getName",
-        "getPropertyBag"
+        "getPropertyBag",
+        "getTooltipPosition",
+        "getActionType"
       ],
       "designer-classes": [
         "card",
@@ -11644,7 +12111,7 @@
     "SDUI5Radio": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Radio.bas",
       "sha256": "a651b3193fb9ec65fa77254eb6cc2bb12ee0334c2a5123db26624a571d4d9eeb",
-      "source-lines": 566,
+      "source-lines": 572,
       "registered": true,
       "registry-name": "SDUI5Radio",
       "kind": "ui",
@@ -11655,8 +12122,8 @@
         "props": 25,
         "events": 1,
         "setters": 25,
-        "getters": 26,
-        "methods": 59
+        "getters": 27,
+        "methods": 60
       },
       "props": [
         "ParentID",
@@ -11733,6 +12200,7 @@
         "getLabelColor",
         "getRadioType",
         "getLegend",
+        "getSize",
         "getAriaLabel",
         "getBackgroundColor",
         "getChecked",
@@ -11755,7 +12223,7 @@
     "SDUI5RadioGroup": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5RadioGroup.bas",
       "sha256": "fcce5fe023e71692e11dc4c87d09504a1767faf238a7496a9f6229cc47f462cf",
-      "source-lines": 766,
+      "source-lines": 772,
       "registered": true,
       "registry-name": "SDUI5RadioGroup",
       "kind": "ui",
@@ -11766,8 +12234,8 @@
         "props": 28,
         "events": 1,
         "setters": 28,
-        "getters": 29,
-        "methods": 70
+        "getters": 30,
+        "methods": 71
       },
       "props": [
         "ParentID",
@@ -11856,6 +12324,7 @@
         "getBackgroundColor",
         "getBorder",
         "getBorderColor",
+        "getSize",
         "getCheckedColor",
         "getColor",
         "getGroupName",
@@ -12013,7 +12482,7 @@
     "SDUI5Rating": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Rating.bas",
       "sha256": "79e549d6fd6bb12588015a361d1d4750214607799e3adab0dcf0db9c6c6249ad",
-      "source-lines": 748,
+      "source-lines": 756,
       "registered": true,
       "registry-name": "SDUI5Rating",
       "kind": "ui",
@@ -12023,9 +12492,9 @@
       "counts": {
         "props": 29,
         "events": 1,
-        "setters": 30,
+        "setters": 31,
         "getters": 32,
-        "methods": 74
+        "methods": 75
       },
       "props": [
         "ParentID",
@@ -12091,7 +12560,8 @@
         "setMask",
         "setReadOnly",
         "setSize",
-        "setValue"
+        "setValue",
+        "setRatingBackgroundColor"
       ],
       "getters": [
         "getID",
@@ -12286,6 +12756,7 @@
       "designer-shadows": [],
       "doc": "components/SDUI5Row.md",
       "demo-pages": [
+        "pgAOS.bas",
         "pgAccordion.bas",
         "pgAdvancedCheckGroup.bas",
         "pgAlert.bas",
@@ -12311,10 +12782,13 @@
         "pgDropDown.bas",
         "pgDropZone.bas",
         "pgEasyMDE.bas",
+        "pgEnjoyHint.bas",
+        "pgEvoCalendar.bas",
         "pgExcelToApp.bas",
         "pgFieldSet.bas",
         "pgFileInput.bas",
         "pgFilter.bas",
+        "pgFrappeGantt.bas",
         "pgFullCalendar.bas",
         "pgGenderChart.bas",
         "pgGhostLogin.bas",
@@ -12357,6 +12831,10 @@
         "pgRadio.bas",
         "pgRange.bas",
         "pgRating.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWeb.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgSVG.bas",
         "pgSelect.bas",
         "pgSignaturePad.bas",
@@ -12378,6 +12856,7 @@
         "pgTimeline.bas",
         "pgToastCharts.bas",
         "pgToggle.bas",
+        "pgToolTip.bas",
         "pgTreeSpider.bas",
         "pgTreeView.bas",
         "pgTrendCharts.bas",
@@ -12392,7 +12871,7 @@
     "SDUI5Segment": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Segment.bas",
       "sha256": "69d574dbbcfc0b96d6a1f0888790a7c3c069f50ef39e7e96bcbfe58bfee71e2c",
-      "source-lines": 528,
+      "source-lines": 544,
       "registered": true,
       "registry-name": "SDUI5Segment",
       "kind": "ui",
@@ -12402,9 +12881,9 @@
       "counts": {
         "props": 21,
         "events": 1,
-        "setters": 21,
-        "getters": 23,
-        "methods": 54
+        "setters": 22,
+        "getters": 24,
+        "methods": 56
       },
       "props": [
         "ParentID",
@@ -12453,7 +12932,8 @@
         "setOptions",
         "setSize",
         "setActive",
-        "setDisabled"
+        "setDisabled",
+        "setEnabled"
       ],
       "getters": [
         "getID",
@@ -12478,7 +12958,8 @@
         "getOptions",
         "getSize",
         "getActive",
-        "getDisabled"
+        "getDisabled",
+        "getEnabled"
       ],
       "designer-classes": [
         "tabs tabs-box inline-flex flex-nowrap whitespace-nowrap"
@@ -12658,6 +13139,8 @@
       "doc": "components/SDUI5Select.md",
       "demo-pages": [
         "pgContacts.bas",
+        "pgEvoCalendar.bas",
+        "pgFullCalendar.bas",
         "pgModal.bas",
         "pgSelect.bas",
         "pgValidation.bas"
@@ -12666,7 +13149,7 @@
     "SDUI5SignaturePad": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5SignaturePad.bas",
       "sha256": "64413b5f610c5b220fd5fccd3cfc5d881f148ec75133f8c1b64e0402c2d4883d",
-      "source-lines": 882,
+      "source-lines": 895,
       "registered": true,
       "registry-name": "SDUI5SignaturePad",
       "kind": "ui",
@@ -12676,9 +13159,9 @@
       "counts": {
         "props": 33,
         "events": 1,
-        "setters": 33,
-        "getters": 35,
-        "methods": 95
+        "setters": 34,
+        "getters": 36,
+        "methods": 97
       },
       "props": [
         "ParentID",
@@ -12751,7 +13234,8 @@
         "setThrottle",
         "setVelocityFilterWeight",
         "setWidth",
-        "setValue"
+        "setValue",
+        "setBackgroundColor"
       ],
       "getters": [
         "getID",
@@ -12788,7 +13272,8 @@
         "getThrottle",
         "getVelocityFilterWeight",
         "getWidth",
-        "getValue"
+        "getValue",
+        "getBackgroundColor"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -13375,7 +13860,7 @@
     "SDUI5StatItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5StatItem.bas",
       "sha256": "2890bc4d808c62f1e70982ed4c5153b2be1e1713afec334f61a33e66d8221d18",
-      "source-lines": 716,
+      "source-lines": 722,
       "registered": true,
       "registry-name": "SDUI5StatItem",
       "kind": "ui",
@@ -13386,8 +13871,8 @@
         "props": 31,
         "events": 0,
         "setters": 30,
-        "getters": 32,
-        "methods": 68
+        "getters": 33,
+        "methods": 69
       },
       "props": [
         "ReadMe",
@@ -13474,6 +13959,7 @@
         "getAvatarShape",
         "getFigureType",
         "getFigureColor",
+        "getValueTextColor",
         "getValue",
         "getActionsVisible",
         "getDesc",
@@ -13595,7 +14081,7 @@
     "SDUI5Steps": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Steps.bas",
       "sha256": "08ed0b87895bf2354f4b0053ce1aae114e5027f4ae41ead091b93bbe1dfac0d7",
-      "source-lines": 562,
+      "source-lines": 592,
       "registered": true,
       "registry-name": "SDUI5Steps",
       "kind": "ui",
@@ -13605,9 +14091,9 @@
       "counts": {
         "props": 25,
         "events": 1,
-        "setters": 23,
-        "getters": 25,
-        "methods": 56
+        "setters": 25,
+        "getters": 27,
+        "methods": 60
       },
       "props": [
         "ParentID",
@@ -13662,7 +14148,9 @@
         "setRoundedBox",
         "setSMDirection",
         "setShadow",
-        "setXLDirection"
+        "setXLDirection",
+        "setStepsColor",
+        "setOverflowXAuto"
       ],
       "getters": [
         "getID",
@@ -13689,7 +14177,9 @@
         "getRoundedBox",
         "getSMDirection",
         "getShadow",
-        "getXLDirection"
+        "getXLDirection",
+        "getStepsColor",
+        "getOverflowXAuto"
       ],
       "designer-classes": [
         "rounded-box"
@@ -14369,7 +14859,7 @@
     "SDUI5Table": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Table.bas",
       "sha256": "12fd01b43d90d4590f543dcc734bdae9d17bbb88dd217d7d8a91bde063fe6ca5",
-      "source-lines": 11750,
+      "source-lines": 11785,
       "registered": true,
       "registry-name": "SDUI5Table",
       "kind": "ui",
@@ -14379,9 +14869,9 @@
       "counts": {
         "props": 96,
         "events": 50,
-        "setters": 140,
-        "getters": 111,
-        "methods": 670
+        "setters": 143,
+        "getters": 114,
+        "methods": 676
       },
       "props": [
         "ReadMe",
@@ -14673,7 +15163,10 @@
         "setHasDownload",
         "setHasMenu",
         "setExportToPdf",
-        "setFlexWrapActions"
+        "setFlexWrapActions",
+        "setTrapRowClick",
+        "setDownloadToolbarTooltip",
+        "setExportToCsv"
       ],
       "getters": [
         "getID",
@@ -14786,7 +15279,10 @@
         "getHasUpload",
         "getHasDownload",
         "getHasMenu",
-        "getFlexWrapActions"
+        "getFlexWrapActions",
+        "getTrapRowClick",
+        "getDownloadToolbarTooltip",
+        "getExportToCsv"
       ],
       "designer-classes": [
         "card card-border w-full bg-base-100"
@@ -14810,8 +15306,8 @@
     },
     "SDUI5Tabs": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Tabs.bas",
-      "sha256": "de0af86e4940e131447bb2e894060aa2047609c12376401bb3e2b000584c4db2",
-      "source-lines": 550,
+      "sha256": "f72a0ae7f3ec7e654841036f89c2f535d789c8190661e5850f4456502ea97c9e",
+      "source-lines": 561,
       "registered": true,
       "registry-name": "SDUI5Tabs",
       "kind": "ui",
@@ -14913,8 +15409,8 @@
     },
     "SDUI5TabsItem": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TabsItem.bas",
-      "sha256": "6346ea45f7eb1fef45082b84b086ce0bb247999f3220db1b0a865e8b642c6edf",
-      "source-lines": 505,
+      "sha256": "9fae3e714b83ff72eb9fd5b7d9e14a1726fa937233bf28230495f7de56cbf677",
+      "source-lines": 522,
       "registered": true,
       "registry-name": "SDUI5TabsItem",
       "kind": "ui",
@@ -14924,9 +15420,9 @@
       "counts": {
         "props": 23,
         "events": 0,
-        "setters": 21,
-        "getters": 23,
-        "methods": 55
+        "setters": 22,
+        "getters": 24,
+        "methods": 57
       },
       "props": [
         "ReadMe",
@@ -14975,7 +15471,8 @@
         "setBadgeSize",
         "setBorderColor",
         "setEnabled",
-        "setTextColor"
+        "setTextColor",
+        "setDisabled"
       ],
       "getters": [
         "getID",
@@ -15000,7 +15497,8 @@
         "getBadgeColor",
         "getBadgeSize",
         "getBorderColor",
-        "getTextColor"
+        "getTextColor",
+        "getDisabled"
       ],
       "designer-classes": [
         "tab-active",
@@ -15017,7 +15515,7 @@
     "SDUI5Text": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Text.bas",
       "sha256": "f70e3593203b7500d3529c986bca646bb7b7a916558d241f98ce45cfb74ca421",
-      "source-lines": 1072,
+      "source-lines": 1111,
       "registered": true,
       "registry-name": "SDUI5Text",
       "kind": "ui",
@@ -15027,9 +15525,9 @@
       "counts": {
         "props": 45,
         "events": 6,
-        "setters": 45,
-        "getters": 47,
-        "methods": 108
+        "setters": 48,
+        "getters": 50,
+        "methods": 114
       },
       "props": [
         "ParentID",
@@ -15131,7 +15629,10 @@
         "setIcon",
         "setIconSize",
         "setValue",
-        "setChecked"
+        "setChecked",
+        "setLoremIpsum",
+        "setRounded",
+        "setShadow"
       ],
       "getters": [
         "getID",
@@ -15180,7 +15681,10 @@
         "getIcon",
         "getIconSize",
         "getValue",
-        "getChecked"
+        "getChecked",
+        "getLoremIpsum",
+        "getRounded",
+        "getShadow"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -15202,7 +15706,7 @@
     "SDUI5TextArea": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TextArea.bas",
       "sha256": "f147ebf2495cd5689dedb990c3be9db60f6fe2050c348dd7e26798b6993474cd",
-      "source-lines": 1142,
+      "source-lines": 1148,
       "registered": true,
       "registry-name": "SDUI5TextArea",
       "kind": "ui",
@@ -15213,8 +15717,8 @@
         "props": 45,
         "events": 4,
         "setters": 45,
-        "getters": 46,
-        "methods": 102
+        "getters": 47,
+        "methods": 103
       },
       "props": [
         "ParentID",
@@ -15352,6 +15856,7 @@
         "getPrependIcon",
         "getPrependVisible",
         "getAppendImage",
+        "getPrependImage",
         "getColor",
         "getGhost",
         "getHeight",
@@ -15372,6 +15877,9 @@
       "demo-pages": [
         "pgJSONQuery.bas",
         "pgModal.bas",
+        "pgSDUI5RibbonMVVM.bas",
+        "pgSDUI5RibbonWorkspace.bas",
+        "pgSDUI5RibbonX.bas",
         "pgTextArea.bas",
         "pgValidation.bas"
       ]
@@ -15616,22 +16124,24 @@
         "pgCategories.bas",
         "pgColorPicker.bas",
         "pgContacts.bas",
+        "pgEnjoyHint.bas",
         "pgFieldSet.bas",
         "pgGhostLogin.bas",
         "pgInput.bas",
         "pgModal.bas",
+        "pgSDUI5RibbonMVVM.bas",
         "pgValidation.bas",
         "pgdatetimeline.bas"
       ]
     },
-    "SDUI5Textrotate": {
-      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5Textrotate.bas",
+    "SDUI5TextRotate": {
+      "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TextRotate.bas",
       "sha256": "3a8914d5669b8894eeaf7f32d1ed256ffab80adafa0f1a08f2b2428031839af3",
       "source-lines": 399,
       "registered": true,
       "registry-name": "SDUI5TextRotate",
       "kind": "ui",
-      "name-case-differs": true,
+      "name-case-differs": false,
       "has-designer-create-view": true,
       "init-sig": "Initialize(Callback As Object, Name As String, EventName As String)",
       "counts": {
@@ -15706,7 +16216,7 @@
       ],
       "designer-rounded": [],
       "designer-shadows": [],
-      "doc": "components/SDUI5Textrotate.md",
+      "doc": "components/SDUI5TextRotate.md",
       "demo-pages": [
         "pgTextrotate.bas"
       ]
@@ -15959,8 +16469,8 @@
     },
     "SDUI5ToastChart": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5ToastChart.bas",
-      "sha256": "450338582d826c98aa429de88456d935d0128abd5ad75adf7f2ddcfe6adcbcbb",
-      "source-lines": 1009,
+      "sha256": "c2a2ae3a51572a6e71ea229505347bce0c2cb78b61d00acab3b13413de382eed",
+      "source-lines": 1014,
       "registered": true,
       "registry-name": "SDUI5ToastChart",
       "kind": "ui",
@@ -16268,8 +16778,8 @@
     },
     "SDUI5ToolTip": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5ToolTip.bas",
-      "sha256": "7f838a7c8f6b81c45e10c8f867036ba5584293899700c1c5bb743bc04427d27b",
-      "source-lines": 233,
+      "sha256": "f9c4f43d959a8b23440550e951f00e1e5a789db14a1f675a96ebaa051d4031ae",
+      "source-lines": 291,
       "registered": true,
       "registry-name": "SDUI5ToolTip",
       "kind": "ui",
@@ -16279,9 +16789,9 @@
       "counts": {
         "props": 8,
         "events": 0,
-        "setters": 7,
-        "getters": 8,
-        "methods": 22
+        "setters": 11,
+        "getters": 13,
+        "methods": 32
       },
       "props": [
         "ReadMe",
@@ -16301,7 +16811,11 @@
         "setOpen",
         "setPosition",
         "setAlignment",
-        "setTip"
+        "setTip",
+        "setTooltipPosition",
+        "setTooltipAlignment",
+        "setClasses",
+        "setStyles"
       ],
       "getters": [
         "getID",
@@ -16311,7 +16825,12 @@
         "getColor",
         "getOpen",
         "getPosition",
-        "getTip"
+        "getTip",
+        "getTooltipPosition",
+        "getTooltipAlignment",
+        "getContent",
+        "getClasses",
+        "getStyles"
       ],
       "designer-classes": [
         "tooltip",
@@ -16452,7 +16971,7 @@
     "SDUI5TreeView": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TreeView.bas",
       "sha256": "7fa08705eb5dfec8708ec3a1f74f8b7b6aa2b34b1faeaf729715051e2e60d3f4",
-      "source-lines": 927,
+      "source-lines": 973,
       "registered": true,
       "registry-name": "SDUI5TreeView",
       "kind": "ui",
@@ -16462,9 +16981,9 @@
       "counts": {
         "props": 36,
         "events": 10,
-        "setters": 32,
-        "getters": 38,
-        "methods": 108
+        "setters": 36,
+        "getters": 42,
+        "methods": 116
       },
       "props": [
         "ParentID",
@@ -16548,7 +17067,11 @@
         "setRoundedBox",
         "setShadow",
         "setSize",
-        "setWidth"
+        "setWidth",
+        "setItemColor",
+        "setItemActiveColor",
+        "setItemFocusColor",
+        "setItemHoverColor"
       ],
       "getters": [
         "getID",
@@ -16588,7 +17111,11 @@
         "getRoundedBox",
         "getShadow",
         "getSize",
-        "getWidth"
+        "getWidth",
+        "getItemColor",
+        "getItemActiveColor",
+        "getItemFocusColor",
+        "getItemHoverColor"
       ],
       "designer-classes": [
         "menu",
@@ -16604,8 +17131,8 @@
     },
     "SDUI5TrendChart": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\SDUI5TrendChart.bas",
-      "sha256": "83df204b911e03669ceb47e3f4f9b70997d5dae3b7ff5efd9c32389cd7643773",
-      "source-lines": 936,
+      "sha256": "a8e5bdade7047e01a899c6773a4cf39536ebc332e6399dd9f339866ec9c484d7",
+      "source-lines": 964,
       "registered": true,
       "registry-name": "SDUI5TrendChart",
       "kind": "ui",
@@ -16615,9 +17142,9 @@
       "counts": {
         "props": 49,
         "events": 0,
-        "setters": 47,
-        "getters": 49,
-        "methods": 105
+        "setters": 49,
+        "getters": 51,
+        "methods": 109
       },
       "props": [
         "ParentID",
@@ -16718,7 +17245,9 @@
         "setTooltipDisabled",
         "setTooltipFormat",
         "setValues",
-        "setWeight"
+        "setWeight",
+        "setHeight",
+        "setWidth"
       ],
       "getters": [
         "getID",
@@ -16769,7 +17298,9 @@
         "getTooltipDisabled",
         "getTooltipFormat",
         "getValues",
-        "getWeight"
+        "getWeight",
+        "getHeight",
+        "getWidth"
       ],
       "designer-classes": [],
       "designer-colors": [],
@@ -17775,8 +18306,8 @@
     },
     "UIShared": {
       "source-file": "C:\\b4j\\workspace\\0SithasoDaisy5\\UIShared.bas",
-      "sha256": "9966d8f001ec65be192615c45cd550c80937f073f21b0320a5700b8a94adc633",
-      "source-lines": 6114,
+      "sha256": "e34f49fbe58a99a0dc63ea504ddedb568c8b28dcfdb1ec3101db7d5177063d21",
+      "source-lines": 6151,
       "registered": true,
       "registry-name": "UIShared",
       "kind": "support",
@@ -17788,7 +18319,7 @@
         "events": 0,
         "setters": 0,
         "getters": 0,
-        "methods": 439
+        "methods": 441
       },
       "props": [],
       "events": [],
@@ -17799,7 +18330,9 @@
       "designer-rounded": [],
       "designer-shadows": [],
       "doc": "components/UIShared.md",
-      "demo-pages": []
+      "demo-pages": [
+        "SDUI5RibbonWeb.bas"
+      ]
     }
   }
 }

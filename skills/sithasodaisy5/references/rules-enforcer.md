@@ -15,6 +15,11 @@ The authoritative constraint layer. Every generated page must comply. Each rule 
 
 Cite the `RULE-*` ID when you decide to obey or violate. The orchestrator audits the trace.
 
+**Section index**:
+[Setup](#1-setup--project-file-rules) · [Lifecycle](#2-page-lifecycle-rules) · [Layout](#3-hierarchy--layout-rules) · [Mount](#4-component-mount-rules) ·
+[Interaction](#5-interaction-ergonomics--state-rules) · [Code](#6-code-style-rules) · [Styling/Defaults/Assets](#61-styling-defaults--asset-rules) ·
+[Anti-patterns](#7-anti-patterns-hard-bans) · [Translation](#8-web-to-sithasodaisy5-translation-rules) · [Encoding](#81-encoding--unprintable-character-prevention-rules).
+
 ---
 
 ## 1. Setup & Project File Rules
@@ -118,6 +123,7 @@ Version=10
 **What**: Unlike native B4XPages, SithasoDaisy5's web `Sub Show` doesn't need manual pageScroll setup — `app.ClearPageView` handles it. Don't add your own scroll containers.  
 **Why**: Double-scroll causes double-rendering bugs.
 
+<a id="rule-layout-005"></a>
 ### RULE-LAYOUT-005 — L4 — Companion Parent-Child Component Hierarchy
 
 **What**: Specific leaf items are companion child components of dedicated parent containers and MUST mount into an instance of their designated parent container (via `ParentID`), NEVER directly into a PageView, Container, or unrelated column:
@@ -193,6 +199,7 @@ Version=10
 **What**: Navbar / Dock / Tabs at the top level: ≤ 5 items recommended. Overflow goes behind a "More" menu. Web dashboards may legitimately run 6–7 items — justify in the reasoning trace.  
 **Why**: Hick's Law; more items = more friction. Guidance, not a hard gate — real web layouts vary.
 
+<a id="rule-interact-003"></a>
 ### RULE-INTERACT-003 — L4 — State Coverage for Data-Driven Views
 
 **What**: Any view that fetches / computes / awaits data MUST implement the **core 4 states**: Loading + Populated + Empty + Error. **Extended states** (offline, permission denied, validation failure, partial data, first-use) must be **declared in the screen contract** with a plan or explicit N/A.  
@@ -226,13 +233,78 @@ Version=10
 
 ### RULE-CODE-003 — L4 — Use the Component's Color Contract
 
-**What**: `.Color` is component-specific. When its designer list enumerates semantic daisyUI variants, use one of those values (for example `SDUI5Button.Color = "primary"`). Do not pass hex/rgb to a variant property unless its component reference explicitly supports CSS colors. Shared `BackgroundColor`/`TextColor`/`BorderColor` helpers transform values through `UIShared.FixColor`; that helper wraps `#hex` as an arbitrary Tailwind class but does not convert `rgb(...)`/`rgba(...)` into valid arbitrary-class syntax. Use documented raw CSS properties or `.Styles` for CSS color values.
+**What**: `.Color` is component-specific. When its designer list enumerates semantic daisyUI variants, use one of those values (for example `SDUI5Button.Color = "primary"`). Do not pass hex/rgb to a variant property unless its component reference explicitly supports CSS colors.
+Shared `BackgroundColor`/`TextColor`/`BorderColor` helpers transform values through `UIShared.FixColor`. That helper wraps `#hex` as an arbitrary Tailwind class but does not convert `rgb(...)`/`rgba(...)` into valid arbitrary-class syntax. Use documented raw CSS properties or `.Styles` for CSS color values.
 **Source**: framework component setters and `UIShared.FixColor`; see `design-tokens.md` §1.1.
 
 ### RULE-CODE-004 — L4 — Width/Height Use Units/Tokens, Not Bare Numbers
 
-**What**: `.Width` / `.Height` must not be bare numbers (e.g. `320`). Use values with units (e.g. `"320px"`, `"10rem"`) or framework size tokens/Tailwind-based values (e.g. `"full"`, `"w-64"`, `"h-32"`).
-**Source**: `verify-conformance.ps1 --check-dimensions`.
+**What**: `.Width` / `.Height` must not be bare numbers (e.g. `320`). Use the suffix form (`"full"`, `"64"`, `"screen"`) or a unit value (`"320px"`, `"10rem"`). Never pass a full utility (`"w-64"`, `"h-32"`); the framework prepends the prefix, producing `w-w-64` / `h-h-32`.
+**Source**: `verify-conformance.ps1 --check-dimensions`; `pre-scan.ps1` RULE-PROP-002.
+
+## 6.1 Styling, Defaults & Asset Rules
+
+<a id="rule-prop-001"></a>
+### RULE-PROP-001 — L4 — Property-First Styling
+
+**What**: If a component exposes a designer property for layout, spacing, dimension, elevation, or positioning, assign it via that property.
+App code assigns `.Classes`, `.Styles`, `.Attributes` — never `RawClasses`, `RawStyles`, `RawAttributes` (which only exist as designer property keys, while classes expose `setClasses`, `setStyles`, `setAttributes`).
+Spacing and positioning properties use compact DSL strings (`MarginAXYTBLR = "b=4"`, `Position = "t=0; r=0"`), with question marks optional for unassigned sides. See [base-properties-dsl.md](base-properties-dsl.md).
+Never put static, unprefixed `m-*`, `p-*`, `w-*`, `h-*`, `shadow-*`, `rounded-*`, `relative`, or `absolute` tokens into `.Classes`.
+Never call capital `Set*` methods on designer properties (`SetPosition`, `SetMarginAXYTBLR`, ...); use `.Property = value`.
+Reserve `.Classes` for responsive overrides (`md:*`), transitions/animations, flex/grid child tokens (`flex-1`, `grow`, `shrink-0`), and unmanaged visual utilities (`overflow-hidden`, `backdrop-blur-*`).
+**Why**: Property setters drive the framework's class/style assembly; leaking them into `.Classes` duplicates or bypasses that contract.
+**Source**: `pre-scan.ps1` property-first check; `references/base-properties-dsl.md`.
+
+<a id="rule-prop-002"></a>
+### RULE-PROP-002 — L4 — Suffix-Only Size and Elevation Values
+
+**What**: `Width`, `Height`, `Shadow`, and `Rounded` take the suffix only; the framework prepends the utility prefix.
+- Correct: `.Width = "full"`, `.Height = "64"`, `.Shadow = "md"`, `.Rounded = "box"`.
+- Wrong: `"w-full"` becomes `w-w-full`; `"h-64"` becomes `h-h-64`; `"shadow-md"` becomes `shadow-shadow-md`; `"rounded-box"` becomes `rounded-rounded-box`.
+- A unit value such as `"320px"` is wrapped as an arbitrary value (`w-[320px]`).
+**Source**: `pre-scan.ps1` RULE-PROP-002; `eval/cases/run-gate-regressions.ps1`.
+
+<a id="rule-defaults-001"></a>
+### RULE-DEFAULTS-001 — L2 — Prompt-to-Setter Alignment
+
+**What**: Every component calls `SetDefaults` during `Initialize`. Audit `component-default-setters.md` and explicitly override every default that conflicts with the prompt or container context.
+At minimum, check full-width sizing in columns, border, surface color, direction, and placeholder options.
+**Why**: Designer defaults are tuned for standalone canvas drops; they frequently contradict responsive or prompt-specific layouts.
+**Source**: `component-default-setters.md`, `context-aware-defaults.md`.
+
+<a id="rule-theme-001"></a>
+### RULE-THEME-001 — L2 — No App-Level Theme
+
+**What**: Do not call `app.SetTheme(...)`, do not write `data-theme` on `<html>`, and do not otherwise activate a theme from app code. The host page or user supplies the theme.
+**Why**: An app-level theme overrides the user's choice and makes the app non-portable; components must render correctly under any active theme.
+**Correct**: Build with semantic tokens (`primary`, `base-100`, `base-content`, …) and verify under the host theme. A theme switcher is a user control, not an app default.
+**Source**: `design-tokens.md` §6, `negative-knowledge.md` NEG-038.
+
+<a id="rule-table-001"></a>
+### RULE-TABLE-001 — L4 — Add table columns after AddComponent
+
+**What**: Call `AddColumn` / `AddColumn*` only after `BANano.Await(table.AddComponent)`.
+**Why**: Column methods append `<th>`/`<td>` immediately; before the table exists the append is silently swallowed, so rows render with no headers or column cells.
+**Correct**: Initialize → set properties → `AddComponent` → `AddColumn*` → `SetItems`.
+**Source**: `components/SDUI5Table.md`, `negative-knowledge.md` NEG-052.
+
+<a id="rule-modal-001"></a>
+### RULE-MODAL-001 — L4 — Modal body, actions, and colours
+
+**What**: Set `.Html` for body copy; implement `<modal>_<action>_click` handlers that call `Close`; use `neutral`/`success`/`error` with `*-content` text tokens; cap the box to the viewport on small screens.
+**Why**: `.Html` is empty by default, `CancelColor` defaults to `gray` (no daisyUI background), white on `bg-success` measures 1.96:1, and `setWidth` fixes `max-width` so the box clips on phones.
+**Correct**: Verify body text renders, Cancel closes the dialog, action contrast is >= 4.5:1, and `box.right <= innerWidth` at 390px.
+**Source**: NEG-053, NEG-054, `components/SDUI5Modal.md`.
+
+<a id="rule-asset-001"></a>
+### RULE-ASSET-001 — L4 — Local Icon and Image Paths
+
+**What**: Every icon/image property that points under `assets/` uses the full relative path with extension: `./assets/<name>.svg`.
+Bare names (`"mail"`) and extension-only values (`"mail.svg"`) are forbidden; the runtime fetches the literal string and produces a 404.
+Ship the file locally; never hotlink a remote URL at runtime.
+**Why**: `SVGRenderer` treats the value as a URL; a missing prefix or extension breaks the control.
+**Source**: `pre-scan.ps1`; visual review.
 
 ---
 
@@ -287,6 +359,7 @@ Version=10
 
 ## 8.1 Encoding & Unprintable Character Prevention Rules
 
+<a id="rule-encoding-001"></a>
 ### RULE-ENCODING-001 — L5 — UTF-8 Without BOM Only
 
 **What**: All `.bas`, `.b4j`, `.json`, and `.md` files MUST be encoded as strictly UTF-8 **WITHOUT BOM** (Byte Order Mark `0xEF 0xBB 0xBF`).  
@@ -336,7 +409,11 @@ Version=10
 | INTERACT-003 State coverage | L4 | Blank screen | `verify-conformance` 6/6 (heuristic) + Stage 9 review |
 | INTERACT-004 Confirm destructive | L4 | Hostile UX | `--check-confirm` |
 | CODE-003 Use component color contract | L4 | Wrong variant or invalid CSS | per-component source/reference |
-| CODE-004 No numeric px | L4 | Layout bug | `--check-dimensions` |
+| CODE-004 No bare numbers in Width/Height | L4 | Layout bug | `--check-dimensions` |
+| PROP-001 Property-first styling | L4 | Duplicated/bypassed class assembly | `pre-scan.ps1` |
+| PROP-002 Suffix-only size/elevation | L4 | Doubled class (`w-w-full`) | `pre-scan.ps1` |
+| DEFAULTS-001 Prompt-to-setter alignment | L2 | Wrong layout/style from defaults | review |
+| ASSET-001 Local icon/image paths | L4 | Broken icon / 404 | `pre-scan.ps1` |
 | ANTI-001 No raw HTML/CSS | L5 | Breaks framework | `--check-output` |
 | ANTI-002 No lib edits | L4 | Lost work | manual check |
 | ANTI-005 No localStorage direct | L4 | Bypasses wrappers | `--check-storage` |

@@ -66,7 +66,7 @@ Decision rules, not term definitions (see glossary.md for terms). Pick by what y
 
 `THEME_LIGHT`, `THEME_DARK`, `THEME_CUPCAKE`, `THEME_BUMBLEBEE`, `THEME_EMERALD`, `THEME_CORPORATE`, `THEME_SYNTHWAVE`, `THEME_RETRO`, `THEME_CYBERPUNK`, `THEME_VALENTINE`, `THEME_HALLOWEEN`, `THEME_GARDEN`, `THEME_FOREST`, `THEME_AQUA`, `THEME_LOFI`, `THEME_PASTEL`, `THEME_FANTASY`, `THEME_WIREFRAME`, `THEME_BLACK`, `THEME_LUXURY`, `THEME_DRACULA`, `THEME_CMYK`, `THEME_AUTUMN`, `THEME_BUSINESS`, `THEME_ACID`, `THEME_LEMONADE`, `THEME_NIGHT`, `THEME_COFFEE`, `THEME_WINTER`, `THEME_DIM`, `THEME_NORD`, `THEME_SUNSET`, `THEME_CARAMELLATTE`, `THEME_ABYSS`, `THEME_SILK`.
 
-Apply: `app.SetTheme(THEME_NORD)`. Detect dark mode: `app.IsDarkMode`.
+Do not apply a theme (RULE-THEME-001); the host supplies `data-theme`. Detect dark mode: `app.IsDarkMode`.
 
 ## Asset registration (SithasoDaisy5.b4j)
 

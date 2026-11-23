@@ -32,28 +32,24 @@ Wire in parent: `Sub mdtoast_<eventname>(e As BANanoEvent)` — the handler name
 ## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `Show()` _(public)_
-- `ShowError(smessage As String)` _(public)_
 - `ShowInfo(smessage As String)` _(public)_
+- `ShowError(smessage As String)` _(public)_
 - `ShowSuccess(smessage As String)` _(public)_
 - `ShowWarning(smessage As String)` _(public)_
-
 ## Key Setters (5)
 - `setDuration(i As Int)` _(public)_
 - `setPosition(s As String)` _(public)_
 - `setText(s As String)` _(public)_
 - `setTitle(s As String)` _(public)_
 - `setTypeOf(s As String)` _(public)_
-
 ## Getters (5)
-- `getDuration()` _(public)_
-- `getPosition()` _(public)_
-- `getText()` _(public)_
-- `getTitle()` _(public)_
-- `getTypeOf()` _(public)_
-
+- `getTitle()` As String _(public)_
+- `getDuration()` As Int _(public)_
+- `getPosition()` As String _(public)_
+- `getText()` As String _(public)_
+- `getTypeOf()` As String _(public)_
 ## Private Methods (0)
 _(none)_
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

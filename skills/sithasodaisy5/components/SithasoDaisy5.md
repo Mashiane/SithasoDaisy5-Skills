@@ -31,14 +31,12 @@ _(none declared)_
 Wire in parent: `Sub sithasodaisy5_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (1)
 - `Initialize()` _(public)_
-
 ## Key Setters (0)
-
+_(none — uses base SDUI5Component setters only)_
 ## Getters (0)
-
+_(none)_
 ## Private Methods (0)
 _(none)_
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

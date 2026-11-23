@@ -30,54 +30,52 @@ _(none declared)_
 
 Wire in parent: `Sub swal_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
 ## Public Methods (40)
-- `allowEnterKey(b As Boolean)` As SDUI5Swal _(public)_
-- `allowEscapeKey(b As Boolean)` As SDUI5Swal _(public)_
-- `allowOutsideClick(b As Boolean)` As SDUI5Swal _(public)_
+- `Initialize()` As SDUI5Swal _(public)_
 - `buttonsStyling(b As Boolean)` As SDUI5Swal _(public)_
-- `cancelButtonClass(s As String)` As SDUI5Swal _(public)_
-- `cancelButtonColor(s As String)` As SDUI5Swal _(public)_
-- `cancelButtonText(s As String)` As SDUI5Swal _(public)_
-- `closeButtonHtml(s As String)` As SDUI5Swal _(public)_
 - `confirmButtonClass(s As String)` As SDUI5Swal _(public)_
-- `confirmButtonColor(s As String)` As SDUI5Swal _(public)_
-- `confirmButtonText(s As String)` As SDUI5Swal _(public)_
-- `denyButtonText(s As String)` As SDUI5Swal _(public)_
-- `fire()` _(public)_
-- `focusConfirm(b As Boolean)` As SDUI5Swal _(public)_
-- `footer(s As String)` As SDUI5Swal _(public)_
-- `html(s As String)` As SDUI5Swal _(public)_
+- `cancelButtonClass(s As String)` As SDUI5Swal _(public)_
+- `fire()` As Map _(public)_
+- `title(s As String)` As SDUI5Swal _(public)_
+- `position(s As String)` As SDUI5Swal _(public)_
 - `icon(s As String)` As SDUI5Swal _(public)_
-- `iconHtml(s As String)` As SDUI5Swal _(public)_
-- `imageAlt(s As String)` As SDUI5Swal _(public)_
-- `imageHeight(s As String)` As SDUI5Swal _(public)_
+- `text(s As String)` As SDUI5Swal _(public)_
+- `html(s As String)` As SDUI5Swal _(public)_
+- `footer(s As String)` As SDUI5Swal _(public)_
 - `imageUrl(s As String)` As SDUI5Swal _(public)_
+- `imageHeight(s As String)` As SDUI5Swal _(public)_
+- `imageAlt(s As String)` As SDUI5Swal _(public)_
+- `showCloseButton(b As Boolean)` As SDUI5Swal _(public)_
+- `showCancelButton(b As Boolean)` As SDUI5Swal _(public)_
+- `focusConfirm(b As Boolean)` As SDUI5Swal _(public)_
+- `iconHtml(s As String)` As SDUI5Swal _(public)_
+- `confirmButtonText(s As String)` As SDUI5Swal _(public)_
+- `confirmButtonColor(s As String)` As SDUI5Swal _(public)_
+- `showDenyButton(b As Boolean)` As SDUI5Swal _(public)_
+- `denyButtonText(s As String)` As SDUI5Swal _(public)_
+- `showConfirmButton(b As Boolean)` As SDUI5Swal _(public)_
+- `timer(t As Int)` As SDUI5Swal _(public)_
+- `cancelButtonColor(s As String)` As SDUI5Swal _(public)_
 - `imageWidth(s As String)` As SDUI5Swal _(public)_
-- `Initialize()` _(public)_
+- `width(s As String)` As SDUI5Swal _(public)_
+- `padding(s As String)` As SDUI5Swal _(public)_
+- `rows(s As String)` As SDUI5Swal _(public)_
+- `timerProgressBar(b As Boolean)` As SDUI5Swal _(public)_
+- `cancelButtonText(s As String)` As SDUI5Swal _(public)_
 - `input(s As String)` As SDUI5Swal _(public)_
+- `allowOutsideClick(b As Boolean)` As SDUI5Swal _(public)_
+- `allowEscapeKey(b As Boolean)` As SDUI5Swal _(public)_
+- `allowEnterKey(b As Boolean)` As SDUI5Swal _(public)_
+- `closeButtonHtml(s As String)` As SDUI5Swal _(public)_
 - `inputLabel(s As String)` As SDUI5Swal _(public)_
 - `inputPlaceholder(s As String)` As SDUI5Swal _(public)_
 - `inputValue(s As String)` As SDUI5Swal _(public)_
-- `padding(s As String)` As SDUI5Swal _(public)_
-- `position(s As String)` As SDUI5Swal _(public)_
-- `rows(s As String)` As SDUI5Swal _(public)_
-- `showCancelButton(b As Boolean)` As SDUI5Swal _(public)_
-- `showCloseButton(b As Boolean)` As SDUI5Swal _(public)_
-- `showConfirmButton(b As Boolean)` As SDUI5Swal _(public)_
-- `showDenyButton(b As Boolean)` As SDUI5Swal _(public)_
-- `text(s As String)` As SDUI5Swal _(public)_
-- `timer(t As Int)` As SDUI5Swal _(public)_
-- `timerProgressBar(b As Boolean)` As SDUI5Swal _(public)_
-- `title(s As String)` As SDUI5Swal _(public)_
 - `toast(b As Boolean)` As SDUI5Swal _(public)_
-- `width(s As String)` As SDUI5Swal _(public)_
-
 ## Key Setters (0)
-
+_(none — uses base SDUI5Component setters only)_
 ## Getters (0)
-
-## Private Methods (0)
 _(none)_
-
+## Private Methods (1)
+- `Class_Globals()` _(private)_
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

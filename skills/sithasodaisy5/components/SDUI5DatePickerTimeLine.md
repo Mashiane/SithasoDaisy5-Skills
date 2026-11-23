@@ -14,7 +14,7 @@ description: SithasoDaisy5 SDUI5DatePickerTimeLine component reference — desig
 <!-- GENERATED_SOURCE_REFERENCES_END -->
 
 ## Core Idea
-SDUI5DatePickerTimeLine is a timeline-style date picker. Use for selecting dates along a timeline.
+SDUI5DatePickerTimeLine is a timeline-style date picker. It renders a daisyUI `carousel` (`inline-flex`, `overflow-x: scroll`, `scroll-snap-type: x mandatory`) whose items are `ItemWidth` wide. The component element itself is the horizontal scroller.
 _SDUI5DatePickerTimeLine is a SithasoDaisy5 BANano component (daisyUI + Tailwind)._
 ## Skeleton Contract
 Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
@@ -61,21 +61,43 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 
 Setter and getter names are the actual source `Sub` names. `—` means this component has no named accessor for that side; designer-time values may still be consumed through `Props` in `DesignerCreateView`.
 Where a designer key and method name differ, the method names shown are the source-verified mapping.
+
+## Scrolling
+
+- The component is the scroll container: `.carousel` is `inline-flex` with `overflow-x: scroll` and a snap point per item.
+- daisyUI hides the scrollbar (`scrollbar-width: none`) and the component exposes no scroll buttons, so a plain mouse wheel does not move it. Use Shift+wheel, a trackpad horizontal gesture, or programmatic `scrollBy`.
+- Wrapping it in an `overflow-x-auto` container does **not** add scrolling, because the component is `width: full`; the wrapper's `scrollWidth` equals its `clientWidth`. Measured in `sd5sprint`: wrapper 325/325, component 293 client / 1286 scroll.
+- For discoverable navigation, size the pane to the number of days (`ItemWidth` x visible days), add explicit prev/next buttons that call `scrollBy` on the element, or reduce `DaysCount`.
+
+Verified navigation (used by `07-project-tracker`):
+
+```b4j
+BANano.GetElement("#datetimeline").RunMethod("scrollBy", Array(CreateMap("left": 336, "behavior": "smooth")))
+```
 ## Events
 `Change`
 
 Wire in parent: `Sub datepickertimeline_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (5)
-- `AddComponent()` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (7)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (32)
-- `setActiveDates(s As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Clear()` _(public)_
+## Key Setters (31)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setActiveDates(s As String)` _(public)_
 - `setDateColor(s As String)` _(public)_
 - `setDateFontSize(s As String)` _(public)_
 - `setDateFontWeight(s As String)` _(public)_
@@ -84,69 +106,54 @@ Wire in parent: `Sub datepickertimeline_<eventname>(e As BANanoEvent)` — the h
 - `setDayFontWeight(s As String)` _(public)_
 - `setDaysCount(s As String)` _(public)_
 - `setDeActivatedColor(s As String)` _(public)_
-- `setDirection(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
+- `setDirection(s As String)` As 'ignoredeadcode _(public)_
 - `setHeight(s As String)` _(public)_
 - `setInActiveDates(s As String)` _(public)_
-- `setInitialSelectedDate(s As String)` _(public)_
-- `setItemHeight(s As String)` _(public)_
+- `setInitialSelectedDate(s As String)` As 'ignoredeadcode _(public)_
 - `setItemWidth(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `setItemHeight(s As String)` _(public)_
 - `setMonthColor(s As String)` _(public)_
 - `setMonthFontSize(s As String)` _(public)_
 - `setMonthFontWeight(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
 - `setSelectedTextColor(s As String)` _(public)_
 - `setSelectionColor(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
-## Getters (34)
-- `getActiveDates()` _(public)_
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getDateColor()` _(public)_
-- `getDateFontSize()` _(public)_
-- `getDateFontWeight()` _(public)_
-- `getDayColor()` _(public)_
-- `getDayFontSize()` _(public)_
-- `getDayFontWeight()` _(public)_
-- `getDaysCount()` _(public)_
-- `getDeActivatedColor()` _(public)_
-- `getDirection()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (33)
 - `getID()` As String _(public)_
-- `getInActiveDates()` _(public)_
-- `getInitialSelectedDate()` _(public)_
-- `getItemHeight()` _(public)_
-- `getItemWidth()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMonthColor()` _(public)_
-- `getMonthFontSize()` _(public)_
-- `getMonthFontWeight()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getSelectedTextColor()` _(public)_
-- `getSelectionColor()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (3)
-- `dateselected(e As BANanoEvent)` _(private)_
-- `MarkSelected(selectedDate As String)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getActiveDates()` As String _(public)_
+- `getDateColor()` As String _(public)_
+- `getDateFontSize()` As String _(public)_
+- `getDateFontWeight()` As String _(public)_
+- `getDayColor()` As String _(public)_
+- `getDayFontSize()` As String _(public)_
+- `getDayFontWeight()` As String _(public)_
+- `getDaysCount()` As String _(public)_
+- `getDeActivatedColor()` As String _(public)_
+- `getDirection()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getInActiveDates()` As String _(public)_
+- `getInitialSelectedDate()` As String _(public)_
+- `getItemWidth()` As String _(public)_
+- `getItemHeight()` As String _(public)_
+- `getMonthColor()` As String _(public)_
+- `getMonthFontSize()` As String _(public)_
+- `getMonthFontWeight()` As String _(public)_
+- `getSelectedTextColor()` As String _(public)_
+- `getSelectionColor()` As String _(public)_
+- `getWidth()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgdatetimeline.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgdatetimeline.bas) (verified demo):
@@ -155,7 +162,6 @@ Real syntax from [`pgdatetimeline.bas`](https://github.com/Mashiane/SithasoDaisy
 Private dptime As SDUI5DatePickerTimeLine		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `carousel rounded-box gap-1`
 ## Code Example

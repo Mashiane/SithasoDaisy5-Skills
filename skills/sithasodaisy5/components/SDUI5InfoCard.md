@@ -63,83 +63,79 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub infocard_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (5)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (7)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Refresh()` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (30)
-- `setAnimateCounter(b As Boolean)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setDecimal(s As String)` _(public)_
-- `setDecimalPlaces(s As String)` _(public)_
-- `setDuration(s As String)` _(public)_
-- `setEffect(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setIcon(s As String)` _(public)_
-- `setIconColor(s As String)` _(public)_
-- `setIconTextColor(s As String)` _(public)_
-- `setInforType(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setNotes(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `setPrefix(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Refresh()` As 'ignoredeadcode _(public)_
+## Key Setters (29)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setValue(text As String)` _(public)_
+- `setIconTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setNotes(s As String)` As 'ignoredeadcode _(public)_
+- `setDecimalPlaces(s As String)` _(public)_
+- `setEffect(s As String)` As 'ignoredeadcode _(public)_
+- `setUseGrouping(b As Boolean)` _(public)_
+- `setAnimateCounter(b As Boolean)` _(public)_
+- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setDecimal(s As String)` _(public)_
+- `setDuration(s As String)` _(public)_
+- `setIcon(s As String)` As 'ignoredeadcode _(public)_
+- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
+- `setInforType(s As String)` As 'ignoredeadcode _(public)_
+- `setPrefix(s As String)` _(public)_
 - `setSeparator(s As String)` _(public)_
 - `setStartFrom(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setSuffix(s As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
+- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
 - `setTitle(s As String)` _(public)_
-- `setUseGrouping(b As Boolean)` _(public)_
-- `setValue(text As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (33)
-- `getAnimateCounter()` _(public)_
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getClasses()` _(public)_
-- `getDecimal()` _(public)_
-- `getDecimalPlaces()` _(public)_
-- `getDuration()` _(public)_
-- `getEffect()` _(public)_
+## Getters (32)
 - `getElement()` As BANanoElement _(public)_
-- `getEnabled()` _(public)_
-- `getHere()` As String _(public)_
-- `getIcon()` _(public)_
-- `getIconColor()` _(public)_
-- `getIconTextColor()` _(public)_
 - `getID()` As String _(public)_
-- `getInforType()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getNotes()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `getPrefix()` _(public)_
-- `GetProperties()` _(public)_
-- `getSeparator()` _(public)_
-- `getStartFrom()` _(public)_
-- `getStyles()` _(public)_
-- `getSuffix()` _(public)_
-- `getTextColor()` _(public)_
-- `getTitle()` _(public)_
-- `getUseGrouping()` _(public)_
-- `getValue()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getIconTextColor()` As String _(public)_
+- `getNotes()` As String _(public)_
+- `getDecimalPlaces()` As String _(public)_
+- `getEffect()` As String _(public)_
+- `getUseGrouping()` As Boolean _(public)_
+- `getAnimateCounter()` As Boolean _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getDecimal()` As String _(public)_
+- `getDuration()` As String _(public)_
+- `getIcon()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getInforType()` As String _(public)_
+- `getPrefix()` As String _(public)_
+- `getSeparator()` As String _(public)_
+- `getStartFrom()` As String _(public)_
+- `getSuffix()` As String _(public)_
+- `getTextColor()` As String _(public)_
+- `getTitle()` As String _(public)_
+- `getParentID()` As String _(public)_
+- `getValue()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgInfoBox.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgInfoBox.bas) (verified demo):
@@ -148,7 +144,6 @@ Real syntax from [`pgInfoBox.bas`](https://github.com/Mashiane/SithasoDaisy5/blo
 Private SDUI5InfoCard1 As SDUI5InfoCard		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `cursor-pointer pl-0 rounded-box`, `cursor-pointer relative rounded-box shadow-md`
 ## Code Example

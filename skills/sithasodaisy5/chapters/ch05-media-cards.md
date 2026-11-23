@@ -21,7 +21,7 @@ Sub BuildBentoHeroCard(ParentRowID As String, ColID As String, CardID As String)
     card.ParentID = col.ID
     card.Border = False
     card.Shadow = "none"
-    card.Classes = "bg-base-100 border border-base-200/80 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+    card.Classes = "bg-base-100 border border-base-200/80 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-[transform,box-shadow] duration-300 relative overflow-hidden"
     card.Title = ""
     card.Content = ""
     BANano.Await(card.AddComponent)
@@ -86,7 +86,7 @@ Sub BuildProductCard(ParentRowID As String, ColID As String, CardID As String, I
     card.ParentID = col.ID
     card.Border = False
     card.Shadow = "none"
-    card.Classes = "bg-base-100 border border-base-200/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+    card.Classes = "bg-base-100 border border-base-200/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl motion-safe:hover:-translate-y-1 transition-[transform,box-shadow] duration-300 flex flex-col"
     card.Title = ""
     card.Content = ""
     BANano.Await(card.AddComponent)

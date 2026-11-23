@@ -81,130 +81,124 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub menuitem_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (14)
+## Public Methods (17)
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `LinkExisting()` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
 - `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `AddMenuItemTitle(itemKey As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItem(itemKey As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
-- `AddMenuItemAvatarText(itemKey As String, itemAvatar As String, itemAvatarShape As String, itemAvatarSize As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
-- `AddMenuItemChild(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIcon(itemKey As String, itemIcon As String, iconSize As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIconColor(itemKey As String, itemIcon As String, iconSize As String, iconColor As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemIconText(itemKey As String, itemIcon As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
+- `AddMenuItemAvatarText(itemKey As String, itemAvatar As String, itemAvatarShape As String, itemAvatarSize As String, itemText As String, itemParent As Boolean)` As SDUI5MenuItem _(public)_
+- `AddMenuItemChild(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
 - `AddMenuItemParent(itemKey As String, itemIcon As String, itemText As String)` As SDUI5MenuItem _(public)_
-- `AddMenuItemTitle(itemKey As String, itemText As String)` As SDUI5MenuItem _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `LinkExisting()` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (49)
-- `setActive(b As Boolean)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setAvatar(s As String)` _(public)_
-- `setAvatarShape(s As String)` _(public)_
-- `setAvatarSize(s As String)` _(public)_
-- `setBadge(s As String)` _(public)_
-- `setBadgeColor(s As String)` _(public)_
-- `setBadgeSize(s As String)` _(public)_
-- `setBadgeVisible(b As Boolean)` _(public)_
-- `setChecked(b As Boolean)` _(public)_
-- `setCheckedColor(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setCloseDropdownOnClick(b As Boolean)` _(public)_
-- `setClosePopupOnClick(b As Boolean)` _(public)_
-- `setDropDownId(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setFocus(b As Boolean)` _(public)_
-- `setHasAvatar(b As Boolean)` _(public)_
-- `setHasBadge(b As Boolean)` _(public)_
-- `setHasCheckBox(b As Boolean)` _(public)_
-- `setHasIcon(b As Boolean)` _(public)_
-- `setHref(s As String)` _(public)_
-- `setIcon(s As String)` _(public)_
-- `setIconColor(s As String)` _(public)_
-- `setIconSize(s As String)` _(public)_
+- `Clear()` As 'ignoredeadcode _(public)_
 - `SetItemActive(itemKey As String)` _(public)_
+## Key Setters (47)
+- `setCloseDropdownOnClick(b As Boolean)` _(public)_
+- `setDropDownId(s As String)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setText(text As String)` As 'ignoredeadcode _(public)_
 - `setItemActiveColor(s As String)` _(public)_
-- `setItemClasses(s As String)` _(public)_
 - `setItemColor(s As String)` _(public)_
 - `setItemFocusColor(s As String)` _(public)_
 - `setItemHoverColor(s As String)` _(public)_
-- `setItemStyles(s As String)` _(public)_
-- `setItemType(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `setHasIcon(b As Boolean)` _(public)_
+- `setHasAvatar(b As Boolean)` _(public)_
+- `setHasBadge(b As Boolean)` _(public)_
+- `setItemClasses(s As String)` As 'ignoredeadcode _(public)_
+- `setItemStyles(s As String)` As 'ignoredeadcode _(public)_
+- `setClosePopupOnClick(b As Boolean)` _(public)_
+- `setChecked(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setCheckedColor(s As String)` As 'ignoredeadcode _(public)_
+- `setHasCheckBox(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setAvatar(s As String)` As 'ignoredeadcode _(public)_
+- `setAvatarShape(s As String)` As 'ignoredeadcode _(public)_
+- `setAvatarSize(s As String)` As 'ignoredeadcode _(public)_
+- `setPopOverTarget(s As String)` As 'ignoredeadcode _(public)_
 - `setMenuName(s As String)` _(public)_
-- `setOpen(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParent(b As Boolean)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPopOverTarget(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setTarget(s As String)` _(public)_
-- `setText(text As String)` _(public)_
+- `setActive(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setBadge(s As String)` As 'ignoredeadcode _(public)_
+- `setBadgeColor(s As String)` As 'ignoredeadcode _(public)_
+- `setBadgeSize(s As String)` As 'ignoredeadcode _(public)_
+- `setFocus(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHref(s As String)` As 'ignoredeadcode _(public)_
+- `setIcon(s As String)` As 'ignoredeadcode _(public)_
+- `setIconColor(s As String)` As 'ignoredeadcode _(public)_
+- `setItemType(s As String)` _(public)_
+- `setParent(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setTarget(s As String)` As 'ignoredeadcode _(public)_
+- `setIconSize(s As String)` As 'ignoredeadcode _(public)_
+- `setBadgeVisible(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setOpen(b As Boolean)` As 'ignoredeadcode _(public)_
 - `setTooltip(s As String)` _(public)_
 - `setTooltipPosition(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (50)
-- `getActive()` _(public)_
-- `getAttributes()` _(public)_
-- `getAvatar()` _(public)_
-- `getAvatarShape()` _(public)_
-- `getAvatarSize()` _(public)_
-- `getBadge()` _(public)_
-- `getBadgeColor()` _(public)_
-- `getBadgeSize()` _(public)_
-- `getBadgeVisible()` _(public)_
-- `getChecked()` _(public)_
-- `getCheckedColor()` _(public)_
-- `getClasses()` _(public)_
-- `getCloseDropdownOnClick()` _(public)_
-- `getClosePopupOnClick()` _(public)_
-- `getDropDownId()` _(public)_
-- `getEnabled()` _(public)_
-- `getFocus()` _(public)_
-- `getHasAvatar()` _(public)_
-- `getHasBadge()` _(public)_
-- `getHasCheckBox()` _(public)_
-- `getHasIcon()` _(public)_
-- `getHere()` As String _(public)_
-- `getHref()` _(public)_
-- `getIcon()` _(public)_
-- `getIconColor()` _(public)_
-- `getIconSize()` _(public)_
+## Getters (49)
+- `getCloseDropdownOnClick()` As Boolean _(public)_
+- `getDropDownId()` As String _(public)_
 - `getID()` As String _(public)_
-- `getItemActiveColor()` _(public)_
-- `getItemClasses()` _(public)_
-- `getItemColor()` _(public)_
-- `getItemFocusColor()` _(public)_
-- `getItemHoverColor()` _(public)_
-- `getItemStyles()` _(public)_
-- `getItemType()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMenuName()` _(public)_
-- `getOpen()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParent()` _(public)_
-- `getParentID()` _(public)_
-- `getPopOverTarget()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getStyles()` _(public)_
-- `getTarget()` _(public)_
-- `getText()` _(public)_
-- `getTooltip()` _(public)_
-- `getTooltipPosition()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (3)
-- `changed(e As BANanoEvent)` _(private)_
-- `itemclick(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getItemActiveColor()` As String _(public)_
+- `getItemColor()` As String _(public)_
+- `getItemFocusColor()` As String _(public)_
+- `getItemHoverColor()` As String _(public)_
+- `getText()` As String _(public)_
+- `getHasIcon()` As Boolean _(public)_
+- `getHasAvatar()` As Boolean _(public)_
+- `getHasBadge()` As Boolean _(public)_
+- `getItemClasses()` As String _(public)_
+- `getItemStyles()` As String _(public)_
+- `getClosePopupOnClick()` As Boolean _(public)_
+- `getChecked()` As Boolean _(public)_
+- `getCheckedColor()` As String _(public)_
+- `getHasCheckBox()` As Boolean _(public)_
+- `getAvatar()` As String _(public)_
+- `getAvatarShape()` As String _(public)_
+- `getAvatarSize()` As String _(public)_
+- `getPopOverTarget()` As String					'ignoredeadcode _(public)_
+- `getMenuName()` As String _(public)_
+- `getActive()` As Boolean _(public)_
+- `getBadge()` As String _(public)_
+- `getBadgeColor()` As String _(public)_
+- `getBadgeSize()` As String _(public)_
+- `getFocus()` As Boolean _(public)_
+- `getHref()` As String _(public)_
+- `getIcon()` As String _(public)_
+- `getIconColor()` As String _(public)_
+- `getItemType()` As String _(public)_
+- `getParent()` As Boolean _(public)_
+- `getTarget()` As String _(public)_
+- `getTooltip()` As String _(public)_
+- `getTooltipPosition()` As String _(public)_
+- `getIconSize()` As String _(public)_
+- `getBadgeVisible()` As Boolean _(public)_
+- `getOpen()` As Boolean _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgDropDown.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDropDown.bas) (verified demo):
@@ -213,7 +207,6 @@ Real syntax from [`pgDropDown.bas`](https://github.com/Mashiane/SithasoDaisy5/bl
 Private SDUI5MenuItem1 As SDUI5MenuItem		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `menu-active`, `menu-focus`
 ## Code Example

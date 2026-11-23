@@ -23,6 +23,8 @@ Map the 56 peer-reviewed code smells to this project's artifacts and provide aut
 | Python scripts (scripts/*.py) | Functional Abusers, Data Dealers, Couplers |
 | JSON configs (skills-registry.json, component-*.json, env.json) | Data Clumps, Primitive Obsession |
 
+> The catalog applies to every artifact type above. The automated `-CodeSmells` scan is limited to `.py` and `.bas`; markdown and JSON stay manual-review only to avoid false positives.
+
 ## 🔍 Detection Rules
 
 ### 1. Lexical Abusers (Markdown/Documentation)
@@ -89,81 +91,36 @@ Map the 56 peer-reviewed code smells to this project's artifacts and provide aut
 | **Mutable Data** | Global variables modified anywhere | Encapsulate + immutability |
 | **Imperative Loops** | Manual index tracking | Use comprehensions/generators |
 
-## 🛠️ Integration: Extend validate-skills.ps1
+## 🛠️ Integration: current validator
 
-Add to `tools/validate-skills.ps1` after the existing validation checks:
+`tools/validate-skills.ps1` owns the advisory smell scan. It is opt-in and scoped to executable source:
 
 ```powershell
-# code smell scan (advisory WARN)
-$smellPatterns = @(
-    # Magic numbers
-    @{Pattern='\b\d{4,}\b';                    Category='Obfuscators';        Msg='Magic number literal (consider named constant)'}
-    # Long lines
-    @{Pattern='^.{120,}$';                     Category='Bloaters';           Msg='Line exceeds 120 chars (Long Method / Formatting)'}
-    # Boolean blindness
-    @{Pattern='\b(true|false)\b';              Category='Lexical Abusers';    Msg='Raw boolean literal (Boolean Blindness)'}
-    # Long function (Python/B4J)
-    @{Pattern='(def|function|Sub)\s+\w+.*\n(\s.*\n){30,}'; Category='Bloaters';   Msg='Long method/function (>30 lines)'}
-    # Commented code
-    @{Pattern='^\s*#.*(if|for|while|def|Function|Sub)\b';    Category='Dispensables'; Msg='Commented-out code block (Dead Code)'}
-    # Message chain (B4J)
-    @{Pattern='\.\w+\(\s*\)\.\w+\(\s*\)\.\w+'; Category='Couplers';           Msg='Message chain (Law of Demeter violation)'}
-    # Inconsistent naming
-    @{Pattern='\b(get|set|add|put|store|save|load|fetch)\w*\b'; Category='Lexical Abusers'; Msg='Check naming consistency (Inconsistent Names)'}
-    # Hungarian notation
-    @{Pattern='\b(var|str|int|bool|list|arr|obj|num)\w*\b'; Category='Lexical Abusers'; Msg='Type embedded in name (Hungarian notation)'}
-    # Uncommunicative names
-    @{Pattern='\b(temp|tmp|data|val|m1|m2|x|y|z)\b';        Category='Lexical Abusers'; Msg='Uncommunicative name'}
-)
-
-# Collect all relevant files
-$mdFiles = Get-ChildItem -LiteralPath (Join-Path $Root 'skills') -Recurse -Filter '*.md' -File -ErrorAction SilentlyContinue
-$pyFiles = Get-ChildItem -LiteralPath (Join-Path $Root 'skills') -Recurse -Filter '*.py' -File -ErrorAction SilentlyContinue
-$basFiles = Get-ChildItem -LiteralPath (Join-Path $Root 'skills') -Recurse -Filter '*.bas' -File -ErrorAction SilentlyContinue
-$b4jFiles = Get-ChildItem -LiteralPath (Join-Path $Root 'skills') -Recurse -Filter '*.b4j' -File -ErrorAction SilentlyContinue
-$jsonFiles = Get-ChildItem -LiteralPath (Join-Path $Root 'skills') -Recurse -Filter '*.json' -File -ErrorAction SilentlyContinue
-$allFiles = @($mdFiles) + @($pyFiles) + @($basFiles) + @($b4jFiles) + @($jsonFiles)
-
-foreach ($f in $allFiles) {
-    $text = Get-Content -LiteralPath $f.FullName -Raw
-    foreach ($sp in $smellPatterns) {
-        if ($text -match $sp.Pattern) {
-            Write-Host "  [SMELL:$($sp.Category)] $($sp.Msg) in $($f.FullName.Replace($Root,''))" -ForegroundColor Yellow
-        }
-    }
-}
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/validate-skills.ps1 -CodeSmells
 ```
+
+- The default run validates manifests, frontmatter, and registry consistency; it does not scan prose.
+- `-CodeSmells` scans `.py` and `.bas` only. `.md`, `.json`, and `.b4j` metadata are excluded to avoid false positives.
+- Findings are advisory (`WARN`) and never change the PASS/FAIL result.
+- The canonical pattern list lives in the script. This skill explains the catalog and remediation; it does not keep a second copy of the regex list.
 
 ## 📋 Usage
 
-### Run Detection
 ```powershell
-# Full validation + smell detection
-pwsh -File tools/validate-skills.ps1
+# Manifest + structure validation (default)
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/validate-skills.ps1
 
-# Quick smell-only scan
-pwsh -Command "
-  $smells = @(
-    '\b\d{4,}\b', '^.{120,}$', '\b(true|false)\b',
-    '(def|function|Sub)\s+\w+.*\n(\s.*\n){30,}',
-    '^\s*#.*(if|for|while|def|Function|Sub)\b'
-  )
-  Get-ChildItem skills -Recurse -Filter '*.md' | ForEach-Object {
-    $t = Get-Content $_.FullName -Raw
-    foreach ($p in $smells) {
-      if ($t -match $p) { Write-Host \"SMELL: $($_.FullName) matches $p\" }
-    }
-  }
-"
+# Add the advisory code-smell scan
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/validate-skills.ps1 -CodeSmells
 ```
 
-### Auto-Fix Common Smells
+## 🧹 Auto-Fix Common Smells
 
 | Smell | Auto-Fix |
 |---|---|
-| Trailing whitespace | `sed -i 's/\s\+$//'` |
-| Magic numbers → constants | Manual (requires intent) |
-| Long lines | Auto-wrap at 120 |
+| Trailing whitespace | PowerShell: `(Get-Content file) \| ForEach-Object { $_.TrimEnd() } \| Set-Content file` |
+| Magic numbers -> constants | Manual (requires intent) |
+| Long lines | Reflow prose or split the function; do not blanket-wrap code |
 | Inconsistent headers | Normalize to ATX `#` |
 
 ## 📚 Reference
@@ -181,8 +138,8 @@ category: quality
 depends: []
 recommends: [sd5-web-verify]
 risk: safe
-status: experimental
-version: 1.0.0
+status: stable
+version: 0.90
 authority: 4
 platforms: [web, b4j, banano, python, markdown, json]
 keywords: [code-smell, quality, refactoring, validation, clean-code, codesmells-org]

@@ -172,7 +172,9 @@ End Sub
 - `BANano_Ready` hands off to `pgIndex.Initialize`; the page registry takes over from there.
 - The checked-in local BANano/SithasoDaisy5 demo uses the four-argument initializer shown above. If the installed BANano version differs, verify its initializer signature against a working project on that same toolchain before changing argument count.
 - `AppStart` runs in the JFX desktop host and calls `BANano.Build(Publish)` to transpile to JS.
-- **Propagate async helpers:** if a subroutine contains `BANano.Await(...)`, every caller that depends on its completion must also call it as `BANano.Await(SubName)`. For example, when `BuildBrandPanel` awaits each component's `AddComponent`, `Show` must use `BANano.Await(BuildBrandPanel)` before building dependent UI. Apply this transitively through all helper-call levels; otherwise later DOM work can run before awaited mounts complete and the browser app can fail during startup.
+- **Propagate async helpers:** if a subroutine contains `BANano.Await(...)`, every caller that depends on its completion calls it as `BANano.Await(SubName)`.
+  For example, when `BuildBrandPanel` awaits each `AddComponent`, `Show` must use `BANano.Await(BuildBrandPanel)` before dependent UI.
+  Apply this transitively; otherwise later DOM work can run before awaited mounts complete and startup can fail.
 - The `DB*` globals and `env.json` block are optional (needed only for DB / API-backed
   apps); keep them declared so the entry module matches the reference shape exactly.
 - The `#Macro` lines enable the JsonLayouts / CodeBundle IDE tools; harmless if absent.
@@ -1022,7 +1024,7 @@ When `sd5-web-orchestrator` runs Stage 1 (bootstrap), these are the generated fi
 - [ ] `pgIndex.bas` — app shell + registry (creates `App` via `App.Initialize(Me)`, full chrome: drawer + drawer nav/menu/user + navbar + `pageview` container + optional right/bottom drawers + theme toggle, `CreateDrawerMenu`, menu routing via `drawermenu_ItemClick`, helper API, `App.pageresume`) — see §2
 - [ ] First page module (e.g., `pgHome.bas`) — minimal hero + CTA, using lowercase `app`
 - [ ] Every `.bas` registered: `ModuleN=<name>` + bumped `NumberOfModules`
-- [ ] Default theme + `app.SetTheme(...)` chosen in Stage 3 (set inside `AppStart`/`BANano_Ready` or pgIndex)
+- [ ] No theme call: `app.SetTheme` absent, no hardcoded `data-theme`; verify the app under the host theme (RULE-THEME-001)
 - [ ] First ARCH-N page model picked from `page-architectures.md` in Stage 4
 - [ ] No PWA icon / JS / `env.json` `FileN=` references unless the app's `Files/` actually contains them (only `600by600.jpg` ships with the library)
 - [ ] **Full asset set** (optional): copy `references/Files/` (11 files) into the app's `Files/`, wire `FileN=`/`FileGroupN=` from `references/file-registry.b4j`, set `NumberOfFiles=11` — see §1b; or keep `NumberOfFiles=0` for the greenfield minimum

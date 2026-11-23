@@ -12,7 +12,22 @@ GENERATE  ->  CRITIQUE  ->  REVISE  ->  CRITIQUE  ->  APPROVE
  (4-8)       (this file)   (edit)     (this file)   (verdict)
 ```
 
-Run after Stage 8 (capture). For each screen, review desktop- and phone-width PNGs plus BUILD-WATCH evidence. Run the **2-second test**, the **four critique lenses**, the **10-tier UX quality hierarchy**, the **20-point polish checklist** (from [design-craft-guide.md](../../sithasodaisy5/references/design-craft-guide.md)), then the doctrine/severity gates. Every critique pass is logged; the remediation loop (cap 3) re-runs it. A missing viewport, unread screenshot, or unavailable browser evidence is `NOT RUN`, never `PASS`.
+Run after Stage 8 (capture). For each screen, review desktop and phone PNGs plus BUILD-WATCH evidence.
+Run the **2-second test**, the **four critique lenses**, the **10-tier UX quality hierarchy**, and the
+**20-point polish checklist** ([design-craft-guide.md](../../sithasodaisy5/references/design-craft-guide.md)).
+Then run the doctrine and severity gates. Every critique pass is logged; remediation (cap 3) re-runs it.
+A missing viewport, unread screenshot, or unavailable browser evidence is `NOT RUN`, never `PASS`.
+
+---
+
+## 0. Review mode and finding budget
+
+Triage rules live in [anti-slop.md](../../sithasodaisy5/references/anti-slop.md). Load it for `audit` and `polish` requests; this file is the scored `review` gate that G6 runs.
+
+- **Cap at three material findings per pass**, ordered by user impact. Everything else goes to a short "noted, not blocking" list.
+- **Audit does not edit.** A read-only review changes nothing unless the user also asked for fixes.
+- **Polish does not redesign.** Preserve the product's visual language, content, behavior, and scope.
+- Each finding names what is visible in the capture and the smallest concrete correction.
 
 ---
 
@@ -50,17 +65,24 @@ Answer from the rendered screenshot, not the code:
 
 ### Lens C - Interaction & Micro-Polish (DI-8, DI-9, DI-10)
 - Touch targets >= 48px; primary action in the natural scan-end / thumb zone?
-- Button active feedback: click depression (`active:scale-95`) present?
-- Card hover elevation: subtle lift (`hover:-translate-y-0.5 hover:shadow-lg`) on interactive cards?
-- Live indicators: active breathing pulse dot (`animate-ping`) on operational metrics?
+- Button active feedback: click depression (`motion-safe:active:scale-95`) present?
+- Card hover elevation: subtle lift (`motion-safe:hover:-translate-y-0.5 hover:shadow-lg`) on interactive cards?
+- Live indicators: active breathing pulse dot (`motion-safe:animate-ping`) on operational metrics?
+- Motion cost: does every transition animate only `transform`/`opacity`? Any `transition-all` (SLOP-001) is a defect.
+- Motion access: is every movement gated behind `motion-safe:` (SLOP-002)?
 - Destructive actions separated + confirmed (`app.ShowSwalConfirm`)?
 - Does the page survive browser back + refresh?
 
 ### Lens D - Accessibility & Contrast (WCAG 2.2 AA)
-- Contrast (1.4.3, 1.4.11): >= 4.5:1 text contrast on cards; >= 3:1 on UI controls.
+- Contrast: resolve the actual foreground against the effective background (inherited color, opacity, translucent overlay, gradient, image). Do not infer a ratio from token names or assume white. If the effective background cannot be established, record the uncertainty instead of inventing a number.
+- Text contrast >= 4.5:1 on cards; >= 3:1 on qualifying large text and UI controls.
 - Keyboard reachability (2.1.1), focus visible (2.4.7).
+- Visibility: DOM presence is not visibility or reachability. Check rendered bounds, clipping, overlap, stacking, and whether a control can be reached by the intended scroll or keyboard path. Hidden content that still sits in the focus order is a defect.
 - No raw emojis used for critical UI status - use crisp vector icons or semantic badges.
-- Target size (2.5.5), text scaling at 200% zoom.
+- Target size: 44px is our touch recommendation. WCAG 2.2 minimum target size (2.5.5) is a separate rule with its own exceptions - name which standard you are applying instead of treating 44px as the AA threshold.
+- Text scaling at 200% zoom.
+- Motion from interaction (2.3.3): is movement suppressed under `prefers-reduced-motion`? Collapse spatial motion to a cross-fade; do not force every animation to near-zero duration, which can remove state feedback.
+- Hover fidelity: interactive affordances must not exist only on hover, since touch has none. Never gate required information or a required action behind `hover:`.
 
 ---
 
@@ -81,9 +103,19 @@ Answer from the rendered screenshot, not the code:
 
 ## 3a. Design Quality Score (required)
 
-Score every contracted screen separately at desktop and phone widths using the five 0-4 dimensions in the [Design Quality Playbook](../../sithasodaisy5/references/design-quality-playbook.md): task clarity and hierarchy; system coherence; product fit and distinction; layout and responsive craft; interaction and finish. Cite visible screenshot evidence for any score below 4.
+Score every contracted screen separately at desktop and phone widths using the five 0-4 dimensions in the
+[Design Quality Playbook](../../sithasodaisy5/references/design-quality-playbook.md): task clarity and hierarchy;
+system coherence; product fit and distinction; layout and responsive craft; interaction and finish.
+Cite visible screenshot evidence for any score below 4.
 
-**Ship gate:** every dimension >= 3, average >= 3.5, no severity-4/5 UX or accessibility finding, and no broken/missing asset, clipping, unexpected page-level horizontal scroll, or unresolved critical console/resource error. New product screens should target >= 4 for product fit and distinction. Record `NOT RUN` when the evidence is unavailable. Any failed gate triggers revision and a fresh capture within the existing three-pass limit.
+**Ship gate:** every dimension >= 3, average >= 3.5, and no severity-4/5 finding.
+Also fail on any broken/missing asset, clipping, unexpected horizontal scroll, or unresolved critical console/resource error.
+New product screens should target >= 4 for product fit and distinction.
+Record `NOT RUN` when evidence is unavailable. Any failed gate triggers revision and a fresh capture within the three-pass limit.
+
+**Coverage rule:** a dimension you could not inspect is `NOT ASSESSED`, never 0 and never 4.
+Do not compute an average when any required dimension lacks coverage, and do not report a clean result for a scope you did not exercise.
+State what was inspected and what was not.
 
 ---
 
@@ -94,6 +126,8 @@ Screen: pgXxx.bas
 Desktop capture: ux-review/screens/desktop/<PageId>.png
 Phone capture: ux-review/screens/phone/<PageId>.png
 Build-Watch: ux-review/BUILD-WATCH-<date>.md
+Coverage: <screens, states, sizes actually inspected> | not inspected: <list>
+Method: <capture tool, browser, viewport emulation | source-only>
 Critique pass #: <1 | 2 | 3 (remediation loops)>
 Reviewed by: <agent>
 Date: <date>
@@ -264,3 +298,4 @@ Each pass writes `UX-REVIEW-<date>.md` with pass number; the verdict block recor
 - `page-architectures.md` - what "right" looks like per screen type
 - `daisyui-compatibility.md` - semantic selection + web -> SDUI5 translation
 - `screen-contract.template.md` - the contract this review audits against
+- `../../../sd5-web-verify/references/visual-evidence.md` - optional machine-checkable receipt for captures, hashes, and blocked checks

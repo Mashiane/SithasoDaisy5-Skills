@@ -5,8 +5,9 @@ description: Copy-ready B4J patterns for the Mandatory 4-State UI Engine in Sith
 
 # SithasoDaisy5 — 4-State UI Architecture & Implementation Recipes
 
-> **The 4-State Law of UI Completeness (RULE-DOCTRINE-004):**  
-> Every data-driven page, table, or async component must explicitly implement **all four states**. An app that only implements the populated "happy path" is incomplete, brittle, and un-shippable.
+> **4-state rule:** every data-driven page, table, or async component implements Loading, Populated, Empty, and Error.
+> An app with only the happy path is incomplete and un-shippable.
+> Canonical definition: [RULE-INTERACT-003](rules-enforcer.md#rule-interact-003).
 
 ```text
 ┌────────────────────────────────────────────────────────┐

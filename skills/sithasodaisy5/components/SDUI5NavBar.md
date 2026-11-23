@@ -67,8 +67,8 @@ Every SithasoDaisy5 component follows the same shape (see SDUI5Component base):
 | `Shadow` | String | sm | 2xl, inner, lg, md, none, shadow, sm, xl | `setShadow` | `getShadow` |
 | `GradientActive` | Boolean | false | — | `setGradientActive` | `getGradientActive` |
 | `Gradient` | String | — | bl_tr, bottom_top, br_tl, left_right, right_left, tl_br, top_bottom, tr_bl | `setGradient` | `getGradient` |
-| `GradientColor1` | Color | #f86194, Gradient Color 1. | — | — | — |
-| `GradientColor2` | Color | #968918, Gradient Color 2. | — | — | — |
+| `GradientColor1` | Color | #f86194 | — | — | — |
+| `GradientColor2` | Color | #968918 | — | — | — |
 | `Visible` | Boolean | True | — | `setVisible` | `getVisible` |
 | `Enabled` | Boolean | True | — | `setEnabled` | `getEnabled` |
 | `PositionStyle` | String | none | absolute, fixed, none, relative, static, sticky | `setPositionStyle` | `getPositionStyle` |
@@ -85,155 +85,145 @@ Where a designer key and method name differ, the method names shown are the sour
 `TitleClick`, `BurgerClick`, `Back`, `FileChange`, `SearchClick`, `SearchKeyUp`, `SearchClear`, `CustomButton`, `Custom_FileChange`
 
 Wire in parent: `Sub navbar_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (16)
-- `AddComponent()` _(public)_
-- `AddToolbarActionButton(btnID As String, btnCaption As String, btnColor As String)` As SDUI5Button _(public)_
-- `AddToolbarActionButtonIcon(btnID As String, sIcon As String, btnColor As String, iconColor As String)` As SDUI5Button _(public)_
-- `AddToolbarButton(btnID As String, btnCaption As String, btnColor As String)` As SDUI5Button _(public)_
-- `AddToolbarButtonIcon(btnID As String, sIcon As String, btnColor As String, iconColor As String)` As SDUI5Button _(public)_
-- `AddToolbarFileUpload(btnID As String, sIcon As String, btnColor As String, bMultiple As Boolean)` As SDUI5Button _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `FileChangeMultiple()` _(public)_
-- `FileChangeSingle()` _(public)_
-- `HideOnLarge()` _(public)_
-- `HideOnMedium()` _(public)_
-- `HideOnSmall()` _(public)_
+## Public Methods (35)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Nullify()` _(public)_
-- `Remove()` _(public)_
-- `RemoveSearch()` _(public)_
-
-## Key Setters (63)
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setBackLabel(s As String)` _(public)_
-- `setBackLabelVisible(b As Boolean)` _(public)_
-- `setButtonSize(s As String)` _(public)_
-- `setButtonsOutlined(b As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setDrawerID(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setGlass(b As Boolean)` _(public)_
-- `setGradient(s As String)` _(public)_
-- `setGradientActive(b As Boolean)` _(public)_
-- `setHasBackButton(b As Boolean)` _(public)_
-- `setHasBurger(b As Boolean)` _(public)_
-- `setHasFile(b As Boolean)` _(public)_
-- `setHasLogo(b As Boolean)` _(public)_
-- `setHasSearch(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setHideCenterOnSmallScreen(b As Boolean)` _(public)_
-- `setHideHamburger(b As Boolean)` _(public)_
-- `setHideHamburgerOnLargeScreen(b As Boolean)` _(public)_
-- `setHideLogo(b As Boolean)` _(public)_
-- `setHideLogoOnLargeScreen(b As Boolean)` _(public)_
-- `setHideTitle(b As Boolean)` _(public)_
-- `setHideTitleOnLargeScreen(b As Boolean)` _(public)_
-- `setLogoHeight(s As String)` _(public)_
-- `setLogoImage(s As String)` _(public)_
-- `setLogoMask(s As String)` _(public)_
-- `setLogoWidth(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
-- `setRounded(s As String)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `GetFiles()` As List _(public)_
+- `GetFile()` As Map _(public)_
+- `GetFileDataURL()` As String _(public)_
+- `Nullify()` _(public)_
+- `RemoveSearch()` _(public)_
 - `SetSearchPlaceholder(s As String)` _(public)_
-- `setSearchSize(s As String)` _(public)_
-- `setSearchValue(s As String)` _(public)_
-- `setSearchWidth(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setSticky(b As Boolean)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setTextColor(s As String)` _(public)_
-- `setTitle(s As String)` _(public)_
-- `setTitlePosition(s As String)` _(public)_
-- `SetToolbarButtonBadge(btn As String, value As String)` _(public)_
-- `SetToolbarButtonBadgeColor(btn As String, value As String)` _(public)_
-- `SetToolbarButtonBadgeRound(btn As String)` _(public)_
-- `SetToolbarButtonBadgeSize(btn As String, value As String)` _(public)_
-- `SetToolbarButtonBadgeTextColor(btn As String, value As String)` _(public)_
-- `SetToolbarButtonColor(btn As String, value As String)` _(public)_
+- `AddToolbarButton(btnID As String, btnCaption As String, btnColor As String)` As SDUI5Button _(public)_
+- `AddToolbarActionButton(btnID As String, btnCaption As String, btnColor As String)` As SDUI5Button		'ignoredeadcode _(public)_
+- `SetToolbarButtonToolTip(btnID As String, tooltip As String, color As String, position As String)` As 'ignoredeadcode _(public)_
+- `AddToolbarButtonIcon(btnID As String, sIcon As String, btnColor As String, iconColor As String)` As SDUI5Button			'ignoredeadcode _(public)_
 - `SetToolbarButtonDisabled(btn As String, b As Boolean)` _(public)_
 - `SetToolbarButtonEnable(btn As String, b As Boolean)` _(public)_
 - `SetToolbarButtonLoading(btn As String, b As Boolean)` _(public)_
-- `SetToolbarButtonTextColor(btn As String, value As String)` _(public)_
-- `SetToolbarButtonTextColorWhite(id As String)` _(public)_
-- `SetToolbarButtonToolTip(btnID As String, tooltip As String, color As String, position As String)` _(public)_
+- `SetToolbarButtonBadge(btn As String, value As String)` _(public)_
+- `SetToolbarButtonBadgeColor(btn As String, value As String)` _(public)_
+- `SetToolbarButtonBadgeSize(btn As String, value As String)` _(public)_
+- `SetToolbarButtonBadgeRound(btn As String)` _(public)_
+- `SetToolbarButtonBadgeTextColor(btn As String, value As String)` _(public)_
+- `SetToolbarButtonTextColor(btn As String, value As String)` As 'ignoredeadcode _(public)_
 - `SetToolbarButtonVisible(btn As String, value As Boolean)` _(public)_
-- `setTop(s As String)` _(public)_
+- `SetToolbarButtonColor(btn As String, value As String)` _(public)_
+- `SetToolbarButtonTextColorWhite(id As String)` _(public)_
+- `AddToolbarActionButtonIcon(btnID As String, sIcon As String, btnColor As String, iconColor As String)` As SDUI5Button			'ignoredeadcode _(public)_
+- `AddToolbarFileUpload(btnID As String, sIcon As String, btnColor As String, bMultiple As Boolean)` As SDUI5Button		'ignoredeadcode _(public)_
+- `HideOnSmall()` _(public)_
+- `HideOnMedium()` _(public)_
+- `HideOnLarge()` _(public)_
+- `FileChangeSingle()` _(public)_
+- `FileChangeMultiple()` _(public)_
+## Key Setters (48)
+- `setParentID(s As String)` _(public)_
 - `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setHideCenterOnSmallScreen(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setDrawerID(s As String)` _(public)_
+- `setHasFile(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setSearchSize(s As String)` As 'ignoredeadcode _(public)_
+- `setSearchWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setHasSearch(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setSearchValue(s As String)` _(public)_
+- `setHideLogo(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHideTitle(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHideHamburger(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHideHamburgerOnLargeScreen(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHideLogoOnLargeScreen(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHideTitleOnLargeScreen(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setSticky(b As Boolean)` _(public)_
+- `setTop(s As String)` _(public)_
 - `setZIndex(s As String)` _(public)_
-
-## Getters (56)
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBackLabel()` _(public)_
-- `getBackLabelVisible()` _(public)_
-- `getButtonSize()` _(public)_
-- `getButtonsOutlined()` _(public)_
-- `getClasses()` _(public)_
-- `getDrawerID()` _(public)_
-- `getEnabled()` _(public)_
-- `GetFile()` _(public)_
-- `GetFileDataURL()` _(public)_
-- `GetFiles()` _(public)_
-- `getGlass()` _(public)_
-- `getGradient()` _(public)_
-- `getGradientActive()` _(public)_
-- `getHasBackButton()` _(public)_
-- `getHasBurger()` _(public)_
-- `getHasFile()` _(public)_
-- `getHasLogo()` _(public)_
-- `getHasSearch()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
-- `getHideCenterOnSmallScreen()` _(public)_
-- `getHideHamburger()` _(public)_
-- `getHideHamburgerOnLargeScreen()` _(public)_
-- `getHideLogo()` _(public)_
-- `getHideLogoOnLargeScreen()` _(public)_
-- `getHideTitle()` _(public)_
-- `getHideTitleOnLargeScreen()` _(public)_
+- `setHasBurger(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHasBackButton(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setBackLabel(s As String)` As 'ignoredeadcode _(public)_
+- `setBackLabelVisible(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHasLogo(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setLogoHeight(s As String)` As 'ignoredeadcode _(public)_
+- `setLogoImage(s As String)` As 'ignoredeadcode _(public)_
+- `setLogoMask(s As String)` As 'ignoredeadcode _(public)_
+- `setLogoWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setTitle(s As String)` As 'ignoredeadcode _(public)_
+- `setTitlePosition(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setGlass(b As Boolean)` _(public)_
+- `setHeight(s As String)` _(public)_
+- `setTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setWidth(s As String)` _(public)_
+- `setRounded(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setButtonsOutlined(b As Boolean)` _(public)_
+- `setButtonSize(s As String)` _(public)_
+- `setGradientActive(b As Boolean)` _(public)_
+- `setGradient(s As String)` _(public)_
+## Getters (51)
 - `getID()` As String _(public)_
-- `getLogoHeight()` _(public)_
-- `getLogoImage()` _(public)_
-- `getLogoMask()` _(public)_
-- `getLogoWidth()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` As String _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getSearchID()` _(public)_
-- `getSearchSize()` _(public)_
-- `getSearchValue()` _(public)_
-- `getSearchWidth()` _(public)_
-- `getShadow()` _(public)_
-- `getSticky()` _(public)_
-- `getStyles()` _(public)_
-- `getTextColor()` _(public)_
-- `getTitle()` _(public)_
-- `getTitlePosition()` _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getHideCenterOnSmallScreen()` As Boolean _(public)_
+- `getDrawerID()` As String _(public)_
+- `getHasFile()` As Boolean _(public)_
+- `getSearchSize()` As String _(public)_
+- `getSearchWidth()` As String _(public)_
+- `getHasSearch()` As Boolean _(public)_
+- `getSearchValue()` As String _(public)_
+- `getSearchID()` As String _(public)_
 - `getToolBarButtonID(btnID As String)` As String _(public)_
-- `getTop()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-- `getZIndex()` _(public)_
-
-## Private Methods (6)
-- `FileUploadHandler(e As BANanoEvent)` _(private)_
-- `SearchClear(e As BANanoEvent)` _(private)_
-- `SearchClick(e As BANanoEvent)` _(private)_
-- `SearchInternal(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-- `swapchange(e As BANanoEvent)` _(private)_
-
+- `getHideLogo()` As Boolean _(public)_
+- `getHideTitle()` As Boolean _(public)_
+- `getHideHamburger()` As Boolean _(public)_
+- `getHideHamburgerOnLargeScreen()` As Boolean _(public)_
+- `getHideLogoOnLargeScreen()` As Boolean _(public)_
+- `getHideTitleOnLargeScreen()` As Boolean _(public)_
+- `getSticky()` As Boolean _(public)_
+- `getTop()` As String _(public)_
+- `getZIndex()` As String _(public)_
+- `getHasBackButton()` As Boolean _(public)_
+- `getBackLabel()` As String _(public)_
+- `getBackLabelVisible()` As Boolean _(public)_
+- `getLogoHeight()` As String _(public)_
+- `getLogoImage()` As String _(public)_
+- `getLogoMask()` As String _(public)_
+- `getLogoWidth()` As String _(public)_
+- `getHasLogo()` As Boolean _(public)_
+- `getHasBurger()` As Boolean _(public)_
+- `getTitle()` As String _(public)_
+- `getTitlePosition()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getGlass()` As Boolean _(public)_
+- `getHeight()` As String _(public)_
+- `getTextColor()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getButtonsOutlined()` As Boolean _(public)_
+- `getButtonSize()` As String _(public)_
+- `getGradientActive()` As Boolean _(public)_
+- `getGradient()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgNavBar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgNavBar.bas) (verified demo):
@@ -246,7 +236,6 @@ Private SDUI5NavBar4 As SDUI5NavBar		'ignore
 Private SDUI5NavBar5 As SDUI5NavBar		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `navbar justify-center`, `glass`, `sticky`
 ## Code Example

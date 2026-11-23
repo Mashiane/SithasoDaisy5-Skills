@@ -58,71 +58,67 @@ Where a designer key and method name differ, the method names shown are the sour
 `Click`
 
 Wire in parent: `Sub svg_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (25)
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (24)
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setParentID(s As String)` _(public)_
+- `setFit(b As Boolean)` _(public)_
+- `setReplace(b As Boolean)` _(public)_
 - `setCache(s As String)` _(public)_
 - `setCacheDisabled(b As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setDisableCssScoping(b As Boolean)` _(public)_
 - `setDisableUniqueId(b As Boolean)` _(public)_
 - `setFillColor(s As String)` _(public)_
-- `setFit(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
 - `setJSEnabled(b As Boolean)` _(public)_
 - `setLazyLoading(b As Boolean)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setReplace(b As Boolean)` _(public)_
 - `setSrc(s As String)` _(public)_
 - `setStrokeColor(s As String)` _(public)_
 - `setStrokeWidth(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
-## Getters (27)
-- `getAttributes()` _(public)_
-- `getCache()` _(public)_
-- `getCacheDisabled()` _(public)_
-- `getClasses()` _(public)_
-- `getColor()` _(public)_
-- `getDisableCssScoping()` _(public)_
-- `getDisableUniqueId()` _(public)_
-- `getFillColor()` _(public)_
-- `getFit()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (26)
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
 - `getID()` As String _(public)_
-- `getJSEnabled()` _(public)_
-- `getLazyLoading()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getReplace()` _(public)_
-- `getSrc()` _(public)_
-- `getStrokeColor()` _(public)_
-- `getStrokeWidth()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getFit()` As Boolean _(public)_
+- `getReplace()` As Boolean _(public)_
+- `getCache()` As String _(public)_
+- `getCacheDisabled()` As Boolean _(public)_
+- `getColor()` As String _(public)_
+- `getDisableCssScoping()` As Boolean _(public)_
+- `getDisableUniqueId()` As Boolean _(public)_
+- `getFillColor()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getJSEnabled()` As Boolean _(public)_
+- `getLazyLoading()` As Boolean _(public)_
+- `getSrc()` As String _(public)_
+- `getStrokeColor()` As String _(public)_
+- `getStrokeWidth()` As String _(public)_
+- `getWidth()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgSVG.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSVG.bas) (verified demo):
@@ -131,7 +127,6 @@ Real syntax from [`pgSVG.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/ma
 Private SDUI5Svg1 As SDUI5Svg		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

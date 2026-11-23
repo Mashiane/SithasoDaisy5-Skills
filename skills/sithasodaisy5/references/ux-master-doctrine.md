@@ -164,7 +164,7 @@ A page is **DONE** when ALL of the following hold:
 **Rule**: Every component registered in `SithasoDaisy5.b4j` `ModuleN=` MUST have a corresponding `components/<Name>.md` skill file. This is **non-negotiable**.
 
 - **Source of truth**: `C:\b4j\workspace\0SithasoDaisy5\SithasoDaisy5.b4j` — the `ModuleN=<Name>` entries. **The manifest wins.** On-disk `.bas` count, `DesignerCreateView` flag, and demo count are secondary.
-- **Scope**: 159 module names are currently registered: 139 `SDUI5*` UI classes and 20 support modules. Skill folder `components/` MUST contain exactly 159 top-level `.md` files (one per normalized `ModuleN=` name, matching registry spelling). Path-qualified entries use their final module-name segment; `_unused/` notes are excluded.
+- **Scope**: 162 module names are currently registered: 142 `SDUI5*` UI classes and 20 support modules. Skill folder `components/` MUST contain exactly 162 top-level `.md` files (one per normalized `ModuleN=` name, matching registry spelling). Path-qualified entries use their final module-name segment; `_unused/` notes are excluded.
 - **Orphans**: `.bas` files that exist on disk but are **not** in `ModuleN=` belong in `components/_unused/`. They are not part of the buildable framework.
 - **Naming**: `<ModuleN value>` casing is authoritative. If the manifest says `SDUI5CountDown`, the file is `components/SDUI5CountDown.md` (CamelCase), not `components/SDUI5Countdown.md`.
 - **Enforcement**: `verify-conformance.ps1` MUST fail (exit 1) if any registered module lacks a skill file. The check is part of every orchestrator run.

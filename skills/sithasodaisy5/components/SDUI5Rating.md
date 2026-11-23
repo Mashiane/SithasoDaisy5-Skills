@@ -66,91 +66,86 @@ Where a designer key and method name differ, the method names shown are the sour
 `Change`
 
 Wire in parent: `Sub rating_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `AddComponent()` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
-- `Focus()` _(public)_
-- `HintError(s As String)` _(public)_
+## Public Methods (12)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `IsBlank()` _(public)_
-- `Refresh()` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Clear()` As 'ignoredeadcode _(public)_
+- `Refresh()` As 'ignoredeadcode _(public)_
+- `Focus()` _(public)_
+- `HintError(s As String)` As 'ignoredeadcode _(public)_
+- `IsBlank()` As Boolean _(public)_
 - `ResetValidation()` _(public)_
-
-## Key Setters (32)
+## Key Setters (31)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setLegendColor(s As String)` As 'ignoredeadcode _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setBorder(b As Boolean)` _(public)_
-- `setBorderColor(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setBorder(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
+- `setRoundedBox(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setShadow(s As String)` As 'ignoredeadcode _(public)_
+- `setInputType(s As String)` _(public)_
+- `setRequired(b As Boolean)` _(public)_
 - `setColor(s As String)` _(public)_
 - `setCount(s As Int)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setFirstHidden(b As Boolean)` _(public)_
-- `setGap(s As String)` _(public)_
-- `setHalf(b As Boolean)` _(public)_
-- `setHint(s As String)` _(public)_
-- `setInputType(s As String)` _(public)_
-- `setLabel(s As String)` _(public)_
-- `setLegendColor(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMask(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
 - `setRangeBackgroundColor(s As String)` _(public)_
-- `setRatingBackgroundColor(s As String)` _(public)_
+- `setFirstHidden(b As Boolean)` _(public)_
+- `setGap(s As String)` As 'ignoredeadcode _(public)_
+- `setHalf(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setHint(s As String)` _(public)_
+- `setLabel(s As String)` _(public)_
+- `setMask(s As String)` _(public)_
 - `setReadOnly(b As Boolean)` _(public)_
-- `setRequired(b As Boolean)` _(public)_
-- `setRoundedBox(b As Boolean)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setSize(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setValue(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-
-## Getters (33)
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBorder()` _(public)_
-- `getBorderColor()` _(public)_
-- `getClasses()` _(public)_
-- `getColor()` _(public)_
-- `getCount()` _(public)_
-- `getEnabled()` _(public)_
-- `getFirstHidden()` _(public)_
-- `getGap()` _(public)_
-- `getHalf()` _(public)_
-- `getHere()` As String _(public)_
-- `getHint()` _(public)_
+- `setSize(s As String)` As 'ignoredeadcode _(public)_
+- `setValue(s As String)` As 'ignoredeadcode _(public)_
+- `setRatingBackgroundColor(s As String)` _(public)_
+## Getters (32)
 - `getID()` As String _(public)_
-- `getInputType()` _(public)_
-- `getLabel()` _(public)_
-- `getLegendColor()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMask()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRatingBackgroundColor()` _(public)_
-- `getReadOnly()` _(public)_
-- `getRequired()` _(public)_
-- `getRoundedBox()` _(public)_
-- `getShadow()` _(public)_
-- `getSize()` _(public)_
-- `getStyles()` _(public)_
-- `getValue()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (2)
-- `changed(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getLegendColor()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getBorder()` As Boolean _(public)_
+- `getBorderColor()` As String _(public)_
+- `getRoundedBox()` As Boolean _(public)_
+- `getShadow()` As String _(public)_
+- `getInputType()` As String _(public)_
+- `getRequired()` As Boolean _(public)_
+- `getRatingBackgroundColor()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getCount()` As Int _(public)_
+- `getFirstHidden()` As Boolean _(public)_
+- `getGap()` As String _(public)_
+- `getHalf()` As Boolean _(public)_
+- `getHint()` As String _(public)_
+- `getLabel()` As String _(public)_
+- `getMask()` As String _(public)_
+- `getReadOnly()` As Boolean _(public)_
+- `getSize()` As String _(public)_
+- `getValue()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgRating.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgRating.bas) (verified demo):
@@ -168,7 +163,6 @@ Private SDUI5Rating15 As SDUI5Rating		'ignore
 Private SDUI5Rating18 As SDUI5Rating		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

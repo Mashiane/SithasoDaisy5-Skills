@@ -67,114 +67,108 @@ Where a designer key and method name differ, the method names shown are the sour
 `Save`
 
 Wire in parent: `Sub signaturepad_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (25)
+## Public Methods (27)
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
 - `AddComponent()` _(public)_
-- `Clear()` _(public)_
-- `ClearEnabled(b As Boolean)` _(public)_
+- `Remove()` _(public)_
+- `OnEvent(event As String, methodName As String)` _(public)_
 - `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `Refresh()` As 'ignoredeadcode _(public)_
+- `Clear()` _(public)_
+- `IsBlank()` As Boolean _(public)_
+- `ResetValidation()` _(public)_
+- `HintError(s As String)` As 'ignoredeadcode _(public)_
 - `download()` _(public)_
-- `draw()` _(public)_
-- `erase()` _(public)_
 - `fromData(data As Object)` _(public)_
 - `fromDataURL(dataURL As String)` _(public)_
-- `HintError(s As String)` _(public)_
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `IsBlank()` _(public)_
-- `isEmpty()` _(public)_
+- `draw()` _(public)_
+- `erase()` _(public)_
+- `toData()` As Object _(public)_
+- `undo()` _(public)_
+- `toBlob()` As Object _(public)_
+- `toFile(mFileName As String)` As BANanoObject _(public)_
+- `toDataURL()` As String _(public)_
+- `isEmpty()` As Boolean _(public)_
 - `off()` _(public)_
 - `on()` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
-- `Refresh()` _(public)_
-- `Remove()` _(public)_
-- `ResetValidation()` _(public)_
+- `ClearEnabled(b As Boolean)` _(public)_
 - `SaveEnabled(b As Boolean)` _(public)_
-- `toBlob()` _(public)_
-- `toData()` _(public)_
-- `toDataURL()` _(public)_
-- `toFile(mFileName As String)` As BANanoObject _(public)_
-- `undo()` _(public)_
-
-## Key Setters (35)
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setButtonCaption(s As String)` _(public)_
-- `setButtonColor(s As String)` _(public)_
-- `setButtonDisabled(b As Boolean)` _(public)_
-- `setButtonTextColor(s As String)` _(public)_
-- `setCaption(s As String)` _(public)_
-- `setCaptionColor(s As String)` _(public)_
-- `setCenterFieldSet(b As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setDotSize(s As Double)` _(public)_
+## Key Setters (34)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
 - `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setSaveCaption(s As String)` As 'ignoredeadcode _(public)_
+- `setButtonCaption(s As String)` As 'ignoredeadcode _(public)_
+- `setCenterFieldSet(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setSaveColor(s As String)` As 'ignoredeadcode _(public)_
+- `setSaveTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setButtonColor(s As String)` As 'ignoredeadcode _(public)_
+- `setButtonDisabled(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setButtonTextColor(s As String)` As 'ignoredeadcode _(public)_
+- `setCaption(s As String)` _(public)_
+- `setCaptionColor(s As String)` As 'ignoredeadcode _(public)_
+- `setDotSize(s As Double)` _(public)_
 - `setErrorMessage(s As String)` _(public)_
-- `setHeight(s As String)` _(public)_
+- `setHeight(s As String)` As 'ignoredeadcode _(public)_
 - `setHint(s As String)` _(public)_
 - `setImageType(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
 - `setMaxWidth(s As Double)` _(public)_
 - `setMinDistance(s As Int)` _(public)_
 - `setMinWidth(s As Double)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
 - `setPenColor(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setSaveCaption(s As String)` _(public)_
-- `setSaveColor(s As String)` _(public)_
-- `setSaveTextColor(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setThrottle(s As Int)` _(public)_
-- `setValue(dataURL As String)` _(public)_
 - `setVelocityFilterWeight(s As Double)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
-
-## Getters (37)
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getButtonCaption()` _(public)_
-- `getButtonColor()` _(public)_
-- `getButtonDisabled()` _(public)_
-- `getButtonTextColor()` _(public)_
-- `getCaption()` _(public)_
-- `getCaptionColor()` _(public)_
-- `getCenterFieldSet()` _(public)_
-- `getClasses()` _(public)_
-- `getDotSize()` _(public)_
-- `getEnabled()` _(public)_
-- `getErrorMessage()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
-- `getHint()` _(public)_
+- `setWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setValue(dataURL As String)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+## Getters (36)
 - `getID()` As String _(public)_
-- `getImageType()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMaxWidth()` _(public)_
-- `getMinDistance()` _(public)_
-- `getMinWidth()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPenColor()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getSaveCaption()` _(public)_
-- `getSaveColor()` _(public)_
-- `getSaveTextColor()` _(public)_
-- `getStyles()` _(public)_
-- `getThrottle()` _(public)_
-- `getValue()` _(public)_
-- `getVelocityFilterWeight()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (3)
-- `ClearSignature(e As BANanoEvent)` _(private)_
-- `SaveSignature(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getSaveCaption()` As String _(public)_
+- `getButtonCaption()` As String _(public)_
+- `getCenterFieldSet()` As Boolean _(public)_
+- `getSaveColor()` As String _(public)_
+- `getSaveTextColor()` As String _(public)_
+- `getButtonColor()` As String _(public)_
+- `getButtonDisabled()` As Boolean _(public)_
+- `getButtonTextColor()` As String _(public)_
+- `getCaption()` As String _(public)_
+- `getCaptionColor()` As String _(public)_
+- `getDotSize()` As Double _(public)_
+- `getErrorMessage()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getHint()` As String _(public)_
+- `getImageType()` As String _(public)_
+- `getMaxWidth()` As Double _(public)_
+- `getMinDistance()` As Int _(public)_
+- `getMinWidth()` As Double _(public)_
+- `getPenColor()` As String _(public)_
+- `getThrottle()` As Int _(public)_
+- `getVelocityFilterWeight()` As Double _(public)_
+- `getWidth()` As String _(public)_
+- `getValue()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgSignaturePad.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSignaturePad.bas) (verified demo):
@@ -183,7 +177,6 @@ Real syntax from [`pgSignaturePad.bas`](https://github.com/Mashiane/SithasoDaisy
 Private SDUI5SignaturePad1 As SDUI5SignaturePad		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

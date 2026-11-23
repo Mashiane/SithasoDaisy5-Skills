@@ -41,41 +41,42 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 _(none declared)_
 
 Wire in parent: `Sub tooltip_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (7)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (10)
-- `setAlignment(s As String)` _(public)_
-- `setColor(s As String)` _(public)_
-- `setHasContent(b As Boolean)` _(public)_
-- `setOpen(b As Boolean)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `SetContent(html As String)` _(public)_
+## Key Setters (11)
+- `setParentID(s As String)` _(public)_
+- `setHasContent(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setColor(s As String)` _(public)_
+- `setOpen(b As Boolean)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAlignment(s As String)` _(public)_
 - `setTip(s As String)` _(public)_
-- `setTooltipAlignment(s As String)` _(public)_
 - `setTooltipPosition(s As String)` _(public)_
-
-## Getters (12)
-- `getAlignment()` _(public)_
-- `getColor()` _(public)_
-- `getHasContent()` _(public)_
-- `getHere()` As String _(public)_
+- `setTooltipAlignment(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+## Getters (13)
 - `getID()` As String _(public)_
-- `getOpen()` _(public)_
-- `getParentID()` As String _(public)_
-- `getPosition()` _(public)_
-- `GetProperties()` _(public)_
-- `getTip()` _(public)_
-- `getTooltipAlignment()` _(public)_
-- `getTooltipPosition()` _(public)_
-
+- `getHere()` As String _(public)_
+- `getHasContent()` As Boolean _(public)_
+- `getAlignment()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getOpen()` As Boolean _(public)_
+- `getPosition()` As String _(public)_
+- `getTip()` As String _(public)_
+- `getTooltipPosition()` As String _(public)_
+- `getTooltipAlignment()` As String _(public)_
+- `getContent()` As BANanoElement _(public)_
+- `getClasses()` As String _(public)_
+- `getStyles()` As String _(public)_
 ## Private Methods (1)
 - `SetDefaults()` _(private)_
-
 ## Verified Demo Usage
 
 Real syntax from [`pgToolTip.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgToolTip.bas) (verified demo):
@@ -84,7 +85,6 @@ Real syntax from [`pgToolTip.bas`](https://github.com/Mashiane/SithasoDaisy5/blo
 Private SDUI5ToolTip1 As SDUI5ToolTip		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `tooltip`, `tooltip-open`
 **Colors**: `tooltip:sColor`

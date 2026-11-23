@@ -42,43 +42,39 @@ Setter and getter names are the actual source `Sub` names. `—` means this comp
 _(none declared)_
 
 Wire in parent: `Sub indicator_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (4)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (6)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `Remove()` _(public)_
-
-## Key Setters (11)
-- `setBackgroundColor(s As String)` _(public)_
-- `setColor(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setIndicatorSize(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
 - `SetProperties(props As Map)` _(public)_
-- `setSize(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setTypeOf(s As String)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Key Setters (10)
+- `setParentID(s As String)` _(public)_
 - `setVisible(b As Boolean)` _(public)_
-
-## Getters (13)
-- `getBackgroundColor()` _(public)_
-- `getColor()` _(public)_
-- `getEnabled()` _(public)_
-- `getHere()` As String _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setText(text As String)` As 'ignoredeadcode _(public)_
+- `setPosition(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setColor(s As String)` As 'ignoredeadcode _(public)_
+- `setIndicatorSize(s As String)` As 'ignoredeadcode _(public)_
+- `setTypeOf(s As String)` As 'ignoredeadcode _(public)_
+- `setSize(s As String)` _(public)_
+## Getters (12)
 - `getID()` As String _(public)_
-- `getIndicatorSize()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `GetProperties()` _(public)_
-- `getSize()` _(public)_
-- `getText()` _(public)_
-- `getTypeOf()` _(public)_
-- `getVisible()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getText()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getColor()` As String _(public)_
+- `getIndicatorSize()` As String _(public)_
+- `getTypeOf()` As String _(public)_
+- `getSize()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgIndicator.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgIndicator.bas) (verified demo):
@@ -87,7 +83,6 @@ Real syntax from [`pgIndicator.bas`](https://github.com/Mashiane/SithasoDaisy5/b
 Private SDUI5Indicator1 As SDUI5Indicator		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `indicator`
 ## Code Example

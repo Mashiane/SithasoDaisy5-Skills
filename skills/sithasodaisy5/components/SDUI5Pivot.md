@@ -49,54 +49,65 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub pivot_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (5)
-- `AddComponent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (21)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
-- `OnEvent(event As String, methodName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
-
-## Key Setters (16)
+- `OnEvent(event As String, methodName As String)` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `SetFileName(fileName As String)` _(public)_
+- `SetData(records As List)` _(public)_
+- `SetJSON(jsonString As String)` _(public)_
+- `SetReport(report As Object)` _(public)_
+- `SetReportJSON(jsonString As String)` _(public)_
+- `SetOptions(xOptions As Map)` _(public)_
+- `SetGridType(gridType As String)` _(public)_
+- `LoadReport(url As String)` _(public)_
+- `GetReport()` As Map _(public)_
+- `ExpandAllData()` _(public)_
+- `CollapseAllData()` _(public)_
+- `Refresh()` _(public)_
+- `Clear()` _(public)_
+- `ExportTo(exportType As String, fileName As String)` _(public)_
+## Key Setters (15)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
 - `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
 - `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
 - `setDataSourceData(s As String)` _(public)_
 - `setDataSourceFileName(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
 - `setHeight(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setToolbar(b As Boolean)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
 ## Getters (18)
-- `getAttributes()` _(public)_
-- `getClasses()` _(public)_
-- `getDataSourceData()` _(public)_
-- `getDataSourceFileName()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
 - `getID()` As String _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getStyles()` _(public)_
-- `getToolbar()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getDataSourceData()` As String _(public)_
+- `getDataSourceFileName()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getToolbar()` As Boolean _(public)_
+- `getWidth()` As String _(public)_
+- `getPivot()` As BANanoObject _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgPivot.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgPivot.bas) (verified demo):
@@ -105,7 +116,6 @@ Real syntax from [`pgPivot.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/
 Private SDUI5Pivot1 As SDUI5Pivot		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 _(none emitted directly — relies on base/CustProps)_
 ## Code Example

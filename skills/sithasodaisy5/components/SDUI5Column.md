@@ -11,6 +11,7 @@ description: SithasoDaisy5 SDUI5Column component reference — designer properti
 - **Framework Source** *(read-only reference; do not add this `.bas` file to an app that uses the SithasoDaisy5 `.b4xlib`)*: [`SDUI5Column.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5/SDUI5Column.bas)
 - **Demo References** *(a type reference was detected; inspect the page to confirm the component is actually instantiated before treating it as usage evidence)*:
   - [`pgAdvancedCheckGroup.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAdvancedCheckGroup.bas)
+  - [`pgAOS.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAOS.bas)
   - [`pgAvatar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAvatar.bas)
   - [`pgBankCard.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBankCard.bas)
   - [`pgBarCode.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgBarCode.bas)
@@ -29,10 +30,13 @@ description: SithasoDaisy5 SDUI5Column component reference — designer properti
   - [`pgDropDown.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDropDown.bas)
   - [`pgDropZone.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgDropZone.bas)
   - [`pgEasyMDE.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgEasyMDE.bas)
+  - [`pgEnjoyHint.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgEnjoyHint.bas)
+  - [`pgEvoCalendar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgEvoCalendar.bas)
   - [`pgExcelToApp.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgExcelToApp.bas)
   - [`pgFieldSet.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFieldSet.bas)
   - [`pgFileInput.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFileInput.bas)
   - [`pgFilter.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFilter.bas)
+  - [`pgFrappeGantt.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFrappeGantt.bas)
   - [`pgFullCalendar.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgFullCalendar.bas)
   - [`pgGenderChart.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGenderChart.bas)
   - [`pgGhostLogin.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgGhostLogin.bas)
@@ -70,6 +74,9 @@ description: SithasoDaisy5 SDUI5Column component reference — designer properti
   - [`pgRadio.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgRadio.bas)
   - [`pgRange.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgRange.bas)
   - [`pgRating.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgRating.bas)
+  - [`pgSDUI5RibbonMVVM.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonMVVM.bas)
+  - [`pgSDUI5RibbonWorkspace.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonWorkspace.bas)
+  - [`pgSDUI5RibbonX.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSDUI5RibbonX.bas)
   - [`pgSelect.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSelect.bas)
   - [`pgSignaturePad.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSignaturePad.bas)
   - [`pgSkeleton.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgSkeleton.bas)
@@ -161,118 +168,114 @@ Where a designer key and method name differ, the method names shown are the sour
 _(none declared)_
 
 Wire in parent: `Sub column_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
-- `AddAttribute(k As String, v As String)` _(public)_
-- `AddClass(s As String)` _(public)_
-- `AddComponent()` _(public)_
-- `AddStyle(k As String, v As String)` _(public)_
-- `Append(s As String)` _(public)_
-- `Clear()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+## Public Methods (13)
 - `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
+- `AddComponent()` _(public)_
 - `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `GetComputedWidth()` As String _(public)_
+- `Clear()` _(public)_
+- `Append(s As String)` _(public)_
 - `RemoveClass(s As String)` _(public)_
-
-## Key Setters (45)
+- `AddClass(s As String)` _(public)_
+- `AddStyle(k As String, v As String)` _(public)_
+- `AddAttribute(k As String, v As String)` _(public)_
+## Key Setters (44)
+- `setParentID(s As String)` _(public)_
+- `setVisible(b As Boolean)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setText(text As String)` _(public)_
 - `setAlignContent(s As String)` _(public)_
 - `setAlignItems(s As String)` _(public)_
 - `setAlignSelf(s As String)` _(public)_
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setBorderColor(s As String)` _(public)_
-- `setBorderRadius(s As String)` _(public)_
-- `setBorderStyle(s As String)` _(public)_
-- `setBorderWidth(s As String)` _(public)_
-- `setCenterChildren(b As Boolean)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
 - `setJustifyContent(s As String)` _(public)_
 - `setJustifyItems(s As String)` _(public)_
 - `setJustifySelf(s As String)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
+- `setPlaceContent(s As String)` _(public)_
+- `setPlaceItems(s As String)` _(public)_
+- `setPlaceSelf(s As String)` _(public)_
+- `setCenterChildren(b As Boolean)` _(public)_
+- `setBackgroundColor(s As String)` _(public)_
+- `setHeight(s As String)` _(public)_
 - `setOffsetLg(s As String)` _(public)_
 - `setOffsetMd(s As String)` _(public)_
 - `setOffsetSm(s As String)` _(public)_
 - `setOffsetXl(s As String)` _(public)_
 - `setOffsetXxl(s As String)` _(public)_
 - `setOrder(s As String)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
-- `setParentID(s As String)` _(public)_
-- `setPlaceContent(s As String)` _(public)_
-- `setPlaceItems(s As String)` _(public)_
-- `setPlaceSelf(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setSize(s As String)` _(public)_
+- `setSize(s As String)` As 'ignoredeadcode _(public)_
 - `setSizeLg(s As String)` _(public)_
 - `setSizeMd(s As String)` _(public)_
 - `setSizeSm(s As String)` _(public)_
 - `setSizeXl(s As String)` _(public)_
 - `setSizeXxl(s As String)` _(public)_
-- `setStyles(s As String)` _(public)_
-- `setText(text As String)` _(public)_
-- `setTextAlign(s As String)` _(public)_
 - `setTextColor(s As String)` _(public)_
-- `setVisible(b As Boolean)` _(public)_
 - `setWidth(s As String)` _(public)_
-
-## Getters (48)
-- `getAlignContent()` _(public)_
-- `getAlignItems()` _(public)_
-- `getAlignSelf()` _(public)_
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getBorderColor()` _(public)_
-- `getBorderRadius()` _(public)_
-- `getBorderStyle()` _(public)_
-- `getBorderWidth()` _(public)_
-- `getCenterChildren()` _(public)_
-- `getClasses()` _(public)_
-- `GetComputedWidth()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+- `setBorderColor(s As String)` As 'ignoredeadcode _(public)_
+- `setBorderStyle(s As String)` As 'ignoredeadcode _(public)_
+- `setBorderWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setBorderRadius(s As String)` As 'ignoredeadcode _(public)_
+- `setRounded(s As String)` _(public)_
+- `setShadow(s As String)` _(public)_
+- `setTextAlign(s As String)` _(public)_
+## Getters (46)
 - `getID()` As String _(public)_
-- `getJustifyContent()` _(public)_
-- `getJustifyItems()` _(public)_
-- `getJustifySelf()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getOffsetLg()` _(public)_
-- `getOffsetMd()` _(public)_
-- `getOffsetSm()` _(public)_
-- `getOffsetXl()` _(public)_
-- `getOffsetXxl()` _(public)_
-- `getOrder()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPlaceContent()` _(public)_
-- `getPlaceItems()` _(public)_
-- `getPlaceSelf()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRounded()` _(public)_
-- `getShadow()` _(public)_
-- `getSize()` _(public)_
-- `getSizeLg()` _(public)_
-- `getSizeMd()` _(public)_
-- `getSizeSm()` _(public)_
-- `getSizeXl()` _(public)_
-- `getSizeXxl()` _(public)_
-- `getStyles()` _(public)_
-- `getText()` _(public)_
-- `getTextAlign()` _(public)_
-- `getTextColor()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-
-## Private Methods (1)
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getText()` As String _(public)_
+- `getAlignContent()` As String _(public)_
+- `getAlignItems()` As String _(public)_
+- `getAlignSelf()` As String _(public)_
+- `getJustifyContent()` As String _(public)_
+- `getJustifyItems()` As String _(public)_
+- `getJustifySelf()` As String _(public)_
+- `getPlaceContent()` As String _(public)_
+- `getPlaceItems()` As String _(public)_
+- `getPlaceSelf()` As String _(public)_
+- `getCenterChildren()` As Boolean _(public)_
+- `getOffsetXxl()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getOffsetLg()` As String _(public)_
+- `getOffsetMd()` As String _(public)_
+- `getOffsetSm()` As String _(public)_
+- `getOffsetXl()` As String _(public)_
+- `getOrder()` As String _(public)_
+- `getSize()` As String _(public)_
+- `getSizeLg()` As String _(public)_
+- `getSizeMd()` As String _(public)_
+- `getSizeSm()` As String _(public)_
+- `getSizeXl()` As String _(public)_
+- `getSizeXxl()` As String _(public)_
+- `getTextColor()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getBorderColor()` As String _(public)_
+- `getBorderStyle()` As String _(public)_
+- `getBorderWidth()` As String _(public)_
+- `getBorderRadius()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getTextAlign()` As String _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgAdvancedCheckGroup.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgAdvancedCheckGroup.bas) (verified demo):
@@ -281,7 +284,6 @@ Real syntax from [`pgAdvancedCheckGroup.bas`](https://github.com/Mashiane/Sithas
 Private SDUI5Column1 As SDUI5Column		'ignore
 BANano.Await(SDUI5Container1.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `p-2`
 ## Code Example

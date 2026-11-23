@@ -47,7 +47,8 @@
 param(
     [Parameter(Mandatory = $true)][string]$AppFolder,
     [string]$FrameworkFolder = "C:\b4j\workspace\0SithasoDaisy5",
-    [string]$SkillFolder = ""
+    [string]$SkillFolder = "",
+    [string[]]$IgnoreModules = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -109,7 +110,14 @@ if ($b4jFiles.Count -eq 0) {
     if (Test-Path $compDir) {
         foreach ($cf in (Get-ChildItem -Path $compDir -Filter "*.md" -File)) { [void]$existing.Add($cf.BaseName) }
     }
-    $missing = @($allModules | Where-Object { -not $existing.Contains($_) } | Sort-Object)
+    $ignoreSet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+    foreach ($m in $IgnoreModules) { [void]$ignoreSet.Add($m) }
+    $ignored = @($allModules | Where-Object { $ignoreSet.Contains($_) } | Sort-Object)
+    $checkModules = @($allModules | Where-Object { -not $ignoreSet.Contains($_) })
+    $missing = @($checkModules | Where-Object { -not $existing.Contains($_) } | Sort-Object)
+    if ($ignored.Count -gt 0) {
+        Write-Host "  Ignored by waiver: $($ignored -join ', ')" -ForegroundColor Yellow
+    }
     if ($missing.Count -gt 0) {
         $preview = ($missing | Select-Object -First 5) -join ", "
         $more = if ($missing.Count -gt 5) { "..." } else { "" }
@@ -178,15 +186,15 @@ $smRe = '\.SizeSm\s*=\s*"(\d+)"'
 foreach ($path in (Get-ChildItem -Path $AppFolder -Filter "pg*.bas" -File -ErrorAction SilentlyContinue)) {
     $text = Get-Content $path.FullName -Raw
     # Group columns: iterate every column declaration segment
-    $segments = [regex]::Matches($text, 'SDUI5Column[A-Za-z0-9_]*\s+As\s+SDUI5Column.*?(?=SDUI5Column[A-Za-z0-9_]*\s+As\s+SDUI5Column|SUI5Row|SUI5[A-Z]|^\s*Dim|\Z)', [System.Text.RegularExpressions.RegexOptions]::Singleline -bor [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    $segments = [regex]::Matches($text, 'SDUI5Column[A-Za-z0-9_]*\s+As\s+SDUI5Column.*?(?=SDUI5Column[A-Za-z0-9_]*\s+As\s+SDUI5Column|SDUI5Row|SDUI5[A-Z]|^\s*Dim|\Z)', [System.Text.RegularExpressions.RegexOptions]::Singleline -bor [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     foreach ($seg in $segments) {
         $md = [regex]::Match($seg.Value, $mdRe)
         $sm = [regex]::Match($seg.Value, $smRe)
-        if ($md.Success -and $sm.Success) {
-            $total = [int]$md.Groups[1].Value + [int]$sm.Groups[1].Value
-            if ($total -gt 12) {
-                Add-Finding 'WARN' "$($path.Name): column SizeMd + SizeSm = $total (exceeds 12, may overflow grid)"
-            }
+        if ($md.Success -and [int]$md.Groups[1].Value -gt 12) {
+            Add-Finding 'WARN' "$($path.Name): column SizeMd = $($md.Groups[1].Value) exceeds the 12-column grid"
+        }
+        if ($sm.Success -and [int]$sm.Groups[1].Value -gt 12) {
+            Add-Finding 'WARN' "$($path.Name): column SizeSm = $($sm.Groups[1].Value) exceeds the 12-column grid"
         }
     }
 }

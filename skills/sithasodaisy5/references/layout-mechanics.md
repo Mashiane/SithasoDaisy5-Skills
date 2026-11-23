@@ -55,7 +55,7 @@ A professional web application is not a mobile app blown up, nor is it a desktop
 | :--- | :--- | :--- |
 | **Input Modality** | High-precision mouse pointer & keyboard shortcuts | Low-precision thumb & finger touch |
 | **Target Size** | Standard clickable elements ($32\text{--}40\text{px}$) | **Fitts's Law**: Minimum **$48\text{px}$** hit targets |
-| **Micro-Interactions** | Tactile hover elevation (`hover:-translate-y-0.5 hover:shadow-lg`) | Active tap feedback (`active:scale-95`) |
+| **Micro-Interactions** | Tactile hover elevation (`motion-safe:hover:-translate-y-0.5 hover:shadow-lg`) | Active tap feedback (`motion-safe:active:scale-95`) |
 | **Navigation Model** | Pinned horizontal navbar or persistent sidebar drawer | Collapsible hamburger drawer (`SDUI5Drawer`) or bottom dock (`SDUI5Dock`) |
 | **Information Density** | Dial 6–9: Compact padding (`p-4`), dense data tables (`table-sm`) | Dial 3–5: Comfortable single-column vertical flow |
 | **Primary Actions** | Top-right or bottom-right of workspace | **Thumb Zone**: Sticky bottom bar anchored above viewport base |

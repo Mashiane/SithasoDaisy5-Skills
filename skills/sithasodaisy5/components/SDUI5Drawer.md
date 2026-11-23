@@ -63,86 +63,81 @@ Where a designer key and method name differ, the method names shown are the sour
 `Opened`
 
 Wire in parent: `Sub drawer_<eventname>(e As BANanoEvent)` — the handler name is `${mEventName}_<eventname>` from `UI.OnEvent`.
-## Public Methods (10)
+## Public Methods (12)
+- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
+- `SetProperties(props As Map)` _(public)_
+- `GetProperties()` As Map _(public)_
 - `AddComponent()` _(public)_
-- `ClearActions()` _(public)_
+- `Remove()` _(public)_
+- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
 - `ClearMainContent()` _(public)_
 - `ClearSideContent()` _(public)_
-- `DesignerCreateView(Target As BANanoElement, Props As Map)` _(public)_
+- `ClearActions()` _(public)_
 - `ForceClose()` _(public)_
-- `Initialize(Callback As Object, Name As String, EventName As String)` _(public)_
 - `OpenDrawer(b As Boolean)` _(public)_
-- `Remove()` _(public)_
 - `ToggleDrawer()` _(public)_
-
-## Key Setters (29)
-- `setAttributes(s As String)` _(public)_
-- `setBackgroundColor(s As String)` _(public)_
-- `setClasses(s As String)` _(public)_
-- `setEnabled(b As Boolean)` _(public)_
-- `setHeight(s As String)` _(public)_
-- `setLgOpen(b As Boolean)` _(public)_
-- `setMarginAXYTBLR(s As String)` _(public)_
-- `setMdOpen(b As Boolean)` _(public)_
-- `setMinHeight(s As String)` _(public)_
-- `setMinWidth(s As String)` _(public)_
-- `setOpen(b As Boolean)` _(public)_
-- `setOverlay(b As Boolean)` _(public)_
-- `setPaddingAXYTBLR(s As String)` _(public)_
+## Key Setters (28)
 - `setParentID(s As String)` _(public)_
-- `setPosition(s As String)` _(public)_
-- `setPositionStyle(s As String)` _(public)_
-- `SetProperties(props As Map)` _(public)_
-- `setRightSide(b As Boolean)` _(public)_
-- `setRounded(s As String)` _(public)_
-- `setRoundedBottomLeft(s As String)` _(public)_
-- `setRoundedBottomRight(s As String)` _(public)_
-- `setRoundedTopLeft(s As String)` _(public)_
-- `setRoundedTopRight(s As String)` _(public)_
-- `setShadow(s As String)` _(public)_
-- `setSmOpen(b As Boolean)` _(public)_
-- `setStyles(s As String)` _(public)_
 - `setVisible(b As Boolean)` _(public)_
-- `setWidth(s As String)` _(public)_
+- `setEnabled(b As Boolean)` _(public)_
+- `setPositionStyle(s As String)` _(public)_
+- `setPosition(s As String)` _(public)_
+- `setAttributes(s As String)` _(public)_
+- `setStyles(s As String)` _(public)_
+- `setClasses(s As String)` _(public)_
+- `setPaddingAXYTBLR(s As String)` _(public)_
+- `setMarginAXYTBLR(s As String)` _(public)_
+- `setRounded(s As String)` As 'ignoredeadcode _(public)_
+- `setRoundedBottomLeft(s As String)` As 'ignoredeadcode _(public)_
+- `setRoundedBottomRight(s As String)` As 'ignoredeadcode _(public)_
+- `setRoundedTopLeft(s As String)` As 'ignoredeadcode _(public)_
+- `setRoundedTopRight(s As String)` As 'ignoredeadcode _(public)_
+- `setShadow(s As String)` As 'ignoredeadcode _(public)_
+- `setMinHeight(s As String)` As 'ignoredeadcode _(public)_
+- `setMinWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setBackgroundColor(s As String)` As 'ignoredeadcode _(public)_
+- `setWidth(s As String)` As 'ignoredeadcode _(public)_
+- `setHeight(s As String)` As 'ignoredeadcode _(public)_
+- `setLgOpen(b As Boolean)` _(public)_
+- `setMdOpen(b As Boolean)` _(public)_
+- `setOpen(b As Boolean)` _(public)_
+- `setOverlay(b As Boolean)` As 'ignoredeadcode _(public)_
+- `setRightSide(b As Boolean)` _(public)_
+- `setSmOpen(b As Boolean)` _(public)_
 - `setXlOpen(b As Boolean)` _(public)_
-
-## Getters (31)
-- `getAttributes()` _(public)_
-- `getBackgroundColor()` _(public)_
-- `getClasses()` _(public)_
-- `getEnabled()` _(public)_
-- `getHeight()` _(public)_
-- `getHere()` As String _(public)_
+## Getters (30)
 - `getID()` As String _(public)_
-- `getLgOpen()` _(public)_
-- `getMarginAXYTBLR()` _(public)_
-- `getMdOpen()` _(public)_
-- `getMinHeight()` _(public)_
-- `getMinWidth()` _(public)_
-- `getOpen()` _(public)_
-- `getOverlay()` _(public)_
-- `getPaddingAXYTBLR()` _(public)_
-- `getParentID()` _(public)_
-- `getPosition()` _(public)_
-- `getPositionStyle()` _(public)_
-- `GetProperties()` _(public)_
-- `getRightSide()` _(public)_
-- `getRounded()` _(public)_
-- `getRoundedBottomLeft()` _(public)_
-- `getRoundedBottomRight()` _(public)_
-- `getRoundedTopLeft()` _(public)_
-- `getRoundedTopRight()` _(public)_
-- `getShadow()` _(public)_
-- `getSmOpen()` _(public)_
-- `getStyles()` _(public)_
-- `getVisible()` _(public)_
-- `getWidth()` _(public)_
-- `getXlOpen()` _(public)_
-
-## Private Methods (2)
-- `DrawerToggle(e As BANanoEvent)` _(private)_
-- `SetDefaults()` _(private)_
-
+- `getParentID()` As String _(public)_
+- `getHere()` As String _(public)_
+- `getVisible()` As Boolean _(public)_
+- `getEnabled()` As Boolean _(public)_
+- `getPositionStyle()` As String _(public)_
+- `getPosition()` As String _(public)_
+- `getAttributes()` As String _(public)_
+- `getStyles()` As String _(public)_
+- `getClasses()` As String _(public)_
+- `getPaddingAXYTBLR()` As String _(public)_
+- `getMarginAXYTBLR()` As String _(public)_
+- `getRounded()` As String _(public)_
+- `getRoundedBottomLeft()` As String _(public)_
+- `getRoundedBottomRight()` As String _(public)_
+- `getRoundedTopLeft()` As String _(public)_
+- `getRoundedTopRight()` As String _(public)_
+- `getShadow()` As String _(public)_
+- `getMinHeight()` As String _(public)_
+- `getMinWidth()` As String _(public)_
+- `getWidth()` As String _(public)_
+- `getHeight()` As String _(public)_
+- `getBackgroundColor()` As String _(public)_
+- `getLgOpen()` As Boolean _(public)_
+- `getMdOpen()` As Boolean _(public)_
+- `getOpen()` As Boolean _(public)_
+- `getOverlay()` As Boolean _(public)_
+- `getRightSide()` As Boolean _(public)_
+- `getSmOpen()` As Boolean _(public)_
+- `getXlOpen()` As Boolean _(public)_
+## Private Methods (0)
+_(none)_
 ## Verified Demo Usage
 
 Real syntax from [`pgIndex.bas`](https://github.com/Mashiane/SithasoDaisy5/blob/main/03.%20Source%20Code/SithasoDaisy5DemoCode/B4J/pgIndex.bas) (verified demo):
@@ -154,7 +149,6 @@ appdrawer.ParentID = App.Here
 appdrawer.MdOpen = True
 BANano.Await(appdrawer.AddComponent)
 ```
-
 ## Emits (daisyUI classes pushed in DesignerCreateView)
 **Classes**: `drawer`, `lg:drawer-open`, `md:drawer-open`, `drawer-open`, `drawer-end`, `sm:drawer-open`, `xl:drawer-open`
 ## Code Example

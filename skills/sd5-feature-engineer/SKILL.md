@@ -8,28 +8,53 @@ metadata:
 
 # SithasoDaisy5 Feature Engineer
 
-Implement the smallest complete feature slice that satisfies its contract. The application planner owns requirements and contracts; this skill owns code changes in app-authored files. For end-to-end delivery, the orchestrator selects and sequences this skill.
+Implement the smallest complete feature slice that satisfies its contract. The planner owns requirements and contracts; this skill owns code changes in app-authored files. The orchestrator sequences this skill for end-to-end delivery.
 
 ## Workflow
 
-1. Read the application, feature, screen, data, navigation, and acceptance contracts. If a critical behavior is missing or contradictory, update the plan/decision record with the concrete gap; do not silently invent domain or backend behavior.
-2. For an existing app, inspect its `.b4j`, `pgIndex`, affected pages, shared helpers, nearest demo, current static-gate findings, and regression baseline. For a greenfield app, follow `sd5-project-bootstrap` first.
-3. Work in vertical slices: requirement → feature → state/data source → page composition → route → acceptance evidence. A presentation-only request can remain local and static; label sample content explicitly instead of introducing a fabricated backend.
-4. For every SDUI5 component, verify registered name, properties, methods, dependency loader, and mount slot in the component reference and source. Mark each screen-contract inventory row provenance-checked (manifest status + provenance member lists + date). A stale spec or missing member blocks G2 for that screen. Use the closest demo to validate actual call order. Cite the relevant file and routine in the screen contract or implementation notes.
-5. Compose through B4J/BANano and registered components. Await the parent `AddComponent` before mounting children. Preserve the app's `Show` lifecycle and exact project module registration. For light-surface form fields and component sizing, follow `../sithasodaisy5/patterns.md` P4a; use `Width`/`Height` only where that component exposes the property, and keep checkbox/toggle/radio/range/rating/slider styling component-specific. No hand-authored raw HTML or invented framework APIs. **Parent Container vs Child Leaf Architecture (RULE-LAYOUT-005):** Maintain a strict distinction between structural Parent Containers (`SDUI5Row`, `SDUI5Stat`, `SDUI5Steps`, `SDUI5Timeline`, `SDUI5Tabs`, `SDUI5Menu`, `SDUI5List`, `SDUI5Carousel`, `SDUI5Slider`, `SDUI5Swiper`, `SDUI5Footer`) and their Child Leaf Components (`SDUI5Column`, `SDUI5StatItem`, `SDUI5StepsItem`, `SDUI5TimelineItem`, `SDUI5TabsItem`, `SDUI5MenuItem`, `SDUI5ListItem`, `SDUI5CarouselItem`, `SDUI5SliderItem`, `SDUI5SwiperSlide`, `SDUI5FooterTitle`). The Parent Container MUST always be initialized, configured, and awaited (`BANano.Await(Parent.AddComponent)`) first. Child Leaf Components must NEVER mount directly into general layout containers (`SDUI5Container`, `app.PageView`, or unrelated columns), and must NEVER use imaginary methods like `.AddItem()` or `.Refresh()` — mount each child leaf into its parent using `ParentID = parentID` then `BANano.Await(child.AddComponent)`. **Prompt-to-Setter Alignment (RULE-DEFAULTS-001):** When composing components to fulfill an AI prompt or specification, audit candidate default property values in `../sithasodaisy5/references/component-default-setters.md`. Never rely on component defaults blindly. Explicitly invoke the corresponding setter whenever the prompt requires a visual direction, styling, color, dimension, or layout differing from `SetDefaults` (e.g. set `.Width = "full"` for cards/wizards inside columns; set `.Color = "primary"` for buttons; set `.Border = False` for flat cards; set `.Direction = "horizontal"` for stat bars; replace default placeholder options in `SDUI5Select` and `SDUI5RadioGroup`). **B4X Code Syntax Rules:** Never access `Raw*` properties (`.RawContent`, `.RawSteps`, `.RawOptions`, `.RawClasses`, `.RawStyles`, `.RawAttributes`) or `ReadMe` in B4X code — use their stripped setter equivalents (`.Content`, `.Steps`, `.Options`, `.Classes`, `.Styles`, `.Attributes`) and omit `ReadMe` entirely. All component variables declared in `Process_Globals` or `Class_Globals` MUST be suffixed with `'ignore` (e.g. `Private SDUI5Button1 As SDUI5Button 'ignore`) to prevent B4J compiler warnings. Inside a module's own code (`pgFoo.bas`), self-invocations must be `BANano.Await(Show)`, never `BANano.Await(pgFoo.Show)`. **Award-Winning Surface Craft & Zero Default Pollution:** Consult `../sithasodaisy5/references/design-craft-guide.md` and `../sithasodaisy5/chapters/` for layout and styling recipes. Never emit naked, plain cards with default gray borders; apply refined `.Classes` styling (`bg-base-100 border border-base-200/80 rounded-2xl shadow-sm p-6 hover:shadow-md transition-all duration-200`). Whenever mounting `SDUI5Card`, immediately set `.Title = ""` and `.Content = ""` if child components provide content, preventing framework default `"Card Title"` / `"Card Content"` strings from rendering. Enforce Accent Rarity: `.Color = "primary"` is used strictly ONCE per viewport for the dominant CTA; secondary actions must be `neutral`, `ghost`, or `outline`. Add micro-interaction lift to interactive cards and primary buttons (`hover:-translate-y-0.5 transition-all duration-200`). **Zero Unprintable / Mojibake Characters (RULE-ENCODING-001/002/003):** Save all generated `.bas`, `.b4j`, and `.json` files strictly as UTF-8 WITHOUT BOM. Never write raw high-Unicode characters, emojis (e.g. `🎉`, `🔍`), arrows (`↑`, `→`), em-dashes (`—`), or smart quotes (`“”`) in `.bas` code or string literals; Windows Java/BANano transpilers default to Windows-1252 and will corrupt them into live browser mojibake (`â€”`, `â†‘`, `\ufffd`). Always use pure ASCII (`-`, `'`, `...`), standard HTML entities (`&uarr;`, `&darr;`, `&rarr;`, `&mdash;`, `&bull;`), or component icon properties (`.Icon = "fa-solid fa-arrow-trend-up"`). `pre-scan.ps1` enforces this as an L5 hard gate.
-6. Implement the contracted states that apply: loading, populated, empty, error, offline, and partial data. State clearly when a static-only sample does not make remote requests and states are not applicable.
-7. Keep business/data behavior out of large rendering routines when logic exists. Wire only behavior requested by the contract; events follow event → operation → state change → UI update, with failures visible.
-8. Update traceability: `REQ → FEATURE → RULE/BR → SCREEN → COMPONENT → CODE → TEST`. Run local acceptance and applicable static checks, then hand off gate evidence to `sd5-web-orchestrator`.
+1. Read the application, feature, screen, data, navigation, and acceptance contracts. If a critical behavior is missing or contradictory, update the plan/decision record with the gap; do not invent domain or backend behavior.
+2. For an existing app, inspect its `.b4j`, `pgIndex`, affected pages, shared helpers, nearest demo, static-gate findings, and regression baseline. For a greenfield app, follow `sd5-project-bootstrap` first.
+3. Work in vertical slices: requirement -> feature -> state/data source -> page composition -> route -> acceptance evidence. A presentation-only request can remain local and static; label sample content explicitly instead of inventing a backend.
+4. Verify every SDUI5 component against the component reference, source, and closest demo:
+   registered name, properties, methods, dependency loader, and mount slot.
+   Mark each inventory row provenance-checked (manifest status + provenance member lists + date).
+   A stale spec or missing member blocks G2 for that screen.
+   For large docs, load only the needed section with `../sithasodaisy5/scripts/component_sections.py <Name> --get "<section>"`.
+5. Compose and style the slice:
+   - **5a Mount order**: await the parent `AddComponent` before mounting children; use the component's documented mount sequence (RULE-LAYOUT-005).
+   - **5b Styling**: assign designer properties first; reserve `.Classes` for responsive, animation and flex/grid tokens. Use suffix-only values for `Width`/`Height`/`Shadow`/`Rounded` (RULE-PROP-001/002).
+   - **5c Defaults**: override every default that conflicts with the prompt or container (RULE-DEFAULTS-001).
+   - **5d Code syntax**: no `Raw*` properties or `ReadMe`; suffix component globals with `'ignore`; call `BANano.Await(Show)` for self-invocation.
+   - **5e Encoding**: save UTF-8 without BOM and keep string literals ASCII (RULE-ENCODING-001/002/003).
+   - **5f Assets**: every local icon/image uses `./assets/<name>.svg` (RULE-ASSET-001).
+6. Implement the contracted states that apply: loading, populated, empty, error, offline, and partial data. State clearly when a static-only sample makes remote states not applicable.
+7. Keep business/data behavior out of large rendering routines when logic exists. Wire only behavior requested by the contract; events follow event -> operation -> state change -> UI update, with failures visible.
+8. Update traceability `REQ -> FEATURE -> RULE/BR -> SCREEN -> COMPONENT -> CODE -> TEST`. Run local acceptance and applicable static checks, then hand gate evidence to `sd5-web-orchestrator`.
+9. A slice is complete only when its traceability rows exist and its slice-scoped gates re-ran (`pre-scan.ps1` + `verify-conformance.ps1`). Code alone is not completion; delivery still requires the full G0-G8 chain closed by `check-delivery.ps1`.
+
+## Non-negotiables
+
+- RULE-LAYOUT-005: companion children mount into their designated parent, never a generic container.
+- RULE-PROP-001/002: properties before `.Classes`; suffix-only size/elevation values.
+- RULE-DEFAULTS-001: override conflicting designer defaults explicitly.
+- RULE-ENCODING-001/002/003: UTF-8 without BOM, ASCII string literals.
+- RULE-ASSET-001: `./assets/<name>.svg` for every local icon/image.
+- No raw HTML, invented APIs, or framework source edits.
+
+Full definitions: [rules-enforcer.md](../sithasodaisy5/references/rules-enforcer.md). Apply-this checklist: [implementation-constraints.md](references/implementation-constraints.md).
 
 ## Limits
 
 - Modify app-authored files only; treat framework component source as read-only.
 - Do not claim compile, browser runtime, visual, accessibility, or financial correctness without corresponding evidence.
 - Form validation, keyboard traversal, and IME behavior remain outside current scope unless explicitly reopened.
-- Use `sd5-web-regression` when working in an existing app or when a shared component, route, dependency, or contract change can affect other screens.
+- Use `sd5-web-regression` when a shared component, route, dependency, or contract change can affect other screens.
 
 ## References
 
-- `../sd5-project-bootstrap/references/bootstrap-workflow.md`
-- `../sithasodaisy5/references/component-manifest.md` and `../sithasodaisy5/components/<Name>.md`
-- [Feature implementation checklist](references/feature-implementation-checklist.md)
+- [Apply-this constraint checklist](references/implementation-constraints.md)
+- [Canonical rules](../sithasodaisy5/references/rules-enforcer.md)
+- [Recipe crosswalk](../sithasodaisy5/chapters/ch07-recipes.md) — common screen compositions and accessibility notes.
+- [Operating principles](../sithasodaisy5/references/operating-principles.md)
+- [Component manifest](../sithasodaisy5/references/component-manifest.md) and `../sithasodaisy5/components/<Name>.md`
+- [Bootstrap workflow](../sd5-project-bootstrap/references/bootstrap-workflow.md)
